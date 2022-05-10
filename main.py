@@ -131,8 +131,6 @@ def parse(tokens):
 				# print(expr)
 
 			if (p_count == 1):
-				if (type(expr["args"]) == list and len(expr["args"]) == 1):
-					expr["args"] = expr["args"][0]
 				expr_ret.append(expr)
 				# print("happens", expr)
 				# print("expr_ret: ", expr_ret)
@@ -225,14 +223,22 @@ vars = {}
 
 def create_var(expr):
 	global vars
+	if (type(expr["args"]) == list and len(expr["args"]) == 1):
+		expr["args"] = expr["args"][0]
+
 	vars[expr["specifier"]] = expr["args"]
 	print("created var", expr["specifier"], expr["args"])
 
+
 def inbuilt_arithmetic(keyword, args):
+	global vars
 	i = None
 	print("inbuilt: ", keyword, args)
 	for arg in args:
 		if (not arg): arg = 0
+		if (type(arg) == str and arg in vars):
+			arg = vars[arg]
+
 		if (not i):
 			i = arg; continue
 
@@ -254,6 +260,7 @@ def inbuilt_arithmetic(keyword, args):
 	# print("inbuilt args: ", args, i)
 	return i
 
+
 t = """
 (
 	(div (2 2))
@@ -267,6 +274,7 @@ t = """
 	(mul (2 8))
 	(pow (2 8))
 	(let a (2))
+	(minus (a 4 22 (add (22 24)))
 )
 """
 
@@ -285,3 +293,5 @@ print("parse: ", parse(tokenize(t)))
 print("------------------------")
 
 print(interpret(parse(tokenize(t))[0]))
+
+
