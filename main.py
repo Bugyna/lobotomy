@@ -100,19 +100,19 @@ def parse(tokens):
 	column = 0
 	args = False
 	arg_p_count = None
-	print("parsing: ", tokens, len(tokens))
+	# print("parsing: ", tokens, len(tokens))
 	while i < len(tokens):
 		t = tokens[i]
 	# for t in tokens:
 		if (t == "("):
 			if (args):
-				print("i before: ", i, tokens[i])
+				# print("i before: ", i, tokens[i])
 				tmp_expr, tmp_i = parse(tokens[i:])
 				i += tmp_i - 1
-				print("i after: ", i, tokens[i])
-				print("tmp_expr: ", tmp_expr)
+				# print("i after: ", i, tokens[i])
+				# print("tmp_expr: ", tmp_expr)
 				expr["args"].append(tmp_expr)
-				print("after tmp: ", expr, p_count, arg_p_count)
+				# print("after tmp: ", expr, p_count, arg_p_count)
 				
 			elif (expr["keyword"]):
 				arg_p_count = p_count
@@ -125,23 +125,24 @@ def parse(tokens):
 			p_count -= 1
 			# print("aaa: ", expr, p_count)
 			if (arg_p_count == p_count):
-				print("aaaa", arg_p_count, p_count, line, column, i, expr)
+				# print("aaaa", arg_p_count, p_count, line, column, i, expr)
 				arg_p_count = None
 				args = False
 				# print(expr)
 
 			if (p_count == 1):
-				args = False
-				arg_p_count = None
+				if (type(expr["args"]) == list and len(expr["args"]) == 1):
+					expr["args"] = expr["args"][0]
 				expr_ret.append(expr)
-				print("happens", expr)
+				# print("happens", expr)
 				# print("expr_ret: ", expr_ret)
 				expr = empty_expr()
 				# break
 
 			elif (p_count == 0):
-				expr_ret.append(expr)
-				print("breaking: ", i)
+				if (expr["keyword"]):
+					expr_ret.append(expr)
+				# print("breaking: ", i)
 				break
 
 
@@ -171,37 +172,116 @@ def parse(tokens):
 		# print("pcount: ", p_count)
 		# raise Exception(f"too many left parenthesis {line}.{column} [{i}: {tokens[i].type}]")
 
-	print("end: ", expr_ret)
+	# print("end: ", expr_ret)
 	if (len(expr_ret) == 1): expr_ret = expr_ret[0]
 	return expr_ret, i
 
 
 
 def eval_expr(expr):
-	pass
+	# print("evaluating: ", expr)
+	if (not expr["keyword"]):
+		return None
+	
+	else:
+		if (expr["args"]):
+			i = 0
+			while i < len(expr["args"]):
+				if (type(expr["args"][i]) == dict):
+					expr["args"][i] = eval_expr(expr["args"][i])
+
+				elif (type(expr["args"][i]) == list):
+					j = 0
+					for arg in expr["args"][i]:
+						if (type(arg) == dict):
+							expr["args"][i][j] = eval_expr(arg)
+
+						j += 1
+
+				i += 1
+
+			# print("args: ", expr["args"])
+
+		if (expr["keyword"] in ["add", "minus", "mul", "div", "pow"]):
+			return inbuilt_arithmetic(expr["keyword"], expr["args"])
+
+		elif (expr["keyword"] in ["let"]):
+			return create_var(expr)
+				
+
 	# for 
 	# if (expr["keyword"] == "add"):
 		# print(inbuilt_add(expr["args"]))
 		# print(expr, inbuilt_add(expr["args"]))
 
 
-def inbuilt_add(args):
-	return sum(args)
+def interpret(expr_list):
+	for expr in expr_list:
+		print("expr: ", expr)
+		print(eval_expr(expr))
 
 
-t = """(
-	(minus (2 2))
-	(add t (2 (add (4 4)))
-	(minus (2 2))
+vars = {}
 
-)"""
+def create_var(expr):
+	global vars
+	vars[expr["specifier"]] = expr["args"]
+	print("created var", expr["specifier"], expr["args"])
 
+def inbuilt_arithmetic(keyword, args):
+	i = None
+	print("inbuilt: ", keyword, args)
+	for arg in args:
+		if (not arg): arg = 0
+		if (not i):
+			i = arg; continue
+
+		if (keyword == "add"):
+			i += arg
+
+		elif (keyword == "minus"):
+			i -= arg
+
+		elif (keyword == "mul"):
+			i *= arg
+
+		elif (keyword == "div"):
+			i /= arg
+
+		elif (keyword == "pow"):
+			i **= arg
+
+	# print("inbuilt args: ", args, i)
+	return i
+
+t = """
+(
+	(div (2 2))
+	(
+		add t (2 
+			(add (4 (add (4 2))))
+
+		)
+	)
+	(minus (2 8))
+	(mul (2 8))
+	(pow (2 8))
+	(let a (2))
+)
+"""
 
 # t = """(
-	# (add t (2 (add (4 4))))
-	# (add n (3 (add (5 5))))
+# 	(add t (2 (add (4 4))))
+# 	(add n (3 (add (5 5))))
 # )"""
 
 print(t)
+print("------------------------")
+
 print("lex: ", tokenize(t))
+print("------------------------")
+
 print("parse: ", parse(tokenize(t)))
+print("------------------------")
+
+print(interpret(parse(tokenize(t))[0]))
