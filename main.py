@@ -3,6 +3,16 @@
 import string
 
 
+class EXPR:
+	def __init__(self, tokens):
+		self.tokens = tokens
+		self.value = None
+
+
+	def evaluate(self):
+		for t in self.tokens():
+			pass
+
 class TOKEN:
 	def __init__(self, c, type):
 		self.c = c
@@ -65,6 +75,7 @@ def tokenize(text):
 				tokens.append(TOKEN(token, "IDENTIFIER"))
 				token = ""
 				number = False
+				args = True
 
 		elif (c == "\n"):
 			if (token):
@@ -85,7 +96,6 @@ def tokenize(text):
 def empty_expr():
 	return {
 		"keyword" : "",
-		"specifier" : "",
 		"args" : [],
 	}
 
@@ -114,30 +124,26 @@ def parse(tokens):
 				expr["args"].append(tmp_expr)
 				# print("after tmp: ", expr, p_count, arg_p_count)
 				
-			elif (expr["keyword"]):
-				arg_p_count = p_count
-				args = True
-
 			p_count += 1
 
 
 		elif (t == ")"):
 			p_count -= 1
-			# print("aaa: ", expr, p_count)
 			if (arg_p_count == p_count):
-				# print("aaaa", arg_p_count, p_count, line, column, i, expr)
 				arg_p_count = None
 				args = False
+				expr_ret.append(expr)
+				expr = empty_expr()
 				# print(expr)
 
-			if (p_count == 1):
-				expr_ret.append(expr)
+			#if (p_count == 1):
+				#expr_ret.append(expr)
 				# print("happens", expr)
 				# print("expr_ret: ", expr_ret)
-				expr = empty_expr()
+				#expr = empty_expr()
 				# break
 
-			elif (p_count == 0):
+			if (p_count == 0):
 				if (expr["keyword"]):
 					expr_ret.append(expr)
 				# print("breaking: ", i)
@@ -154,11 +160,10 @@ def parse(tokens):
 				expr["args"].append(t.c)
 
 			else:
-				if (expr["keyword"]):
-					expr["specifier"] = t.c
+				expr["keyword"] = t.c
+				args = True
+				arg_p_count = p_count - 1
 
-				else:
-					expr["keyword"] = t.c
 
 		if (p_count < 0):
 			 raise Exception(f"too many right parenthesis {line}.{column} [{i}: {tokens[i].type}]")
@@ -214,6 +219,7 @@ def eval_expr(expr):
 
 
 def interpret(expr_list):
+	print("expr_list: ", expr_list)
 	for expr in expr_list:
 		print("expr: ", expr)
 		print(eval_expr(expr))
@@ -226,8 +232,8 @@ def create_var(expr):
 	if (type(expr["args"]) == list and len(expr["args"]) == 1):
 		expr["args"] = expr["args"][0]
 
-	vars[expr["specifier"]] = expr["args"]
-	print("created var", expr["specifier"], expr["args"])
+	vars[expr["args"][0]] = expr["args"][1:] if len(expr["args"][1:]) > 1 else expr["args"][1]
+	print("created var", expr["args"][0], expr["args"][1:])
 
 
 def inbuilt_arithmetic(keyword, args):
@@ -263,18 +269,17 @@ def inbuilt_arithmetic(keyword, args):
 
 t = """
 (
-	(div (2 2))
+	(div 2 2)
 	(
-		add t (2 
+		add 2 
 			(add (4 (add (4 2))))
 
-		)
 	)
-	(minus (2 8))
-	(mul (2 8))
-	(pow (2 8))
-	(let a (2))
-	(minus (a 4 22 (add (22 24)))
+	(minus 2 8)
+	(mul 2 8)
+	(pow 2 8)
+	(let a 2)
+	(minus a 4 22 (add 22 24))
 )
 """
 
@@ -282,6 +287,11 @@ t = """
 # 	(add t (2 (add (4 4))))
 # 	(add n (3 (add (5 5))))
 # )"""
+
+####t = """(
+####(add 2 2)
+####(minus 2 2)	
+####)"""
 
 print(t)
 print("------------------------")
