@@ -14,22 +14,20 @@ class EXPR:
 			pass
 
 class TOKEN:
-	def __init__(self, c, type):
+	def __init__(self, c, t):
 		self.c = c
-		self.type = type
+		self.t = t
 
 
 	def __eq__(self, cond):
-		if (self.type == "IDENTIFIER"):
-			return self.type == cond
+		if (self.t == "IDENTIFIER"):
+			return self.t == cond
 			
 		return self.c == cond
 
 	def __str__(self):
-		# return f"{self.c} : {self.type}"
-		# if (self.type == "IDENTIFIER"): return f"{self.c} : {self.type}"
-		if (self.c == "\n"): return f"{self.type}"
-		return f"{self.c} : {self.type}"
+		if (self.c == "\n"): return f"{self.t}"
+		return f"{self.c} : {self.t}"
 
 	def __repr__(self):
 		return self.__str__()
@@ -39,6 +37,8 @@ def tokenize(text):
 	tokens = []
 	token = ""
 	number = False
+	quote = False
+	escaped = False
 	for c in text:
 		if (c == "("):
 			if (token):
@@ -68,6 +68,17 @@ def tokenize(text):
 				number = True
 				token += c
 
+
+		elif (c == "\\"):
+			escaped = True
+
+		elif (c == "\""):
+			quote = not quote
+			if (not quote):
+				tokens.append(TOKEN(token, "STRING"))
+				token = ""
+
+
 		elif (c == " "):
 			if (token):
 				if (number):
@@ -75,7 +86,6 @@ def tokenize(text):
 				tokens.append(TOKEN(token, "IDENTIFIER"))
 				token = ""
 				number = False
-				args = True
 
 		elif (c == "\n"):
 			if (token):
@@ -150,6 +160,13 @@ def parse(tokens):
 				break
 
 
+		elif (t.t == "STRING"):
+			if (args):
+				expr["args"].append(t.c)
+			else:
+				raise Exception(f"string not in function arguments {line}.{column}")
+
+
 		elif (t == "\n"):
 			column = 0
 			line += 1
@@ -166,14 +183,14 @@ def parse(tokens):
 
 
 		if (p_count < 0):
-			 raise Exception(f"too many right parenthesis {line}.{column} [{i}: {tokens[i].type}]")
+			 raise Exception(f"too many right parenthesis {line}.{column} [{i}: {tokens[i].t}]")
 
 		i += 1
 		column += 1
 
 	# if (p_count > 0):
 		# print("pcount: ", p_count)
-		# raise Exception(f"too many left parenthesis {line}.{column} [{i}: {tokens[i].type}]")
+		# raise Exception(f"too many left parenthesis {line}.{column} [{i}: {tokens[i].t}]")
 
 	# print("end: ", expr_ret)
 	if (len(expr_ret) == 1): expr_ret = expr_ret[0]
@@ -210,6 +227,9 @@ def eval_expr(expr):
 
 		elif (expr["keyword"] in ["let"]):
 			return create_var(expr)
+
+		elif (expr["keyword"] == "print"):
+			inbuilt_print(expr["args"])
 				
 
 	# for 
@@ -266,13 +286,21 @@ def inbuilt_arithmetic(keyword, args):
 	# print("inbuilt args: ", args, i)
 	return i
 
+def inbuilt_print(args):
+	s = ""
+	for arg in args:
+		if (type(arg) == str and arg in vars):
+			arg = vars[arg]
+
+		s += str(arg) + " "
+	print(s)
 
 t = """
 (
 	(div 2 2)
 	(
 		add 2 
-			(add (4 (add (4 2))))
+			(add 4 (add 4 2))
 
 	)
 	(minus 2 8)
@@ -288,10 +316,12 @@ t = """
 # 	(add n (3 (add (5 5))))
 # )"""
 
-####t = """(
-####(add 2 2)
-####(minus 2 2)	
-####)"""
+t = """(
+(let a "aaa")
+(let b (add 2 2))
+(print a 22 b)
+)"""
+
 
 print(t)
 print("------------------------")
