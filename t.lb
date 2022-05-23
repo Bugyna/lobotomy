@@ -1,0 +1,2 @@
+(let a (add 2 2))
+(minus a 2)

@@ -1,7 +1,7 @@
 # fucking lisp
 # lob aka lot of brackets and also lobotomy because that's what it feels like programming in this
 import string
-
+import sys
 
 class EXPR:
 	def __init__(self, tokens):
@@ -109,28 +109,27 @@ def empty_expr():
 		"args" : [],
 	}
 
-def parse(tokens):
+def parse(tokens, n=0):
 
 	expr = empty_expr()
 	expr_ret = []
-
 	p_count = 0
 	i = 0
 	line = 1
 	column = 0
 	args = False
 	arg_p_count = None
-	# print("parsing: ", tokens, len(tokens))
+
 	while i < len(tokens):
 		t = tokens[i]
-	# for t in tokens:
 		if (t == "("):
 			if (args):
 				# print("i before: ", i, tokens[i])
-				tmp_expr, tmp_i = parse(tokens[i:])
-				i += tmp_i - 1
+				tmp_expr, tmp_i = parse(tokens[i+1:], n+1)
+				i += tmp_i
 				# print("i after: ", i, tokens[i])
 				# print("tmp_expr: ", tmp_expr)
+				if (len(tmp_expr) == 1): tmp_expr = tmp_expr[0]
 				expr["args"].append(tmp_expr)
 				# print("after tmp: ", expr, p_count, arg_p_count)
 				
@@ -138,12 +137,12 @@ def parse(tokens):
 
 
 		elif (t == ")"):
-			p_count -= 1
 			if (arg_p_count == p_count):
 				arg_p_count = None
 				args = False
 				expr_ret.append(expr)
 				expr = empty_expr()
+			p_count -= 1
 				# print(expr)
 
 			#if (p_count == 1):
@@ -153,10 +152,7 @@ def parse(tokens):
 				#expr = empty_expr()
 				# break
 
-			if (p_count == 0):
-				if (expr["keyword"]):
-					expr_ret.append(expr)
-				# print("breaking: ", i)
+			if (p_count == -1):
 				break
 
 
@@ -179,11 +175,12 @@ def parse(tokens):
 			else:
 				expr["keyword"] = t.c
 				args = True
-				arg_p_count = p_count - 1
+				arg_p_count = p_count
 
 
-		if (p_count < 0):
-			 raise Exception(f"too many right parenthesis {line}.{column} [{i}: {tokens[i].t}]")
+		# if (p_count < 0):
+			# raise Exception(f"too many right parenthesis {line}.{column} [{i}: {tokens[i].t}]")
+
 
 		i += 1
 		column += 1
@@ -193,7 +190,7 @@ def parse(tokens):
 		# raise Exception(f"too many left parenthesis {line}.{column} [{i}: {tokens[i].t}]")
 
 	# print("end: ", expr_ret)
-	if (len(expr_ret) == 1): expr_ret = expr_ret[0]
+	# if (len(expr_ret) == 1): expr_ret = expr_ret[0]
 	return expr_ret, i
 
 
@@ -208,9 +205,12 @@ def eval_expr(expr):
 			i = 0
 			while i < len(expr["args"]):
 				if (type(expr["args"][i]) == dict):
+					tmp = expr["args"][i]
 					expr["args"][i] = eval_expr(expr["args"][i])
+					print(f"changing {tmp} into {expr['args'][i]}", expr)
 
 				elif (type(expr["args"][i]) == list):
+					print(f"type list: {expr['args'][i]}")
 					j = 0
 					for arg in expr["args"][i]:
 						if (type(arg) == dict):
@@ -230,6 +230,10 @@ def eval_expr(expr):
 
 		elif (expr["keyword"] == "print"):
 			inbuilt_print(expr["args"])
+
+		elif (expr["keyword"] == "exit"):
+			print("exit")
+			quit()
 				
 
 	# for 
@@ -283,7 +287,7 @@ def inbuilt_arithmetic(keyword, args):
 		elif (keyword == "pow"):
 			i **= arg
 
-	# print("inbuilt args: ", args, i)
+	print("inbuilt res: ", args, i)
 	return i
 
 def inbuilt_print(args):
@@ -316,22 +320,41 @@ t = """
 # 	(add n (3 (add (5 5))))
 # )"""
 
-t = """(
-(let a "aaa")
+t = """
 (let b (add 2 2))
 (print a 22 b)
-)"""
+"""
 
 
-print(t)
-print("------------------------")
+def interpreter_loop():
+	while (1):
+		user = input("eval#>")
+		if (not user):
+			continue
+		interpret(parse(tokenize(user))[0])
 
-print("lex: ", tokenize(t))
-print("------------------------")
 
-print("parse: ", parse(tokenize(t)))
-print("------------------------")
+if __name__ == "__main__":
+	if (sys.argv[1:]):
+		if (sys.argv[1] == "-i"):
+			interpreter_loop()
+		else:
+			file = open(sys.argv[1], "r")
+			t = file.read()
+			file.close()
+			interpret(parse(tokenize(t))[0])
 
-print(interpret(parse(tokenize(t))[0]))
+	else:
+		print(t)
+		print("------------------------")
+		
+		print("lex: ", tokenize(t))
+		print("------------------------")
+		
+		print("parse: ", parse(tokenize(t)))
+		print("------------------------")
+		
+		print(interpret(parse(tokenize(t))[0]))
 
+	
 
