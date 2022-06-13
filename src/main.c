@@ -1,11 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
-#include <string.h>
-#include <malloc.h>
-#include <math.h>
-#include <float.h>
-#include <stdint.h>
+#include "tokenize.c"
 
 enum {
 	T_INT=0,
