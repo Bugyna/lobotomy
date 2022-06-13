@@ -3,7 +3,7 @@ CLIBS=
 CFLAGS=-Wall -Wextra -pedantic -std=c11
 
 
-main: *.c
+main: *.c *.h
 	$(CC) main.c $(CFLAGS) $(CLIBS) -o main
 
 
