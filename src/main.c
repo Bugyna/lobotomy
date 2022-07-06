@@ -1,5 +1,5 @@
 // #include "tokenize.h"
-#include "parse.h"
+#include "interpret.h"
 
 
 int main (int argc, char* argv[]) {
@@ -10,7 +10,8 @@ int main (int argc, char* argv[]) {
 
 	const char* text = read_file("t.lb");
 	printf("text:\n%s\n", text);
-	parse("(+ 2 2)");
+	// parse(text);
+	interpret(text);
 
 	
 

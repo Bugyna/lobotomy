@@ -1,2 +1,19 @@
-(let a (add 2 2))
-(minus a 2)
+;; this is a comment
+
+
+(let b 2.2) ;; alloc name val
+(let a 2)
+(minus 4 2)
+
+(loop 
+	(
+		(print a)
+	)
+)
+
+
+;; optimized
+
+(let a 2)
+(minus 4 2)
+(loop ...)

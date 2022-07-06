@@ -1,12 +1,4 @@
 #pragma once
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
-#include <string.h>
-#include <math.h>
-#include <float.h>
-#include <stdint.h>
-
 #include "util.h"
 
 
@@ -28,7 +20,10 @@ enum
 	TT_BIN_GREATER,
 	TT_BIN_EQUAL,
 	TT_NUMBER,
+	TT_DECIMAL,
+	TT_STR,
 	TT_IDENTIFIER,
+	TT_COMMENT,
 };
 
 
@@ -46,20 +41,19 @@ typedef struct
 	int index, size;
 } LEXER;
 
-void add_token(LEXER* lexer, int start, int stop, int type, int len, char text[])
+void add_token(LEXER* lexer, int start, int stop, int type, int len, const char* text)
 {
 	TOKEN token;
 	token.start = start;
 	token.stop = stop;
 	token.type = type;
-	token.len = len;
+	token.len = len+1;
 	token.text = malloc(len);
 	strcpy(token.text, text);
 
-
-	if (lexer->index >= lexer->size) {
-		lexer->size += 20;
-		lexer->tokens = realloc(lexer->tokens, lexer->size);
+	if (lexer->index+1 >= lexer->size) {
+		lexer->size += 10;
+		lexer->tokens = realloc(lexer->tokens, lexer->size*sizeof(TOKEN));
 	}
 	lexer->tokens[lexer->index++] = token;
 }
@@ -71,54 +65,177 @@ void lexer_init(LEXER* lexer)
 	lexer->tokens = calloc(lexer->size, sizeof(TOKEN));
 }
 
+void str_add_char(char* str, int* index, int* max, char c)
+{
+	if (*index+1 >= *max) {;
+		*max += 10;
+		str = realloc(str, *max);
+	}
+
+	str[*index] = c;
+	*index+=1;
+
+	// if (c == '\0') {
+		// char* tmp = malloc(*index);
+		// strcpy(tmp, str);
+		// printf("test: %s\n", tmp);
+		// free(str);
+		// str = malloc(*index);
+		// strcpy(str, tmp);
+		// str = tmp;
+		// *max = *index + 10;	
+	// }
+
+}
+
 LEXER tokenize(const char text[])
 {
 	LEXER lexer;
 	lexer_init(&lexer);
-	char* word = malloc(20);
+	int line = 1, column = 0;
 	
-
-	int len = strlen(text);
-
+	int word_i = 0, word_max = 20;
+	char* word = malloc(word_max);
+	int len = strlen(text)+1;
+	printf("len: %d\n", len);
+	bool in_word = false, in_number = false, in_decimal = false, in_comment = false, in_str = false;
+    
 	int b_count = 0;
-
+    
 	
 	for (int i = 0; i < len; i++) {
-		// printf("loop: %c\n", text[i]);
-		if (text[i] == '(') {			
-			add_token(&lexer, i, i, TT_LPAREN, 2, (char[]){text[i], '\0'});
-			b_count++;
+		if (in_word && word_i > 0) {
+			if (!((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z') || text[i] == '_')) {
+				// word[word_i++] = '\0';
+				str_add_char(word, &word_i, &word_max, '\0');
+				add_token(&lexer, i-word_i, i, TT_IDENTIFIER, word_i, word);
+				in_word = false;
+				word_i = 0;
+			}
 		}
 
+		else if (in_number && word_i > 0) {
+			if (!((text[i] >= '0' && text[i] <= '9') || text[i] == '.')) {
+				// word[word_i++] = '\0';
+				str_add_char(word, &word_i, &word_max, '\0');
+				if (in_number & !in_decimal) add_token(&lexer, i-word_i, i, TT_NUMBER, word_i, word);
+				else if (in_decimal) add_token(&lexer, i-word_i, i, TT_DECIMAL, word_i, word);
+				in_decimal = false;
+				in_number = false;
+				word_i = 0;
+			}
+		}
+
+		else if (in_comment) {
+			if (text[i] == '\n' || text[i] == '\0') {
+				in_comment = false;
+				str_add_char(word, &word_i, &word_max, '\0');
+				// add_token(&lexer, i-word_i, i, TT_COMMENT, word_i, word);
+				word_i = 0;
+			}
+
+			else {
+				// word[word_i++] = text[i];
+				str_add_char(word, &word_i, &word_max, text[i]);
+				column++;
+				continue;
+			}
+		}
+
+		else if (in_str) {
+			if (text[i] == '"') {
+				str_add_char(word, &word_i, &word_max, '\0');
+				add_token(&lexer, i-word_i, i, TT_STR, word_i, word);
+				in_str = false;
+				word_i = 0;
+				column++;
+				continue;
+			}
+
+			else {
+				str_add_char(word, &word_i, &word_max, text[i]);
+				column++;
+				continue;
+			}
+		}
+
+		if (text[i] == ';' && text[i+1] == ';') {
+			in_comment = true;
+			i++;
+			continue;
+		}
+
+		if (text[i] == '\n') {
+			line++;
+			column = 0;
+		}
+
+
+		else if ((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z') || text[i] == '_') {
+			my_assert(in_number, "unexpected character", ERR_WORD_IN_NUMBER, line, column);
+			in_word = true;
+			// word[word_i++] = text[i];
+			str_add_char(word, &word_i, &word_max, text[i]);
+		}
+
+		else if (text[i] >= '0' && text[i] <= '9') {
+			if (!in_word) {
+				in_number = true;
+			}
+
+			// word[word_i++] = text[i];
+			str_add_char(word, &word_i, &word_max, text[i]);
+		}
+
+		else if (text[i] == '.') {
+			if (in_number) {
+				in_decimal = true;
+			}
+			// word[word_i++] = text[i];
+			str_add_char(word, &word_i, &word_max, text[i]);
+		}
+
+		else if (text[i] == '(') {
+			add_token(&lexer, i, i, TT_LPAREN, 2, (char[]){text[i], '\0'});
+			b_count++;
+			
+		}
+
+		else if (text[i] == '"') {
+			in_str = true;
+		}
+
+		else if (text[i] == ' ') {
+			
+		}
+        
 		else if (text[i] == ')') {
 			add_token(&lexer, i, i, TT_RPAREN, 2, (char[]){text[i], '\0'});
 			b_count--;
-			my_assert((b_count < 0), "too many brackets", ERR_TOO_MANY_BRACKETS);
-			// if (b_count < 0)
-				// printf("too little brackets\n");
+			my_assert((b_count < 0), "too many brackets", ERR_TOO_MANY_BRACKETS, line, column);
 		}
-
+        
 		else if (text[i] == '+') {
 			add_token(&lexer, i, i, TT_PLUS, 2, (char[]){text[i], '\0'});
 		}
 
-		else if (text[i] >= '0' && text[i] <= '9') {
-			add_token(&lexer, i, i, TT_NUMBER, 2, (char[]){text[i], '\0'});
-		}
-
+		column++;
 	}
 
 	// printf("brackets: %d\n", b_count);
-	my_assert((b_count > 0), "too many brackets", ERR_TOO_MANY_BRACKETS);
+	my_assert((b_count > 0), "too many brackets", ERR_TOO_MANY_BRACKETS, line, column);
+    
+	printf("\n\n----TOKENIZER DONE----\n\n");
+	for (int i = 0; i < lexer.index; i++) {
+		if (lexer.tokens[i].text == NULL)
+			break;
+    
+		printf("t: %d | text: %s | type: %d\n", i, lexer.tokens[i].text, lexer.tokens[i].type);
+		// printf("%s ", lexer.tokens[i].text);
+	}
+	printf("\n\n----------------------\n\n\n");
 
-	printf("\n----TOKENIZER DONE----\n");
-	// for (int i = 0; i < lexer.size; i++) {
-		// if (lexer.tokens[i].text == NULL)
-			// break;
-
-		// printf("t: %d | text: %s | type: %d\n", i, lexer.tokens[i].text, lexer.tokens[i].type);
-	// }
-
+	// free(word);
 	return lexer;
 	// free(lexer.tokens);
 }
