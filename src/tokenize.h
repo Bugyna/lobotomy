@@ -38,7 +38,7 @@ typedef struct
 typedef struct
 {
 	TOKEN* tokens;
-	int index, size;
+	int index, size, peek;
 } LEXER;
 
 void add_token(LEXER* lexer, int start, int stop, int type, int len, const char* text)
@@ -205,9 +205,9 @@ LEXER tokenize(const char text[])
 			in_str = true;
 		}
 
-		else if (text[i] == ' ') {
+		// else if (text[i] == ' ') {
 			
-		}
+		// }
         
 		else if (text[i] == ')') {
 			add_token(&lexer, i, i, TT_RPAREN, 2, (char[]){text[i], '\0'});
@@ -218,6 +218,10 @@ LEXER tokenize(const char text[])
 		else if (text[i] == '+') {
 			add_token(&lexer, i, i, TT_PLUS, 2, (char[]){text[i], '\0'});
 		}
+
+		// else if (text[i] == '-') {
+			// add_token(&lexer, i, i, TT_IDENTIFIER, 2, (char[]){text[i], '\0'});
+		// }
 
 		column++;
 	}

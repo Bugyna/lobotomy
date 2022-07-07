@@ -1,19 +1,13 @@
 #include "parse.h"
-#include "GC.h"
 
 
-typedef struct VAR VAR;
+typedef struct SCOPE SCOPE;
 
-struct VAR
+
+struct SCOPE
 {
-	char* name;
-	OBJ value;
+	OBJ* values;
 };
-
-// void let(VAR* vars, static const EXPR expr)
-// {
-	
-// }
 
 
 
@@ -24,50 +18,71 @@ int hash(char* key)
 }
 
 
-OBJ* minus(const EXPR expr)
+OBJ minus(OBJ expr)
 {
+	printf("munus\n");
 	OBJ res;
-
-	for (int i = 0; i < expr.args_i; i++) {
-		if (expr.args[i].type == NULL) {
+	res.type = T_NUMBER;
+	res.number = 0;
+	for (int i = 0; i < expr.list_i; i++) {
+		if (expr.list[i].type == 0)
 			break;
-		}
-
-		
-		switch (expr.args[i].type)
+		OBJ tmp = expr.list[i];
+		switch (tmp.type)
 		{
 			case T_NUMBER:
-				res.number -= expr.args[i].number;
+				printf("res bef: %ld\n", res.number);
+				res.number -= tmp.number;
+				printf("res aft: %ld\n", res.number);
+				break;
 		}
 	}
-
-	// printf("res: %d\n", res);
-	print_obj(res);
 	return res;
 }
 
 
 
-OBJ exec_builtin(EXPR expr)
+OBJ exec_builtin(OBJ expr)
 {
-	if (strcmp(expr.keyword, "minus")) {
+	OBJ obj;
+	obj.type = 0;
+	printf("builtin name: %s\n", expr.name);
+	if (strcmp(expr.name, "minus ")) {
+		// printf("here");
 		return minus(expr);
 	}
+
+	return obj;
 }
 
-void eval(const EXPR expr)
+void set_val(OBJ* obj)
 {
 	
 }
 
+void eval(OBJ expr)
+{
+	// print_obj(*expr);
+	if (expr.type != T_EXPR) {
+		return;
+	}
+	// exec_builtin(expr);
+	print_obj(exec_builtin(expr));
+	
+}
+
+
 void interpret(const char text[])
 {
-	VAR* var = malloc(20*sizeof(VAR));
 	TREE tree = parse(text);
-
+	printf("\n\n---------------EVAL--------------------\n\n");
 	for (int i = 0; i < tree.index; i++) {
+		if (tree.expr[i].type == 0)
+			break;
+		// print_obj(tree.expr[i]);
 		eval(tree.expr[i]);
 	}
+	printf("\n\n---------------------------------------\n\n");
 }
 
 
