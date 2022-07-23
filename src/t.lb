@@ -1,3 +1,7 @@
 
-	
-(minus 24 2)
+
+
+(let a 1)
+
+(? (= a 2) (print (+ 2 2)) (print "b"))
+(fn test (a b c) (+ a b c))

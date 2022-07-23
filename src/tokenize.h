@@ -97,7 +97,7 @@ LEXER tokenize(const char text[])
 	int word_i = 0, word_max = 20;
 	char* word = malloc(word_max);
 	int len = strlen(text)+1;
-	printf("len: %d\n", len);
+	// printf("len: %d\n", len);
 	bool in_word = false, in_number = false, in_decimal = false, in_comment = false, in_str = false;
     
 	int b_count = 0;
@@ -215,13 +215,9 @@ LEXER tokenize(const char text[])
 			my_assert((b_count < 0), "too many brackets", ERR_TOO_MANY_BRACKETS, line, column);
 		}
         
-		else if (text[i] == '+') {
-			add_token(&lexer, i, i, TT_PLUS, 2, (char[]){text[i], '\0'});
+		else if (text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '@' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':') {
+			add_token(&lexer, i, i, TT_IDENTIFIER, 2, (char[]){text[i], '\0'});
 		}
-
-		// else if (text[i] == '-') {
-			// add_token(&lexer, i, i, TT_IDENTIFIER, 2, (char[]){text[i], '\0'});
-		// }
 
 		column++;
 	}
@@ -229,15 +225,15 @@ LEXER tokenize(const char text[])
 	// printf("brackets: %d\n", b_count);
 	my_assert((b_count > 0), "too many brackets", ERR_TOO_MANY_BRACKETS, line, column);
     
-	printf("\n\n----TOKENIZER DONE----\n\n");
+	// printf("\n\n----TOKENIZER DONE----\n\n");
 	for (int i = 0; i < lexer.index; i++) {
 		if (lexer.tokens[i].text == NULL)
 			break;
     
-		printf("t: %d | text: %s | type: %d\n", i, lexer.tokens[i].text, lexer.tokens[i].type);
+		// printf("t: %d | text: %s | type: %d\n", i, lexer.tokens[i].text, lexer.tokens[i].type);
 		// printf("%s ", lexer.tokens[i].text);
 	}
-	printf("\n\n----------------------\n\n\n");
+	// printf("\n\n----------------------\n\n\n");
 
 	// free(word);
 	return lexer;
