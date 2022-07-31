@@ -10,6 +10,7 @@ OBJ parse_expr(LEXER* lexer)
 {
 	OBJ expr;
 	expr.name = NULL;
+	expr.type = T_NULL;
 
 	OBJ obj;
 	static const OBJ obj_reset;
@@ -54,6 +55,9 @@ OBJ parse_expr(LEXER* lexer)
 			case TT_RPAREN:
 				p_count--;
 				// my_assert((p_count < 0), 
+				if ((expr.type == T_UNDEFINED || expr.type == T_NULL) && expr.list_i > 0)
+					expr.type = T_LIST;
+
 				if (p_count <= 0) {
 					goto exit;
 				}
@@ -95,18 +99,17 @@ OBJ parse_expr(LEXER* lexer)
 
 				else {
 					obj.type = T_IDENTIFIER;
-					// obj.identifier = lexer.tokens[i];
+					
 					obj.name = malloc(lexer->tokens[lexer->peek].len+1);
 					strcpy(obj.name, lexer->tokens[lexer->peek].text);
-					OBJ* tmp = find_ptr_in_scope(&global, obj.name);
-					if (tmp == NULL) {
-						printf("adding some identifier to global\n");
-						add_to_scope(&global, obj);
-						tmp = find_ptr_in_scope(&global, obj.name);
+					
+					OBJ tmp = find_in_scope(global, obj.name);
+					if (tmp.type != T_UNDEFINED) {
+						obj = tmp;
+						printf("obj type replace: %s\n", type_name(obj.type));
 					}
-					obj.ref = tmp;
+
 					add_obj_to_obj(&expr, obj);
-					// OBJ* tmp = &expr.list[expr.list_i];
 					obj = obj_reset;
 				}
 				break;
@@ -132,7 +135,6 @@ TREE parse(const char text[])
 
 	LEXER lexer = tokenize(text);
 	// add_expr(&tree, parse_expr(lexer, 0));
-	// printf("\n\n\n--------------------------PARSER-----------------------------------\n\n\n");
 	for (;;) {
 		if (lexer.tokens[lexer.peek].text == NULL)
 			break;
@@ -144,8 +146,7 @@ TREE parse(const char text[])
 		// printf("f: %d %s %d", expr.type, expr.name, expr.list_i);
 		// print_obj_full(expr);
 	}
-	// printf("\n\n\n------------------------------------------------------------------------\n\n\n");
-
+	// printf("\n\n\n--------------------------PARSER DONE-----------------------------------\n\n\n");
 	return tree;
 }
 

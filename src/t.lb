@@ -1,7 +1,6 @@
 
 
 
-(let a 1)
+(func f () ((+ 44 2)))
 
-(? (= a 2) (print (+ 2 2)) (print "b"))
-(fn test (a b c) (+ a b c))
+(f)

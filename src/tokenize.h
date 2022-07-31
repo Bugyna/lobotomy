@@ -41,6 +41,13 @@ typedef struct
 	int index, size, peek;
 } LEXER;
 
+void lexer_init(LEXER* lexer)
+{
+	lexer->index = 0;
+	lexer->size = 20;
+	lexer->tokens = calloc(lexer->size, sizeof(TOKEN));
+}
+
 void add_token(LEXER* lexer, int start, int stop, int type, int len, const char* text)
 {
 	TOKEN token;
@@ -49,6 +56,7 @@ void add_token(LEXER* lexer, int start, int stop, int type, int len, const char*
 	token.type = type;
 	token.len = len+1;
 	token.text = malloc(len);
+	// printf("adding token with text: %s\n", text);
 	strcpy(token.text, text);
 
 	if (lexer->index+1 >= lexer->size) {
@@ -58,24 +66,25 @@ void add_token(LEXER* lexer, int start, int stop, int type, int len, const char*
 	lexer->tokens[lexer->index++] = token;
 }
 
-void lexer_init(LEXER* lexer)
-{
-	lexer->index = 0;
-	lexer->size = 20;
-	lexer->tokens = calloc(lexer->size, sizeof(TOKEN));
-}
 
 void str_add_char(char* str, int* index, int* max, char c)
 {
-	if (*index+1 >= *max) {;
-		*max += 10;
+	// why the fuck does realloc not work here is beyond me
+	// why it seems to works even without realloc is even more fucking beyond me
+	str[*index] = c;
+	str[*index+1] = '\0';
+	*index = *index + 1;
+	if (*index+1 >= *max) {
+		// printf("max: %s %d %d\n", str, *index, *max);
+		*max = *max + 10;
+		// printf("max after: %s %d %d \n", str, *index, *max);
 		str = realloc(str, *max);
 	}
 
-	str[*index] = c;
-	*index+=1;
-
 	// if (c == '\0') {
+		// printf("end: %s %d %d\n", str, *index, *max);
+		// free(str);
+		// str = malloc(*max);
 		// char* tmp = malloc(*index);
 		// strcpy(tmp, str);
 		// printf("test: %s\n", tmp);
@@ -130,7 +139,7 @@ LEXER tokenize(const char text[])
 			if (text[i] == '\n' || text[i] == '\0') {
 				in_comment = false;
 				str_add_char(word, &word_i, &word_max, '\0');
-				// add_token(&lexer, i-word_i, i, TT_COMMENT, word_i, word);
+				add_token(&lexer, i-word_i, i, TT_COMMENT, word_i, word);
 				word_i = 0;
 			}
 
@@ -159,7 +168,7 @@ LEXER tokenize(const char text[])
 			}
 		}
 
-		if (text[i] == ';' && text[i+1] == ';') {
+		else if (text[i] == ';' && text[i+1] == ';') {
 			in_comment = true;
 			i++;
 			continue;
@@ -224,8 +233,7 @@ LEXER tokenize(const char text[])
 
 	// printf("brackets: %d\n", b_count);
 	my_assert((b_count > 0), "too many brackets", ERR_TOO_MANY_BRACKETS, line, column);
-    
-	// printf("\n\n----TOKENIZER DONE----\n\n");
+
 	for (int i = 0; i < lexer.index; i++) {
 		if (lexer.tokens[i].text == NULL)
 			break;
@@ -233,9 +241,10 @@ LEXER tokenize(const char text[])
 		// printf("t: %d | text: %s | type: %d\n", i, lexer.tokens[i].text, lexer.tokens[i].type);
 		// printf("%s ", lexer.tokens[i].text);
 	}
-	// printf("\n\n----------------------\n\n\n");
+	// printf("\n\n----TOKENIZER DONE----\n\n");
 
-	// free(word);
+
+	free(word);
 	return lexer;
 	// free(lexer.tokens);
 }

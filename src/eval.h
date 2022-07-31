@@ -19,18 +19,29 @@
 
 */
 
-void do_bs(OBJ* expr);
 
-void lobotomy_error(const char* msg)
+enum
 {
-	printf("ERROR: %s\n", msg);
-	exit(-1);
-}
+	ARG_NONE=-1,
+	ARG_INF=-2,
+};
 
-void lobotomy_warning(const char* msg)
-{
-	printf("WARNING: %s\n", msg);
-}
+void eval_args(OBJ* expr);
+
+// void lobotomy_error(const char* msg)
+// {
+	// printf("ERROR: %s\n", msg);
+	// exit(-1);
+// }
+
+// void lobotomy_warning(const char* msg)
+// {
+	// printf("WARNING: ");
+	// printf("%s\n", msg);
+	// S(warning, 
+	
+// }
+
 
 
 OBJ eval(OBJ);
@@ -39,10 +50,10 @@ OBJ eval(OBJ);
 
 OBJ lobotomy_let(OBJ expr)
 {
-	do_bs(&expr);
+	// eval_args(&expr);
 	OBJ id = expr.list[0];
 	OBJ val = expr.list[1];
-	printf("creating var: %s %s -> %s\n", id.name, type_name(id.type), type_name(val.type));
+	// printf("creating var: %s %s -> %s\n", id.name, type_name(id.type), type_name(val.type));
 	// if (val.type = T_IDENTIFIER) {
 		// val = find_in_scope(global, val.name);
 	// }
@@ -81,7 +92,7 @@ OBJ lobotomy_let(OBJ expr)
 
 OBJ lobotomy_type(OBJ expr)
 {
-	do_bs(&expr);
+	// eval_args(&expr);
 	OBJ obj;
 	obj.type = T_STR;
 	obj.str = type_name(expr.list[0].type);
@@ -102,11 +113,13 @@ void cast_obj(OBJ* obj, int type)
 		break;
 
 		case T_FUNC:
-			if (type == T_EXPR)
+			if (type == T_EXPR) {
 				lobotomy_warning("trying to cast function to expr");
+			}
 
-			else
+			else {
 				lobotomy_warning("trying to cast function to whatever");
+			}
 		break;
 
 
@@ -195,7 +208,7 @@ void arithmetic_shorthand_int(int64_t* a, int64_t* b, char op)
 
 OBJ arithmetic_operation(OBJ expr, char op)
 {
-	do_bs(&expr);
+	// eval_args(&expr);
 	OBJ res;
 	int i = 0;
 
@@ -258,14 +271,14 @@ OBJ lobotomy_if(OBJ expr)
 
 OBJ lobotomy_loop(OBJ expr)
 {
-	
+	return undefined();
 }
 
 OBJ lobotomy_equals(OBJ expr)
 {
 	OBJ ret;
 	ret.type = T_NUMBER;
-	do_bs(&expr);
+	// eval_args(&expr);
 
 	if (expr.list[0].type == expr.list[1].type) {
 		switch (expr.list[0].type) {
@@ -324,7 +337,7 @@ OBJ print_scope_obj(OBJ expr)
 
 OBJ lobotomy_print(OBJ expr)
 {
-	do_bs(&expr);
+	// eval_args(&expr);
 	expr.type = T_LIST;
 	// for (int i = 0; i < expr.list_i; i++) {
 		// print_obj(expr.list[i]);
@@ -333,32 +346,41 @@ OBJ lobotomy_print(OBJ expr)
 	
 }
 
-OBJ lobotomy_fn(OBJ expr)
+OBJ lobotomy_func(OBJ expr)
 {
-	
+	OBJ obj = create_func(expr.list[0].name, expr);
+	obj.type = T_FUNC;
+	add_to_scope(&global, obj);
+	return obj;
+	// return undefined();
+}
+
+OBJ nothing(OBJ expr)
+{
+	return undefined();
 }
 
 void init()
 {
-	add_to_scope(&global, create_fn("minus", minus));
-	add_to_scope(&global, create_fn("plus", plus));
-	add_to_scope(&global, create_fn("+", plus));
-	add_to_scope(&global, create_fn("mul", multiply));
-	add_to_scope(&global, create_fn("div", divide));
-	add_to_scope(&global, create_fn("mod", modulo));
-	add_to_scope(&global, create_fn("exit", lobotomy_exit));
-	add_to_scope(&global, create_fn("pso", print_scope_obj));
-	add_to_scope(&global, create_fn("let", lobotomy_let));
-	add_to_scope(&global, create_fn("eq", lobotomy_equals));
-	add_to_scope(&global, create_fn("=", lobotomy_equals));
-	add_to_scope(&global, create_fn("if", lobotomy_if));
-	add_to_scope(&global, create_fn("?", lobotomy_if));
+	add_to_scope(&global, create_cfunc("minus", minus, 1, ARG_INF));
+	add_to_scope(&global, create_cfunc("plus", plus, 1, ARG_INF));
+	add_to_scope(&global, create_cfunc("+", plus, 1, ARG_INF));
+	add_to_scope(&global, create_cfunc("mul", multiply, 2, ARG_INF));
+	add_to_scope(&global, create_cfunc("div", divide, 2, ARG_INF));
+	add_to_scope(&global, create_cfunc("mod", modulo, 2, ARG_INF));
+	add_to_scope(&global, create_cfunc("exit", lobotomy_exit, ARG_NONE, ARG_INF));
+	add_to_scope(&global, create_cfunc("pso", print_scope_obj, ARG_NONE, ARG_INF));
+	add_to_scope(&global, create_cfunc("let", lobotomy_let, 2, 2));
+	add_to_scope(&global, create_cfunc("eq", lobotomy_equals, ARG_INF, ARG_INF));
+	add_to_scope(&global, create_cfunc("=", lobotomy_equals, ARG_INF, ARG_INF));
+	add_to_scope(&global, create_cfunc("if", lobotomy_if, 3, ARG_INF));
+	add_to_scope(&global, create_cfunc("?", lobotomy_if, 3, ARG_INF));
 
-	add_to_scope(&global, create_fn("fn", lobotomy_fn));
+	add_to_scope(&global, create_cfunc("func", lobotomy_func, 3, 3));
 	
-	add_to_scope(&global, create_fn("print", lobotomy_print));
-	// add_to_scope(&global, create_fn("set", lobotomy_set));
-	add_to_scope(&global, create_fn("type", lobotomy_type));
+	add_to_scope(&global, create_cfunc("print", lobotomy_print, 1, ARG_INF));
+	add_to_scope(&global, create_cfunc("type", lobotomy_type, 1, 1));
+	add_to_scope(&global, create_cfunc("nothing", nothing, 0, ARG_INF));
 	
 
 	// OBJ test;
@@ -366,42 +388,35 @@ void init()
 	// test.number = 5;
 
 	// add_to_scope(&global, create_var("a", test));
-	print_scope(global);
+	// print_scope(global);
 
 }
 
-
-void do_bs(OBJ* expr)
+void eval_args(OBJ* expr)
 {
 	for (int i = 0; i <= expr->list_i; i++) {
-		// printf("motherfucker: %d: %d\n", i, expr->list[i].type);
-		if (expr->list[i].type == T_EXPR) {
-			expr->list[i] = eval(expr->list[i]);
-		}
-
-
-		else if (expr->list[i].type == T_IDENTIFIER) {
-			// printf("fuckery %d\n", i);
-			// expr->list[i] = find_in_scope(global, expr->list[i].name);
-			expr->list[i] = *expr->list[i].ref;
-			// printf("after: %d: %d\n", i, expr->list[i].type);
-		}
-
-		// else
-			// printf("what %d\n", i);
+		expr->list[i] = eval(expr->list[i]);
 	}
 }
+
 
 OBJ eval(OBJ expr)
 {
 	// print_obj_full(*expr);
-	if (expr.type != T_EXPR) {
+	if (expr.type != T_EXPR && expr.type != T_FUNC) {
 		return expr;
 	}
 
 	// printf("gonna try and find: |%s|\n", expr.name);
+	// printf("fuck: %s<%s> %d\n", expr.list[0].name, type_name(expr.list[0].type), expr.list[0].type);
 	OBJ obj = find_in_scope(global, expr.name);
-	// do_bs(&expr);
+	if (obj.type == T_EXPR || obj.type == T_FUNC) {
+		eval_args(&expr);
+	}
+	// printf("name: %s<%s> %d\n", expr.name, type_name(obj.type), obj.type);
+	// if (obj.type = T_NULL)
+		// lobotomy_warning("function undefined");
+	// eval_args(&expr);
 
 
 	// printf("found obj: %d |%s| %ld\n", obj.type, obj.name, obj.number);
@@ -410,6 +425,7 @@ OBJ eval(OBJ expr)
 	switch (obj.type)
 	{
 		case 0:
+			lobotomy_warning("uninitialized variable|expr");
 			return undefined();
 		break;
 
@@ -417,13 +433,28 @@ OBJ eval(OBJ expr)
 			return eval(obj);
 		break;
 
-		case T_IDENTIFIER:
-			return *obj.ref;
+		case T_NULL:
+			lobotomy_warning("variable: %s <%s> is NULL", obj.name, type_name(obj.type));
+			return obj;
 		break;
 
+		case T_IDENTIFIER:
+			printf("huih\n");
+			lobotomy_warning("variable: %s <%s> is uninitialized", obj.name, type_name(obj.type));
+			return undefined();
+		break;
+
+
 		case T_FUNC:
+			eval_args(&obj);
+			return obj;
+			// return obj;
+			// return undefined();
+		break;
+
+		case T_CFUNC:
 			// printf("function\n");
-			return obj.fn(expr);
+			return obj.func.func_ptr(expr);
 		break;
 
 		case T_LIST:
@@ -434,7 +465,7 @@ OBJ eval(OBJ expr)
 			return obj;
 		break;
 	}
-
+	return undefined();
 }
 
 
@@ -455,5 +486,17 @@ void interpret(const char text[])
 	// printf("\n\n---------------------------------------\n\n");
 }
 
+void interpret_(const char text[])
+{
+	TREE tree = parse(text);
+	// printf("\n\n---------------EVAL--------------------\n\n");
+	for (int i = 0; i < tree.index; i++) {
+		if (tree.expr[i].type == 0)
+			break;
+		eval(tree.expr[i]);
+	}
+	// printf("\n\n---------------------------------------\n\n");
+
+}
 
 

@@ -1,4 +1,4 @@
-#include "interpret.h"
+#include "eval.h"
 
 
 void interactive_shell(char* text)
@@ -28,16 +28,16 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	printf("interactive: %d\n", interactive);
+	printf("size of OBJ: %ld\n", sizeof(OBJ));
+	printf("size of OBJ*: %ld\n", sizeof(SCOPE));
+	printf("size of OBJ*: %ld\n", sizeof(TREE));
+	printf("size of OBJ*: %ld\n", sizeof(FUNC));
+	printf("size of char*: %ld\n", sizeof(char*));
 	printf("text:\n%s\n", text);
 	// parse(text);
 
-	global.occupied = 0;
-	global.size = 200;
-	global.values = malloc(global.size*sizeof(OBJ));
+	scope_init(&global, 200);
 	init();
-
-	printf("hash: %d\n", hash("exit") % 200);
 
 	if (interactive)
 		interactive_shell(text);
