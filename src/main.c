@@ -32,11 +32,12 @@ int main(int argc, char* argv[]) {
 	printf("size of OBJ*: %ld\n", sizeof(SCOPE));
 	printf("size of OBJ*: %ld\n", sizeof(TREE));
 	printf("size of OBJ*: %ld\n", sizeof(FUNC));
-	printf("size of char*: %ld\n", sizeof(char*));
 	printf("text:\n%s\n", text);
 	// parse(text);
 
 	scope_init(&global, 200);
+	global.func_scope = malloc(5*sizeof(SCOPE));
+	global.func_index = 0;
 	init();
 
 	if (interactive)

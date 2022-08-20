@@ -12,7 +12,11 @@
 
 
 #define my_assert(expr, err, err_code, line, column) if (expr) { printf("%s at %d.%d\n", err, line, column); exit(err_code); }
-#define _DEBUG 0
+
+
+#define DEBUG(s, ...) printf(s __VA_ARGS__); printf("\n");
+#define lobotomy_warning(...) DEBUG("warning: ", __VA_ARGS__)
+#define lobotomy_error(...) DEBUG("ERROR: ", __VA_ARGS__); exit(-1)
 
 
 char* read_file(const char path[])
@@ -44,7 +48,8 @@ char* read_file(const char path[])
 
 int hash(char* key)
 {
-	// my_assert((key == NULL), 
+	// my_assert(key == NULL, "fuckery in hash", -1, 0, 0);
+		
 	int mask = 1 << strlen(key);
 	for (unsigned int i = 0; i < strlen(key); i++) {
 		mask += (int)key[i];
