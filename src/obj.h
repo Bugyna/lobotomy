@@ -236,9 +236,11 @@ void print_obj_(OBJ obj)
 	}
 
 	else if (obj.type == T_FUNC) {
-		printf("%s [%s] %s", obj.name, type_name(obj.type), obj.list[1].name);
-		printf("\n\t");
+		// printf("%s [%s] %s", obj.name, type_name(obj.type), obj.list[1].name);
+		// printf("\n\t");
 		for (int i = 0; i < obj.index; i++) {
+			if (obj.list[i].type == T_UNDEFINED)
+				break;
 			print_obj_(obj.list[i]);
 		}
 	}
@@ -256,7 +258,7 @@ void print_obj_(OBJ obj)
 	}
 
 	else if (obj.type == T_LIST) {
-		printf("LIST: ");
+		// printf("LIST: ");
 		for (int i = 0; i < obj.index; i++) {
 			if (obj.list[i].type == T_UNDEFINED)
 				break;
@@ -423,13 +425,14 @@ OBJ create_func(char* name, OBJ* expr)
 	obj.type = T_FUNC;
 	obj.name = name;
 
-
-	obj.list = malloc(100*sizeof(OBJ));
+	printf("index: %d\n", expr->index);
+	obj.index = expr->index;
+	obj.list = malloc(obj.index*sizeof(OBJ));
 
 	obj.list[0] = expr->list[2];
 	obj.list[0].name = "args";
 	obj.list[0].index = expr->list[2].index;
-	
+
 	obj.list[1] = expr->list[3];
 	obj.list[1].name = "body";
 	obj.list[1].index = expr->list[3].index;
@@ -446,30 +449,24 @@ OBJ create_func(char* name, OBJ* expr)
 
 	for (int i = 0; i < obj.list[0].index; i++) {
 		for (int j = 0; j < obj.list[1].index; j++) {
-			if (strcmp(obj.list[0].list[i].name, obj.list[1].list[j].name) == 0) {
+			if (obj.list[1].list[j].name != NULL && strcmp(obj.list[0].list[i].name, obj.list[1].list[j].name) == 0) {
 				if (find_ptr_in_scope(&global.func_scope[0], obj.list[0].list[i].name) == NULL) {
 					obj.list[1].list[j].ref = add_to_scope(&global.func_scope[0], obj.list[0].list[i]);
+					printf("here\n");
 				}
 
 				else {
+					printf("fdg\n");
 					obj.list[1].list[j].ref = find_ptr_in_scope(&global.func_scope[0], obj.list[0].list[i].name);
 				}
 
-				// printf("ptr: %s %p\n", obj.list[0].list[i].name, obj.list[1].list[j].ref);
+				printf("ptr: %s %p\n", obj.list[0].list[i].name, obj.list[1].list[j].ref);
 				obj.list[1].list[j].type = T_REF;
+				printf("dawdw\n");
 			}
 		}
 	}
-
-	// for (int i = 0; i < expr->list[2].index; i++) {
-		// for (int j = 0; j < expr->list[3].index-1; j++) {
-			// if (strcmp(expr->list[2].list[i].name, expr->list[3].list[j].name) == 0) {
-				// printf("aa\n");
-			// }
-		// }
-	// }
-
-
+	printf("dwafsdd\n");
 	return obj;
 	// return undefined();
 }

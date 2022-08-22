@@ -275,10 +275,10 @@ OBJ lobotomy_func(OBJ* expr)
 {
 	// printf("creating lob func\n");
 	OBJ obj = create_func(expr->list[1].name, expr);
-	printf("creating lob func %s %s\n", expr->list[1].name, obj.name);
+	// printf("creating lob func %s %s\n", expr->list[1].name, obj.name);
 	add_to_scope(&global, obj);
-	// return obj;
-	return undefined();
+	return obj;
+	// return undefined();
 }
 
 OBJ nothing(OBJ* expr)
@@ -324,7 +324,7 @@ OBJ run_func(OBJ func, OBJ* expr)
 		tmp = find_ptr_in_scope(&global.func_scope[0], func.list[0].list[i].name);
 		expr->list[1+i].name = tmp->name;
 		*tmp = expr->list[1+i];
-		print_obj(*tmp);
+		// print_obj(*tmp);
 		// for (int j = 0; j < func.list[1].index; j++) {
 			// if (strcmp(func.list[0].list[i].name, func.list[1].list[j].name) == 0) {
 				// func.list[1].list[j] = tmp;
