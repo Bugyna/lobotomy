@@ -1,7 +1,12 @@
 
-(+ 2 2)
-(func f (a) (+ a a))
+(func f (a) (= a 2))
 (f 4)
-
-(print "-----")
 (f 2)
+
+(func fn (a) (+ a a))
+(fn 2)
+(fn 4)
+(fn 44)
+
+(func print_ln (a) (print a "\n"))
+(print_ln "hi")

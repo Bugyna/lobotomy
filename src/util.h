@@ -49,10 +49,14 @@ char* read_file(const char path[])
 int hash(char* key)
 {
 	// my_assert(key == NULL, "fuckery in hash", -1, 0, 0);
-		
+	if (key == NULL) {
+		lobotomy_error("trying to hash an empty key");
+	}
+
 	int mask = 1 << strlen(key);
 	for (unsigned int i = 0; i < strlen(key); i++) {
 		mask += (int)key[i];
 	}
 	return mask ^ (mask >> 4);
 }
+

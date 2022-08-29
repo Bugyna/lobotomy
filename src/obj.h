@@ -12,6 +12,7 @@ typedef struct FUNC FUNC;
 enum
 {
 	T_UNDEFINED,
+	T_ERROR,
 	T_EXPR,
 	T_NULL,
 	T_CFUNC,
@@ -44,19 +45,19 @@ struct SCOPE
 
 SCOPE global;
 
-struct FUNC
-{
-	union
-	{
-		OBJ(*func_ptr)(OBJ);
-		struct
-		{
-			uint8_t n;	// ion know why but it won't work properly without this
-			SCOPE scope;
-		};
-	};
-	int min, max;
-};
+// struct FUNC
+// {
+	// union
+	// {
+		// OBJ(*func_ptr)(OBJ);
+		// struct
+		// {
+			// uint8_t n;	// ion know why but it won't work properly without this
+			// SCOPE scope;
+		// };
+	// };
+	// int min, max;
+// };
 
 
 // struct OBJ
@@ -82,6 +83,7 @@ struct OBJ
 	uint8_t type;
 	int index;
 	char* name;
+	SCOPE* scope;
 
 	union
 	{
@@ -101,6 +103,15 @@ OBJ undefined()
 	OBJ obj;
 	obj.name = NULL;
 	obj.type = T_UNDEFINED;
+	return obj;
+}
+
+OBJ lobotomy_exception(char* msg)
+{
+	OBJ obj;
+	obj.name = NULL;
+	obj.type = T_ERROR;
+	obj.str = msg;
 	return obj;
 }
 
@@ -178,7 +189,7 @@ void _print_obj_full(OBJ obj, int indent_size)
 		memset(indent, '\t', indent_size);
 	}
 	indent[indent_size] = '\0';
-	printf("\n\n%s----- OBJECT [%s] -------\n\n%s%s", indent, type_name(obj.type), indent, indent);
+	// printf("\n\n%s----- OBJECT [%s] -------\n\n%s%s", indent, type_name(obj.type), indent, indent);
 	
 	// printf("\n\n-----OBJECT-------\n\n");
 	// printf("debg: %d\n", obj.type);
@@ -238,11 +249,13 @@ void print_obj_(OBJ obj)
 	else if (obj.type == T_FUNC) {
 		// printf("%s [%s] %s", obj.name, type_name(obj.type), obj.list[1].name);
 		// printf("\n\t");
+		printf("FUNC: ");
 		for (int i = 0; i < obj.index; i++) {
 			if (obj.list[i].type == T_UNDEFINED)
 				break;
 			print_obj_(obj.list[i]);
 		}
+		printf("END OF FUNC");
 	}
 
 	else if (obj.type == T_NUMBER) {
@@ -258,12 +271,13 @@ void print_obj_(OBJ obj)
 	}
 
 	else if (obj.type == T_LIST) {
-		// printf("LIST: ");
+		printf("\nLIST:\n\t");
 		for (int i = 0; i < obj.index; i++) {
 			if (obj.list[i].type == T_UNDEFINED)
 				break;
 			print_obj_(obj.list[i]);
 		}
+		printf("\nEND OF LIST");
 	}
 }
 
@@ -304,6 +318,7 @@ OBJ* reserve(SCOPE* scope, OBJ value)
 
 OBJ* add_to_scope(SCOPE* scope, OBJ value)
 {
+	// printf("here22 %s %d %d %d\n", value.name, hash(value.name), scope->size, hash(value.name) % scope->size);
 	int num = hash(value.name) % scope->size;
 	// printf("adding object to scope at index |%s| %d %d\n", value.name, num, value.type);
 	scope->values[num] = value;
@@ -346,7 +361,7 @@ OBJ* find_ptr_in_scope(SCOPE* scope, char* key) {
 	}
 
 	// lobotomy_error("undefined variable %s\n", key);
-	lobotomy_warning("undefined variable %s\n", key);
+	// lobotomy_warning("undefined variable %s\n", key);
 	return NULL;
 	
 }
@@ -358,7 +373,7 @@ OBJ find_in_scope(SCOPE scope, char* key)
 
 	int num = hash(key) % scope.size;
 	
-	// printf("finding: |%s| %d\n", key, num);
+	// printf("finding: |%s| %d %d\n", key, num, scope.size);
 
 	// printf("fucker: |%s| |%s| %d %d\n", scope.values[num].name, key, hash(scope.values[num].name), hash(key));
 
@@ -378,7 +393,7 @@ OBJ find_in_scope(SCOPE scope, char* key)
 	}
 
 	// lobotomy_error("undefined variable %s\n", key);
-	lobotomy_warning("undefined variable %s\n", key);
+	// lobotomy_warning("undefined variable %s\n", key);
 	return undefined();
 }
 
@@ -437,36 +452,34 @@ OBJ create_func(char* name, OBJ* expr)
 	obj.list[1].name = "body";
 	obj.list[1].index = expr->list[3].index;
 
-	printf("f: %d\n", obj.list[0].index);
-	printf("f: %d\n", obj.list[1].index);
+	// printf("f: %d\n", obj.list[0].index);
+	// printf("f: %d\n", obj.list[1].index);
 
-	add_func_scope(&global, obj.name, obj.list[0].index);
+	// add_func_scope(&global, obj.name, obj.list[0].index);
 
 	// print_obj_type(obj.list[0]);
 	// print_obj_type(obj.list[0].list[0]);
 	// print_obj_type(obj.list[1]);
 	// print_obj_type(obj.list[1].list[0]);
 
-	for (int i = 0; i < obj.list[0].index; i++) {
-		for (int j = 0; j < obj.list[1].index; j++) {
-			if (obj.list[1].list[j].name != NULL && strcmp(obj.list[0].list[i].name, obj.list[1].list[j].name) == 0) {
-				if (find_ptr_in_scope(&global.func_scope[0], obj.list[0].list[i].name) == NULL) {
-					obj.list[1].list[j].ref = add_to_scope(&global.func_scope[0], obj.list[0].list[i]);
-					printf("here\n");
-				}
+	// for (int i = 0; i < obj.list[0].index; i++) {
+		// for (int j = 0; j < obj.list[1].index; j++) {
+			// if (obj.list[1].list[j].name != NULL && strcmp(obj.list[0].list[i].name, obj.list[1].list[j].name) == 0) {
+				// printf("got in: %s\n", obj.list[1].list[j].name);
+				// if (find_ptr_in_scope(&global.func_scope[0], obj.list[0].list[i].name) == NULL) {
+					// obj.list[1].list[j].ref = add_to_scope(&global.func_scope[global.func_index-1], obj.list[0].list[i]);
+				// }
 
-				else {
-					printf("fdg\n");
-					obj.list[1].list[j].ref = find_ptr_in_scope(&global.func_scope[0], obj.list[0].list[i].name);
-				}
+				// else {
+					// obj.list[1].list[j].ref = find_ptr_in_scope(&global.func_scope[global.func_index-1], obj.list[0].list[i].name);
+				// }
 
-				printf("ptr: %s %p\n", obj.list[0].list[i].name, obj.list[1].list[j].ref);
-				obj.list[1].list[j].type = T_REF;
-				printf("dawdw\n");
-			}
-		}
-	}
-	printf("dwafsdd\n");
+				// printf("ptr: %s %p\n", obj.list[0].list[i].name, obj.list[1].list[j].ref);
+				// obj.list[1].list[j].type = T_REF;
+			// }
+		// }
+	// }
+	// printf("dwafsdd\n");
 	return obj;
 	// return undefined();
 }

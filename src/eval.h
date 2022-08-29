@@ -112,11 +112,13 @@ void arithmetic_shorthand_int(int64_t* a, int64_t* b, char op)
 OBJ arithmetic_operation(OBJ* expr)
 {
 	eval_args(expr);
+
 	char op = expr->list[0].name[0];
+	// printf("AO: %ld %ld | op: %c\n", expr->list[1].number, expr->list[2].number, op);
 	OBJ res;
 	int i = 1;
 
-	if (expr->index > 1) {
+	if (expr->index > 2) {
 		res = expr->list[1];
 		i = 2;
 	}
@@ -175,23 +177,34 @@ OBJ lobotomy_loop(OBJ* expr)
 
 OBJ lobotomy_equals(OBJ* expr)
 {
+	printf("in eq\n");
 	OBJ ret;
 	ret.type = T_NUMBER;
-	// eval_args(&expr);
+	eval_args(expr);
 
-	if (expr->list[0].type == expr->list[1].type) {
-		switch (expr->list[0].type) {
+	printf("eq: %s %s\n", type_name(expr->list[1].type), type_name(expr->list[2].type));
+
+	if (expr->list[1].type == expr->list[2].type) {
+		switch (expr->list[1].type) {
 			case T_NUMBER:
-				if (expr->list[0].number == expr->list[1].number) {
+				if (expr->list[1].number == expr->list[2].number) {
+					printf("heredd\n");
 					ret.number = 1;
 				}
+			break;
+
+			default:
+				ret.number = 0;
 			break;
 		}
 	}
 
 	else {
 		ret.number = 0;
+		printf("heredd\n");
 	}
+
+	printf("ret in eq: %ld\n", ret.number);
 	return ret;
 }
 
@@ -317,38 +330,104 @@ void init()
 
 }
 
+OBJ rr(OBJ* o) { OBJ p; p = *o; return p; }
+
 OBJ run_func(OBJ func, OBJ* expr)
 {
-	OBJ* tmp;
-	for (int i = 0; i < func.list[0].index; i++) {
-		tmp = find_ptr_in_scope(&global.func_scope[0], func.list[0].list[i].name);
-		expr->list[1+i].name = tmp->name;
-		*tmp = expr->list[1+i];
+	// OBJ* tmp;
+	// OBJ tmp_tmp;
+
+	// for (int i = 0; i < func.list[0].index; i++) {
+		// tmp = find_ptr_in_scope(&global.func_scope[global.func_index-1], func.list[0].list[i].name);
+		// tmp_tmp = *tmp;
+		// printf("tmp name: %s %s %ld\n", tmp->name, type_name(tmp->type), tmp->number);
+		// expr->list[1+i].name = tmp->name;
+		// *tmp = expr->list[1+i];
+		
+		// printf("tmp name: %s %s %ld\n", tmp->name, type_name(tmp->type), tmp->number);
+		// *tmp = func.list[0].list[i];
+		// tmp->type = T_REF;
+		// tmp->ref = &expr->list[1+i];
 		// print_obj(*tmp);
 		// for (int j = 0; j < func.list[1].index; j++) {
 			// if (strcmp(func.list[0].list[i].name, func.list[1].list[j].name) == 0) {
 				// func.list[1].list[j] = tmp;
-				// printf("ptr c: %p\n", func.list[1].list[j].ref);
+				// printf("ptr c: %s: %p | %s: %p\n", func.list[1].list[j].name, func.list[1].list[j].ref, tmp->name, tmp);
 			// }
 		// }
-		
-	}
+	// }
+
+
+	// add_func_scope(&global, func.name, func.list[0].index);
+	// printf("running func: %p %d\n", expr, global.func_index);
+	// printf("size: %d %d\n", func.list[0].index, global.func_scope[global.func_index-1].size);
 	
-	return eval(&func.list[1]);
+	// for (int i = 0; i < func.list[0].index; i++) {
+		// expr->list[i+1].name = func.list[0].list[i].name;
+		// printf("name: %s\n", expr->list[i+1].name);
+		// printf("what: %ld\n", expr->list[i+1].number);
+		// add_to_scope(&global.func_scope[global.func_index-1], expr->list[i+1]);
+		// printf("fc: %ld\n", find_in_scope(global.func_scope[global.func_index-1], func.list[0].list[i].name).number);
+		// func.list[1].scope = &global.func_scope[global.func_index-1];
+	// }
+	
+
+	// func.list[1].list = rr(func.list[1].list);
+	// printf("here run func %d %d\n", func.list[1].index, expr->list[0].index);
+	// printf("fc: %ld\n", find_in_scope(global.func_scope[global.func_index-1], func.list[0].list[0].name).number);
+	for (int i = 0; i < func.list[1].index; i++) {
+		for (int j = 0; j < func.list[0].index; j++) {
+		// OBJ tmp = find_in_scope(global.func_scope[global.func_index-1], func.list[1].list[i].name);
+		// print_obj(tmp);
+		// if (tmp.type != T_UNDEFINED)
+		if (func.list[1].list[i].name != NULL && func.list[0].list[j].name != NULL && strcmp(func.list[1].list[i].name, func.list[0].list[j].name) == 0) {
+			// printf("ok %s %s\n", func.list[1].list[i].name, expr->list[j].name);
+			expr->list[j+1].name = func.list[1].list[i].name;
+			func.list[1].list[i] = expr->list[j+1];
+		}
+		// printf("fc: %s: %ld\n", func.list[1].list[i].name, find_in_scope(global.func_scope[global.func_index-1], func.list[1].list[1].name).number);
+		}
+	}
+	// printf("fc: %s: %ld\n", func.list[1].list[1].name, find_in_scope(global.func_scope[global.func_index-1], func.list[1].list[1].name).number);
+	// scope_init(&global.func_scope[global.func_index], 5);
+	OBJ res = eval(&func.list[1]);
+	return res;
+
+	// return undefined();
 }
 
 void eval_args(OBJ* expr)
 {
+	// if (scope == NULL)
+		// scope = &global;
+
 	for (int i = 0; i <= expr->index; i++) {
+		printf("expr naem: %s %s %ld\n", expr->name, type_name(expr->list[i].type), expr->list[i].number);
 		if (expr->list[i].type == T_CFUNC)
 			continue;
 		
 		else if (expr->list[i].type == T_IDENTIFIER) {
-			if (expr->type != T_FUNC && find_in_scope(global, expr->list[i].name).type != T_UNDEFINED)
-				expr->list[i] = find_in_scope(global, expr->list[i].name);
-			else if (find_in_scope(global.func_scope[0], expr->list[i].name).type != T_UNDEFINED) {
-				expr->list[i] = find_in_scope(global.func_scope[0], expr->list[i].name);
+			if (expr->type != T_FUNC) {
+				// OBJ tmp = find_in_scope(*scope, expr->list[i].name);
+				// printf("here in eval %s %s %ld %s\n", tmp.name, expr->list[i].name, tmp.number, type_name(tmp.type));
+				// if (tmp.type == T_UNDEFINED) {
+					// printf("fuckery\n");
+					OBJ tmp = find_in_scope(global, expr->list[i].name);
+
+					if (tmp.type == T_UNDEFINED) {
+						lobotomy_error("%s is undefined", expr->list[i].name);
+					}
+				// }
+
+				expr->list[i] = tmp;
+				
 			}
+			// if (expr->type != T_FUNC && find_in_scope(global, expr->list[i].name).type != T_UNDEFINED)
+				// expr->list[i] = find_in_scope(global, expr->list[i].name);
+			
+			// else if (find_in_scope(global.func_scope[global.func_index-1], expr->list[i].name).type != T_UNDEFINED) {
+				// expr->list[i] = find_in_scope(global.func_scope[global.func_index-1], expr->list[i].name);
+			// }
 		}
 
 		else if (expr->list[i].type == T_REF) {
@@ -358,7 +437,7 @@ void eval_args(OBJ* expr)
 			print_obj(expr->list[i]);
 		}
 		
-		else
+		else if (expr->list[i].type == T_LIST)
 			expr->list[i] = eval(&expr->list[i]);
 		// printf("eval_args: %s\n", type_name(expr->list[i].type));
 	}
@@ -367,6 +446,8 @@ void eval_args(OBJ* expr)
 
 OBJ eval(OBJ* expr)
 {
+	// if (scope == NULL)
+		// scope = &global;
 	// if (expr.type == T_LIST) {
 		// eval_args(&expr);
 		// return expr;
@@ -383,6 +464,7 @@ OBJ eval(OBJ* expr)
 	// eval_args(&expr);
 	// OBJ obj = expr.list[0];
 	OBJ obj = find_in_scope(global, expr->list[0].name);
+	expr->list[0] = obj;
 	// OBJ obj = undefined();
 
 	// printf("name: %s<%s> %d\n", obj.name, type_name(obj.type), obj.type);
@@ -425,6 +507,7 @@ OBJ eval(OBJ* expr)
 		break;
 
 		case T_CFUNC:
+			// printf("cfunc\n");
 			return obj.func(expr);
 		break;
 
@@ -437,7 +520,7 @@ OBJ eval(OBJ* expr)
 		break;
 	}
 
-	return undefined();
+	return lobotomy_exception("\nSHIT HAPPENED\n");
 }
 
 
@@ -455,7 +538,7 @@ void interpret(const char text[])
 		// eval(tree.expr[i]);
 
 		res = eval(&tree.expr[i]);
-		printf("res: ");
+		printf("\nres: ");
 		print_obj(res);
 		printf("\n");
 	}

@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 	printf("size of OBJ: %ld\n", sizeof(OBJ));
 	printf("size of OBJ*: %ld\n", sizeof(SCOPE));
 	printf("size of OBJ*: %ld\n", sizeof(TREE));
-	printf("size of OBJ*: %ld\n", sizeof(FUNC));
+	// printf("size of OBJ*: %ld\n", sizeof(FUNC));
 	printf("text:\n%s\n", text);
 	// parse(text);
 
