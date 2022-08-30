@@ -41,7 +41,7 @@ OBJ parse_expr(LEXER* lexer)
 					// obj.type = T_EXPR;
 					// obj.expr = tmp_expr;
 					add_obj_to_obj(&expr, tmp_expr);
-					printf("tmp_expr: %s %s\n", type_name(tmp_expr.type), type_name(expr.list[expr.index-1].type));
+					// printf("tmp_expr: %s %s\n", type_name(tmp_expr.type), type_name(expr.list[expr.index-1].type));
 					// i = tmp_expr.end;
 					obj = obj_reset;
 					lexer->peek--;

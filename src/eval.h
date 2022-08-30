@@ -112,9 +112,9 @@ void arithmetic_shorthand_int(int64_t* a, int64_t* b, char op)
 
 OBJ arithmetic_operation(OBJ* expr)
 {
-	printf("Abwedd O: %s %s %ld %ld\n", expr->list[1].name, type_name(expr->list[1].type), expr->list[1].number, find_in_scope(global, "a").number);
+	// printf("Abwedd O: %s %s %ld %ld\n", expr->list[1].name, type_name(expr->list[1].type), expr->list[1].number, find_in_scope(global, "a").number);
 	eval_args(expr);
-	printf("AO: %s %s %ld %ld\n", expr->list[1].name, type_name(expr->list[1].type), expr->list[1].number, find_in_scope(global, "a").number);
+	// printf("AO: %s %s %ld %ld\n", expr->list[1].name, type_name(expr->list[1].type), expr->list[1].number, find_in_scope(global, "a").number);
 	char op = expr->list[0].name[0];
 	// printf("AO: %ld %ld | op: %c\n", expr->list[1].number, expr->list[2].number, op);
 	OBJ res;
@@ -158,13 +158,13 @@ OBJ arithmetic_operation(OBJ* expr)
 OBJ lobotomy_if(OBJ* expr)
 {
 	OBJ ret;
-	OBJ res = eval(&expr->list[0]);
+	OBJ res = eval(&expr->list[1]);
 	if (res.number == 1) {
-		ret = eval(&expr->list[1]);
+		ret = eval(&expr->list[2]);
 	}
 
 	else {
-		ret = eval(&expr->list[2]);
+		ret = eval(&expr->list[3]);
 	}
 
 
@@ -183,7 +183,7 @@ bool obj_eq(OBJ a, OBJ b)
 		switch (a.type) {
 			case T_NUMBER:
 				if (a.number == b.number) {
-					printf("heredd\n");
+					// printf("heredd\n");
 					ret = 1;
 				}
 			break;
@@ -302,9 +302,9 @@ OBJ lobotomy_let(OBJ* expr)
 	// expr->list[1] = eval(&expr->list[1]);
 	OBJ id = expr->list[1];
 	// eval_args(expr);
-	printf("let type b: %s\n", type_name(expr->list[2].type));
+	// printf("let type b: %s\n", type_name(expr->list[2].type));
 	// print_obj(expr->list[2]);
-	print_obj(*expr);
+	// print_obj(*expr);
 	OBJ tmp = expr->list[2];
 	OBJ val = eval(&expr->list[2]);
 	// printf("let type: %s\n", type_name(val.type));
@@ -325,7 +325,7 @@ OBJ lobotomy_let(OBJ* expr)
 
 	// else {
 	id = *add_to_scope(&global, create_var(id.name, val));
-	printf("id: %ld\n", find_in_scope(global, id.name).number);
+	// printf("id: %ld\n", find_in_scope(global, id.name).number);
 	return id;
 	// }
 }
@@ -342,13 +342,13 @@ OBJ lobotomy_func(OBJ* expr)
 
 OBJ lobotomy_loop(OBJ* expr)
 {
-	printf("start loop\n");
+	// printf("start loop\n");
 	bool f = 1;
 	int i = 0;
-	OBJ ret;
+	OBJ ret = undefined();
 	// const OBJ tmp = expr->list[2];
 	OBJ tmp = create_copy(expr);
-	printf("loop\n");
+	// printf("loop\n");
 
 	while (f) {
 		*expr = create_copy(&tmp);
@@ -358,8 +358,8 @@ OBJ lobotomy_loop(OBJ* expr)
 			break;
 		}
 		// print_obj(expr->list[2]);
-		printf("------\n");
-		printf("loop: %d %s %s %ld %ld\n", i++, expr->list[2].list[1].name, type_name(expr->list[2].list[1].type), expr->list[2].list[1].number, find_in_scope(global, "a").number);
+		// printf("------\n");
+		// printf("loop: %d %s %s %ld %ld\n", i++, expr->list[2].list[1].name, type_name(expr->list[2].list[1].type), expr->list[2].list[1].number, find_in_scope(global, "a").number);
 		ret = eval(&expr->list[2]);
 		// printf("id: %ld\n", find_in_scope(global, "a").number);
 		// print_obj(ret);
@@ -482,7 +482,7 @@ void eval_args(OBJ* expr)
 		// scope = &global;
 
 	for (int i = 0; i <= expr->index; i++) {
-		printf("expr naem: %s %ld\n", type_name(expr->list[i].type), expr->list[i].number);
+		// printf("expr naem: %s %ld\n", type_name(expr->list[i].type), expr->list[i].number);
 		// printf("expr: %p\n", expr);
 		if (expr->list[i].type == T_CFUNC)
 			continue;
@@ -494,7 +494,7 @@ void eval_args(OBJ* expr)
 				// if (tmp.type == T_UNDEFINED) {
 					// printf("fuckery\n");
 					OBJ tmp = find_in_scope(global, expr->list[i].name);
-					printf("found: %ld\n", tmp.number);
+					// printf("found: %ld\n", tmp.number);
 
 					if (tmp.type == T_UNDEFINED) {
 						lobotomy_error("%s is undefined", expr->list[i].name);

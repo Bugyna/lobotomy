@@ -173,7 +173,7 @@ OBJ create_copy(OBJ* expr)
 	
 	for (int i = 0; i < expr->index; i++) {
 		if (expr->list[i].type == T_LIST) {
-			printf("copying: %s\n", expr->list[i].list[0].name);
+			// printf("copying: %s\n", expr->list[i].list[0].name);
 			ret.list[i] = create_copy(&expr->list[i]);
 		}
 		else {
