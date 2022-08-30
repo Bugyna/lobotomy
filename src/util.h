@@ -7,6 +7,7 @@
 #include <math.h>
 #include <float.h>
 #include <stdint.h>
+#include <time.h>
 
 #include "error.h"
 

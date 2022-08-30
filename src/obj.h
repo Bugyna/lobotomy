@@ -164,6 +164,26 @@ char* type_name(int type)
 	return "FUCK";
 }
 
+OBJ create_copy(OBJ* expr)
+{
+	OBJ ret;
+	ret.index = expr->index;
+	ret.type = expr->type;
+	ret.list = malloc(expr->index*sizeof(OBJ));
+	
+	for (int i = 0; i < expr->index; i++) {
+		if (expr->list[i].type == T_LIST) {
+			printf("copying: %s\n", expr->list[i].list[0].name);
+			ret.list[i] = create_copy(&expr->list[i]);
+		}
+		else {
+			OBJ tmp = expr->list[i];
+			ret.list[i] = tmp;
+		}
+	}
+
+	return ret;
+}
 
 void print_scope(SCOPE scope)
 {
@@ -321,7 +341,23 @@ OBJ* add_to_scope(SCOPE* scope, OBJ value)
 	// printf("here22 %s %d %d %d\n", value.name, hash(value.name), scope->size, hash(value.name) % scope->size);
 	int num = hash(value.name) % scope->size;
 	// printf("adding object to scope at index |%s| %d %d\n", value.name, num, value.type);
-	scope->values[num] = value;
+	if (scope->values[num].type == T_UNDEFINED) {
+		scope->values[num] = value;
+	}
+
+	else if (strcmp(value.name, scope->values[num].name) == 0) {
+		scope->values[num] = value;
+	}
+
+	else {
+		for (int i = num; i < scope->size; i++) {
+			if (scope->values[i].type == T_UNDEFINED) {
+				scope->values[i] = value;
+				break;
+			}
+		}
+	}
+
 	scope->occupied++;
 
 	if (scope->occupied >= scope->size) {
