@@ -8,6 +8,6 @@
 (fn 4)
 (fn 44)
 
-(func print_ln (a) (print a "\n"))
+(func print_ln (a) (print a "\b" (fn a)))
 (print_ln "hi")
 

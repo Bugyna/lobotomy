@@ -107,7 +107,9 @@ LEXER tokenize(const char text[])
 	char* word = malloc(word_max);
 	int len = strlen(text)+1;
 	// printf("len: %d\n", len);
-	bool in_word = false, in_number = false, in_decimal = false, in_comment = false, in_str = false;
+	bool in_word = false, in_number = false,
+		in_decimal = false, in_comment = false,
+		in_str = false, escaped = false;
     
 	int b_count = 0;
     
@@ -151,8 +153,14 @@ LEXER tokenize(const char text[])
 			}
 		}
 
+		else if (text[i] == '\\' && !escaped) {
+			printf("Escaped %c\n", text[i]);
+			escaped = true;
+			continue;
+		}
+
 		else if (in_str) {
-			if (text[i] == '"') {
+			if (text[i] == '"' && !escaped) {
 				str_add_char(word, &word_i, &word_max, '\0');
 				add_token(&lexer, i-word_i, i, TT_STR, word_i, word);
 				in_str = false;
@@ -161,7 +169,53 @@ LEXER tokenize(const char text[])
 				continue;
 			}
 
-			else {
+			else if (escaped) {
+				escaped = false;
+				switch (text[i])
+				{
+					case 'a':
+						str_add_char(word, &word_i, &word_max, '\a');
+					break;
+
+					case 'b':
+						str_add_char(word, &word_i, &word_max, '\b');
+					break;
+
+					case 'f':
+						str_add_char(word, &word_i, &word_max, '\f');
+					break;
+
+					case 'n':
+						str_add_char(word, &word_i, &word_max, '\n');
+					break;
+
+					case 'r':
+						str_add_char(word, &word_i, &word_max, '\r');
+					break;
+
+					case 't':
+						str_add_char(word, &word_i, &word_max, '\t');
+					break;
+
+					case '\\':
+						str_add_char(word, &word_i, &word_max, '\\');
+					break;
+
+					case '\'':
+						str_add_char(word, &word_i, &word_max, '\'');
+					break;
+
+					case '"':
+						str_add_char(word, &word_i, &word_max, '"');
+					break;
+				}
+				
+				printf("added: %c\n", text[i]);
+				column++;
+				continue;
+			}
+
+			else {	
 				str_add_char(word, &word_i, &word_max, text[i]);
 				column++;
 				continue;
