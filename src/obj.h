@@ -170,6 +170,7 @@ OBJ create_copy(OBJ* expr)
 	ret.index = expr->index;
 	ret.type = expr->type;
 	ret.list = malloc(expr->index*sizeof(OBJ));
+	ret.scope = expr->scope;
 	
 	for (int i = 0; i < expr->index; i++) {
 		if (expr->list[i].type == T_LIST) {
@@ -476,7 +477,7 @@ OBJ create_func(char* name, OBJ* expr)
 	obj.type = T_FUNC;
 	obj.name = name;
 
-	printf("index: %d\n", expr->index);
+	// printf("index: %d\n", expr->index);
 	obj.index = expr->index;
 	obj.list = malloc(obj.index*sizeof(OBJ));
 

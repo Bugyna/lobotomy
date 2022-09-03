@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
 	if (interactive)
 		interactive_shell(text);
 	else
-		interpret(text);
+		interpret_(text);
 
 
 	return 0;

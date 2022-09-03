@@ -324,9 +324,7 @@ OBJ lobotomy_let(OBJ* expr)
 	// }
 
 	// else {
-	if (expr->scope == NULL)
-		expr->scope = &global;
-	id = *add_to_scope(expr->scope, create_var(id.name, val));
+	id = *add_to_scope(&global, create_var(id.name, val));
 	// printf("id: %ld\n", find_in_scope(global, id.name).number);
 	return id;
 	// }
@@ -344,7 +342,7 @@ OBJ lobotomy_func(OBJ* expr)
 
 OBJ lobotomy_loop(OBJ* expr)
 {
-	// printf("start loop %s\n", expr->list[2].scope->name);
+	// printf("start loop\n");
 	bool f = 1;
 	int i = 0;
 	OBJ ret = undefined();
@@ -414,46 +412,23 @@ void init()
 
 OBJ rr(OBJ* o) { OBJ p; p = *o; return p; }
 
-void apply_scope(OBJ* expr, SCOPE* scope)
-{
-	expr->scope = scope;
-	// printf("here %d %s\n", expr->index, expr->list[0].name);
-	for (int i = 0; i < expr->index; i++) {
-		// printf("i: %d\n", i);
-		if (expr->list[i].type == T_UNDEFINED)
-			break;
-
-		else if (expr->list[i].type == T_LIST) {
-			// printf("a\n");
-			apply_scope(&expr->list[i], scope);
-		}
-
-	}
-}
-
 OBJ run_func(OBJ func, OBJ* expr)
 {
 	add_func_scope(&global, func.name, func.list[0].index);
-
-	for (int i = 0; i < func.list[0].index; i++) {
-		if (func.list[0].list[i].type != T_UNDEFINED && func.list[0].list[i].name != NULL) {
-			expr->list[i+1].name = func.list[0].list[i].name;
-			printf("adding: %s to scope\n", expr->list[i+1].name);
-			add_to_scope(&global.func_scope[global.func_index-1], expr->list[i+1]);
+	for (int i = 0; i < func.list[1].index; i++) {
+		for (int j = 0; j < func.list[0].index; j++) {
+		// OBJ tmp = find_in_scope(global.func_scope[global.func_index-1], func.list[1].list[i].name);
+		// print_obj(tmp);
+		// if (tmp.type != T_UNDEFINED)
+		if (func.list[1].list[i].name != NULL && func.list[0].list[j].name != NULL && strcmp(func.list[1].list[i].name, func.list[0].list[j].name) == 0) {
+			printf("ok %s %s\n", func.list[1].list[i].name, expr->list[j].name);
+			expr->list[j+1].name = func.list[1].list[i].name;
+			func.list[1].list[i] = expr->list[j+1];
+			add_to_scope(&global.func_scope[global.func_index-1], func.list[1].list[i]);
+		}
+		// printf("fc: %s: %ld\n", func.list[1].list[i].name, find_in_scope(global.func_scope[global.func_index-1], func.list[1].list[1].name).number);
 		}
 	}
-
-	// for (int i = 0; i < func.list[1].index; i++) {
-		// for (int j = 0; j < func.list[0].index; j++) {
-		// if (func.list[1].list[i].name != NULL && func.list[0].list[j].name != NULL && strcmp(func.list[1].list[i].name, func.list[0].list[j].name) == 0) {
-			// printf("ok %s %s\n", func.list[1].list[i].name, expr->list[j].name);
-			// expr->list[j+1].name = func.list[1].list[i].name;
-			// func.list[1].list[i] = expr->list[j+1];
-		// }
-		// printf("fc: %s: %ld\n", func.list[1].list[i].name, find_in_scope(global.func_scope[global.func_index-1], func.list[1].list[1].name).number);
-		// }
-	// }
-	apply_scope(&func.list[1], &global.func_scope[global.func_index-1]);
 	func.list[1].scope = &global.func_scope[global.func_index-1];
 	// printf("fc: %s: %ld\n", func.list[1].list[1].name, find_in_scope(global.func_scope[global.func_index-1], func.list[1].list[1].name).number);
 	// scope_init(&global.func_scope[global.func_index], 5);
@@ -475,7 +450,6 @@ void eval_args(OBJ* expr)
 			continue;
 		
 		else if (expr->list[i].type == T_IDENTIFIER) {
-			// printf("looking for: %s in %s\n", expr->list[i].name, expr->scope->name);
 			if (expr->type != T_FUNC) {
 				OBJ tmp = find_in_scope(*expr->scope, expr->list[i].name);
 				// printf("here in eval %s %s %ld %s\n", tmp.name, expr->list[i].name, tmp.number, type_name(tmp.type));
@@ -619,8 +593,8 @@ OBJ eval(OBJ* expr)
 
 	// printf("found obj: %d |%s| %ld\n", obj.type, obj.name, obj.number);
 	// print_scope(global);
-	// printf("found |%s| in global\n", obj.name);
-
+       // printf("found |%s| in global\n", obj.name);
+       
 	switch (obj.type)
 	{
 		case T_UNDEFINED:

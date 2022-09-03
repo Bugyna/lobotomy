@@ -154,7 +154,6 @@ LEXER tokenize(const char text[])
 		}
 
 		else if (text[i] == '\\' && !escaped) {
-			printf("Escaped %c\n", text[i]);
 			escaped = true;
 			continue;
 		}
@@ -210,7 +209,6 @@ LEXER tokenize(const char text[])
 					break;
 				}
 				
-				printf("added: %c\n", text[i]);
 				column++;
 				continue;
 			}
