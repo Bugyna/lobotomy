@@ -405,26 +405,30 @@ OBJ* find_ptr_in_scope(SCOPE* scope, char* key) {
 
 OBJ find_in_scope(SCOPE scope, char* key)
 {
+	
 	if (key == NULL)
 		return undefined();
-
 	int num = hash(key) % scope.size;
 	
 	// printf("finding: |%s| %d %d\n", key, num, scope.size);
 
 	// printf("fucker: |%s| |%s| %d %d\n", scope.values[num].name, key, hash(scope.values[num].name), hash(key));
 
-	// printf("num: %d\n", num);
-	if (scope.values[num].type != 0 && !strcmp(scope.values[num].name, key)) {
+	if (scope.values[num].type != T_UNDEFINED && strcmp(scope.values[num].name, key) == 0) {
 		return scope.values[num];
 	}
 
 
 	else {
-		for (int i = 0; i < scope.size; i++) {
+		for (int i = num; i < scope.size; i++) {
 			if (scope.values[i].type != 0 && !strcmp(scope.values[i].name, key)) {
 				return scope.values[i];
-				// return undefined();
+			}
+		}
+
+		for (int i = 0; i < num; i++) {
+			if (scope.values[i].type != 0 && !strcmp(scope.values[i].name, key)) {
+				return scope.values[i];
 			}
 		}
 	}

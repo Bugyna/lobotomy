@@ -15,9 +15,14 @@
 #define my_assert(expr, err, err_code, line, column) if (expr) { printf("%s at %d.%d\n", err, line, column); exit(err_code); }
 
 
-#define DEBUG(s, ...) printf(s __VA_ARGS__); printf("\n");
+#define DEBUG(s, ...) printf(s __VA_ARGS__); printf("\n\n");
 #define lobotomy_warning(...) DEBUG("warning: ", __VA_ARGS__)
+
+#define lobotomy_error_ne(...) DEBUG("ERROR: ", __VA_ARGS__)
+#define lobotomy_error_s_ne(n, ...) DEBUG(#n ": ", __VA_ARGS__)
+
 #define lobotomy_error(...) DEBUG("ERROR: ", __VA_ARGS__); exit(-1)
+#define lobotomy_error_s(n, ...) DEBUG(#n ": ", __VA_ARGS__); exit(n)
 
 
 char* read_file(const char path[])

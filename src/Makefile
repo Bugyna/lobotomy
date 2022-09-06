@@ -1,10 +1,11 @@
 CC=gcc
 CLIBS=
-CFLAGS=-Wall -Wextra -pedantic -std=c11 -Wno-unused-function -Wno-unused-variable -Wno-unused-parameter
+CFLAGS=-Wall -Wextra -pedantic -std=c11
+IGNORE=-Wno-unused-function -Wno-unused-variable -Wno-unused-parameter
 
 
 main: *.c *.h
-	$(CC) main.c $(CFLAGS) $(CLIBS) -o main
+	$(CC) main.c $(CFLAGS) $(CLIBS) $(IGNORE) -o main
 
 
 run:

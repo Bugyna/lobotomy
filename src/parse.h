@@ -3,6 +3,10 @@
 #include "obj.h"
 
 
+void analyse_expr(OBJ expr)
+{
+	
+}
 
 OBJ parse_expr(LEXER* lexer)
 {
@@ -12,6 +16,7 @@ OBJ parse_expr(LEXER* lexer)
 	OBJ expr;
 	expr.name = NULL;
 	expr.type = T_LIST;
+	expr.scope = &global;
 
 	OBJ obj;
 	static const OBJ obj_reset;

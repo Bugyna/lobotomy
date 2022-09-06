@@ -292,6 +292,8 @@ OBJ lobotomy_print(OBJ* expr)
 	eval_args(expr);
 	// expr->type = T_LIST;
 	for (int i = 1; i < expr->index; i++) {
+		if (expr->list[i].type == T_UNDEFINED)
+			break;
 		print_obj_(expr->list[i]);
 	}
 	return *expr;
@@ -324,8 +326,6 @@ OBJ lobotomy_let(OBJ* expr)
 	// }
 
 	// else {
-	if (expr->scope == NULL)
-		expr->scope = &global;
 	id = *add_to_scope(expr->scope, create_var(id.name, val));
 	// printf("id: %ld\n", find_in_scope(global, id.name).number);
 	return id;
@@ -337,7 +337,7 @@ OBJ lobotomy_func(OBJ* expr)
 	// printf("creating lob func\n");
 	OBJ obj = create_func(expr->list[1].name, expr);
 	// printf("creating lob func %s %s\n", expr->list[1].name, obj.name);
-	add_to_scope(&global, obj);
+	add_to_scope(expr->scope, obj);
 	return obj;
 	// return undefined();
 }
@@ -465,30 +465,29 @@ OBJ run_func(OBJ func, OBJ* expr)
 
 void eval_args(OBJ* expr)
 {
-	if (expr->scope == NULL)
-		expr->scope = &global;
-
 	for (int i = 0; i <= expr->index; i++) {
-		// printf("expr naem: %s %ld\n", type_name(expr->list[i].type), expr->list[i].number);
-		// printf("expr: %p\n", expr);
+		// printf("expr naem: %s %s\n", type_name(expr->list[i].type), expr->list[i].name);
+		// printf("expr: %i %s\n", i, type_name(expr->list[i].type));
 		if (expr->list[i].type == T_CFUNC)
 			continue;
-		
+
 		else if (expr->list[i].type == T_IDENTIFIER) {
 			// printf("looking for: %s in %s\n", expr->list[i].name, expr->scope->name);
+				// printf("here %s %s\n", expr->list[i].name, expr->scope->name);
 			if (expr->type != T_FUNC) {
 				OBJ tmp = find_in_scope(*expr->scope, expr->list[i].name);
-				// printf("here in eval %s %s %ld %s\n", tmp.name, expr->list[i].name, tmp.number, type_name(tmp.type));
+				// printf("here in eval %s %s\n", tmp.name, expr->list[i].name);
 				if (tmp.type == T_UNDEFINED) {
 					// printf("fuckery\n");
 					tmp = find_in_scope(global, expr->list[i].name);
 					// printf("found: %ld\n", tmp.number);
 
 					if (tmp.type == T_UNDEFINED) {
-						lobotomy_error("%s is undefined", expr->list[i].name);
+						lobotomy_error_s(ERR_UNDEFINED, "%s is undefined", expr->list[i].name);
 					}
 				}
 
+				// print_obj_type(tmp);
 				expr->list[i] = tmp;
 				
 			}

@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
 
 	if (argc == 1) {
-		text = read_file("t.lb");
+		text = read_file("d.lb");
 	}
 
 	else if (argc == 2) {
@@ -40,8 +40,10 @@ int main(int argc, char* argv[]) {
 	global.func_index = 0;
 	init();
 
-	if (interactive)
+	if (interactive) {
 		interactive_shell(text);
+	}
+		
 	else
 		interpret_(text);
 
