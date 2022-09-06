@@ -530,9 +530,12 @@ OBJ eval_c(OBJ expr)
 
 
 	// eval_args(&expr);
-	// OBJ obj = expr.list[0];
-	OBJ obj = find_in_scope(global, expr.list[0].name);
-	expr.list[0] = obj;
+	OBJ obj = expr.list[0];
+	if (expr.list[0].type == T_IDENTIFIER) {
+		printf("here\n");
+		obj = find_in_scope(global, expr.list[0].name);
+		expr.list[0] = obj;
+	}
 	// OBJ obj = undefined();
 
 	// printf("name: %s<%s> %d\n", obj.name, type_name(obj.type), obj.type);
@@ -608,9 +611,15 @@ OBJ eval(OBJ* expr)
 
 
 	// eval_args(&expr);
-	// OBJ obj = expr.list[0];
-	OBJ obj = find_in_scope(global, expr->list[0].name);
-	expr->list[0] = obj;
+	OBJ obj = expr->list[0];
+	print_obj_type(obj);
+	if (obj.type == T_IDENTIFIER) {
+		obj = find_in_scope(global, expr->list[0].name);
+		expr->list[0] = obj;
+		print_obj_type(obj);
+	}
+	else
+		return *expr;
 	// OBJ obj = undefined();
 
 	// printf("name: %s<%s> %d\n", obj.name, type_name(obj.type), obj.type);
