@@ -166,10 +166,12 @@ char* type_name(int type)
 
 OBJ create_copy(OBJ* expr)
 {
+	// printf("creating copy of: %s %s\n", expr->name, expr->scope->name); 
 	OBJ ret;
 	ret.index = expr->index;
 	ret.type = expr->type;
 	ret.list = malloc(expr->index*sizeof(OBJ));
+	ret.name = expr->name;
 	ret.scope = expr->scope;
 	
 	for (int i = 0; i < expr->index; i++) {
@@ -181,6 +183,7 @@ OBJ create_copy(OBJ* expr)
 			OBJ tmp = expr->list[i];
 			ret.list[i] = tmp;
 		}
+		ret.list[i].scope = expr->scope;
 	}
 
 	return ret;
@@ -270,13 +273,15 @@ void print_obj_(OBJ obj)
 	else if (obj.type == T_FUNC) {
 		// printf("%s [%s] %s", obj.name, type_name(obj.type), obj.list[1].name);
 		// printf("\n\t");
-		printf("FUNC: ");
-		for (int i = 0; i < obj.index; i++) {
-			if (obj.list[i].type == T_UNDEFINED)
+		printf("FUNC: %s ( ", obj.name);
+		for (int i = 0; i < obj.list[0].index; i++) {
+			if (obj.list[0].list[i].type == T_UNDEFINED)
 				break;
-			print_obj_(obj.list[i]);
+			printf("%s ", obj.list[0].list[i].name);
+			// print_obj_(obj.list[i]);
 		}
-		printf("END OF FUNC");
+		printf(")\n");
+		// printf("END OF FUNC");
 	}
 
 	else if (obj.type == T_NUMBER) {
@@ -408,6 +413,8 @@ OBJ find_in_scope(SCOPE scope, char* key)
 	
 	if (key == NULL)
 		return undefined();
+
+	OBJ ret = undefined();
 	int num = hash(key) % scope.size;
 	
 	// printf("finding: |%s| %d %d\n", key, num, scope.size);
@@ -415,27 +422,27 @@ OBJ find_in_scope(SCOPE scope, char* key)
 	// printf("fucker: |%s| |%s| %d %d\n", scope.values[num].name, key, hash(scope.values[num].name), hash(key));
 
 	if (scope.values[num].type != T_UNDEFINED && strcmp(scope.values[num].name, key) == 0) {
-		return scope.values[num];
+		ret = scope.values[num];
 	}
 
 
 	else {
 		for (int i = num; i < scope.size; i++) {
 			if (scope.values[i].type != 0 && !strcmp(scope.values[i].name, key)) {
-				return scope.values[i];
+				ret = scope.values[i];
 			}
 		}
 
 		for (int i = 0; i < num; i++) {
 			if (scope.values[i].type != 0 && !strcmp(scope.values[i].name, key)) {
-				return scope.values[i];
+				ret = scope.values[i];
 			}
 		}
 	}
 
 	// lobotomy_error("undefined variable %s\n", key);
 	// lobotomy_warning("undefined variable %s\n", key);
-	return undefined();
+	return ret;
 }
 
 

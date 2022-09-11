@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
 
 	if (argc == 1) {
-		text = read_file("d.lb");
+		text = read_file("t.lb");
 	}
 
 	else if (argc == 2) {

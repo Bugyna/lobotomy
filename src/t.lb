@@ -12,8 +12,10 @@
 
 (func loop_many_times (b) (loop (! b 10) (print b "->" (let b (+ b 2)) "\n")))
 
-(func print_ln (a) (print a "\b" (fn a)))
-(print_ln "hi")
+;; (func print_ln (a) (print a "\b" (fn a)))
+;; (print_ln "hi")
 
-(print "\n")
-(loop_many_times 0)
+;; (print "\n")
+(loop_many_times 2)
+;; (let i 0)
+;; (loop (= 0 0) (print (let i (+ i 1))))
