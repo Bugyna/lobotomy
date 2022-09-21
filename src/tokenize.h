@@ -156,7 +156,9 @@ LEXER tokenize(const char text[])
 	
 	for (int i = 0; i < len; i++) {
 		if (in_word && token.index > 0) {
-			if (!((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z') || text[i] == '_')) {
+			if (!((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z') || text[i] == '_')
+			&& !(text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '@' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':')
+			) {
 				// word[word_i++] = '\0';
 				// str_add_char(word, &word_i, &word_max, '\0');
 				str_add_char(&token, '\0');
@@ -287,7 +289,9 @@ LEXER tokenize(const char text[])
 		}
 
 
-		else if ((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z') || text[i] == '_') {
+		else if ((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z') || text[i] == '_'
+		|| (text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '@' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':')
+		) {
 			my_assert(in_number, "unexpected character", ERR_WORD_IN_NUMBER, line, column);
 			in_word = true;
 			// word[word_i++] = text[i];
@@ -350,13 +354,13 @@ LEXER tokenize(const char text[])
 			}
 		}
         
-		else if (text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '@' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':') {
+		// else if (text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '@' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':') {
 			// add_token(&lexer, i, i, TT_IDENTIFIER, 2, (char[]){text[i], '\0'});
 			// token.text = (char[]){text[i], '\0'};
-			str_add_char(&token, text[i]);
-			add_token(&lexer, token, TT_IDENTIFIER);
-			reset_token(&token, line, column);
-		}
+			// str_add_char(&token, text[i]);
+			// add_token(&lexer, token, TT_IDENTIFIER);
+			// reset_token(&token, line, column);
+		// }
 
 		column++;
 	}

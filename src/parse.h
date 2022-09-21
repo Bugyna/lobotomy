@@ -88,8 +88,9 @@ OBJ parse_expr(LEXER* lexer)
 
 			case TT_STR:
 				obj.type = T_STR;
-				obj.str = malloc(lexer->tokens[lexer->peek].len+1);
+				obj.str = malloc(lexer->tokens[lexer->peek].len);
 				obj.str = lexer->tokens[lexer->peek].text;
+				obj.index = lexer->tokens[lexer->peek].len-1;
 				add_obj_to_obj(&expr, obj);
 				obj = obj_reset;
 				break;

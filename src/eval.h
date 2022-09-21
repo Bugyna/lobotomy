@@ -174,7 +174,7 @@ OBJ lobotomy_if(OBJ* expr)
 
 bool obj_eq(OBJ a, OBJ b)
 {
-	bool ret;
+	int ret = 0;
 	// eval_args(expr);
 
 	// printf("eq: %s %s\n", type_name(expr->list[1].type), type_name(expr->list[2].type));
@@ -194,44 +194,52 @@ bool obj_eq(OBJ a, OBJ b)
 		}
 	}
 
-	else {
-		ret = 0;
+	return ret;
+}
+
+bool obj_less_than(OBJ a, OBJ b)
+{
+	int ret = 0;
+	if (a.type == b.type) {
+		switch (a.type) {
+			case T_NUMBER:
+				if (a.number < b.number) {
+					ret = 1;
+				}
+			break;
+
+			default:
+				ret = 0;
+			break;
+		}
 	}
+
+	return ret;
+}
+
+bool obj_less_than_or_eq(OBJ a, OBJ b)
+{
+	int ret = 0;
+	if (a.type == b.type) {
+		switch (a.type) {
+			case T_NUMBER:
+				if (a.number <= b.number) {
+					ret = 1;
+				}
+			break;
+
+			default:
+				ret = 0;
+			break;
+		}
+	}
+
 
 	return ret;
 }
 
 OBJ lobotomy_equals(OBJ* expr)
 {
-	// printf("in eq\n");
-	// OBJ ret;
-	// ret.type = T_NUMBER;
-	// eval_args(expr);
-
-	// printf("eq: %s %s\n", type_name(expr->list[1].type), type_name(expr->list[2].type));
-
-	// if (expr->list[1].type == expr->list[2].type) {
-		// switch (expr->list[1].type) {
-			// case T_NUMBER:
-				// if (expr->list[1].number == expr->list[2].number) {
-					// printf("heredd\n");
-					// ret.number = 1;
-				// }
-			// break;
-
-			// default:
-				// ret.number = 0;
-			// break;
-		// }
-	// }
-
-	// else {
-		// ret.number = 0;
-		// printf("heredd\n");
-	// }
-
-	// printf("ret in eq: %ld\n", ret.number);
-	// return ret;
 	eval_args(expr);
 	OBJ ret;
 	ret.type = T_NUMBER;
@@ -245,6 +253,43 @@ OBJ lobotomy_not_equals(OBJ* expr)
 	OBJ ret;
 	ret.type = T_NUMBER;
 	ret.number = !obj_eq(expr->list[1], expr->list[2]);
+	return ret;
+}
+
+OBJ lobotomy_less_than(OBJ* expr)
+{
+	eval_args(expr);
+	OBJ ret;
+	ret.type = T_NUMBER;
+	ret.number = obj_less_than(expr->list[1], expr->list[2]);
+	return ret;
+}
+
+OBJ lobotomy_more_than(OBJ* expr)
+{
+	eval_args(expr);
+	OBJ ret;
+	ret.type = T_NUMBER;
+	ret.number = !obj_less_than_or_eq(expr->list[1], expr->list[2]);
+	return ret;
+}
+
+OBJ lobotomy_less_than_or_eq(OBJ* expr)
+{
+	eval_args(expr);
+	OBJ ret;
+	ret.type = T_NUMBER;
+	ret.number = obj_less_than_or_eq(expr->list[1], expr->list[2]);
+	printf("ltoq: %ld\n", ret.number);
+	return ret;
+}
+
+OBJ lobotomy_more_than_or_eq(OBJ* expr)
+{
+	eval_args(expr);
+	OBJ ret;
+	ret.type = T_NUMBER;
+	ret.number = !obj_less_than(expr->list[1], expr->list[2]);
 	return ret;
 }
 
@@ -343,6 +388,18 @@ OBJ lobotomy_func(OBJ* expr)
 	// return undefined();
 }
 
+OBJ lobotomy_macro(OBJ* expr)
+{
+	// printf("creating lob func\n");
+	// OBJ obj = create_func(expr->list[1].name, expr);
+	OBJ obj = find_in_scope(*expr->scope, expr->list[2].name);
+	obj.name = expr->list[1].name;
+	// printf("creating lob func %s %s\n", expr->list[1].name, obj.name);
+	add_to_scope(&global, obj);
+	return obj;
+	// return undefined();
+}
+
 OBJ lobotomy_loop(OBJ* expr)
 {
 	// printf("start loop %s\n", expr->list[2].scope->name);
@@ -373,13 +430,78 @@ OBJ lobotomy_loop(OBJ* expr)
 	// return undefined();
 }
 
-OBJ nothing(OBJ* expr)
+
+OBJ obj_nth(OBJ obj, int n)
 {
-	return undefined();
+	printf("here %d %s\n", n, type_name(obj.type));
+	OBJ res;
+	if (obj.type != T_LIST && obj.type != T_FUNC && obj.type != T_STR) {
+		printf("aaaaa\n");
+		return undefined();
+	}
+
+
+	switch (obj.type)
+	{
+		case T_LIST: case T_FUNC:
+			res = obj.list[n];
+		break;
+
+		case T_STR:
+			res.type = T_STR;
+			res.str = malloc(2);
+			res.str[0] = obj.str[n];
+			res.index = 2;
+		break;
+			
+	}
+
+
+	return res;
 }
+
+OBJ lobotomy_first(OBJ* expr)
+{
+	eval_args(expr);
+	if (expr->list[1].type == T_LIST || expr->list[1].type == T_STR) {
+		return obj_nth(expr->list[1], 0);
+	}
+
+	else {
+		lobotomy_error("invalid type in function first expected LIST or STR, but got %s\n", type_name(expr->list[1].type));
+	}
+}
+
+OBJ lobotomy_nth(OBJ* expr)
+{
+	eval_args(expr);
+	if (expr->list[2].type == T_LIST || expr->list[2].type == T_STR) {
+		return obj_nth(expr->list[2], expr->list[1].number);
+	}
+
+	else {
+		lobotomy_error("invalid type in function first expected LIST or STR, but got %s\n", type_name(expr->list[2].type));
+	}
+}
+
+OBJ lobotomy_last(OBJ* expr)
+{
+	eval_args(expr);
+	if (expr->list[1].type == T_LIST || expr->list[1].type == T_STR) {
+		return obj_nth(expr->list[1], expr->list[1].index-1);
+	}
+
+	else {
+		lobotomy_error("invalid type in function first expected LIST or STR, but got %s\n", type_name(expr->list[1].type));
+	}
+}
+
 
 void init()
 {
+
+	// add_to_scope(&global, create_cfunc("", lobotomy_, 1, 1));
+	
 	add_to_scope(&global, create_cfunc("-", arithmetic_operation, 1, ARG_INF));
 	add_to_scope(&global, create_cfunc("+", arithmetic_operation, 1, ARG_INF));
 	add_to_scope(&global, create_cfunc("*", arithmetic_operation, 2, ARG_INF));
@@ -388,18 +510,29 @@ void init()
 	add_to_scope(&global, create_cfunc("pso", print_scope_obj, ARG_NONE, ARG_INF));
 	add_to_scope(&global, create_cfunc("let", lobotomy_let, 2, 2));
 	add_to_scope(&global, create_cfunc("eq", lobotomy_equals, ARG_INF, ARG_INF));
-	add_to_scope(&global, create_cfunc("=", lobotomy_equals, ARG_INF, ARG_INF));
-	add_to_scope(&global, create_cfunc("!", lobotomy_not_equals, ARG_INF, ARG_INF));
+	
+	add_to_scope(&global, create_cfunc("=", lobotomy_equals, 2, 2));
+	add_to_scope(&global, create_cfunc("!", lobotomy_not_equals, 2, 2));
+	add_to_scope(&global, create_cfunc("<", lobotomy_less_than, 2, 2));
+	add_to_scope(&global, create_cfunc(">", lobotomy_more_than, 2, 2));
+	add_to_scope(&global, create_cfunc("<=", lobotomy_less_than_or_eq, 2, 2));
+	add_to_scope(&global, create_cfunc(">=", lobotomy_more_than_or_eq, 2, 2));
+
 	add_to_scope(&global, create_cfunc("if", lobotomy_if, 3, ARG_INF));
 	add_to_scope(&global, create_cfunc("?", lobotomy_if, 3, ARG_INF));
+	add_to_scope(&global, create_cfunc("loop", lobotomy_loop, 3, 3));
 
 	add_to_scope(&global, create_cfunc("func", lobotomy_func, 3, 3));
+	add_to_scope(&global, create_cfunc("macro", lobotomy_macro, 3, 3));
 
-	add_to_scope(&global, create_cfunc("loop", lobotomy_loop, 3, 3));
+	add_to_scope(&global, create_cfunc("first", lobotomy_first, 1, 1));
+	add_to_scope(&global, create_cfunc("nth", lobotomy_nth, 2, 2));
+	add_to_scope(&global, create_cfunc("last", lobotomy_last, 1, 1));
+	
 	
 	add_to_scope(&global, create_cfunc("print", lobotomy_print, 1, ARG_INF));
 	add_to_scope(&global, create_cfunc("type", lobotomy_type, 1, 1));
-	add_to_scope(&global, create_cfunc("nothing", nothing, 0, ARG_INF));
+	add_to_scope(&global, create_cfunc("undefined", undefined, 0, ARG_INF));
 	add_to_scope(&global, create_cfunc("exit", lobotomy_exit, ARG_NONE, ARG_INF));
 	// add_to_scope(&global, (OBJ){.type=T_NUMBER, .name="a", .number = 2});
 	
