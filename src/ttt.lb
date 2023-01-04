@@ -1,0 +1,2 @@
+(let i 0)
+(loop (< i 10) (print (let i (+ i 1)) "\n"))

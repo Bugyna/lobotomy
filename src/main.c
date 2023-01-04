@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
 
 	if (argc == 1) {
-		text = read_file("t.lb");
+		text = read_file("t2.lb");
 	}
 
 	else if (argc == 2) {
@@ -28,9 +28,9 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	printf("size of OBJ: %ld\n", sizeof(OBJ));
-	printf("size of OBJ*: %ld\n", sizeof(SCOPE));
-	printf("size of OBJ*: %ld\n", sizeof(TREE));
+	// printf("size of OBJ: %ld\n", sizeof(OBJ));
+	// printf("size of OBJ*: %ld\n", sizeof(SCOPE));
+	// printf("size of OBJ*: %ld\n", sizeof(TREE));
 	// printf("size of OBJ*: %ld\n", sizeof(FUNC));
 	printf("text:\n%s\n", text);
 	// parse(text);
@@ -39,6 +39,7 @@ int main(int argc, char* argv[]) {
 	global.func_scope = malloc(5*sizeof(SCOPE));
 	global.func_index = 0;
 	init();
+
 
 	if (interactive) {
 		interactive_shell(text);

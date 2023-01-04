@@ -206,13 +206,13 @@ LEXER tokenize(const char text[])
 			}
 		}
 
-		else if (text[i] == '\\' && !escaped) {
-			escaped = true;
-			continue;
-		}
-
 		else if (in_str) {
-			if (text[i] == '"' && !escaped) {
+			if (text[i] == '\\' && !escaped) {
+				escaped = true;
+				continue;
+			}
+		
+			else if (text[i] == '"' && !escaped) {
 				// str_add_char(word, &word_i, &word_max, '\0');
 				// add_token(&lexer, i-word_i, i, TT_STR, word_i, word);
 				// str_add_char(&token, '\0');
@@ -226,44 +226,44 @@ LEXER tokenize(const char text[])
 
 			else if (escaped) {
 				escaped = false;
-				// switch (text[i])
-				// {
-					// case 'a':
-						// str_add_char(word, &word_i, &word_max, '\a');
-					// break;
+				switch (text[i])
+				{
+					case 'a':
+						str_add_char(&token, '\a');
+					break;
 
-					// case 'b':
-						// str_add_char(word, &word_i, &word_max, '\b');
-					// break;
+					case 'b':
+						str_add_char(&token, '\b');
+					break;
 
-					// case 'f':
-						// str_add_char(word, &word_i, &word_max, '\f');
-					// break;
+					case 'f':
+						str_add_char(&token, '\f');
+					break;
 
-					// case 'n':
-						// str_add_char(word, &word_i, &word_max, '\n');
-					// break;
+					case 'n':
+						str_add_char(&token, '\n');
+					break;
 
-					// case 'r':
-						// str_add_char(word, &word_i, &word_max, '\r');
-					// break;
+					case 'r':
+						str_add_char(&token, '\r');
+					break;
 
-					// case 't':
-						// str_add_char(word, &word_i, &word_max, '\t');
-					// break;
+					case 't':
+						str_add_char(&token, '\t');
+					break;
 
-					// case '\\':
-						// str_add_char(word, &word_i, &word_max, '\\');
-					// break;
+					case '\\':
+						str_add_char(&token, '\\');
+					break;
 
 					// case '\'':
-						// str_add_char(word, &word_i, &word_max, '\'');
+						// str_add_char(&token, text[i]);
 					// break;
 
-					// case '"':
-						// str_add_char(word, &word_i, &word_max, '"');
-					// break;
-				// }
+					case '"':
+						str_add_char(&token, '"');
+					break;
+				}
 				
 				column++;
 				continue;

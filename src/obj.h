@@ -158,6 +158,8 @@ char* type_name(int type)
 			return "STR";
 		case T_LIST:
 			return "LIST";
+		case T_REF:
+			return "REF";
 	}
 
 	// printf("type_name: %d\n", type);
@@ -295,6 +297,9 @@ void print_obj_(OBJ obj)
 	else if (obj.type == T_STR) {
 		printf(" %s", obj.str);
 	}
+
+	else if (obj.type == T_REF)
+		print_obj_(*obj.ref);
 
 	else if (obj.type == T_LIST) {
 		printf("\nLIST:\n\t");
