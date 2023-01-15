@@ -457,7 +457,7 @@ OBJ lobotomy_loop(OBJ* expr)
 	// printf("start loop %s\n", expr->list[2].scope->name);
 	bool f = 1;
 	int i = 0;
-	OBJ ret = undefined();
+	OBJ ret = NO_RETURN();
 	eval_args_new(&expr->list[2]);
 	// for (int i = 0; i < expr->list[2].index; i++)
 	// {

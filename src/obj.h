@@ -25,6 +25,7 @@ enum
 	T_STR,
 	T_LIST,
 	T_CONST,
+	T_NO_RETURN,
 };
 
 
@@ -103,6 +104,14 @@ OBJ undefined()
 	OBJ obj;
 	obj.name = NULL;
 	obj.type = T_UNDEFINED;
+	return obj;
+}
+
+OBJ NO_RETURN()
+{
+	OBJ obj;
+	obj.name = NULL;
+	obj.type = T_NO_RETURN;
 	return obj;
 }
 
