@@ -1,14 +1,9 @@
-\# lobotomy
-programming langauge
-syntax inspired by lisp
-
-
 comments
 ;; a comment
 
 debug comments
 show the comment text during evaluation
-\# a debug comment
+# a debug comment
 
 
 syntax
@@ -40,4 +35,5 @@ variables are saved inside scopes
 the default scope is the global one and functions create their own scope when called
 you can still access global variables inside of functions as long as they haven't been overwritten (named the same way as the funciton parameters)
 
+for showcase call [your python interpreter of choice] p.py test.lb
 

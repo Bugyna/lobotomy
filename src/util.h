@@ -30,6 +30,9 @@ char* read_file(const char path[])
 	char* dst = "";
 	FILE* file;
 	file = fopen(path, "r");
+	if (file == NULL) {
+		lobotomy_error("failed to read file %s", path);
+	}
 	fseek(file, 0, SEEK_END);
 	int size = ftell(file);
 	dst = malloc(size+2);

@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
 
 	if (argc == 1) {
-		text = read_file("t.lb");
+		text = read_file("t2.lb");
 	}
 
 	else if (argc == 2) {
@@ -25,6 +25,10 @@ int main(int argc, char* argv[]) {
 			printf("here\n");
 			interactive = true;
 			text = malloc(2048);
+		}
+
+		else {
+			text = read_file(argv[1]);
 		}
 	}
 
@@ -46,7 +50,8 @@ int main(int argc, char* argv[]) {
 	}
 
 	else
-		interpret(text);
+		interpret_(text);
+		// interpret(text);
 
 
 	return 0;

@@ -1,5 +1,5 @@
 (let a 0)
-(loop (< a 100000) (print (let a (+ a 1))))
+(loop (< a 100000) (print (let a (+ a 1)) "\n"))
 ;; (loop (< a 10000) (let a (+ a 1)))
 (print "\n")
 (print "\n")
