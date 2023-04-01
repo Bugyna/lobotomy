@@ -1,7 +1,5 @@
 #include "parse.h"
 
-
-
 /* #define arithmetic_shorthand(a, b, op) switch (op) {case '+': *a += *b; break; case '-': *a -= *b; break; \
 // case '*': \
 			// *a *= *b; \
@@ -19,7 +17,6 @@
 
 */
 #define arithmetic_shorthand(a, b, op) a op##= b
-
 
 enum
 {
@@ -58,7 +55,6 @@ OBJ lobotomy_type(OBJ* obj)
 	res.str = type_name(obj->list[1].type);
 	return res;
 }
-
 
 // OBJ cast_to_int(OBJ* obj)
 // {
@@ -125,17 +121,21 @@ OBJ arithmetic_operation(OBJ* expr)
 
 	if (expr->index > 2) {
 		res = expr->list[1];
+		res.scope = expr->scope;
 		if (res.type == T_EXPR || res.type == T_IDENTIFIER)
 			res = eval(&res);
 		else if (res.type == T_REF)
 			res = *res.ref;
 		i = 2;
+		// print_obj(res);
 	}
 	else {
 		res.type = T_NUMBER;
 		res.number = 0;
 	}
 
+
+	print_expr(*expr);
 	for (; i < expr->index; i++) {
 		if (expr->list[i].type == T_UNDEFINED)
 			break;
@@ -183,6 +183,8 @@ OBJ arithmetic_operation(OBJ* expr)
 				break;
 		}
 	}
+
+	printf("arires: %ld\n", res.number);
 	return res;
 }
 
@@ -637,7 +639,7 @@ void apply_scope(OBJ* expr, SCOPE* scope)
 		if (expr->list[i].type == T_UNDEFINED)
 			break;
 
-		else if (expr->list[i].type == T_LIST) {
+		else if (expr->list[i].type == T_LIST || expr->list[i].type == T_EXPR) {
 			// printf("a\n");
 			apply_scope(&expr->list[i], scope);
 		}
@@ -650,17 +652,27 @@ OBJ run_func(OBJ func, OBJ* expr)
 	add_func_scope(&global, func.name, func.list[0].index);
 	func.scope = &global.func_scope[global.func_index-1];
 	func.list[1].scope = &global.func_scope[global.func_index-1];
-	func = create_copy(&func);
-	eval_args(expr);
-	// print_obj_type(func.list[1]);+
+	// func = create_copy(&func);
+	eval_args_new(expr);
+	// print_obj_type(func.list[1]);
 
 	for (int i = 0; i < func.list[0].index; i++) {
 		if (func.list[0].list[i].type != T_UNDEFINED && func.list[0].list[i].name != NULL) {
+			// printf("adding: %s %ld to scope\n", func.list[0].list[i].name, expr->list[i+1].number);
 			expr->list[i+1].name = func.list[0].list[i].name;
-			// printf("adding: %s %ld to scope\n", expr->list[i+1].name, expr->list[i+1].number);
+			// func.list[0].list[i].ref = &expr->list[i+1];
+			// func.list[0].list[i].type = T_REF;
 			add_to_scope(&global.func_scope[global.func_index-1], expr->list[i+1]);
 		}
 	}
+
+	// for (int i = 0; i < func.list[0].index; i++) {
+		// if (func.list[0].list[i].type != T_UNDEFINED && func.list[0].list[i].name != NULL) {
+			// expr->list[i+1].name = func.list[0].list[i].name;
+			// // printf("adding: %s %ld to scope\n", expr->list[i+1].name, expr->list[i+1].number);
+			// add_to_scope(&global.func_scope[global.func_index-1], expr->list[i+1]);
+		// }
+	// }
 
 	// for (int i = 0; i < func.list[1].index; i++) {
 		// for (int j = 0; j < func.list[0].index; j++) {
@@ -678,6 +690,10 @@ OBJ run_func(OBJ func, OBJ* expr)
 	// printf("fc: %s: %ld\n", func.list[1].list[1].name, find_in_scope(global.func_scope[global.func_index-1], func.list[1].list[1].name).number);
 	// scope_init(&global.func_scope[global.func_index], 5);
 	// printf("ffffuck: %s\n", func.list[1].scope->name);
+
+	// printf("daw: %s %s\n", type_name(func.list[1].type), func.list[1].list[1].name);
+	print_expr(func.list[1]);
+	
 	OBJ res = eval(&func.list[1]);
 	return res;
 
@@ -713,6 +729,7 @@ void eval_args_new(OBJ* expr)
 	for (int i = 1; i < expr->index; i++) {
 		if (expr->list[i].type == T_LIST || expr->list[i].type == T_EXPR)
 			eval_args_new(&expr->list[i]);
+
 		else if (expr->list[i].type == T_IDENTIFIER) {
 				expr->list[i].ref = find_var(expr, i);
 				expr->list[i].type = T_REF;
@@ -848,11 +865,12 @@ OBJ eval(OBJ* expr)
 		// eval_args(&expr);
 		// return expr;
 	// }
-	// printf("ffffff: %s %s\n", expr->name, expr->scope->name);
+	// printf("ffffff: %s %s %s\n", expr->name, expr->scope->name, type_name(expr->type));
 	if (expr->type == T_IDENTIFIER) {
-		return find_in_scope(global, expr->name);
+		return find_in_scope(*expr->scope, expr->name);
 	}
-	if (expr->type != T_LIST && expr->type != T_CFUNC && expr->type != T_FUNC) {
+
+	if (expr->type != T_EXPR && expr->type != T_LIST && expr->type != T_CFUNC && expr->type != T_FUNC) {
 		return *expr;
 	}
 
@@ -868,6 +886,7 @@ OBJ eval(OBJ* expr)
 		expr->list[0] = obj;
 		// print_obj_type(expr->list[1]);
 	}
+	// print_obj_type(expr->list[0]);
 	// else
 		// return *expr;
 	// OBJ obj = undefined();
@@ -906,6 +925,7 @@ OBJ eval(OBJ* expr)
 
 		case T_FUNC:
 			// printf("p: %p\n", &obj.list[1]);
+			printf("running func: %s", obj.name);
 			return run_func(obj, expr);
 			// obj.list[0].ref = &expr.list[1];
 			// return undefined();

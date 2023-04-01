@@ -8,7 +8,6 @@ typedef struct TREE TREE;
 typedef struct FUNC FUNC;
 
 
-
 enum
 {
 	T_UNDEFINED,
@@ -333,6 +332,17 @@ void print_obj_type(OBJ obj)
 	printf("%s: %s\n", obj.name, type_name(obj.type));
 }
 
+
+void print_expr(OBJ obj)
+{
+	printf("%s:\n", obj.name);
+	for (int i = 0; i < obj.index; i++) {
+		printf("\t%s:   ", obj.list[i].name);
+		print_obj(obj.list[i]);
+		printf("\n");
+	}
+}
+
 void add_obj_to_obj(OBJ* dest, const OBJ src)
 {
 	dest->list[dest->index++] = src;
@@ -500,6 +510,7 @@ OBJ create_func(char* name, OBJ* expr)
 	
 	OBJ obj;
 	obj.type = T_FUNC;
+	printf("create func: %s", name);
 	obj.name = name;
 
 	// printf("index: %d\n", expr->index);
@@ -507,10 +518,12 @@ OBJ create_func(char* name, OBJ* expr)
 	obj.list = malloc(obj.index*sizeof(OBJ));
 
 	obj.list[0] = expr->list[2];
+	obj.list[0].type = T_EXPR;
 	obj.list[0].name = "args";
 	obj.list[0].index = expr->list[2].index;
 
 	obj.list[1] = expr->list[3];
+	obj.list[1].type = T_EXPR;
 	obj.list[1].name = "body";
 	obj.list[1].index = expr->list[3].index;
 

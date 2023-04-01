@@ -155,7 +155,7 @@ OBJ parse_expr(LEXER* lexer)
 					// }
 				// }
 			// }
-			expr.type = T_LIST;
+			expr.type = T_EXPR;
 		// }
 		return expr;
 	// printf("breaking at %d %s %d %d\n", i, lexer.tokens[i-2].text, expr.start, expr.end);

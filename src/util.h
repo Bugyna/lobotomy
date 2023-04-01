@@ -11,7 +11,6 @@
 
 #include "error.h"
 
-
 #define my_assert(expr, err, err_code, line, column) if (expr) { printf("%s at %d.%d\n", err, line, column); exit(err_code); }
 
 
