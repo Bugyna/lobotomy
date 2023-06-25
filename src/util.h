@@ -54,7 +54,7 @@ char* read_file(const char path[])
 	
 }
 
-int hash(char* key)
+int hash(const char* key)
 {
 	// my_assert(key == NULL, "fuckery in hash", -1, 0, 0);
 	if (key == NULL) {
