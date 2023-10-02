@@ -2,21 +2,17 @@
 #include "lexer.h"
 #include "obj.h"
 
-
-
-ENV global;
-OBJ_LIST tree;
-
-OBJ parse_expr(LEXER* lexer)
+typedef struct
 {
-	OBJ obj;
-}
-
+	OBJ* head;
+	OBJ* tail;
+} OBJ_PAIR;
 
 OBJ parse_atom(TOKEN t)
 {
 	OBJ atom;
 	char* end;
+	atom.name = malloc(1);
 	switch (t.type)
 	{
 		case TT_NUMBER:
@@ -31,12 +27,13 @@ OBJ parse_atom(TOKEN t)
 		
 		case TT_STR:
 			atom.type = T_STR;
-			atom.str = malloc(t.len);
+			// atom->str = malloc(t.len);
 			atom.str = t.text;
 			// atom.index = t.len-1;
 		break;
 		
 		case TT_IDENTIFIER:
+			free(atom.name);
 			atom.type = T_IDENTIFIER;
 			atom.name = malloc(t.len+1);
 			strcpy(atom.name, t.text);
@@ -46,86 +43,94 @@ OBJ parse_atom(TOKEN t)
 	return atom;
 }
 
-OBJ parse_program(LEXER* lexer)
+
+
+OBJ_PAIR parse_expr(LEXER* lexer, int n)
 {
-	ENV tmp_scope;
-	bool in_func_def = 0;
-
-	OBJ expr;
-	expr.name = NULL;
-	expr.type = T_LIST;
-	expr.scope = &global;
-
-	OBJ obj;
-	static const OBJ obj_reset;
-	
+	TOKEN t = lexer->tokens[lexer->peek];
+	printf("start token of %d: %s\n", n, t.text);
+	OBJ* head = empty_obj();
+	head->type = T_LIST;
+	OBJ* cur = head;
 	int p_count = 0;
-	// expr.index = 0;
-	expr.list = malloc(5*sizeof(OBJ));
-
-	char* end;
-
+	
 	for (; lexer->peek < lexer->index; lexer->peek++) {
-		TOKEN t = lexer->tokens[lexer->peek];
-		if (t.text == NULL)
-			break;
+		t = lexer->tokens[lexer->peek];
+		// printf("token: %d\n", lexer->peek);
+		// print_token(t);
+		// print_obj_simple(cur);
 
 		switch (t.type)
 		{
 			case TT_LPAREN:
 				p_count++;
 				if (p_count > 1) {
-					OBJ tmp_expr = parse_expr(lexer);
-					add_obj_to_obj(&expr, tmp_expr);
-					obj = obj_reset;
-					lexer->peek--;
-					continue;
+					
+					cur->type = T_LIST;
+					printf("starting rec: %d\n", lexer->peek);
+					// lexer->peek++;
+					OBJ_PAIR pair = parse_expr(lexer, n+1);
+					printf("end rec: %d\n", lexer->peek);
+
+					cur->next = pair.head;
+					// print_obj_simple(cur);
+					cur = pair.tail;
+					// cur->next = empty_obj();
+					// cur = cur->next;
+					// OBJ tmp_expr = parse_expr(lexer);
+					// add_obj_to_obj(&expr, tmp_expr);
+
+					// obj = obj_reset;
+					// lexer->peek--;
+					p_count--;
 				}
-				break;
+			break;
 
 			case TT_RPAREN:
 				p_count--;
 				if (p_count <= 0) {
 					goto exit;
 				}
-				break;
+			break;
 
-			
+
+			default:
+				*cur = parse_atom(t);
+				if (lexer->tokens[lexer->peek+1].type == TT_RPAREN) continue;
+				cur->next = empty_obj();
+				cur = cur->next;
 		}
 	}
 
+
 	exit:
-	expr.type = T_LIST;
-	return expr;
+	printf("deep: %d %s %d\n", n, type_name(cur->type), lexer->peek);
+	__print_obj_full(head);
+	return (OBJ_PAIR){.head=head, .tail=cur};
 }
 
 
-OBJ_LIST parse(const char text[])
-{
-	global.name = "global";
-	OBJ_LIST tree;
-	OBJ_LIST_INIT(&tree);
-	OBJ expr;
 
+OBJ_LIST* parse(const char text[])
+{
+	OBJ_LIST* parsed = malloc(sizeof(OBJ_LIST));
+	OBJ_LIST_INIT(parsed);
+	OBJ* head;
 
 	LEXER lexer = tokenize(text);
-	// add_expr(&tree, parse_expr(lexer, 0));
+
 	for (;;) {
 		if (lexer.tokens[lexer.peek].text == NULL)
 			break;
-		expr = parse_expr(&lexer);
+		head = parse_expr(&lexer, 0).head;
+		// print_obj_simple(head);
 		
-		// printf("name: %s<%s> %d\n", expr.name, type_name(expr.type), expr.type);
-		// print_obj(expr);
 		lexer.peek++;
-		// printf("end of expr: %d\n", lexer.peek);
-		// i = expr.end+1;
-		OBJ_LIST_APPEND(&tree, &expr);
-		// printf("f: %d %s %d", expr.type, expr.name, expr.index);
-		// print_obj_full(expr);
+		OBJ_LIST_APPEND(parsed, head);
 	}
-	// printf("\n\n\n--------------------------PARSER DONE-----------------------------------\n\n\n");
-	return tree;
+
+	printf("\n\n-------------------\n\n");
+	return parsed;
 }
 
 

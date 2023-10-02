@@ -46,6 +46,8 @@ typedef struct
 	int index, size, peek;
 	bool ignore_untill_current_token_end;
 	bool ignore_untill_next_token_end;
+
+	int p_count;
 } LEXER;
 
 
@@ -62,6 +64,7 @@ void lexer_init(LEXER* lexer)
 	lexer->ignore_untill_current_token_end = false;
 	lexer->ignore_untill_next_token_end = false;
 	lexer->tokens = calloc(lexer->size, sizeof(TOKEN));
+	lexer->p_count = 0;
 }
 
 
