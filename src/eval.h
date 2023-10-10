@@ -12,6 +12,31 @@
 OBJ* __eval(OBJ*);
 void preeval(OBJ*, ...);
 
+#define DEF_ARITHMETIC_OPERATION(NAME, SIGN)\
+OBJ* L_##NAME(OBJ* o, ...)\
+{\
+	OBJ* ret = NEW();\
+	o = NT(o);\
+	ITERATE_OBJECT_PTR(o, curr)\
+	{\
+		if (curr->type == T_DECIMAL) ret->type = T_DECIMAL;\
+		\
+		if (ret->type == T_DECIMAL && curr->type == T_NUM)\
+			ret->decimal SIGN= curr->num;\
+		\
+		else if (ret->type == T_NUM && curr->type == T_DECIMAL)\
+			ret->num = SIGN= curr->decimal;\
+\
+		else if (ret->type == T_NUM && curr->type == T_DECIMAL)\
+			ret->num = SIGN= curr->decimal;\
+		\
+		else if (ret->type == T_NUM && curr->type == T_NUM)\
+			ret->num = SIGN= curr->NUM;\
+	} \
+}
+
+
+
 
 OBJ* create_cfn(const char* name, C_FUNC_DEC fn)
 {
@@ -52,6 +77,7 @@ OBJ* lobotomy_add(OBJ* o, ...)
 	return ret;
 }
 
+DEF_ARITHMETIC_OPERATION(subtract, -)
 
 OBJ* L_less_than(OBJ* o, ...)
 {
@@ -59,6 +85,35 @@ OBJ* L_less_than(OBJ* o, ...)
 	ret->type = T_NUM;
 	o = NT(o);
 	ret->num = (o->num < NT(o)->num);
+	return ret;
+}
+
+OBJ* L_more_than(OBJ* o, ...)
+{
+	OBJ* ret = NEW();
+	ret->type = T_NUM;
+	o = NT(o);
+	ret->num = (o->num > NT(o)->num);
+	return ret;
+}
+
+
+OBJ* L_less_or_eq_than(OBJ* o, ...)
+{
+	OBJ* ret = NEW();
+	ret->type = T_NUM;
+	o = NT(o);
+	ret->num = (o->num <= NT(o)->num);
+	return ret;
+}
+
+
+OBJ* L_more_or_eq_than(OBJ* o, ...)
+{
+	OBJ* ret = NEW();
+	ret->type = T_NUM;
+	o = NT(o);
+	ret->num = (o->num >= NT(o)->num);
 	return ret;
 }
 
