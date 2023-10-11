@@ -8,6 +8,7 @@
 
 
 #define NT(X) X->next
+#define NEXT(X) X = X->next
 
 OBJ* __eval(OBJ*);
 void preeval(OBJ*, ...);
@@ -15,24 +16,35 @@ void preeval(OBJ*, ...);
 #define DEF_ARITHMETIC_OPERATION(NAME, SIGN)\
 OBJ* L_##NAME(OBJ* o, ...)\
 {\
-	OBJ* ret = NEW();\
 	o = NT(o);\
-	ITERATE_OBJECT_PTR(o, curr)\
+	OBJ* ret = NEW();\
+	ret->type = o->type;\
+	if (ret->type == T_NUM)\
+		ret->num = o->num;\
+	else if (ret->type == T_DECIMAL)\
+		ret->num = o->decimal;\
+\
+	NEXT(o);\
+	if (o == NULL) ret->num \
+\
+	ITERATE_OBJECT(o, curr)\
 	{\
 		if (curr->type == T_DECIMAL) ret->type = T_DECIMAL;\
 		\
 		if (ret->type == T_DECIMAL && curr->type == T_NUM)\
-			ret->decimal SIGN= curr->num;\
+			ret->decimal SIGN##= curr->num;\
 		\
-		else if (ret->type == T_NUM && curr->type == T_DECIMAL)\
-			ret->num = SIGN= curr->decimal;\
+		else if (ret->type == T_DECIMAL && curr->type == T_DECIMAL)\
+			ret->num SIGN##= curr->decimal;\
 \
 		else if (ret->type == T_NUM && curr->type == T_DECIMAL)\
-			ret->num = SIGN= curr->decimal;\
+			ret->num SIGN##= curr->decimal;\
 		\
 		else if (ret->type == T_NUM && curr->type == T_NUM)\
-			ret->num = SIGN= curr->NUM;\
+			ret->num SIGN##= curr->num;\
 	} \
+	printf("RET: %ld\n", ret->num);\
+	return ret;\
 }
 
 
@@ -201,6 +213,7 @@ OBJ* L_print(OBJ* o, ...)
 void lobotomy_init()
 {
 	ENV_ADD(&global_env, "+", create_cfn("+", lobotomy_add));
+	ENV_ADD(&global_env, "-", create_cfn("-", L_subtract));
 	ENV_ADD(&global_env, "loop", create_cfn("loop", L_loop));
 	ENV_ADD(&global_env, "<", create_cfn("<", L_less_than));
 	ENV_ADD(&global_env, "let", create_cfn("let", L_let));
