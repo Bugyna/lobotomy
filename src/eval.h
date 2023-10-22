@@ -25,7 +25,7 @@ OBJ* L_##NAME(OBJ* o, ...)\
 		ret->num = o->decimal;\
 \
 	NEXT(o);\
-	if (o == NULL) ret->num \
+	if (o == NULL) return ret; \
 \
 	ITERATE_OBJECT(o, curr)\
 	{\
@@ -130,6 +130,11 @@ OBJ* L_more_or_eq_than(OBJ* o, ...)
 }
 
 
+OBJ* L_exit(OBJ* o)
+{
+	exit(0);
+}
+
 void preeval(OBJ* o, ...)
 {
 	ITERATE_OBJECT_PTR(o, curr)
@@ -218,6 +223,7 @@ void lobotomy_init()
 	ENV_ADD(&global_env, "<", create_cfn("<", L_less_than));
 	ENV_ADD(&global_env, "let", create_cfn("let", L_let));
 	ENV_ADD(&global_env, "print", create_cfn("print", L_print));
+	ENV_ADD(&global_env, "exit", create_cfn("exit", L_exit));
 }
 
 
