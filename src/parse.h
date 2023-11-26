@@ -48,7 +48,7 @@ OBJ parse_atom(TOKEN t)
 OBJ_PAIR parse_expr(LEXER* lexer, int n)
 {
 	TOKEN t = lexer->tokens[lexer->peek];
-	printf("start token of %d: %s\n", n, t.text);
+	// printf("start token of %d: %s\n", n, t.text);
 	OBJ* head = empty_obj();
 	head->type = T_LIST;
 	OBJ* cur = head;
@@ -65,18 +65,17 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 			case TT_LPAREN:
 				p_count++;
 				if (p_count > 1) {
-					
 					cur->type = T_LIST;
-					printf("starting rec: %d\n", lexer->peek);
+					// printf("starting rec: %d\n", lexer->peek);
 					// lexer->peek++;
 					OBJ_PAIR pair = parse_expr(lexer, n+1);
-					printf("end rec: %d\n", lexer->peek);
-
-					cur->next = pair.head;
+					// printf("end rec: %d\n", lexer->peek);
+					// OBJ* tmp = cur->cdr;
+					cur->car = pair.head;
 					// print_obj_simple(cur);
-					cur = pair.tail;
-					// cur->next = empty_obj();
-					// cur = cur->next;
+					// cur = tmp;
+					cur->cdr = empty_obj();
+					// cur = cur->cdr;
 					// OBJ tmp_expr = parse_expr(lexer);
 					// add_obj_to_obj(&expr, tmp_expr);
 
@@ -97,15 +96,15 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 			default:
 				*cur = parse_atom(t);
 				if (lexer->tokens[lexer->peek+1].type == TT_RPAREN) continue;
-				cur->next = empty_obj();
-				cur = cur->next;
+				cur->cdr = empty_obj();
+				cur = cur->cdr;
 		}
 	}
 
 
 	exit:
-	printf("deep: %d %s %d\n", n, type_name(cur->type), lexer->peek);
-	__print_obj_full(head);
+	// printf("deep: %d %s %d\n", n, type_name(cur->type), lexer->peek);
+	// __print_obj_full(head);
 	return (OBJ_PAIR){.head=head, .tail=cur};
 }
 

@@ -66,20 +66,20 @@ struct OBJ
 		char* str;
 		FN* fn;
 		C_FUNC_DEC c_fn;
+		OBJ* car;
 	};
 
-	OBJ* next;
-
+	OBJ* cdr;
 };
 
 
 
 #define ITERATE_OBJECT(O, curr)\
-for(OBJ* curr = O; curr != NULL; curr = curr->next)
+for(OBJ* curr = O; curr != NULL; curr = curr->cdr)
 
 
 #define ITERATE_OBJECT_PTR(O, curr)\
-for(OBJ** curr = &O; *curr != NULL && (*curr)->type != T_UNDEFINED; curr = &(*curr)->next)
+for(OBJ** curr = &O; *curr != NULL && (*curr)->type != T_UNDEFINED; curr = &(*curr)->cdr)
 
 
 
@@ -88,15 +88,18 @@ void __print_obj_simple(OBJ* o)
 	switch (o->type)
 	{
 		case T_UNDEFINED:
-			printf("[%s %s: UNDEFINED]", type_name(o->type), o->name);
+			// printf("[%s %s: UNDEFINED]", type_name(o->type), o->name);
+			printf("!UNDEFINED!");
 		break;
 
 		case T_NUM:
-			printf("[%s %s: %ld]", type_name(o->type), o->name, o->num);
+			// printf("[%s %s: %ld]", type_name(o->type), o->name, o->num);
+			printf("%ld", o->num);
 		break;
 
 		case T_DECIMAL:
-			printf("[%s %s: %f]", type_name(o->type), o->name, o->decimal);
+			// printf("[%s %s: %f]", type_name(o->type), o->name, o->decimal);
+			printf("%f", o->decimal);
 		break;
 
 		case T_IDENTIFIER:
@@ -104,17 +107,27 @@ void __print_obj_simple(OBJ* o)
 		break;
 
 		case T_STR:
-			printf("[%s %s: %s]", type_name(o->type), o->name, o->str);
+			// printf("[%s %s: %s]", type_name(o->type), o->name, o->str);
+			printf("\"%s\"", o->str);
 		break;
 
 		case T_LIST:
-			printf("[%s <%s>] (", type_name(o->type), o->name);
-			ITERATE_OBJECT(o->next, curr)
+			printf("%s <%s>: ( ", type_name(o->type), o->name);
+			// printf("[%s <%s>]", type_name(o->car->type), o->car->name);
+			__print_obj_simple(o->car);
+			ITERATE_OBJECT(o->car->cdr, curr)
 			{
-				printf(" .\n\t");
+				printf(" . ");
 				__print_obj_simple(curr);
 			}
-			printf("\n)");
+			printf(" )\n\t( ");
+
+			ITERATE_OBJECT(o->cdr, curr)
+			{
+				printf(" . ");
+				__print_obj_simple(curr);
+			}
+			printf(" )\n");
 		break;
 
 		case T_C_FN:
@@ -138,7 +151,7 @@ void print_obj_simple(OBJ* o)
 void __print_obj_full(OBJ* o)
 {
 	printf("[%s <%s>] (", type_name(o->type), o->name);
-	ITERATE_OBJECT(o->next, curr)
+	ITERATE_OBJECT(o->cdr, curr)
 	{
 		printf(" .\n\t");
 		__print_obj_simple(curr);
@@ -159,6 +172,10 @@ struct FN
 };
 
 
+void env_add(ENV* e, OBJ* o)
+{
+	ENV_ADD(e, o->name, o);
+}
 
 #define NEW() calloc(1, sizeof(OBJ))
 OBJ* empty_obj()
