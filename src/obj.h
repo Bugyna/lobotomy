@@ -13,7 +13,9 @@
 typedef enum
 {
 	T_UNDEFINED,
+	T_NIL,
 	T_IDENTIFIER,
+	T_EXPR,
 	T_LIST,
 	T_C_FN,
 	T_FN,
@@ -31,7 +33,9 @@ const char* type_name(OBJ_TYPE i)
 	switch (i)
 	{
 		case T_UNDEFINED: return STRINGIFY(T_UNDEFINED);
+		case T_NIL: return STRINGIFY(T_NIL);
 		case T_IDENTIFIER: return STRINGIFY(T_IDENTIFIER);
+		case T_EXPR: return STRINGIFY(T_EXPR);
 		case T_LIST: return STRINGIFY(T_LIST);
 		case T_C_FN: return STRINGIFY(T_C_FN);
 		case T_FN: return STRINGIFY(T_FN);
@@ -75,11 +79,11 @@ struct OBJ
 
 
 #define ITERATE_OBJECT(O, curr)\
-for(OBJ* curr = O; curr != NULL; curr = curr->cdr)
+for(OBJ* curr = O; curr != NULL && curr->type != T_UNDEFINED && curr->type != T_NIL; curr = curr->cdr)
 
 
 #define ITERATE_OBJECT_PTR(O, curr)\
-for(OBJ** curr = &O; *curr != NULL && (*curr)->type != T_UNDEFINED; curr = &(*curr)->cdr)
+for(OBJ** curr = &O; *curr != NULL && (*curr)->type != T_UNDEFINED && (*curr)->type != T_NIL; curr = &(*curr)->cdr)
 
 
 
@@ -90,6 +94,11 @@ void __print_obj_simple(OBJ* o)
 		case T_UNDEFINED:
 			// printf("[%s %s: UNDEFINED]", type_name(o->type), o->name);
 			printf("!UNDEFINED!");
+		break;
+
+		case T_NIL:
+			// printf("[%s %s: UNDEFINED]", type_name(o->type), o->name);
+			printf("#NIL#");
 		break;
 
 		case T_NUM:
@@ -111,7 +120,7 @@ void __print_obj_simple(OBJ* o)
 			printf("\"%s\"", o->str);
 		break;
 
-		case T_LIST:
+		case T_LIST: case T_EXPR:
 			printf("%s <%s>: ( ", type_name(o->type), o->name);
 			// printf("[%s <%s>]", type_name(o->car->type), o->car->name);
 			__print_obj_simple(o->car);
@@ -120,13 +129,13 @@ void __print_obj_simple(OBJ* o)
 				printf(" . ");
 				__print_obj_simple(curr);
 			}
-			printf(" )\n\t( ");
+			// printf(" )\n\t( ");
 
-			ITERATE_OBJECT(o->cdr, curr)
-			{
-				printf(" . ");
-				__print_obj_simple(curr);
-			}
+			// ITERATE_OBJECT(o->cdr, curr)
+			// {
+				// printf(" . ");
+				// __print_obj_simple(curr);
+			// }
 			printf(" )\n");
 		break;
 
@@ -180,10 +189,12 @@ void env_add(ENV* e, OBJ* o)
 #define NEW() calloc(1, sizeof(OBJ))
 OBJ* empty_obj()
 {
-	// OBJ* ret = NEW();
+	
+	OBJ* ret = NEW();
+	ret->type=T_NIL;
 	// ret->name = malloc(5);
 	// ret->name = "2";
 	// return ret;
-	return NEW();
+	return ret;
 }
 

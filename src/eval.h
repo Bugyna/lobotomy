@@ -11,6 +11,7 @@ OBJ* __eval(OBJ*);
 void preeval(OBJ*, ...);
 
 
+static OBJ* NIL = &((OBJ){.type=T_NIL});
 
 
 #define DEF_ARITHMETIC_OPERATION(NAME, SIGN)\
@@ -201,6 +202,7 @@ void preeval(OBJ* o, ...)
 		// else if ((*curr)->type == T_LIST)
 			// preeval(NT((*curr)));
 	}
+	// print_obj_simple(o);
 }
 
 
@@ -259,7 +261,7 @@ OBJ* L_let(OBJ* o, ...)
 	if (ret == NULL)
 	{
 
-		if (val->type == T_LIST){printf("xxx\n"); *ret = *__eval(NT(val));}
+		if (val->type == T_EXPR){printf("xxx\n"); *ret = *__eval(val->car);}
 		else ret = L_copy(val);
 		ret->name = var->name;
 
@@ -269,7 +271,7 @@ OBJ* L_let(OBJ* o, ...)
 		return ret;
 	}
 
-	if (val->type == T_LIST){printf("xxx\n"); *ret = *__eval(NT(val));}
+	if (val->type == T_EXPR){printf("xxx\n"); *ret = *__eval(val->car);}
 	else
 	{
 		*ret = *val;
@@ -291,9 +293,11 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 
 OBJ* L_print(OBJ* o, ...)
 {
-	preeval(o);
+	preeval(NT(o));
+	// print_obj_simple(o);
+	// printf("type: %s\n", type_name(o->cdr->type));
 	print_obj_simple(NT(o));
-	return NT(o);
+	return NIL;
 }
 
 OBJ* L_type(OBJ* o, ...)
@@ -301,7 +305,7 @@ OBJ* L_type(OBJ* o, ...)
 	preeval(o);
 	o = NT(o);
 	printf("%s\n", type_name(o->type));
-	return o;
+	return NIL;
 }
 
 void lobotomy_init()
@@ -337,7 +341,16 @@ OBJ* __eval(OBJ* head)
 	OBJ* o;
 	switch (head->type)
 	{
-		case T_LIST: case T_NUM: case T_STR: case T_DECIMAL:
+
+		// case T_EXPR:
+			// return __eval(head);
+		// break;
+
+		case T_LIST:
+			return head;
+		break;
+
+		case T_NUM: case T_STR: case T_DECIMAL:
 			return head;
 		break;
 

@@ -3,3 +3,5 @@
 (let a 2)
 
 (let a (+ a 2))
+
+(print [car (1 2 3)])

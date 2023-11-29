@@ -6,6 +6,8 @@ enum
 	TT_,
 	TT_LPAREN,
 	TT_RPAREN,
+	TT_LBRACKET,
+	TT_RBRACKET,
 	TT_NUMBER,
 	TT_DECIMAL,
 	TT_STR,
@@ -19,6 +21,8 @@ const char* TOKEN_NAMES[] =
 	"TT_",
 	"TT_LPAREN",
 	"TT_RPAREN",
+	"TT_LBRACKET",
+	"TT_RBRACKET",
 	"TT_NUMBER",
 	"TT_DECIMAL",
 	"TT_STR",
@@ -48,6 +52,8 @@ typedef struct
 	bool ignore_untill_next_token_end;
 
 	int p_count;
+
+	int b_count;
 } LEXER;
 
 
@@ -65,6 +71,7 @@ void lexer_init(LEXER* lexer)
 	lexer->ignore_untill_next_token_end = false;
 	lexer->tokens = calloc(lexer->size, sizeof(TOKEN));
 	lexer->p_count = 0;
+	lexer->b_count = 0;
 }
 
 
@@ -293,6 +300,13 @@ LEXER tokenize(const char text[])
 			b_count++;
 		}
 
+
+		else if (text[i] == '[') {
+			str_add_char(&token, '[');
+			add_token(&lexer, token, TT_LBRACKET);
+			reset_token(&token, line, column);
+		}
+
 		else if (text[i] == '"') {
 			in_str = true;
 		}
@@ -311,6 +325,16 @@ LEXER tokenize(const char text[])
 			if (b_count < 0) {
 				lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", line, column);
 			}
+		}
+
+		else if (text[i] == ']') {
+			str_add_char(&token, ']');
+			add_token(&lexer, token, TT_RBRACKET);
+			reset_token(&token, line, column);
+
+			// if (b_count < 0) {
+				// lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", line, column);
+			// }
 		}
         
 		// else if (text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '@' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':') {

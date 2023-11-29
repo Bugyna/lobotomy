@@ -43,21 +43,22 @@ OBJ parse_atom(TOKEN t)
 	return atom;
 }
 
-
-
 OBJ_PAIR parse_expr(LEXER* lexer, int n)
 {
 	TOKEN t = lexer->tokens[lexer->peek];
 	// printf("start token of %d: %s\n", n, t.text);
 	OBJ* head = empty_obj();
-	head->type = T_LIST;
+	head->type = T_EXPR;
 	OBJ* cur = head;
-	int p_count = 0;
+	int p_count = 0, b_count = 0;
+
+	// bool last_was_quote = false;
 	
 	for (; lexer->peek < lexer->index; lexer->peek++) {
 		t = lexer->tokens[lexer->peek];
+		printf("N: %d, b: %d ", n, b_count);
 		// printf("token: %d\n", lexer->peek);
-		// print_token(t);
+		print_token(t);
 		// print_obj_simple(cur);
 
 		switch (t.type)
@@ -65,7 +66,7 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 			case TT_LPAREN:
 				p_count++;
 				if (p_count > 1) {
-					cur->type = T_LIST;
+					cur->type = T_EXPR;
 					// printf("starting rec: %d\n", lexer->peek);
 					// lexer->peek++;
 					OBJ_PAIR pair = parse_expr(lexer, n+1);
@@ -75,7 +76,7 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 					// print_obj_simple(cur);
 					// cur = tmp;
 					cur->cdr = empty_obj();
-					// cur = cur->cdr;
+					cur = cur->cdr;
 					// OBJ tmp_expr = parse_expr(lexer);
 					// add_obj_to_obj(&expr, tmp_expr);
 
@@ -85,9 +86,32 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 				}
 			break;
 
+			case TT_LBRACKET:
+				printf("hereaaaaaa\n");
+				b_count++;
+				lexer->b_count++;
+				cur->type = T_LIST;
+				lexer->peek++;
+				OBJ_PAIR pair = parse_expr(lexer, n+1);
+				// b_count--;
+				// lexer->peek--;
+				cur->car = pair.head;
+				cur->cdr = empty_obj();
+				cur = cur->cdr;
+
+			break;
+
 			case TT_RPAREN:
 				p_count--;
 				if (p_count <= 0) {
+					goto exit;
+				}
+			break;
+
+			case TT_RBRACKET:
+				lexer->b_count--;
+				b_count--;
+				if (b_count <= 0) {
 					goto exit;
 				}
 			break;
@@ -103,6 +127,7 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 
 
 	exit:
+	cur->cdr = NULL;
 	// printf("deep: %d %s %d\n", n, type_name(cur->type), lexer->peek);
 	// __print_obj_full(head);
 	return (OBJ_PAIR){.head=head, .tail=cur};
