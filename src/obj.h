@@ -112,7 +112,9 @@ void __print_obj_simple(OBJ* o)
 		break;
 
 		case T_IDENTIFIER:
-			printf("[%s %s]", type_name(o->type), o->name);
+			printf("[%s %s] = ", type_name(o->type), o->name);
+			if (o->car != NULL) __print_obj_simple(o->car);
+			else printf("#NIL#");
 		break;
 
 		case T_STR:
