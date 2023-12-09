@@ -126,10 +126,10 @@ void __print_obj_simple(OBJ* o)
 			printf("%s <%s>: ( ", type_name(o->type), o->name);
 			// printf("[%s <%s>]", type_name(o->car->type), o->car->name);
 			__print_obj_simple(o->car);
-			ITERATE_OBJECT(o->car->cdr, curr)
+			ITERATE_OBJECT_PTR(*(o->car->cdr), curr)
 			{
 				printf(" . ");
-				__print_obj_simple(curr);
+				__print_obj_simple(*curr);
 			}
 			// printf(" )\n\t( ");
 

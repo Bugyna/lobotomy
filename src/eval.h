@@ -171,7 +171,8 @@ OBJ* L_less_or_eq_than(OBJ* o, ...)
 
 OBJ* L_car(OBJ* o)
 {
-	return o->car;
+	preeval(NT(o));
+	return NT(o)->car;
 }
 
 
@@ -202,21 +203,30 @@ OBJ* L_exit(OBJ* o)
 
 void preeval(OBJ* o, ...)
 {
+	OBJ* store = NULL;
+	OBJ* prev = NULL;
 	ITERATE_OBJECT_PTR(o, curr)
 	{
-		if ((*curr)->type == T_IDENTIFIER && (*curr)->car == NULL)
+		if ((*curr)->type == T_IDENTIFIER)
 		{
-			printf("getting: %s\n", (*curr)->name);
+			// printf("getting: %s\n", (*curr)->name);
 			// TODO keep linked list order
 			// OBJ* tmp = (*curr)->cdr;
-			(*curr)->car = ENV_GET(&global_env, (*curr)->name);
-			// *curr = ENV_GET(&global_env, (*curr)->name);
+			// (*curr)->car = ENV_GET(&global_env, (*curr)->name);
+			OBJ* tmp = ENV_GET(&global_env, (*curr)->name);
+			if (tmp != NULL) {
+				tmp->cdr = (*curr)->cdr;
+				*curr = tmp;
+				// store = *curr;
+			}
 			// (*curr)->cdr = tmp;
-			printf("GOT: "); print_obj_simple(*curr);
+			printf("GOT: %s: ", type_name((*curr)->type)); print_obj_simple(*curr);
 		}
 		else if ((*curr)->type == T_EXPR)
 			preeval((*curr)->car);
 	}
+	// if (store != NULL)
+		// print_obj_simple(store);
 	// print_obj_simple(o);
 }
 
@@ -257,7 +267,6 @@ OBJ* L_loop(OBJ* o, ...)
 
 	return ret;
 	// return NT(o);
-	
 }
 
 OBJ* L_copy(OBJ* o, ...)
@@ -274,66 +283,66 @@ OBJ* L_let(OBJ* o, ...)
 	OBJ* var = NT(o);
 	preeval(var);
 	OBJ* val = NT(var);
-	// OBJ* ret = ENV_GET(&global_env, var->name);
+	OBJ* ret = ENV_GET(&global_env, var->name);
 
-	// if (ret == NULL)
-	// {
-
-		// if (val->type == T_EXPR){printf("xxx\n"); *ret = *__eval(val->car);}
-		// else ret = L_copy(val);
-		// ret->name = var->name;
-
-		// // printf("\npp: %s\n", ret->name);
-		// printf("blabla: "); print_obj_simple(ret);
-		// ENV_ADD(&global_env, ret->name, ret);
-		// return ret;
-	// }
-
-	// if (val->type == T_EXPR){printf("xxx\n"); *ret = *__eval(val->car);}
-	// else
-	// {
-		// *ret = *val;
-	// }
-
-	
-	// ret->name = var->name;
-	// printf("blabla: "); print_obj_simple(ret);
-
-
-	// return ret;
-
-
-	if (var->car == NULL)
+	if (ret == NULL)
 	{
-		printf("\neee\n");
-		if (val->type == T_EXPR)
-		{
-			printf("xxx\n");
-			OBJ* tmp = __eval(val->car);
-			var->car = malloc(tmp);
-			*var->car = *tmp;
-		}
-		else
-		{
-			var->car = malloc(sizeof(val));
-			*var->car = *L_copy(val);
-		}
-		// var->car->name = var->name;
+
+		if (val->type == T_EXPR){printf("xxx\n"); *ret = *__eval(val->car);}
+		else ret = L_copy(val);
+		ret->name = var->name;
 
 		// printf("\npp: %s\n", ret->name);
-		printf("blabla: "); print_obj_simple(var->car);
-		var->car = ENV_ADD(&global_env, var->name, var->car);
-		
-		return var;
+		// printf("blabla: %s :", ret->name); print_obj_simple(ret);
+		ENV_ADD(&global_env, ret->name, ret);
+		// print_obj_simple(ENV_GET(&global_env, var->name));
+		return ret;
 	}
 
-	if (val->type == T_EXPR){printf("xxx\n"); *var->car = *__eval(val->car);}
+	if (val->type == T_EXPR){printf("xxx\n"); *ret = *__eval(val->car);}
 	else
 	{
-		*var->car = *val;
+		*ret = *val;
 	}
+
+	ret->name = var->name;
+	printf("blabla: "); print_obj_simple(ret);
+
+
+	return ret;
+
+
+	// if (var->car == NULL)
+	// {
+		// printf("\neee\n");
+		// if (val->type == T_EXPR)
+		// {
+			// printf("xxx\n");
+			// OBJ* tmp = __eval(val->car);
+			// var->car = malloc(tmp);
+			// *var->car = *tmp;
+		// }
+		// else
+		// {
+			// var->car = malloc(sizeof(val));
+			// *var->car = *L_copy(val);
+		// }
+		// // var->car->name = var->name;
+
+		// // printf("\npp: %s\n", ret->name);
+		// printf("blabla: "); print_obj_simple(var->car);
+		// var->car = ENV_ADD(&global_env, var->name, var->car);
+		
+		// return var;
+	// }
+
+	// if (val->type == T_EXPR){printf("xxx\n"); *var->car = *__eval(val->car);}
+	// else
+	// {
+		// *var->car = *val;
+	// }
 	
-	return var;
+	// return var;
 }
 
 OBJ* run_func(OBJ* fn, OBJ* args)
@@ -344,8 +353,8 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 
 OBJ* L_print(OBJ* o, ...)
 {
-	preeval(o);
-	// print_obj_simple(o);
+	preeval(NT(o));
+	// print_obj_simple(NT(o));
 	// printf("type: %s\n", type_name(o->cdr->type));
 	print_obj_simple(NT(o));
 	return NIL;
@@ -356,6 +365,16 @@ OBJ* L_type(OBJ* o, ...)
 	preeval(o);
 	o = NT(o);
 	printf("%s\n", type_name(o->type));
+	return NIL;
+}
+
+
+OBJ* L_help(OBJ* o)
+{
+	for (int i = 0; i < global_env.size; i++) {
+		if (global_env.list[i].key != NULL)
+			printf(":: >%s\n", global_env.list[i].key);
+	}
 	return NIL;
 }
 
@@ -380,6 +399,9 @@ void lobotomy_init()
 	ENV_ADD(&global_env, "print", create_cfn("print", L_print));
 	ENV_ADD(&global_env, "type", create_cfn("type", L_type));
 	ENV_ADD(&global_env, "exit", create_cfn("exit", L_exit));
+
+
+	ENV_ADD(&global_env, "help", create_cfn("help", L_help));
 
 
 	env_add(&global_env, create_cfn("cdr", L_cdr));

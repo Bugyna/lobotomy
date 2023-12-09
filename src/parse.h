@@ -120,6 +120,7 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 			default:
 				*cur = parse_atom(t);
 				if (lexer->tokens[lexer->peek+1].type == TT_RPAREN) continue;
+				// *cur->cdr = empty_obj();
 				cur->cdr = empty_obj();
 				cur = cur->cdr;
 		}

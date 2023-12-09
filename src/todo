@@ -1,4 +1,6 @@
+[ ] ptr to ptr instead of just ptrs
 
-[ ]	parse lists and expression separately?
+
+[ X ]	parse lists and expression separately?
 [ ] arguments have to have their own scope you fucking stupid bastard
 [ ] syntax static parsing analysis something
