@@ -6,7 +6,7 @@
 // #include "util.h"
 
 #include "linked_list.h"
-#include "../../SHM/hashmap.h"
+#include "SHM/hashmap.h"
 // #include "hashmap.h"
 
 
@@ -57,6 +57,12 @@ typedef struct ENV ENV;
 
 typedef OBJ* (*C_FUNC_DEC)(OBJ*, ...);
 
+struct FN
+{
+	OBJ* args;
+	OBJ* body;
+	ENV* env;
+};
 
 struct OBJ
 {
@@ -68,14 +74,14 @@ struct OBJ
 		int64_t num;
 		double decimal;
 		char* str;
-		FN* fn;
+		struct { OBJ* args; OBJ* body; };
 		C_FUNC_DEC c_fn;
 		OBJ* car;
 	};
 
 	OBJ* cdr;
+	ENV* env;
 };
-
 
 
 #define ITERATE_OBJECT(O, curr)\
@@ -83,8 +89,16 @@ for(OBJ* curr = O; curr != NULL && curr->type != T_UNDEFINED && curr->type != T_
 
 
 #define ITERATE_OBJECT_PTR(O, curr)\
-for(OBJ** curr = &O; *curr != NULL && (*curr)->type != T_UNDEFINED && (*curr)->type != T_NIL; curr = &(*curr)->cdr)
+for(OBJ** curr = &O; curr != NULL && *curr != NULL && (*curr)->type != T_UNDEFINED && (*curr)->type != T_NIL; curr = &(*curr)->cdr)
 
+
+#define ZIP_ITERATE_OBJECT(O, P, curr, curr1, exprs)\
+	OBJ* curr = O;\
+	OBJ* curr1 = P;\
+	for(; curr != NULL && curr->type != T_UNDEFINED && curr->type != T_NIL && curr1 != NULL && curr1->type != T_UNDEFINED && curr1->type != T_NIL; curr = curr->cdr, curr1 = curr1->cdr)\
+	{\
+		exprs\
+}\
 
 
 void __print_obj_simple(OBJ* o)
@@ -126,7 +140,7 @@ void __print_obj_simple(OBJ* o)
 			printf("%s <%s>: ( ", type_name(o->type), o->name);
 			// printf("[%s <%s>]", type_name(o->car->type), o->car->name);
 			__print_obj_simple(o->car);
-			ITERATE_OBJECT_PTR(*(o->car->cdr), curr)
+			ITERATE_OBJECT_PTR(o->car->cdr, curr)
 			{
 				printf(" . ");
 				__print_obj_simple(*curr);
@@ -147,6 +161,11 @@ void __print_obj_simple(OBJ* o)
 
 		case T_FN:
 			printf("[%s %s]", type_name(o->type), o->name);
+			// ITERATE_OBJECT(o->fn->args, curr)
+			// {
+				// printf(" . ");
+				// __print_obj_simple(curr);
+			// }
 		break;
 
 	}
@@ -158,6 +177,8 @@ void print_obj_simple(OBJ* o)
 	__print_obj_simple(o);
 	printf("\n");
 }
+
+#define print_objf(fmt, o, ...) printf(fmt __VA_ARGS__); print_obj_simple(o);
 
 void __print_obj_full(OBJ* o)
 {
@@ -173,14 +194,7 @@ void __print_obj_full(OBJ* o)
 DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
 DEFINE_LINKED_LIST(OBJ_LIST, OBJ)
 
-ENV global_env;
-
-struct FN
-{
-	OBJ* body;
-	OBJ* args;
-	ENV* env;
-};
+static ENV* global_env;
 
 
 void env_add(ENV* e, OBJ* o)
@@ -188,15 +202,26 @@ void env_add(ENV* e, OBJ* o)
 	ENV_ADD(e, o->name, o);
 }
 
+
+OBJ* env_get(ENV* e, const char* key)
+{
+	for (ENV* tmp_env = e; tmp_env != NULL; tmp_env = tmp_env->parent)
+	{
+		printf("searching in: %s for %s\n", tmp_env->name, key);
+		OBJ* tmp = ENV_GET(tmp_env, key);
+		if (tmp != NULL) return tmp;
+	}
+
+	return NULL;
+}
+
 #define NEW() calloc(1, sizeof(OBJ))
 OBJ* empty_obj()
 {
 	
 	OBJ* ret = NEW();
-	ret->type=T_NIL;
-	// ret->name = malloc(5);
-	// ret->name = "2";
-	// return ret;
+	ret->type = T_NIL;
+	ret->env = global_env;
 	return ret;
 }
 

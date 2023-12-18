@@ -41,8 +41,12 @@ int main(int argc, char* argv[]) {
 	// printf("size of OBJ*: %ld\n", sizeof(SCOPE));
 	// printf("size of OBJ*: %ld\n", sizeof(TREE));
 	// printf("size of OBJ*: %ld\n", sizeof(FUNC));
-	ENV_INIT(&global_env, 40);
+	global_env = calloc(1, sizeof(ENV));
+	global_env->name = "global_env";
+	printf("size 1: %p\n", global_env);
+	ENV_INIT(global_env, 40);
 	lobotomy_init();
+	printf("size 2: %p\n", global_env);
 
 	if (interactive) interactive_shell(text);
 	else eval_program(text);

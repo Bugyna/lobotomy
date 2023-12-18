@@ -11,6 +11,7 @@ typedef struct
 OBJ parse_atom(TOKEN t)
 {
 	OBJ atom;
+	atom.env = global_env;
 	char* end;
 	atom.name = malloc(1);
 	switch (t.type)
@@ -56,9 +57,9 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 	
 	for (; lexer->peek < lexer->index; lexer->peek++) {
 		t = lexer->tokens[lexer->peek];
-		printf("N: %d, b: %d ", n, b_count);
+		// printf("N: %d, b: %d ", n, b_count);
 		// printf("token: %d\n", lexer->peek);
-		print_token(t);
+		// print_token(t);
 		// print_obj_simple(cur);
 
 		switch (t.type)
@@ -148,13 +149,12 @@ OBJ_LIST* parse(const char text[])
 		if (lexer.tokens[lexer.peek].text == NULL)
 			break;
 		head = parse_expr(&lexer, 0).head;
-		// print_obj_simple(head);
 		
 		lexer.peek++;
 		OBJ_LIST_APPEND(parsed, head);
 	}
 
-	printf("\n\n-------------------\n\n");
+	// printf("\n\n-------------------\n\n");
 	return parsed;
 }
 

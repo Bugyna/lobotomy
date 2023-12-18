@@ -4,4 +4,7 @@
 
 (let a (+ a 2))
 
-(print [car (1 2 3)])
+(print [1 2 3])
+
+(fn f (a) (* a a))
+(f 4)

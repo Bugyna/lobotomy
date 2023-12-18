@@ -1,0 +1,6 @@
+[submodule "src/SHM"]
+	path = src/SHM
+	url = https://github.com/bugyna/SHM
+[submodule "src/SLL"]
+	path = src/SLL
+	url = https://github.com/bugyna/SLL
