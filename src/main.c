@@ -41,11 +41,17 @@ int main(int argc, char* argv[]) {
 	// printf("size of OBJ*: %ld\n", sizeof(SCOPE));
 	// printf("size of OBJ*: %ld\n", sizeof(TREE));
 	// printf("size of OBJ*: %ld\n", sizeof(FUNC));
+
+	// printf("h: %s\n", "tést");
+	// printf("h: %08x\n", U'é');
+	// // printf("hash: %d\n", hash("ábc"));
+	// return 0;
+	GC_init();
 	global_env = calloc(1, sizeof(ENV));
 	global_env->name = "global_env";
 	printf("size 1: %p\n", global_env);
-	ENV_INIT(global_env, 40);
-	lobotomy_init();
+	ENV_INIT(global_env, 100);
+	lobotomy_init(global_env);
 	printf("size 2: %p\n", global_env);
 
 	if (interactive) interactive_shell(text);

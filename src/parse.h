@@ -1,4 +1,5 @@
 #pragma once
+#include <wchar.h>
 #include "lexer.h"
 #include "obj.h"
 
@@ -47,7 +48,8 @@ OBJ parse_atom(TOKEN t)
 OBJ_PAIR parse_expr(LEXER* lexer, int n)
 {
 	TOKEN t = lexer->tokens[lexer->peek];
-	// printf("start token of %d: %s\n", n, t.text);
+	// printf("start of expr %d: \n", t.start);
+	if (n == 0) print_token_pos(t, "start of expr");
 	OBJ* head = empty_obj();
 	head->type = T_EXPR;
 	OBJ* cur = head;
@@ -88,7 +90,7 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 			break;
 
 			case TT_LBRACKET:
-				printf("hereaaaaaa\n");
+				// printf("hereaaaaaa\n");
 				b_count++;
 				lexer->b_count++;
 				cur->type = T_LIST;
@@ -129,6 +131,7 @@ OBJ_PAIR parse_expr(LEXER* lexer, int n)
 
 
 	exit:
+	if (n == 0) print_token_pos(t, "end of expr: ");
 	cur->cdr = NULL;
 	// printf("deep: %d %s %d\n", n, type_name(cur->type), lexer->peek);
 	// __print_obj_full(head);

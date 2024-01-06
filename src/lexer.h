@@ -1,5 +1,13 @@
 #pragma once
+#include <wchar.h>
 #include "util.h"
+
+
+
+#define IS_TERMINATOR(c) (strchr("() \n\t[]\"", c) != NULL)
+#define IS_VALID_SYMBOL_CHAR(c) ((c > 128 || c < 0) || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || strchr("+-_/?|*&^%$#!~<>=", c) != NULL)
+#define IS_NUMBER(c) (c >= '0' && c <= '9')
+#define IS_WHITESPACE(c) (c == '\n' || c == '\t' || c == ' ')
 
 enum
 {
@@ -46,14 +54,18 @@ typedef struct
 
 typedef struct
 {
+	const char* text;
+	size_t text_len, text_peek;
+
 	TOKEN* tokens;
 	int index, size, peek;
 	bool ignore_untill_current_token_end;
 	bool ignore_untill_next_token_end;
 
 	int p_count;
-
 	int b_count;
+	MARK pos;
+
 } LEXER;
 
 
@@ -62,22 +74,36 @@ void print_token(TOKEN t)
 	printf("TOKEN [%s]: %s\n", TOKEN_NAMES[t.type], t.text);
 }
 
-void lexer_init(LEXER* lexer)
+void print_token_pos(TOKEN token, const char* s)
 {
+	printf("%s %d.%d -- %d.%d\n", s, token.start.line, token.start.column, token.stop.line, token.stop.column);
+}
+
+void lexer_init(LEXER* lexer, const char* text)
+{
+	lexer->text_len = strlen(text);
+	lexer->text_peek = 0;
+	// lexer->text = calloc(lexer->text_len, sizeof(char));
+	lexer->text = text;
+	// mbstowcs(lexer->text, text, lexer->text_len);
+
 	lexer->index = 0;
 	lexer->peek = 0;
-	lexer->size = 20;
+	lexer->size = 1000;
 	lexer->ignore_untill_current_token_end = false;
 	lexer->ignore_untill_next_token_end = false;
 	lexer->tokens = calloc(lexer->size, sizeof(TOKEN));
 	lexer->p_count = 0;
 	lexer->b_count = 0;
+
+	lexer->pos.line = 1;
+	lexer->pos.column = 0;
 }
 
 
-void add_token(LEXER* lexer, TOKEN token, int type)
+void add_token(LEXER* lexer, TOKEN token, MARK stop)
 {
-	token.type = type;
+	token.stop = stop;
 	if (lexer->index+1 >= lexer->size) {
 		lexer->size += 10;
 		lexer->tokens = realloc(lexer->tokens, lexer->size*sizeof(TOKEN));
@@ -100,267 +126,304 @@ void str_add_char(TOKEN* token, char c)
 	}
 }
 
-void init_token(TOKEN* token)
+void init_token(TOKEN* token, MARK start)
 {
-	token->text = calloc(5, 1);
+	token->text = calloc(2, sizeof(wchar_t));
 	token->type = TT_;
 	token->index = 0;
-	token->len = 5;
+	token->len = 2;
+	token->start = start;
 }
 
-void reset_token(TOKEN* token, int line, int column)
-{
-	static const TOKEN reset;
-	*token = reset;
-	free(token->text);
 
-	init_token(token);
-	token->start.line = line;
-	token->start.column = column;
+void reset_token(TOKEN* token, MARK position)
+{
+	// not freeing the text because it's still alive in the lexer->tokens list
+	token->text = calloc(2, sizeof(wchar_t));
+	token->index = 0;
+	token->len = 2;
+	token->type = TT_;
+	token->start = position;
+}
+
+TOKEN new_token(MARK position, int type)
+{
+	TOKEN token;
+	token.text = calloc(2, sizeof(wchar_t));
+	token.index = 0;
+	token.len = 2;
+	token.type = type;
+	token.start = position;
+	return token;
+}
+
+TOKEN lex_word(LEXER* lexer)
+{
+	TOKEN token = new_token(lexer->pos, TT_IDENTIFIER);
+	for (; lexer->text_peek < lexer->text_len; lexer->text_peek++, lexer->pos.column++)
+	{
+		char c = lexer->text[lexer->text_peek];
+		if (c == '\n') { lexer->pos.column = 0; lexer->pos.line++; }
+		else if (IS_VALID_SYMBOL_CHAR(c)) { str_add_char(&token, c); }
+		else if (IS_TERMINATOR(c)) { goto exit; }
+	}
+
+	exit:
+	lexer->text_peek--; // return so the main lexer loop acknowledges the terminator symbol also
+	return token;
+}
+
+
+TOKEN lex_number(LEXER* lexer)
+{
+	TOKEN token = new_token(lexer->pos, TT_NUMBER);
+	bool in_decimal = false;
+	for (; lexer->text_peek < lexer->text_len; lexer->text_peek++, lexer->pos.column++)
+	{
+		char c = lexer->text[lexer->text_peek];
+
+		if (IS_NUMBER(c)) {
+			str_add_char(&token, c);
+		}
+
+		else if (c == '.') {
+			if (in_decimal) {
+				lobotomy_error_s(ERR_INVALID_DECIMAL, "invalid decimal at %d.%d\n", lexer->pos.line, lexer->pos.column);
+			}
+			str_add_char(&token, c);
+			token.type = TT_DECIMAL;
+		}
+		
+		else if (c == 'x' && token.index == 1) {
+			
+		}
+		
+		else if (c == 'b' && token.index == 1) {
+			
+		}
+
+		else if (IS_TERMINATOR(c))
+		{
+			goto exit;
+		}
+
+		else {
+			lobotomy_error_s(ERR_INVALID_CHARACTER_IN_NUMBER, "found invalid character '%c' in number at %d.%d\n", c, lexer->pos.line, lexer->pos.column);
+		}
+	}
+
+	exit:
+	lexer->text_peek--; // return so the main lexer loop acknowledges the terminator symbol also
+	return token;
+}
+
+TOKEN lex_string(LEXER* lexer)
+{
+	TOKEN token = new_token(lexer->pos, TT_STR);
+	bool escaped = false;
+
+	for (; lexer->text_peek < lexer->text_len; lexer->text_peek++, lexer->pos.column++)
+	{
+		char c = lexer->text[lexer->text_peek];
+		if (c == '\n') {
+			if (!escaped) {
+				lobotomy_error_s(ERR_UNESCAPED_NEW_LINE_IN_STRING_LITERAL, "found a new line in string literal at %d.%d", lexer->pos.line, lexer->pos.column);
+				return token;
+			}
+			lexer->pos.column = 0; lexer->pos.line++;
+		}
+
+		if (!escaped) {
+			if (c == '\\') {
+				escaped = true;
+			}
+		
+			else if (c == '"') {
+				return token;
+			}
+
+			else {
+				str_add_char(&token, c);
+			}
+		}
+
+		else if (escaped) {
+			escaped = false;
+			switch (c)
+			{
+				case 'a':
+					str_add_char(&token, '\a');
+				break;
+
+				case 'b':
+					str_add_char(&token, '\b');
+				break;
+
+				case 'f':
+					str_add_char(&token, '\f');
+				break;
+
+				case 'n':
+					str_add_char(&token, '\n');
+				break;
+
+				case 'r':
+					str_add_char(&token, '\r');
+				break;
+
+				case 't':
+					str_add_char(&token, '\t');
+				break;
+
+				case '\\':
+					str_add_char(&token, '\\');
+				break;
+
+
+				case '\n':
+					str_add_char(&token, '\n');
+				break;
+
+				case '"':
+					str_add_char(&token, '"');
+				break;
+			}
+		}
+	}
+	return token;
+}
+
+static inline void lex_ignore_untill_x(LEXER* lexer, const char* blacklist)
+{
+	for (; lexer->text_peek < lexer->text_len; lexer->text_peek++, lexer->pos.column++)
+	{
+		int c = lexer->text[lexer->text_peek];
+		if (c == '\n') { lexer->pos.column = 0; lexer->pos.line++; }
+		if (strchr(blacklist, c) != NULL) return;
+	}
+}
+
+static inline void lex_ignore_whitespace(LEXER* lexer)
+{
+	lex_ignore_untill_x(lexer, "\n\t ");
+}
+
+static inline void lex_ignore_comment(LEXER* lexer)
+{
+	lex_ignore_untill_x(lexer, "\n");
 }
 
 LEXER tokenize(const char text[])
 {
+	// printf("wchar: %u\n", sizeof(wchar_t));
 	LEXER lexer;
-	lexer_init(&lexer);
-	int line = 1, column = 0;
+	lexer_init(&lexer, text);
 
 	// static const TOKEN reset;
 	TOKEN token;
-	reset_token(&token, line, column);
-
-	// int word_i = 0, word_max = 20;
-	// char* word = malloc(word_max);
-	int len = strlen(text)+1;
-	// printf("len: %d\n", len);
-	bool in_word = false, in_number = false,
-		in_decimal = false, in_comment = false,
-		in_str = false, escaped = false;
+	reset_token(&token, lexer.pos);
 	
 	int b_count = 0;
 	LEXER brackets;
-	lexer_init(&brackets);
+	lexer_init(&brackets, "");
     
 	
-	for (int i = 0; i < len; i++) {
-		if (in_word && token.index > 0) {
-			if (!((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z') || text[i] == '_')
-			&& !(text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '@' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':')
-			) {
-				str_add_char(&token, '\0');
-				add_token(&lexer, token, TT_IDENTIFIER);
-				reset_token(&token, line, column);
-
-				in_word = false;
-			}
-		}
-
-		else if (in_number && token.index > 0) {
-			if (!((text[i] >= '0' && text[i] <= '9') || text[i] == '.')) {
-				str_add_char(&token, '\0');
-				if (in_number & !in_decimal) add_token(&lexer, token, TT_NUMBER);
-				else if (in_decimal) add_token(&lexer, token, TT_DECIMAL);
-				reset_token(&token, line, column);
-
-				in_decimal = false;
-				in_number = false;
-			}
-		}
-
-		else if (in_comment) {
-			if (text[i] == '\n' || text[i] == '\0') {
-				in_comment = false;
-
-				add_token(&lexer, token, TT_COMMENT);
-				reset_token(&token, line, column);
-			}
-
-			else {
-				str_add_char(&token, text[i]);
-				column++;
-				continue;
-			}
-		}
-
-		else if (in_str) {
-			if (text[i] == '\\' && !escaped) {
-				escaped = true;
-				continue;
-			}
+	for (; lexer.text_peek < lexer.text_len; lexer.text_peek++, lexer.pos.column++)
+	{
+		char c = lexer.text[lexer.text_peek];
+		// printf("c: %d\n", c);
+		// if (c & 0b10000000 >= 0) {
+			// c <<= 8;
+			// c &= text[lexer.text_peek++];
+		// }
 		
-			else if (text[i] == '"' && !escaped) {
-				add_token(&lexer, token, TT_STR);
-				reset_token(&token, line, column);
-				in_str = false;
-				column++;
-				continue;
-			}
-
-			else if (escaped) {
-				escaped = false;
-				switch (text[i])
-				{
-					case 'a':
-						str_add_char(&token, '\a');
-					break;
-
-					case 'b':
-						str_add_char(&token, '\b');
-					break;
-
-					case 'f':
-						str_add_char(&token, '\f');
-					break;
-
-					case 'n':
-						str_add_char(&token, '\n');
-					break;
-
-					case 'r':
-						str_add_char(&token, '\r');
-					break;
-
-					case 't':
-						str_add_char(&token, '\t');
-					break;
-
-					case '\\':
-						str_add_char(&token, '\\');
-					break;
-
-					// case '\'':
-						// str_add_char(&token, text[i]);
-					// break;
-
-					case '"':
-						str_add_char(&token, '"');
-					break;
-				}
-				
-				column++;
-				continue;
-			}
-
-			else {	
-				// str_add_char(word, &word_i, &word_max, text[i]);
-				str_add_char(&token, text[i]);
-				column++;
-				continue;
-			}
+		if (c == '\n') {
+			lexer.pos.line++;
+			lexer.pos.column = 0;
 		}
 
-		else if (text[i] == ';' && text[i+1] == ';') {
-			in_comment = true;
-			i++;
-			continue;
+		if (c == ';' && lexer.text[lexer.text_peek+1] == ';') {
+			lexer.text_peek++;
+			lex_ignore_comment(&lexer);
 		}
 
-		if (text[i] == '\n') {
-			line++;
-			column = 0;
-		}
-
-		else if (text[i] == '@')
+		else if (IS_WHITESPACE(c))
 		{
-			str_add_char(&token, text[i]);
-			add_token(&lexer, token, TT_MUTABLE);
-			reset_token(&token, line, column);
+			lex_ignore_whitespace(&lexer);
 		}
 
 
-		else if ((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z') || text[i] == '_'
-		|| (text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':')
-		) {
-			my_assert(in_number, "unexpected character", ERR_WORD_IN_NUMBER, line, column);
-			in_word = true;
-
-			str_add_char(&token, text[i]);
+		else if (c == '@')
+		{
+			str_add_char(&token, c);
+			token.start = lexer.pos;
+			add_token(&lexer, token, lexer.pos);
+			reset_token(&token, lexer.pos);
 		}
 
-		else if (text[i] >= '0' && text[i] <= '9') {
-			if (!in_word) {
-				in_number = true;
-			}
-
-			str_add_char(&token, text[i]);
+		else if (c == '"')
+		{
+			printf("before: %d.%d\n", lexer.pos.line, lexer.pos.column);
+			lexer.text_peek++; // skip the first quote
+			add_token(&lexer, lex_string(&lexer), lexer.pos);
+			printf("after: %d.%d\n", lexer.pos.line, lexer.pos.column);
 		}
 
-		else if (text[i] == '.') {
-			if (in_number) {
-				in_decimal = true;
-			}
-			str_add_char(&token, text[i]);
+		else if (IS_NUMBER(c)) {
+			add_token(&lexer, lex_number(&lexer), lexer.pos);
 		}
 
-		else if (text[i] == '(') {
-			str_add_char(&token, '(');
-			add_token(&lexer, token, TT_LPAREN);
-			add_token(&brackets, token, TT_LPAREN);
-			reset_token(&token, line, column);
-			b_count++;
+		else if (IS_VALID_SYMBOL_CHAR(c)) {
+			add_token(&lexer, lex_word(&lexer), lexer.pos);
 		}
 
-
-		else if (text[i] == '[') {
-			str_add_char(&token, '[');
-			add_token(&lexer, token, TT_LBRACKET);
-			reset_token(&token, line, column);
-		}
-
-		else if (text[i] == '"') {
-			in_str = true;
-		}
-
-		// else if (text[i] == ' ') {
-			// column++;
-		// }
-        
-		else if (text[i] == ')') {
-			str_add_char(&token, ')');
-			add_token(&lexer, token, TT_RPAREN);
-			add_token(&brackets, token, TT_RPAREN);
-			reset_token(&token, line, column);
-			b_count--;
-
-			if (b_count < 0) {
-				lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", line, column);
-			}
-		}
-
-		else if (text[i] == ']') {
-			str_add_char(&token, ']');
-			add_token(&lexer, token, TT_RBRACKET);
-			reset_token(&token, line, column);
-
-			// if (b_count < 0) {
-				// lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", line, column);
-			// }
-		}
-        
-		// else if (text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/'  || text[i] == '%' || text[i] == '&' || text[i] == '|' || text[i] == '^' || text[i] == '!' || text[i] == '?' || text[i] == '@' || text[i] == '#' || text[i] == '$' || text[i] == '=' || text[i] == '<' || text[i] == '>' || text[i] == ':') {
-			// add_token(&lexer, i, i, TT_IDENTIFIER, 2, (char[]){text[i], '\0'});
-			// token.text = (char[]){text[i], '\0'};
-			// str_add_char(&token, text[i]);
-			// add_token(&lexer, token, TT_IDENTIFIER);
-			// reset_token(&token, line, column);
-		// }
-
-		column++;
-	}
-
-	int b_i = 0, b_j = 0;
-	if (b_count > 0) {
-		for (; b_i < brackets.index; b_i++) {
-			if (brackets.tokens[b_i].type == TT_LPAREN) {
-				for (b_j = b_i + 1; b_j <= brackets.index; b_j++) {
-					if (brackets.tokens[b_j].type == TT_RPAREN) {
-						break;
+		else {
+			token.start = lexer.pos;
+			str_add_char(&token, c);
+			switch (c)
+			{
+				case '(':
+					token.type = TT_LPAREN;
+					b_count++;
+				break;
+				case ')':
+					token.type = TT_RPAREN;
+					b_count--;
+					if (b_count < 0) {
+						lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", lexer.pos.line, lexer.pos.column);
 					}
-					lobotomy_error_s_ne(ERR_NO_MATCHING_BRACKET, "bracket at %d.%d is not closed", brackets.tokens[b_i].start.line, brackets.tokens[b_i].start.column);
-				}
+				break;
+				case '[':
+					token.type = TT_LBRACKET;
+				break;
+				case ']':
+					token.type = TT_RBRACKET;
+					// if (b_count < 0) {
+						// lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", line, column);
+					// }
+				break;
+				default:
+					lobotomy_error_s_ne(ERR_UNKNOWN_CHARACTER, "ENCOUNTERED UNKNOWN CHARACTER '%c' at %d.%d", c, lexer.pos.line, lexer.pos.column);
 			}
-		}		
+			add_token(&lexer, token, lexer.pos);
+			add_token(&brackets, token, lexer.pos);
+			reset_token(&token, lexer.pos);
+		}
 	}
+
+	// int b_i = 0, b_j = 0;
+	// if (b_count > 0) {
+		// for (; b_i < brackets.index; b_i++) {
+			// if (brackets.tokens[b_i].type == TT_LPAREN) {
+				// for (b_j = b_i + 1; b_j <= brackets.index; b_j++) {
+					// if (brackets.tokens[b_j].type == TT_RPAREN) {
+						// break;
+					// }
+					// lobotomy_error_s_ne(ERR_NO_MATCHING_BRACKET, "bracket at %d.%d is not closed", brackets.tokens[b_i].start.line, brackets.tokens[b_i].start.column);
+				// }
+			// }
+		// }		
+	// }
 	// my_assert((b_count > 0), "bracket is not closed", ERR_NO_MATCHING_BRACKET, line, column);
 
 	for (int i = 0; i < lexer.index; i++) {
@@ -375,6 +438,7 @@ LEXER tokenize(const char text[])
 
 
 	// free(word);
+	printf("text size; %d; tokens; %d\n", lexer.text_len, lexer.index);
 	return lexer;
 	// free(lexer.tokens);
 }

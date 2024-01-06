@@ -1,5 +1,5 @@
 CC=gcc
-CLIBS=
+CLIBS=-lm
 CFLAGS=-Wall -Wextra -pedantic -std=c11
 IGNORE=-Wno-unused-function -Wno-unused-variable -Wno-unused-parameter
 

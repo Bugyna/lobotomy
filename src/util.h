@@ -8,6 +8,7 @@
 #include <float.h>
 #include <stdint.h>
 #include <time.h>
+#include <wchar.h>
 
 #include "error.h"
 
