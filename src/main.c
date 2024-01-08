@@ -46,13 +46,13 @@ int main(int argc, char* argv[]) {
 	// printf("h: %08x\n", U'é');
 	// // printf("hash: %d\n", hash("ábc"));
 	// return 0;
+	printf("hash test: %s, %d \n", "help", hash("help"));
 	GC_init();
 	global_env = calloc(1, sizeof(ENV));
 	global_env->name = "global_env";
-	printf("size 1: %p\n", global_env);
 	ENV_INIT(global_env, 100);
 	lobotomy_init(global_env);
-	printf("size 2: %p\n", global_env);
+	// L_help(NIL);
 
 	if (interactive) interactive_shell(text);
 	else eval_program(text);

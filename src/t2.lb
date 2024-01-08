@@ -12,3 +12,26 @@ lalala")
 (fn f (a) (* a a))
 
 (f 4)
+
+
+(match [player pc]
+	([player player] "draw")
+	(["rock" "paper"] "lose")
+	(["rock" "scissors"] "win")
+	(["paper" "scissors"] "lose")
+	(["paper" "rock"] "win")
+	(["scissors" "rock"] "lose")
+	(["scissors" "paper"] "win")
+)
+
+
+(fn decide-win (player pc) 
+	(? (= player pc) ("draw")
+		(& (= player "rock") (= pc "scissors")) ("win")
+		(& (= player "rock") (= pc "paper")) ("lose")
+		(& (= player "paper") (= pc "scissors")) ("lose")
+		(& (= player "paper") (= pc "rock")) ("win")
+		(& (= player "scissors") (= pc "rock")) ("lose")
+		(& (= player "scissors") (= pc "paper")) ("win")
+	)
+)

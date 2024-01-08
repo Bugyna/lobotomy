@@ -82,9 +82,9 @@ struct OBJ
 		char* str;
 		struct { OBJ* args; OBJ* body; };
 		C_FUNC_DEC c_fn;
-		OBJ* car;
 	};
 
+	OBJ* car;
 	OBJ* cdr;
 	ENV* env;
 };
@@ -101,6 +101,9 @@ for(OBJ* curr = O; curr != NULL && curr->type != T_UNDEFINED && curr->type != T_
 #define ITERATE_OBJECT_PTR(O, curr)\
 for(OBJ** curr = &O; curr != NULL && *curr != NULL && (*curr)->type != T_UNDEFINED && (*curr)->type != T_NIL; curr = &(*curr)->cdr)
 
+
+#define ITERATE_OBJECT_PAIR(O, curr, curr1)\
+for(OBJ *curr = O, *curr1 = NT(O); curr1 != NULL && curr1->type != T_UNDEFINED && curr1->type != T_NIL; curr = NT(curr1), curr1 = NT(curr))
 
 #define ZIP_ITERATE_OBJECT(O, P, curr, curr1, exprs)\
 	OBJ* curr = O;\
@@ -232,7 +235,7 @@ OBJ* env_get(ENV* e, const char* key)
 }
 
 
-#define GC_ENABLED
+// #define GC_ENABLED
 
 typedef struct
 {

@@ -54,6 +54,53 @@ char* read_file(const char path[])
 	
 }
 
+
+
+#define HASHMAP_HASH_INIT 2166136261u
+
+static inline uint32_t nhash(const char* data)
+{
+	size_t size = strlen(data);
+	size_t nblocks = size / 8;
+	uint64_t hash = HASHMAP_HASH_INIT;
+	for (size_t i = 0; i < nblocks; ++i)
+	{
+		hash ^= (uint64_t)data[0] << 0 | (uint64_t)data[1] << 8 |
+			 (uint64_t)data[2] << 16 | (uint64_t)data[3] << 24 |
+			 (uint64_t)data[4] << 32 | (uint64_t)data[5] << 40 |
+			 (uint64_t)data[6] << 48 | (uint64_t)data[7] << 56;
+		hash *= 0xbf58476d1ce4e5b9;
+		data += 8;
+	}
+
+	uint64_t last = size & 0xff;
+	switch (size % 8)
+	{
+	case 7:
+		last |= (uint64_t)data[6] << 56; /* fallthrough */
+	case 6:
+		last |= (uint64_t)data[5] << 48; /* fallthrough */
+	case 5:
+		last |= (uint64_t)data[4] << 40; /* fallthrough */
+	case 4:
+		last |= (uint64_t)data[3] << 32; /* fallthrough */
+	case 3:
+		last |= (uint64_t)data[2] << 24; /* fallthrough */
+	case 2:
+		last |= (uint64_t)data[1] << 16; /* fallthrough */
+	case 1:
+		last |= (uint64_t)data[0] << 8;
+		hash ^= last;
+		hash *= 0xd6e8feb86659fd93;
+	}
+
+	// compress to a 32-bit result.
+	// also serves as a finalizer.
+	return (uint32_t)(hash ^ hash >> 32);
+}
+
+
+
 int hash(const char* key)
 {
 	// my_assert(key == NULL, "fuckery in hash", -1, 0, 0);
@@ -67,4 +114,6 @@ int hash(const char* key)
 	}
 	return mask ^ (mask >> 4);
 }
+
+
 
