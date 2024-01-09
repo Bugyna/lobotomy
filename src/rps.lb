@@ -1,0 +1,24 @@
+
+
+(fn pick-random () (nth (random-num 3) ["rock" "paper" "scissors"]))
+
+
+(fn decide-win (player pc) 
+	(? (= player pc) ("draw")
+		(& (= player "rock") (= pc "scissors")) ("win")
+		(& (= player "rock") (= pc "paper")) ("lose")
+		(& (= player "paper") (= pc "scissors")) ("lose")
+		(& (= player "paper") (= pc "rock")) ("win")
+		(& (= player "scissors") (= pc "rock")) ("lose")
+		(& (= player "scissors") (= pc "paper")) ("win")
+		(1) ("wrong choice" player pc)
+	)
+)
+
+
+(loop (1) 
+	(print "dd: "
+		(decide-win (input "pleace pick rock, paper or scissors") (pick-random))
+	)
+)
+

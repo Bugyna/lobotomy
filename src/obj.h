@@ -61,7 +61,7 @@ typedef struct ENV ENV;
 
 
 
-typedef OBJ* (*C_FUNC_DEC)(OBJ*, ...);
+typedef OBJ* (*C_FUNC_DEC)(OBJ*);
 
 struct FN
 {
@@ -104,6 +104,8 @@ for(OBJ** curr = &O; curr != NULL && *curr != NULL && (*curr)->type != T_UNDEFIN
 
 #define ITERATE_OBJECT_PAIR(O, curr, curr1)\
 for(OBJ *curr = O, *curr1 = NT(O); curr1 != NULL && curr1->type != T_UNDEFINED && curr1->type != T_NIL; curr = NT(curr1), curr1 = NT(curr))
+
+
 
 #define ZIP_ITERATE_OBJECT(O, P, curr, curr1, exprs)\
 	OBJ* curr = O;\
@@ -152,7 +154,7 @@ void __print_obj_simple(OBJ* o)
 
 		case T_STR:
 			// printf("[%s %s: %s]", type_name(o->type), o->name, o->str);
-			printf("\"%s\"", o->str);
+			printf("%s", o->str);
 		break;
 
 		case T_LIST: case T_EXPR:
@@ -196,6 +198,7 @@ void print_obj_simple(OBJ* o)
 	__print_obj_simple(o);
 	printf("\n");
 }
+
 
 #define print_objf(fmt, o, ...) printf(fmt __VA_ARGS__); print_obj_simple(o);
 
@@ -287,11 +290,11 @@ OBJ* empty_obj()
 }
 
 
-OBJ* empty_obj_t(int type)
+OBJ* empty_obj_t(OBJ_TYPE type)
 {
 	
 	OBJ* ret = NEW();
-	ret->type = T_NIL;
+	ret->type = type;
 	ret->env = global_env;
 	return ret;
 }

@@ -7,11 +7,10 @@
 
 
 
-OBJ* L_less_than(OBJ* o, ...)
+OBJ* L_less_than(OBJ* o)
 {
 	OBJ* ret = empty_obj();
 	ret->type = T_NUM;
-	o = NT(o);
 	o = preeval(o);
 	print_objf("less than: ", o);
 
@@ -23,32 +22,38 @@ OBJ* L_less_than(OBJ* o, ...)
 	return ret;
 }
 
-OBJ* L_more_than(OBJ* o, ...)
+OBJ* L_more_than(OBJ* o)
 {
 	OBJ* ret = empty_obj();
 	ret->type = T_NUM;
-	o = NT(o);
 	o = preeval(o);
 	ret->num = (o->num > NT(o)->num);
 	return ret;
 }
 
 
-OBJ* L_less_or_eq_than(OBJ* o, ...)
+OBJ* L_less_or_eq_than(OBJ* o)
 {
 	OBJ* ret = empty_obj();
 	ret->type = T_NUM;
-	o = NT(o);
 	o = preeval(o);
 	ret->num = (o->num <= NT(o)->num);
 	return ret;
 }
 
-OBJ* L_eq(OBJ* o, ...)
+OBJ* L_more_or_eq_than(OBJ* o)
 {
 	OBJ* ret = empty_obj();
 	ret->type = T_NUM;
-	o = NT(o);
+	o = preeval(o);
+	ret->num = (o->num >= NT(o)->num);
+	return ret;
+}
+
+OBJ* L_eq(OBJ* o)
+{
+	OBJ* ret = empty_obj();
+	ret->type = T_NUM;
 	o = preeval(o);
 	switch (o->type)
 	{
@@ -77,7 +82,7 @@ OBJ* L_eq(OBJ* o, ...)
 
 OBJ* L_car(OBJ* o)
 {
-	o = preeval(NT(o));
+	o = preeval(o);
 	print_obj_simple(o->car->cdr);
 	return o->car;
 	// return NIL;
@@ -87,8 +92,9 @@ OBJ* L_car(OBJ* o)
 
 OBJ* L_get_input(OBJ* o)
 {
+	if (o != NULL && o->type != T_NIL)
+		L_print(o);
 	char x[200] = "";
-	printf("pp: %p\n", x);
 	fgets(x, 200, stdin);
 	size_t l = strlen(x);
 
@@ -121,14 +127,14 @@ OBJ* L_list(OBJ* o)
 	// return o->cdr;
 }
 
-OBJ* L_more_or_eq_than(OBJ* o, ...)
+OBJ* L_nth(OBJ* o)
 {
-	OBJ* ret = empty_obj();
-	ret->type = T_NUM;
-	o = NT(o);
-	o = preeval(o);
-	ret->num = (o->num >= NT(o)->num);
-	return ret;
+	OBJ* list = NT(o);
+	OBJ* tmp = list->car;
+	for (int i = 0; i < o->num; i++)
+		tmp = NT(tmp);
+
+	return tmp;
 }
 
 
@@ -148,7 +154,7 @@ OBJ* L_progn(OBJ* o)
 }
 
 
-OBJ* L_test(OBJ* o, ...)
+OBJ* L_test(OBJ* o)
 {
 	// printf("pp: %p\n", o->cdr->cdr);
 	o = preeval(o);
@@ -156,22 +162,27 @@ OBJ* L_test(OBJ* o, ...)
 }
 
 
-OBJ* L_print(OBJ* o, ...)
+OBJ* L_print(OBJ* o)
 {
 	// o = NT(o);
 	// o = preeval(o);
 	// printf("type: %s\n", type_name(o->cdr->type));
 	OBJ* tmp = preeval(o);
 	printf("print>>");
-	print_obj_simple(L_cdr(tmp));
+	print_obj_simple(L_list(tmp));
+
+	// ITERATE_OBJECT(NT(tmp), curr)
+	// {
+		// __print_obj_simple(__eval(curr));
+	// }
+	// printf("\n");
 	// print_objf("print>>", NT(tmp));
 	return NIL;
 }
 
-OBJ* L_type(OBJ* o, ...)
+OBJ* L_type(OBJ* o)
 {
 	preeval(o);
-	o = NT(o);
 	printf("%s\n", type_name(o->type));
 	return NIL;
 }
@@ -186,10 +197,10 @@ OBJ* L_help(OBJ* o)
 	return NIL;
 }
 
-OBJ* L_create_fn(OBJ* o, ...)
+OBJ* L_create_fn(OBJ* o)
 {
 	OBJ* fn = empty_obj();
-	OBJ* name = NT(o);
+	OBJ* name = o;
 	OBJ* args = NT(name);
 	OBJ* body = NT(args);
 
@@ -207,14 +218,14 @@ OBJ* L_obj_name(OBJ* o)
 {
 	OBJ* ret = NEW();
 	ret->type = T_STR;
-	ret->str = NT(o)->name;
+	ret->str = o->name;
 	return ret;
 }
 
 
-OBJ* L_let(OBJ* o, ...)
+OBJ* L_let(OBJ* o)
 {
-	OBJ* var = NT(o);
+	OBJ* var = o;
 	if (var->type != T_IDENTIFIER) {
 		if (var->name != NULL && var->name != "") var->type = T_IDENTIFIER;
 		else var = preeval(var);
@@ -283,9 +294,9 @@ OBJ* L_let(OBJ* o, ...)
 }
 
 
-OBJ* L_loop(OBJ* o, ...)
+OBJ* L_loop(OBJ* o)
 {
-	OBJ* cond_expr = NT(o);
+	OBJ* cond_expr = o;
 	// cond_expr = preeval(cond_expr);
 	// cond_expr->car = preeval_symbols(cond_expr->car);
 	// printf("cond_exprp: %s", type_name(cond_expr->cdr->car->type));
@@ -330,9 +341,8 @@ OBJ* L_loop(OBJ* o, ...)
 	// return NT(o);
 }
 
-OBJ* L_cond(OBJ* o, ...)
+OBJ* L_cond(OBJ* o)
 {
-	o = NT(o);
 	// OBJ* cond_expr = NT(o);
 	// print_objf("cond_expr: ", cond_expr);
 
@@ -358,14 +368,28 @@ OBJ* L_cond(OBJ* o, ...)
 	return ret;
 }
 
-OBJ* L_copy(OBJ* o, ...)
+OBJ* L_copy(OBJ* o)
 {
 	OBJ* ret = empty_obj();
 	*ret = *o;
 	return ret;
 }
 
-OBJ* preeval_symbols(OBJ* o, ...)
+OBJ* L_get_random_num(OBJ* o)
+{
+	OBJ* ret = empty_obj_t(T_NUM);
+	ret->num = time(NULL);
+	// printf("t: %d", ret->num);
+	if (o != NULL && o->type != T_NIL) {
+		ret->cdr = o;
+		ret = L_mod(ret);
+		// o = preeval(NT(o));
+		// ret->num %= o->num;
+	}
+	return ret;
+}
+
+OBJ* preeval_symbols(OBJ* o)
 {
 	OBJ* ret = empty_obj();
 	OBJ* head = ret;
@@ -403,7 +427,7 @@ OBJ* preeval_symbols(OBJ* o, ...)
 	return head;
 }
 
-OBJ* preeval(OBJ* o, ...)
+OBJ* preeval(OBJ* o)
 {
 	OBJ* ooo = o;
 	OBJ* ret = empty_obj();
@@ -499,8 +523,8 @@ void set_env(OBJ* head, ENV* e)
 OBJ* run_func(OBJ* fn, OBJ* args)
 {
 	args = preeval(args);
-	print_objf("args: ", args);
-	print_objf("args: ", NT(args));
+	// print_objf("args: ", args);
+	// print_objf("args: ", NT(args));
 	ENV* e = malloc(sizeof(ENV));
 	ENV_INIT(e, 20);
 	e->name = "fn";
@@ -516,8 +540,8 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 		{
 			curr->env = e;
 			curr1->env = e;
-			print_objf("saaa: ", curr);
-			print_objf("saaa1: ", curr1);
+			// print_objf("saaa: ", curr);
+			// print_objf("saaa1: ", curr1);
 			curr1->name = curr->name;
 			env_add(e, curr1);
 		}
@@ -525,7 +549,7 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 	// print_obj_simple(fn->body);
 	set_env(fn->body, e);
 
-	printf("\ngot here\n");
+	// printf("\ngot here\n");
 	return __eval(fn->body->car);
 }
 
@@ -577,7 +601,7 @@ OBJ* __eval(OBJ* head)
 	{
 
 		case T_EXPR:
-			return __eval(head->car);
+			return __eval(preeval(head->car));
 		break;
 
 		case T_LIST:
@@ -604,7 +628,7 @@ OBJ* __eval(OBJ* head)
 			switch (o->type)
 			{
 				case T_C_FN:
-					return o->c_fn(head);
+					return o->c_fn(NT(head));
 				break;
 
 				case T_FN:
@@ -626,7 +650,7 @@ OBJ* __eval(OBJ* head)
 			switch (o->type)
 			{
 				case T_C_FN:
-					return o->c_fn(head);
+					return o->c_fn(NT(head));
 				break;
 
 				case T_FN:
