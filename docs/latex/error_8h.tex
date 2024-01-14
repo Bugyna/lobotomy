@@ -1,0 +1,150 @@
+\hypertarget{error_8h}{}\doxysection{/home/bugy/projs/lobotomy/src/error.h File Reference}
+\label{error_8h}\index{/home/bugy/projs/lobotomy/src/error.h@{/home/bugy/projs/lobotomy/src/error.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for error.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{error_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{error_8h_aea5fa624723d74c5c9b038948f3e9f92}{my\+\_\+assert}}(expr,  err,  err\+\_\+code,  line,  column)~if (expr) \{ \mbox{\hyperlink{obj_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}{printf}}(\char`\"{}\%s at \%d.\%d\textbackslash{}n\char`\"{}, err, line, column); \mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}(err\+\_\+code); \}
+\item 
+\#define \mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(s, ...)~\mbox{\hyperlink{obj_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}{printf}}(s \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+); \mbox{\hyperlink{obj_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}{printf}}(\char`\"{}\textbackslash{}n\textbackslash{}n\char`\"{});
+\item 
+\#define \mbox{\hyperlink{error_8h_addd7b62fe15ff46feb471504966b406c}{lobotomy\+\_\+warning}}(...)~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\char`\"{}warning\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{error_8h_abc535bec3835990a732280e1de9808ac}{L\+O\+B\+O\+T\+O\+M\+Y\+\_\+\+W\+A\+R\+N\+I\+NG}}(...)~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\char`\"{}warning\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{error_8h_aac116a888ad2a9568e09ffb8a2a28bc5}{lobotomy\+\_\+error\+\_\+ne}}(...)~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\char`\"{}E\+R\+R\+O\+R\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{error_8h_aaf5a3a25a3c8bf7799337ad144d8c617}{lobotomy\+\_\+error\+\_\+s\+\_\+ne}}(n, ...)~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\#n \char`\"{}\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{error_8h_a168deda0bc3b2da8c582f7ab3f4c228c}{lobotomy\+\_\+error}}(...)~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\char`\"{}E\+R\+R\+O\+R\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+); \mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}(-\/1)
+\item 
+\#define \mbox{\hyperlink{error_8h_ad94fa9a0cd88ad6a38f08319aeefdebb}{lobotomy\+\_\+error\+\_\+s}}(n, ...)~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\#n \char`\"{}\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+); \mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}(n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612}{E\+R\+R\+\_\+\+N\+O\+\_\+\+M\+A\+T\+C\+H\+I\+N\+G\+\_\+\+B\+R\+A\+C\+K\+ET}}, 
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba9050de8078352b9892e4bc2a969d9b30}{E\+R\+R\+\_\+\+T\+O\+O\+\_\+\+M\+A\+N\+Y\+\_\+\+B\+R\+A\+C\+K\+E\+TS}}, 
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba8018a3e40476ba0f5d26fefba1db06e0}{E\+R\+R\+\_\+\+W\+O\+R\+D\+\_\+\+I\+N\+\_\+\+N\+U\+M\+B\+ER}}, 
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8}{E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+D\+E\+C\+I\+M\+AL}}, 
+\newline
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55babdbe34d491ffaead3d75cc9cb5c45ea4}{E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+I\+N\+\_\+\+N\+U\+M\+B\+ER}}, 
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba1fec3900dbb6a0459a903002ec4b56b9}{E\+R\+R\+\_\+\+U\+N\+E\+S\+C\+A\+P\+E\+D\+\_\+\+N\+E\+W\+\_\+\+L\+I\+N\+E\+\_\+\+I\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+I\+T\+E\+R\+AL}}, 
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55babc00a0934771db082ac84e60a45406cf}{E\+R\+R\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+C\+H\+A\+R\+A\+C\+T\+ER}}, 
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55bab4021abef25f14e03c2ea1d298101855}{E\+R\+R\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+ED}}, 
+\newline
+\mbox{\hyperlink{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba5bb280b3fe12d695d5a7c158f93eb603}{E\+R\+R\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}\label{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}} 
+\index{error.h@{error.h}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \#define D\+E\+B\+UG(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{obj_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}{printf}}(s \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+); \mbox{\hyperlink{obj_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}{printf}}(\char`\"{}\textbackslash{}n\textbackslash{}n\char`\"{});}
+
+\mbox{\Hypertarget{error_8h_a168deda0bc3b2da8c582f7ab3f4c228c}\label{error_8h_a168deda0bc3b2da8c582f7ab3f4c228c}} 
+\index{error.h@{error.h}!lobotomy\_error@{lobotomy\_error}}
+\index{lobotomy\_error@{lobotomy\_error}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{lobotomy\_error}{lobotomy\_error}}
+{\footnotesize\ttfamily \#define lobotomy\+\_\+error(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\char`\"{}E\+R\+R\+O\+R\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+); \mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}(-\/1)}
+
+\mbox{\Hypertarget{error_8h_aac116a888ad2a9568e09ffb8a2a28bc5}\label{error_8h_aac116a888ad2a9568e09ffb8a2a28bc5}} 
+\index{error.h@{error.h}!lobotomy\_error\_ne@{lobotomy\_error\_ne}}
+\index{lobotomy\_error\_ne@{lobotomy\_error\_ne}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{lobotomy\_error\_ne}{lobotomy\_error\_ne}}
+{\footnotesize\ttfamily \#define lobotomy\+\_\+error\+\_\+ne(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\char`\"{}E\+R\+R\+O\+R\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{error_8h_ad94fa9a0cd88ad6a38f08319aeefdebb}\label{error_8h_ad94fa9a0cd88ad6a38f08319aeefdebb}} 
+\index{error.h@{error.h}!lobotomy\_error\_s@{lobotomy\_error\_s}}
+\index{lobotomy\_error\_s@{lobotomy\_error\_s}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{lobotomy\_error\_s}{lobotomy\_error\_s}}
+{\footnotesize\ttfamily \#define lobotomy\+\_\+error\+\_\+s(\begin{DoxyParamCaption}\item[{}]{n,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\#n \char`\"{}\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+); \mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}(n)}
+
+\mbox{\Hypertarget{error_8h_aaf5a3a25a3c8bf7799337ad144d8c617}\label{error_8h_aaf5a3a25a3c8bf7799337ad144d8c617}} 
+\index{error.h@{error.h}!lobotomy\_error\_s\_ne@{lobotomy\_error\_s\_ne}}
+\index{lobotomy\_error\_s\_ne@{lobotomy\_error\_s\_ne}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{lobotomy\_error\_s\_ne}{lobotomy\_error\_s\_ne}}
+{\footnotesize\ttfamily \#define lobotomy\+\_\+error\+\_\+s\+\_\+ne(\begin{DoxyParamCaption}\item[{}]{n,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\#n \char`\"{}\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{error_8h_addd7b62fe15ff46feb471504966b406c}\label{error_8h_addd7b62fe15ff46feb471504966b406c}} 
+\index{error.h@{error.h}!lobotomy\_warning@{lobotomy\_warning}}
+\index{lobotomy\_warning@{lobotomy\_warning}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{lobotomy\_warning}{lobotomy\_warning}}
+{\footnotesize\ttfamily \#define lobotomy\+\_\+warning(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\char`\"{}warning\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{error_8h_abc535bec3835990a732280e1de9808ac}\label{error_8h_abc535bec3835990a732280e1de9808ac}} 
+\index{error.h@{error.h}!LOBOTOMY\_WARNING@{LOBOTOMY\_WARNING}}
+\index{LOBOTOMY\_WARNING@{LOBOTOMY\_WARNING}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{LOBOTOMY\_WARNING}{LOBOTOMY\_WARNING}}
+{\footnotesize\ttfamily \#define L\+O\+B\+O\+T\+O\+M\+Y\+\_\+\+W\+A\+R\+N\+I\+NG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{error_8h_a07fd69b4dfba96e268fee3bf7fd6c8ea}{D\+E\+B\+UG}}(\char`\"{}warning\+: \char`\"{}, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{error_8h_aea5fa624723d74c5c9b038948f3e9f92}\label{error_8h_aea5fa624723d74c5c9b038948f3e9f92}} 
+\index{error.h@{error.h}!my\_assert@{my\_assert}}
+\index{my\_assert@{my\_assert}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{my\_assert}{my\_assert}}
+{\footnotesize\ttfamily \#define my\+\_\+assert(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{err,  }\item[{}]{err\+\_\+code,  }\item[{}]{line,  }\item[{}]{column }\end{DoxyParamCaption})~if (expr) \{ \mbox{\hyperlink{obj_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}{printf}}(\char`\"{}\%s at \%d.\%d\textbackslash{}n\char`\"{}, err, line, column); \mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}(err\+\_\+code); \}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_NO\_MATCHING\_BRACKET@{ERR\_NO\_MATCHING\_BRACKET}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_NO\_MATCHING\_BRACKET@{ERR\_NO\_MATCHING\_BRACKET}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612}} 
+E\+R\+R\+\_\+\+N\+O\+\_\+\+M\+A\+T\+C\+H\+I\+N\+G\+\_\+\+B\+R\+A\+C\+K\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_TOO\_MANY\_BRACKETS@{ERR\_TOO\_MANY\_BRACKETS}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_TOO\_MANY\_BRACKETS@{ERR\_TOO\_MANY\_BRACKETS}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba9050de8078352b9892e4bc2a969d9b30}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba9050de8078352b9892e4bc2a969d9b30}} 
+E\+R\+R\+\_\+\+T\+O\+O\+\_\+\+M\+A\+N\+Y\+\_\+\+B\+R\+A\+C\+K\+E\+TS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_WORD\_IN\_NUMBER@{ERR\_WORD\_IN\_NUMBER}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_WORD\_IN\_NUMBER@{ERR\_WORD\_IN\_NUMBER}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba8018a3e40476ba0f5d26fefba1db06e0}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba8018a3e40476ba0f5d26fefba1db06e0}} 
+E\+R\+R\+\_\+\+W\+O\+R\+D\+\_\+\+I\+N\+\_\+\+N\+U\+M\+B\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_INVALID\_DECIMAL@{ERR\_INVALID\_DECIMAL}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_INVALID\_DECIMAL@{ERR\_INVALID\_DECIMAL}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8}} 
+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+D\+E\+C\+I\+M\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_INVALID\_CHARACTER\_IN\_NUMBER@{ERR\_INVALID\_CHARACTER\_IN\_NUMBER}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_INVALID\_CHARACTER\_IN\_NUMBER@{ERR\_INVALID\_CHARACTER\_IN\_NUMBER}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55babdbe34d491ffaead3d75cc9cb5c45ea4}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55babdbe34d491ffaead3d75cc9cb5c45ea4}} 
+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+I\+N\+\_\+\+N\+U\+M\+B\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_UNESCAPED\_NEW\_LINE\_IN\_STRING\_LITERAL@{ERR\_UNESCAPED\_NEW\_LINE\_IN\_STRING\_LITERAL}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_UNESCAPED\_NEW\_LINE\_IN\_STRING\_LITERAL@{ERR\_UNESCAPED\_NEW\_LINE\_IN\_STRING\_LITERAL}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba1fec3900dbb6a0459a903002ec4b56b9}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba1fec3900dbb6a0459a903002ec4b56b9}} 
+E\+R\+R\+\_\+\+U\+N\+E\+S\+C\+A\+P\+E\+D\+\_\+\+N\+E\+W\+\_\+\+L\+I\+N\+E\+\_\+\+I\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+I\+T\+E\+R\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_UNKNOWN\_CHARACTER@{ERR\_UNKNOWN\_CHARACTER}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_UNKNOWN\_CHARACTER@{ERR\_UNKNOWN\_CHARACTER}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55babc00a0934771db082ac84e60a45406cf}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55babc00a0934771db082ac84e60a45406cf}} 
+E\+R\+R\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+C\+H\+A\+R\+A\+C\+T\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_UNEXPECTED@{ERR\_UNEXPECTED}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_UNEXPECTED@{ERR\_UNEXPECTED}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55bab4021abef25f14e03c2ea1d298101855}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55bab4021abef25f14e03c2ea1d298101855}} 
+E\+R\+R\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_UNDEFINED@{ERR\_UNDEFINED}!error.h@{error.h}}\index{error.h@{error.h}!ERR\_UNDEFINED@{ERR\_UNDEFINED}}}\mbox{\Hypertarget{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba5bb280b3fe12d695d5a7c158f93eb603}\label{error_8h_a06fc87d81c62e9abb8790b6e5713c55ba5bb280b3fe12d695d5a7c158f93eb603}} 
+E\+R\+R\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED&\\
+\hline
+
+\end{DoxyEnumFields}

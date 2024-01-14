@@ -71,12 +71,12 @@ typedef struct
 
 void print_token(TOKEN t)
 {
-	printf("TOKEN [%s]: %s\n", TOKEN_NAMES[t.type], t.text);
+	printd("TOKEN [%s]: %s\n", TOKEN_NAMES[t.type], t.text);
 }
 
 void print_token_pos(TOKEN token, const char* s)
 {
-	printf("%s %d.%d -- %d.%d\n", s, token.start.line, token.start.column, token.stop.line, token.stop.column);
+	printd("%s %d.%d -- %d.%d\n", s, token.start.line, token.start.column, token.stop.line, token.stop.column);
 }
 
 void lexer_init(LEXER* lexer, const char* text)
@@ -344,7 +344,17 @@ LEXER tokenize(const char text[])
 
 		if (c == ';' && lexer.text[lexer.text_peek+1] == ';') {
 			lexer.text_peek++;
+			lexer.pos.column++;
 			lex_ignore_comment(&lexer);
+		}
+
+		if (c == ':' && lexer.text[lexer.text_peek+1] == ':') {
+			lexer.text_peek++;
+			lexer.pos.column++;
+			token.text = "::";
+			token.start = lexer.pos;
+			add_token(&lexer, token, lexer.pos);
+			reset_token(&token, lexer.pos);
 		}
 
 		else if (IS_WHITESPACE(c))
@@ -438,7 +448,7 @@ LEXER tokenize(const char text[])
 
 
 	// free(word);
-	printf("text size; %d; tokens; %d\n", lexer.text_len, lexer.index);
+	printd("text size; %d; tokens; %d\n", lexer.text_len, lexer.index);
 	return lexer;
 	// free(lexer.tokens);
 }

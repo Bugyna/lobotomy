@@ -1,0 +1,118 @@
+\hypertarget{hashmap_8h}{}\doxysection{/home/bugy/projs/lobotomy/src/hashmap.h File Reference}
+\label{hashmap_8h}\index{/home/bugy/projs/lobotomy/src/hashmap.h@{/home/bugy/projs/lobotomy/src/hashmap.h}}
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+Include dependency graph for hashmap.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hashmap_8h_a79ef9c1f232fe536b69d4afd1ebc7611}{\+\_\+\+\_\+\+I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+AP}}(M\+A\+P\+\_\+\+T\+Y\+PE,  M\+AP,  V\+A\+L\+\_\+\+T\+Y\+PE,  K\+EY)
+\item 
+\#define \mbox{\hyperlink{hashmap_8h_af313e01923e9b49f9473d1ee105246ed}{\+\_\+\+\_\+\+I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+A\+T\+\_\+\+I\+N\+D\+EX}}(M\+A\+P\+\_\+\+T\+Y\+PE,  M\+AP,  V\+A\+L\+\_\+\+T\+Y\+PE,  N)
+\item 
+\#define \mbox{\hyperlink{hashmap_8h_a1fea535d04e1d44a78bb3b2617522b8b}{\+\_\+\+\_\+\+I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+VN}}(M\+A\+P\+\_\+\+T\+Y\+PE,  M\+AP,  V\+A\+L\+\_\+\+T\+Y\+PE,  V\+A\+L\+\_\+\+N\+A\+ME,  K\+EY)
+\item 
+\#define \mbox{\hyperlink{hashmap_8h_a775fd2eaba39abea4a8c79420e29f4c8}{\+\_\+\+\_\+\+I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+A\+T\+\_\+\+I\+N\+D\+E\+X\+\_\+\+VN}}(M\+A\+P\+\_\+\+T\+Y\+PE,  M\+AP,  V\+A\+L\+\_\+\+T\+Y\+PE,  V\+A\+L\+\_\+\+N\+A\+ME,  N)
+\item 
+\#define \mbox{\hyperlink{hashmap_8h_a557ac52ea34a338c3952340f70f895cd}{I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+AP}}(M\+A\+P\+\_\+\+T\+Y\+PE,  M\+AP,  V\+A\+L\+\_\+\+T\+Y\+PE,  K\+EY,  E\+X\+PR)
+\item 
+\#define \mbox{\hyperlink{hashmap_8h_a814743d39dfb8a3caa73291cfcde5972}{I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+A\+T\+\_\+\+I\+N\+D\+EX}}(M\+A\+P\+\_\+\+T\+Y\+PE,  M\+AP,  V\+A\+L\+\_\+\+T\+Y\+PE,  N,  E\+X\+PR)
+\item 
+\#define \mbox{\hyperlink{hashmap_8h_add57a74fbf76b95fc0fff0a12f43645a}{D\+E\+F\+I\+N\+E\+\_\+\+H\+A\+S\+H\+M\+AP}}(N\+A\+ME,  V\+A\+L\+\_\+\+T\+Y\+PE, ...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hashmap_8h_a79ef9c1f232fe536b69d4afd1ebc7611}\label{hashmap_8h_a79ef9c1f232fe536b69d4afd1ebc7611}} 
+\index{hashmap.h@{hashmap.h}!\_\_ITERATE\_HASHMAP@{\_\_ITERATE\_HASHMAP}}
+\index{\_\_ITERATE\_HASHMAP@{\_\_ITERATE\_HASHMAP}!hashmap.h@{hashmap.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ITERATE\_HASHMAP}{\_\_ITERATE\_HASHMAP}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+AP(\begin{DoxyParamCaption}\item[{}]{M\+A\+P\+\_\+\+T\+Y\+PE,  }\item[{}]{M\+AP,  }\item[{}]{V\+A\+L\+\_\+\+T\+Y\+PE,  }\item[{}]{K\+EY }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MAP\_TYPE\#\#\_BUCKET* BUCKET = MAP\_TYPE\#\#\_GET\_BUCKET(MAP, KEY);\(\backslash\)}
+\DoxyCodeLine{VAL\_TYPE* val = NULL;\(\backslash\)}
+\DoxyCodeLine{if (BUCKET != NULL) val = BUCKET-\/>val;\(\backslash\)}
+\DoxyCodeLine{for (; BUCKET != NULL \&\& (val = BUCKET-\/>val) != NULL; BUCKET = BUCKET-\/>next)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashmap_8h_af313e01923e9b49f9473d1ee105246ed}\label{hashmap_8h_af313e01923e9b49f9473d1ee105246ed}} 
+\index{hashmap.h@{hashmap.h}!\_\_ITERATE\_HASHMAP\_AT\_INDEX@{\_\_ITERATE\_HASHMAP\_AT\_INDEX}}
+\index{\_\_ITERATE\_HASHMAP\_AT\_INDEX@{\_\_ITERATE\_HASHMAP\_AT\_INDEX}!hashmap.h@{hashmap.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ITERATE\_HASHMAP\_AT\_INDEX}{\_\_ITERATE\_HASHMAP\_AT\_INDEX}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+A\+T\+\_\+\+I\+N\+D\+EX(\begin{DoxyParamCaption}\item[{}]{M\+A\+P\+\_\+\+T\+Y\+PE,  }\item[{}]{M\+AP,  }\item[{}]{V\+A\+L\+\_\+\+T\+Y\+PE,  }\item[{}]{N }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MAP\_TYPE\#\#\_BUCKET* BUCKET = MAP\_TYPE\#\#\_GET\_BUCKET\_AT\_INDEX(MAP, N);\(\backslash\)}
+\DoxyCodeLine{VAL\_TYPE* val = NULL;\(\backslash\)}
+\DoxyCodeLine{if (BUCKET != NULL) val = BUCKET-\/>val;\(\backslash\)}
+\DoxyCodeLine{for (; BUCKET != NULL \&\& (val = BUCKET-\/>val) != NULL; BUCKET = BUCKET-\/>next)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashmap_8h_a775fd2eaba39abea4a8c79420e29f4c8}\label{hashmap_8h_a775fd2eaba39abea4a8c79420e29f4c8}} 
+\index{hashmap.h@{hashmap.h}!\_\_ITERATE\_HASHMAP\_AT\_INDEX\_VN@{\_\_ITERATE\_HASHMAP\_AT\_INDEX\_VN}}
+\index{\_\_ITERATE\_HASHMAP\_AT\_INDEX\_VN@{\_\_ITERATE\_HASHMAP\_AT\_INDEX\_VN}!hashmap.h@{hashmap.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ITERATE\_HASHMAP\_AT\_INDEX\_VN}{\_\_ITERATE\_HASHMAP\_AT\_INDEX\_VN}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+A\+T\+\_\+\+I\+N\+D\+E\+X\+\_\+\+VN(\begin{DoxyParamCaption}\item[{}]{M\+A\+P\+\_\+\+T\+Y\+PE,  }\item[{}]{M\+AP,  }\item[{}]{V\+A\+L\+\_\+\+T\+Y\+PE,  }\item[{}]{V\+A\+L\+\_\+\+N\+A\+ME,  }\item[{}]{N }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MAP\_TYPE\#\#\_BUCKET* BUCKET = MAP\_TYPE\#\#\_GET\_BUCKET\_AT\_INDEX(MAP, N);\(\backslash\)}
+\DoxyCodeLine{VAL\_TYPE* VAL\_NAME = NULL;\(\backslash\)}
+\DoxyCodeLine{if (BUCKET != NULL) VAL\_NAME = BUCKET-\/>val;\(\backslash\)}
+\DoxyCodeLine{for (; BUCKET != NULL \&\& (VAL\_NAME = BUCKET-\/>val) != NULL; BUCKET = BUCKET-\/>next)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashmap_8h_a1fea535d04e1d44a78bb3b2617522b8b}\label{hashmap_8h_a1fea535d04e1d44a78bb3b2617522b8b}} 
+\index{hashmap.h@{hashmap.h}!\_\_ITERATE\_HASHMAP\_VN@{\_\_ITERATE\_HASHMAP\_VN}}
+\index{\_\_ITERATE\_HASHMAP\_VN@{\_\_ITERATE\_HASHMAP\_VN}!hashmap.h@{hashmap.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ITERATE\_HASHMAP\_VN}{\_\_ITERATE\_HASHMAP\_VN}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+VN(\begin{DoxyParamCaption}\item[{}]{M\+A\+P\+\_\+\+T\+Y\+PE,  }\item[{}]{M\+AP,  }\item[{}]{V\+A\+L\+\_\+\+T\+Y\+PE,  }\item[{}]{V\+A\+L\+\_\+\+N\+A\+ME,  }\item[{}]{K\+EY }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MAP\_TYPE\#\#\_BUCKET* BUCKET = MAP\_TYPE\#\#\_GET\_BUCKET(MAP, KEY);\(\backslash\)}
+\DoxyCodeLine{VAL\_TYPE* VAL\_NAME = NULL;\(\backslash\)}
+\DoxyCodeLine{if (BUCKET != NULL) VAL\_NAME = BUCKET-\/>val;\(\backslash\)}
+\DoxyCodeLine{for (; BUCKET != NULL \&\& (VAL\_NAME = BUCKET-\/>val) != NULL; BUCKET = BUCKET-\/>next)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashmap_8h_add57a74fbf76b95fc0fff0a12f43645a}\label{hashmap_8h_add57a74fbf76b95fc0fff0a12f43645a}} 
+\index{hashmap.h@{hashmap.h}!DEFINE\_HASHMAP@{DEFINE\_HASHMAP}}
+\index{DEFINE\_HASHMAP@{DEFINE\_HASHMAP}!hashmap.h@{hashmap.h}}
+\doxysubsubsection{\texorpdfstring{DEFINE\_HASHMAP}{DEFINE\_HASHMAP}}
+{\footnotesize\ttfamily \#define D\+E\+F\+I\+N\+E\+\_\+\+H\+A\+S\+H\+M\+AP(\begin{DoxyParamCaption}\item[{}]{N\+A\+ME,  }\item[{}]{V\+A\+L\+\_\+\+T\+Y\+PE,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hashmap_8h_a557ac52ea34a338c3952340f70f895cd}\label{hashmap_8h_a557ac52ea34a338c3952340f70f895cd}} 
+\index{hashmap.h@{hashmap.h}!ITERATE\_HASHMAP@{ITERATE\_HASHMAP}}
+\index{ITERATE\_HASHMAP@{ITERATE\_HASHMAP}!hashmap.h@{hashmap.h}}
+\doxysubsubsection{\texorpdfstring{ITERATE\_HASHMAP}{ITERATE\_HASHMAP}}
+{\footnotesize\ttfamily \#define I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+AP(\begin{DoxyParamCaption}\item[{}]{M\+A\+P\+\_\+\+T\+Y\+PE,  }\item[{}]{M\+AP,  }\item[{}]{V\+A\+L\+\_\+\+T\+Y\+PE,  }\item[{}]{K\+EY,  }\item[{}]{E\+X\+PR }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\(\backslash\)}
+\DoxyCodeLine{    \_\_ITERATE\_HASHMAP(MAP\_TYPE, MAP, VAL\_TYPE, KEY) EXPR\(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashmap_8h_a814743d39dfb8a3caa73291cfcde5972}\label{hashmap_8h_a814743d39dfb8a3caa73291cfcde5972}} 
+\index{hashmap.h@{hashmap.h}!ITERATE\_HASHMAP\_AT\_INDEX@{ITERATE\_HASHMAP\_AT\_INDEX}}
+\index{ITERATE\_HASHMAP\_AT\_INDEX@{ITERATE\_HASHMAP\_AT\_INDEX}!hashmap.h@{hashmap.h}}
+\doxysubsubsection{\texorpdfstring{ITERATE\_HASHMAP\_AT\_INDEX}{ITERATE\_HASHMAP\_AT\_INDEX}}
+{\footnotesize\ttfamily \#define I\+T\+E\+R\+A\+T\+E\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+A\+T\+\_\+\+I\+N\+D\+EX(\begin{DoxyParamCaption}\item[{}]{M\+A\+P\+\_\+\+T\+Y\+PE,  }\item[{}]{M\+AP,  }\item[{}]{V\+A\+L\+\_\+\+T\+Y\+PE,  }\item[{}]{N,  }\item[{}]{E\+X\+PR }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\(\backslash\)}
+\DoxyCodeLine{    \_\_ITERATE\_HASHMAP\_AT\_INDEX(MAP\_TYPE, MAP, VAL\_TYPE, N) EXPR\(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

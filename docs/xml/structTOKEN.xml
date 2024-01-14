@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structTOKEN" kind="struct" language="C++" prot="public">
+    <compoundname>TOKEN</compoundname>
+    <includes refid="lexer_8h" local="no">lexer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structTOKEN_1a4a0391da14ef565d12d9287bc470f1eb" prot="public" static="no" mutable="no">
+        <type><ref refid="structMARK" kindref="compound">MARK</ref></type>
+        <definition>MARK start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="49" column="6" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTOKEN_1aa04b301e4126e479f367d43c7fe62046" prot="public" static="no" mutable="no">
+        <type><ref refid="structMARK" kindref="compound">MARK</ref></type>
+        <definition>MARK stop</definition>
+        <argsstring></argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="49" column="12" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTOKEN_1ac765329451135abec74c45e1897abf26" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="50" column="5" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTOKEN_1a750b5d744c39a06bfb13e6eb010e35d0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="51" column="5" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTOKEN_1afed088663f8704004425cdae2120b9b3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="51" column="11" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTOKEN_1a5633b1433389cec21ade3811bbe9ca5b" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="52" column="6" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>MARK</label>
+        <link refid="structMARK"/>
+      </node>
+      <node id="1">
+        <label>TOKEN</label>
+        <link refid="structTOKEN"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>stop</edgelabel>
+          <edgelabel>start</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="48" column="1" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="47" bodyend="53"/>
+    <listofallmembers>
+      <member refid="structTOKEN_1a750b5d744c39a06bfb13e6eb010e35d0" prot="public" virt="non-virtual"><scope>TOKEN</scope><name>index</name></member>
+      <member refid="structTOKEN_1afed088663f8704004425cdae2120b9b3" prot="public" virt="non-virtual"><scope>TOKEN</scope><name>len</name></member>
+      <member refid="structTOKEN_1a4a0391da14ef565d12d9287bc470f1eb" prot="public" virt="non-virtual"><scope>TOKEN</scope><name>start</name></member>
+      <member refid="structTOKEN_1aa04b301e4126e479f367d43c7fe62046" prot="public" virt="non-virtual"><scope>TOKEN</scope><name>stop</name></member>
+      <member refid="structTOKEN_1a5633b1433389cec21ade3811bbe9ca5b" prot="public" virt="non-virtual"><scope>TOKEN</scope><name>text</name></member>
+      <member refid="structTOKEN_1ac765329451135abec74c45e1897abf26" prot="public" virt="non-virtual"><scope>TOKEN</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

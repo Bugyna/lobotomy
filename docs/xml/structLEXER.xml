@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structLEXER" kind="struct" language="C++" prot="public">
+    <compoundname>LEXER</compoundname>
+    <includes refid="lexer_8h" local="no">lexer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structLEXER_1a16343090e80c4472521560f30113d96c" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="57" column="12" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a81c98c6ff8ae71bb42def8b2fb21e1c9" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t text_len</definition>
+        <argsstring></argsstring>
+        <name>text_len</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="58" column="8" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a30f3d35f3997af6b67bd49fe551ff23d" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t text_peek</definition>
+        <argsstring></argsstring>
+        <name>text_peek</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="58" column="17" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1ab3ced33ac8e367d2e28289b43bc99623" prot="public" static="no" mutable="no">
+        <type><ref refid="structTOKEN" kindref="compound">TOKEN</ref> *</type>
+        <definition>TOKEN* tokens</definition>
+        <argsstring></argsstring>
+        <name>tokens</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="60" column="7" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a750b5d744c39a06bfb13e6eb010e35d0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="61" column="5" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a439227feff9d7f55384e8780cfc2eb82" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="61" column="11" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int peek</definition>
+        <argsstring></argsstring>
+        <name>peek</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="61" column="16" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a95bb7727fb13bbbd97de25281799dc58" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ignore_untill_current_token_end</definition>
+        <argsstring></argsstring>
+        <name>ignore_untill_current_token_end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="62" column="6" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a5a353135a122c568e4edfa553ae74df7" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ignore_untill_next_token_end</definition>
+        <argsstring></argsstring>
+        <name>ignore_untill_next_token_end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="63" column="6" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1ab48e526c921c371ea1b94f3a8a9d2dfc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int p_count</definition>
+        <argsstring></argsstring>
+        <name>p_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="65" column="5" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a76f07866ff6ee681791119992024df8d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int b_count</definition>
+        <argsstring></argsstring>
+        <name>b_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="66" column="5" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLEXER_1a7b8c86d9685c5e4cca94667c88c19440" prot="public" static="no" mutable="no">
+        <type><ref refid="structMARK" kindref="compound">MARK</ref></type>
+        <definition>MARK pos</definition>
+        <argsstring></argsstring>
+        <name>pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="67" column="6" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>MARK</label>
+        <link refid="structMARK"/>
+      </node>
+      <node id="2">
+        <label>TOKEN</label>
+        <link refid="structTOKEN"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>stop</edgelabel>
+          <edgelabel>start</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>LEXER</label>
+        <link refid="structLEXER"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>tokens</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>pos</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/bugy/projs/lobotomy/src/lexer.h" line="56" column="1" bodyfile="/home/bugy/projs/lobotomy/src/lexer.h" bodystart="55" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structLEXER_1a76f07866ff6ee681791119992024df8d" prot="public" virt="non-virtual"><scope>LEXER</scope><name>b_count</name></member>
+      <member refid="structLEXER_1a95bb7727fb13bbbd97de25281799dc58" prot="public" virt="non-virtual"><scope>LEXER</scope><name>ignore_untill_current_token_end</name></member>
+      <member refid="structLEXER_1a5a353135a122c568e4edfa553ae74df7" prot="public" virt="non-virtual"><scope>LEXER</scope><name>ignore_untill_next_token_end</name></member>
+      <member refid="structLEXER_1a750b5d744c39a06bfb13e6eb010e35d0" prot="public" virt="non-virtual"><scope>LEXER</scope><name>index</name></member>
+      <member refid="structLEXER_1ab48e526c921c371ea1b94f3a8a9d2dfc" prot="public" virt="non-virtual"><scope>LEXER</scope><name>p_count</name></member>
+      <member refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" prot="public" virt="non-virtual"><scope>LEXER</scope><name>peek</name></member>
+      <member refid="structLEXER_1a7b8c86d9685c5e4cca94667c88c19440" prot="public" virt="non-virtual"><scope>LEXER</scope><name>pos</name></member>
+      <member refid="structLEXER_1a439227feff9d7f55384e8780cfc2eb82" prot="public" virt="non-virtual"><scope>LEXER</scope><name>size</name></member>
+      <member refid="structLEXER_1a16343090e80c4472521560f30113d96c" prot="public" virt="non-virtual"><scope>LEXER</scope><name>text</name></member>
+      <member refid="structLEXER_1a81c98c6ff8ae71bb42def8b2fb21e1c9" prot="public" virt="non-virtual"><scope>LEXER</scope><name>text_len</name></member>
+      <member refid="structLEXER_1a30f3d35f3997af6b67bd49fe551ff23d" prot="public" virt="non-virtual"><scope>LEXER</scope><name>text_peek</name></member>
+      <member refid="structLEXER_1ab3ced33ac8e367d2e28289b43bc99623" prot="public" virt="non-virtual"><scope>LEXER</scope><name>tokens</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

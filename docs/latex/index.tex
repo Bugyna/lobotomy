@@ -1,0 +1,18 @@
+\hypertarget{index_autotoc_md0}{}\doxysection{What is Lobotomy}\label{index_autotoc_md0}
+It is a programming language inspired by lisp and clojure
+
+comments ;; a comment
+
+debug comments show the comment text during evaluation \# a debug comment
+
+syntax uses polish notation so for arithmetics and functions and all else you do (hi-\/bestie argument \char`\"{}aaa\char`\"{}) -\/$>$ calls function named hi-\/bestie and passes variables named argument and a literal string \char`\"{}aaa\char`\"{}
+
+valid names an identifier has to start with alphabet characters or $<$=@?!\$\%$^\wedge$\&$\ast$/$\vert$$>$+-\/\textquotesingle{} and can be followed by number so basically anything goes and as such \textquotesingle{}+-\/=2\textquotesingle{} is a valid identifier
+
+functions (fn hello-\/name (name) (print \char`\"{}hello, \char`\"{} name)) -\/$>$ creates a function named hello-\/name which takes one parameter to call (hello-\/name \char`\"{}girlie\char`\"{}) -\/$>$ outputs \char`\"{}hello, girlie\char`\"{}
+
+variables to create a variable (let girl\+\_\+boss \char`\"{}value\char`\"{}) -\/$>$ creates a variable named girl\+\_\+boss that holds a string \char`\"{}value\char`\"{}
+
+to change the value of a variable simply call (let girl\+\_\+boss \char`\"{}new value\char`\"{})
+
+variables are saved inside scopes the default scope is the global one and functions create their own scope when called you can still access global variables inside of functions as long as they haven\textquotesingle{}t been overwritten (named the same way as the funciton parameters) 

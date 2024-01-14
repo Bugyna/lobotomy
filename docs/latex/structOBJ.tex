@@ -1,0 +1,150 @@
+\hypertarget{structOBJ}{}\doxysection{O\+BJ Struct Reference}
+\label{structOBJ}\index{OBJ@{OBJ}}
+
+
+{\ttfamily \#include $<$new\+\_\+obj.\+h$>$}
+
+
+
+Collaboration diagram for O\+BJ\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{structOBJ__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{new__obj_8h_a714b9c2c276fbae637fee36453d9121e}{O\+B\+J\+\_\+\+T\+Y\+PE}} \mbox{\hyperlink{structOBJ_aa97e0fc7c72adc82da4496afd1cf931d}{type}}
+\item 
+char $\ast$ \mbox{\hyperlink{structOBJ_a2369e10019829cd5f18d9b39fa38b419}{name}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int64\_t \mbox{\hyperlink{structOBJ_ad397256a98fb39cfb79784e0170daa57}{num}}\\
+\>double \mbox{\hyperlink{structOBJ_a28cb5faf7e521d84591a115d8568fa6c}{decimal}}\\
+\>char $\ast$ \mbox{\hyperlink{structOBJ_a19285d5f6dbd874ffc27159107872723}{str}}\\
+\>\mbox{\hyperlink{structFN}{FN}} $\ast$ \mbox{\hyperlink{structOBJ_a10a8e584cc582c228f9ddc423dbcdb61}{fn}}\\
+\>\mbox{\hyperlink{obj_8h_a398b9f23afcf45de3cabf2002dbb1b67}{C\_FUNC\_DEC}} \mbox{\hyperlink{structOBJ_a6bd065f8a11387e00a297b59ddf0d0d2}{c\_fn}}\\
+\}; \\
+
+\end{tabbing}\item 
+const char $\ast$ \mbox{\hyperlink{structOBJ_acae7fbe5d233007cf30e235a3972fa8f}{name}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int64\_t \mbox{\hyperlink{structOBJ_ad397256a98fb39cfb79784e0170daa57}{num}}\\
+\>double \mbox{\hyperlink{structOBJ_a28cb5faf7e521d84591a115d8568fa6c}{decimal}}\\
+\>char $\ast$ \mbox{\hyperlink{structOBJ_a19285d5f6dbd874ffc27159107872723}{str}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{structOBJ}{OBJ}} $\ast$ \mbox{\hyperlink{structOBJ_acea52f902b4792433125bdd637190ca3}{args}}\\
+\>\>\mbox{\hyperlink{structOBJ}{OBJ}} $\ast$ \mbox{\hyperlink{structOBJ_a289c97ea3a0741bb67da2bc8e4f4c8ce}{body}}\\
+\>\} \\
+\>\mbox{\hyperlink{obj_8h_a398b9f23afcf45de3cabf2002dbb1b67}{C\_FUNC\_DEC}} \mbox{\hyperlink{structOBJ_a6bd065f8a11387e00a297b59ddf0d0d2}{c\_fn}}\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{structOBJ_a816c939421682a71f3c3ea2f7fe13ca0}{car}}
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{structOBJ_afd482bdc1e310f9847cc3702639fc24d}{cdr}}
+\item 
+\mbox{\hyperlink{new__obj_8h_a3cf8df4c53c907fcf7a53617956c43c2}{E\+NV}} $\ast$ \mbox{\hyperlink{structOBJ_a299dbbbf6c9a47ccdc0cc2c4aa9cfc23}{env}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structOBJ_ae01199077e266dfac3a9960052802b1c}\label{structOBJ_ae01199077e266dfac3a9960052802b1c}} 
+\doxysubsubsection{\texorpdfstring{"@3}{@3}}
+{\footnotesize\ttfamily union \{ ... \} }
+
+\mbox{\Hypertarget{structOBJ_a9f3480d5708edf41cd82154e733b09d8}\label{structOBJ_a9f3480d5708edf41cd82154e733b09d8}} 
+\doxysubsubsection{\texorpdfstring{"@5}{@5}}
+{\footnotesize\ttfamily union \{ ... \} }
+
+\mbox{\Hypertarget{structOBJ_acea52f902b4792433125bdd637190ca3}\label{structOBJ_acea52f902b4792433125bdd637190ca3}} 
+\index{OBJ@{OBJ}!args@{args}}
+\index{args@{args}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{args}{args}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ O\+B\+J\+::args}
+
+\mbox{\Hypertarget{structOBJ_a289c97ea3a0741bb67da2bc8e4f4c8ce}\label{structOBJ_a289c97ea3a0741bb67da2bc8e4f4c8ce}} 
+\index{OBJ@{OBJ}!body@{body}}
+\index{body@{body}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ O\+B\+J\+::body}
+
+\mbox{\Hypertarget{structOBJ_a6bd065f8a11387e00a297b59ddf0d0d2}\label{structOBJ_a6bd065f8a11387e00a297b59ddf0d0d2}} 
+\index{OBJ@{OBJ}!c\_fn@{c\_fn}}
+\index{c\_fn@{c\_fn}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{c\_fn}{c\_fn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{obj_8h_a398b9f23afcf45de3cabf2002dbb1b67}{C\+\_\+\+F\+U\+N\+C\+\_\+\+D\+EC}} O\+B\+J\+::c\+\_\+fn}
+
+\mbox{\Hypertarget{structOBJ_a816c939421682a71f3c3ea2f7fe13ca0}\label{structOBJ_a816c939421682a71f3c3ea2f7fe13ca0}} 
+\index{OBJ@{OBJ}!car@{car}}
+\index{car@{car}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{car}{car}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ O\+B\+J\+::car}
+
+\mbox{\Hypertarget{structOBJ_afd482bdc1e310f9847cc3702639fc24d}\label{structOBJ_afd482bdc1e310f9847cc3702639fc24d}} 
+\index{OBJ@{OBJ}!cdr@{cdr}}
+\index{cdr@{cdr}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{cdr}{cdr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ O\+B\+J\+::cdr}
+
+\mbox{\Hypertarget{structOBJ_a28cb5faf7e521d84591a115d8568fa6c}\label{structOBJ_a28cb5faf7e521d84591a115d8568fa6c}} 
+\index{OBJ@{OBJ}!decimal@{decimal}}
+\index{decimal@{decimal}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{decimal}{decimal}}
+{\footnotesize\ttfamily double O\+B\+J\+::decimal}
+
+\mbox{\Hypertarget{structOBJ_a299dbbbf6c9a47ccdc0cc2c4aa9cfc23}\label{structOBJ_a299dbbbf6c9a47ccdc0cc2c4aa9cfc23}} 
+\index{OBJ@{OBJ}!env@{env}}
+\index{env@{env}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{env}{env}}
+{\footnotesize\ttfamily \mbox{\hyperlink{new__obj_8h_a3cf8df4c53c907fcf7a53617956c43c2}{E\+NV}}$\ast$ O\+B\+J\+::env}
+
+\mbox{\Hypertarget{structOBJ_a10a8e584cc582c228f9ddc423dbcdb61}\label{structOBJ_a10a8e584cc582c228f9ddc423dbcdb61}} 
+\index{OBJ@{OBJ}!fn@{fn}}
+\index{fn@{fn}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{fn}{fn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structFN}{FN}}$\ast$ O\+B\+J\+::fn}
+
+\mbox{\Hypertarget{structOBJ_acae7fbe5d233007cf30e235a3972fa8f}\label{structOBJ_acae7fbe5d233007cf30e235a3972fa8f}} 
+\index{OBJ@{OBJ}!name@{name}}
+\index{name@{name}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{name}{name}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const char$\ast$ O\+B\+J\+::name}
+
+\mbox{\Hypertarget{structOBJ_a2369e10019829cd5f18d9b39fa38b419}\label{structOBJ_a2369e10019829cd5f18d9b39fa38b419}} 
+\index{OBJ@{OBJ}!name@{name}}
+\index{name@{name}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{name}{name}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily char$\ast$ O\+B\+J\+::name}
+
+\mbox{\Hypertarget{structOBJ_ad397256a98fb39cfb79784e0170daa57}\label{structOBJ_ad397256a98fb39cfb79784e0170daa57}} 
+\index{OBJ@{OBJ}!num@{num}}
+\index{num@{num}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{num}{num}}
+{\footnotesize\ttfamily int64\+\_\+t O\+B\+J\+::num}
+
+\mbox{\Hypertarget{structOBJ_a19285d5f6dbd874ffc27159107872723}\label{structOBJ_a19285d5f6dbd874ffc27159107872723}} 
+\index{OBJ@{OBJ}!str@{str}}
+\index{str@{str}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{str}{str}}
+{\footnotesize\ttfamily char$\ast$ O\+B\+J\+::str}
+
+\mbox{\Hypertarget{structOBJ_aa97e0fc7c72adc82da4496afd1cf931d}\label{structOBJ_aa97e0fc7c72adc82da4496afd1cf931d}} 
+\index{OBJ@{OBJ}!type@{type}}
+\index{type@{type}!OBJ@{OBJ}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{new__obj_8h_a714b9c2c276fbae637fee36453d9121e}{O\+B\+J\+\_\+\+T\+Y\+PE}} O\+B\+J\+::type}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/bugy/projs/lobotomy/src/\mbox{\hyperlink{new__obj_8h}{new\+\_\+obj.\+h}}\item 
+/home/bugy/projs/lobotomy/src/\mbox{\hyperlink{obj_8c}{obj.\+c}}\end{DoxyCompactItemize}

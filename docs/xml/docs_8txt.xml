@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="docs_8txt" kind="file" language="C++">
+    <compoundname>docs.txt</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="docs_8txt_1a64b8b36116751d566275b722e40bb3a7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>comments</definition>
+        <argsstring></argsstring>
+        <name>comments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/docs.txt" line="1" column="1" bodyfile="/home/bugy/projs/lobotomy/src/docs.txt" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"><ref refid="docs_8txt_1a64b8b36116751d566275b722e40bb3a7" kindref="member">comments</ref></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">;;<sp/>a<sp/>comment</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">debug<sp/><ref refid="docs_8txt_1a64b8b36116751d566275b722e40bb3a7" kindref="member">comments</ref></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">show<sp/>the<sp/>comment<sp/>text<sp/>during<sp/>evaluation</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>a<sp/>debug<sp/>comment</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">syntax</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">uses<sp/>polish<sp/>notation</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">so<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>arithmetics<sp/>and<sp/>functions<sp/>and<sp/>all<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>you<sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">(hi-bestie<sp/>argument<sp/></highlight><highlight class="stringliteral">&quot;aaa&quot;</highlight><highlight class="normal">)<sp/>-&gt;<sp/>calls<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>named<sp/>hi-bestie<sp/>and<sp/>passes<sp/>variables<sp/>named<sp/>argument<sp/>and<sp/>a<sp/>literal<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;aaa&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">valid<sp/>names</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">an<sp/>identifier<sp/>has<sp/>to<sp/>start<sp/>with<sp/>alphabet<sp/>characters<sp/>or<sp/>&lt;=@?!$%^&amp;*/|&gt;+-</highlight><highlight class="stringliteral">&apos;<sp/>and<sp/>can<sp/>be<sp/>followed<sp/>by<sp/>number</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral">so<sp/>basically<sp/>anything<sp/>goes<sp/>and<sp/>as<sp/>such<sp/>&apos;</highlight><highlight class="normal">+-=2</highlight><highlight class="stringliteral">&apos;<sp/>is<sp/>a<sp/>valid<sp/>identifier</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral">functions</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral">(fn<sp/>hello-name<sp/>(name)<sp/>(print<sp/>&quot;hello,<sp/>&quot;<sp/>name))<sp/>-&gt;<sp/>creates<sp/>a<sp/>function<sp/>named<sp/>hello-name<sp/>which<sp/>takes<sp/>one<sp/>parameter</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral">to<sp/>call</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral">(hello-name<sp/>&quot;girlie&quot;)<sp/>-&gt;<sp/>outputs<sp/>&quot;hello,<sp/>girlie&quot;</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral">variables</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral">to<sp/>create<sp/>a<sp/>variable</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral">(let<sp/>girl_boss<sp/>&quot;value&quot;)<sp/>-&gt;<sp/>creates<sp/>a<sp/>variable<sp/>named<sp/>girl_boss<sp/>that<sp/>holds<sp/>a<sp/>string<sp/>&quot;value&quot;</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral">to<sp/>change<sp/>the<sp/>value<sp/>of<sp/>a<sp/>variable<sp/>simply<sp/>call</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral">(let<sp/>girl_boss<sp/>&quot;new<sp/>value&quot;)</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral">variables<sp/>are<sp/>saved<sp/>inside<sp/>scopes</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral">the<sp/>default<sp/>scope<sp/>is<sp/>the<sp/>global<sp/>one<sp/>and<sp/>functions<sp/>create<sp/>their<sp/>own<sp/>scope<sp/>when<sp/>called</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral">you<sp/>can<sp/>still<sp/>access<sp/>global<sp/>variables<sp/>inside<sp/>of<sp/>functions<sp/>as<sp/>long<sp/>as<sp/>they<sp/>haven&apos;</highlight><highlight class="normal">t<sp/>been<sp/>overwritten<sp/>(named<sp/>the<sp/>same<sp/>way<sp/>as<sp/>the<sp/>funciton<sp/>parameters)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/docs.txt"/>
+  </compounddef>
+</doxygen>

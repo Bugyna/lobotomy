@@ -1,6 +1,7 @@
 #pragma once
 #include <wchar.h>
 #include "lexer.h"
+#include "util.h"
 #include "obj.h"
 
 typedef struct
@@ -156,6 +157,7 @@ OBJ_LIST* parse(const char text[])
 		lexer.peek++;
 		OBJ_LIST_APPEND(parsed, head);
 	}
+	printf("ppp: %p\n", printf);
 
 	// printf("\n\n-------------------\n\n");
 	return parsed;

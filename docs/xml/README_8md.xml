@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">Main<sp/>Page<sp/>{#mainpage}</highlight></codeline>
+<codeline><highlight class="normal">=========</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>What<sp/>is<sp/>Lobotomy</highlight></codeline>
+<codeline><highlight class="normal">It<sp/>is<sp/>a<sp/>programming<sp/>language<sp/>inspired<sp/>by<sp/>lisp<sp/>and<sp/>clojure</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/README.md"/>
+  </compounddef>
+</doxygen>

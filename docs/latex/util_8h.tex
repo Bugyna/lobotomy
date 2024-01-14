@@ -1,0 +1,179 @@
+\hypertarget{util_8h}{}\doxysection{/home/bugy/projs/lobotomy/src/util.h File Reference}
+\label{util_8h}\index{/home/bugy/projs/lobotomy/src/util.h@{/home/bugy/projs/lobotomy/src/util.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$wchar.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}error.\+h\char`\"{}}\newline
+Include dependency graph for util.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}~\mbox{\hyperlink{util_8h_ac89271d33116a9d352b136a66b6f626d}{\+\_\+lobotomy\+\_\+exit}}
+\item 
+\#define \mbox{\hyperlink{util_8h_a969c7c1ebb4f70581e040a3034b14ee0}{u64}}~uint64\+\_\+t
+\item 
+\#define \mbox{\hyperlink{util_8h_a332ccd83dfe2973e6cb2b61e4f3ab7e6}{u32}}~uint32\+\_\+t
+\item 
+\#define \mbox{\hyperlink{util_8h_a2b19d553290a8d4a083d3c03280ea800}{u16}}~uint16\+\_\+t
+\item 
+\#define \mbox{\hyperlink{util_8h_af3b86d961da0a3575b4f99c9ffaf01fd}{u8}}~uint8\+\_\+t
+\item 
+\#define \mbox{\hyperlink{util_8h_aa777e5139adfca31612ec04bc2b26845}{i64}}~int64\+\_\+t
+\item 
+\#define \mbox{\hyperlink{util_8h_a832509ea197065489f1d60b6d7958cbf}{i32}}~int32\+\_\+t
+\item 
+\#define \mbox{\hyperlink{util_8h_a3e01dd59d72c4919aa21a46fa5299e23}{i16}}~int16\+\_\+t
+\item 
+\#define \mbox{\hyperlink{util_8h_a8b1c3ba7ed71c46505556d43a9bee9e1}{i8}}~int8\+\_\+t
+\item 
+\#define \mbox{\hyperlink{util_8h_a4f2705df522fd01ea20cea002f2d4304}{printd}}(...)
+\item 
+\#define \mbox{\hyperlink{util_8h_ac6c62456062b60acb9d5ffe2702c7ed7}{H\+A\+S\+H\+M\+A\+P\+\_\+\+H\+A\+S\+H\+\_\+\+I\+N\+IT}}~2166136261u
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{util_8h_a0198640928326ecdb7cbb77e009a2d62}{\+\_\+lobotomy\+\_\+exit\+\_\+func}}) (int n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{util_8h_a56bcf160a30371294d1e91c99540553e}{read\+\_\+file}} (const char path\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{util_8h_a837545d852dbedf0b642ae0f8e1b7d67}{hash}} (const char $\ast$key)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{util_8h_a0198640928326ecdb7cbb77e009a2d62}{\+\_\+lobotomy\+\_\+exit\+\_\+func}} \mbox{\hyperlink{util_8h_ac89271d33116a9d352b136a66b6f626d}{\+\_\+lobotomy\+\_\+exit}} = \&\mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}
+\item 
+\mbox{\hyperlink{util_8h_a0198640928326ecdb7cbb77e009a2d62}{\+\_\+lobotomy\+\_\+exit\+\_\+func}} \mbox{\hyperlink{util_8h_aa8309d2be920c08db6f2fa7682a5ea5d}{\+\_\+real\+\_\+exit}} = \&\mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{util_8h_a5134b2f308b8e125e5f987ac66222050}\label{util_8h_a5134b2f308b8e125e5f987ac66222050}} 
+\index{util.h@{util.h}!exit@{exit}}
+\index{exit@{exit}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{exit}{exit}}
+{\footnotesize\ttfamily \#define exit~\mbox{\hyperlink{util_8h_ac89271d33116a9d352b136a66b6f626d}{\+\_\+lobotomy\+\_\+exit}}}
+
+\mbox{\Hypertarget{util_8h_ac6c62456062b60acb9d5ffe2702c7ed7}\label{util_8h_ac6c62456062b60acb9d5ffe2702c7ed7}} 
+\index{util.h@{util.h}!HASHMAP\_HASH\_INIT@{HASHMAP\_HASH\_INIT}}
+\index{HASHMAP\_HASH\_INIT@{HASHMAP\_HASH\_INIT}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{HASHMAP\_HASH\_INIT}{HASHMAP\_HASH\_INIT}}
+{\footnotesize\ttfamily \#define H\+A\+S\+H\+M\+A\+P\+\_\+\+H\+A\+S\+H\+\_\+\+I\+N\+IT~2166136261u}
+
+\mbox{\Hypertarget{util_8h_a3e01dd59d72c4919aa21a46fa5299e23}\label{util_8h_a3e01dd59d72c4919aa21a46fa5299e23}} 
+\index{util.h@{util.h}!i16@{i16}}
+\index{i16@{i16}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{i16}{i16}}
+{\footnotesize\ttfamily \#define i16~int16\+\_\+t}
+
+\mbox{\Hypertarget{util_8h_a832509ea197065489f1d60b6d7958cbf}\label{util_8h_a832509ea197065489f1d60b6d7958cbf}} 
+\index{util.h@{util.h}!i32@{i32}}
+\index{i32@{i32}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{i32}{i32}}
+{\footnotesize\ttfamily \#define i32~int32\+\_\+t}
+
+\mbox{\Hypertarget{util_8h_aa777e5139adfca31612ec04bc2b26845}\label{util_8h_aa777e5139adfca31612ec04bc2b26845}} 
+\index{util.h@{util.h}!i64@{i64}}
+\index{i64@{i64}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{i64}{i64}}
+{\footnotesize\ttfamily \#define i64~int64\+\_\+t}
+
+\mbox{\Hypertarget{util_8h_a8b1c3ba7ed71c46505556d43a9bee9e1}\label{util_8h_a8b1c3ba7ed71c46505556d43a9bee9e1}} 
+\index{util.h@{util.h}!i8@{i8}}
+\index{i8@{i8}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{i8}{i8}}
+{\footnotesize\ttfamily \#define i8~int8\+\_\+t}
+
+\mbox{\Hypertarget{util_8h_a4f2705df522fd01ea20cea002f2d4304}\label{util_8h_a4f2705df522fd01ea20cea002f2d4304}} 
+\index{util.h@{util.h}!printd@{printd}}
+\index{printd@{printd}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{printd}{printd}}
+{\footnotesize\ttfamily \#define printd(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8h_a2b19d553290a8d4a083d3c03280ea800}\label{util_8h_a2b19d553290a8d4a083d3c03280ea800}} 
+\index{util.h@{util.h}!u16@{u16}}
+\index{u16@{u16}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{u16}{u16}}
+{\footnotesize\ttfamily \#define u16~uint16\+\_\+t}
+
+\mbox{\Hypertarget{util_8h_a332ccd83dfe2973e6cb2b61e4f3ab7e6}\label{util_8h_a332ccd83dfe2973e6cb2b61e4f3ab7e6}} 
+\index{util.h@{util.h}!u32@{u32}}
+\index{u32@{u32}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{u32}{u32}}
+{\footnotesize\ttfamily \#define u32~uint32\+\_\+t}
+
+\mbox{\Hypertarget{util_8h_a969c7c1ebb4f70581e040a3034b14ee0}\label{util_8h_a969c7c1ebb4f70581e040a3034b14ee0}} 
+\index{util.h@{util.h}!u64@{u64}}
+\index{u64@{u64}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{u64}{u64}}
+{\footnotesize\ttfamily \#define u64~uint64\+\_\+t}
+
+\mbox{\Hypertarget{util_8h_af3b86d961da0a3575b4f99c9ffaf01fd}\label{util_8h_af3b86d961da0a3575b4f99c9ffaf01fd}} 
+\index{util.h@{util.h}!u8@{u8}}
+\index{u8@{u8}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{u8}{u8}}
+{\footnotesize\ttfamily \#define u8~uint8\+\_\+t}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{util_8h_a0198640928326ecdb7cbb77e009a2d62}\label{util_8h_a0198640928326ecdb7cbb77e009a2d62}} 
+\index{util.h@{util.h}!\_lobotomy\_exit\_func@{\_lobotomy\_exit\_func}}
+\index{\_lobotomy\_exit\_func@{\_lobotomy\_exit\_func}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{\_lobotomy\_exit\_func}{\_lobotomy\_exit\_func}}
+{\footnotesize\ttfamily typedef void($\ast$ \+\_\+lobotomy\+\_\+exit\+\_\+func) (int n)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{util_8h_a837545d852dbedf0b642ae0f8e1b7d67}\label{util_8h_a837545d852dbedf0b642ae0f8e1b7d67}} 
+\index{util.h@{util.h}!hash@{hash}}
+\index{hash@{hash}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily int hash (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8h_a56bcf160a30371294d1e91c99540553e}\label{util_8h_a56bcf160a30371294d1e91c99540553e}} 
+\index{util.h@{util.h}!read\_file@{read\_file}}
+\index{read\_file@{read\_file}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{read\_file()}{read\_file()}}
+{\footnotesize\ttfamily char$\ast$ read\+\_\+file (\begin{DoxyParamCaption}\item[{const char}]{path\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{util_8h_ac89271d33116a9d352b136a66b6f626d}\label{util_8h_ac89271d33116a9d352b136a66b6f626d}} 
+\index{util.h@{util.h}!\_lobotomy\_exit@{\_lobotomy\_exit}}
+\index{\_lobotomy\_exit@{\_lobotomy\_exit}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{\_lobotomy\_exit}{\_lobotomy\_exit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_a0198640928326ecdb7cbb77e009a2d62}{\+\_\+lobotomy\+\_\+exit\+\_\+func}} \+\_\+lobotomy\+\_\+exit = \&\mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}}
+
+\mbox{\Hypertarget{util_8h_aa8309d2be920c08db6f2fa7682a5ea5d}\label{util_8h_aa8309d2be920c08db6f2fa7682a5ea5d}} 
+\index{util.h@{util.h}!\_real\_exit@{\_real\_exit}}
+\index{\_real\_exit@{\_real\_exit}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{\_real\_exit}{\_real\_exit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_a0198640928326ecdb7cbb77e009a2d62}{\+\_\+lobotomy\+\_\+exit\+\_\+func}} \+\_\+real\+\_\+exit = \&\mbox{\hyperlink{util_8h_a5134b2f308b8e125e5f987ac66222050}{exit}}}
+

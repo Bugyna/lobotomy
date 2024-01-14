@@ -1,26 +1,6 @@
 
-(print "aa")
-(let t 2)
-(func f (a) (= a 2))
-(f 4)
-(f 2)
 
-(func fn (a) (+ a a))
-(fn 2)
-(fn 4)
-(fn 44)
-
-;; (func print-fn (f) (
-
-
-(func loop_many_times (b) (loop (! b 10) (print b "->" (let b (+ b 2)) "\n")))
-
-;; (func print_ln (a) (print a "\b" (fn a)))
-;; (print_ln "hi")
-
-;; (print "\n")
-(loop_many_times 2)
-;; (let i 0)
-;; (loop (= 0 0) (print (let i (+ i 1))))
-
-(print (? (<= 4 4) ("A") ("B")))
+(let a 2)
+(fn local-definition (b) ( (let a (+ b 22)) (+ a 3)) )
+(local-definition a)
+(print a)

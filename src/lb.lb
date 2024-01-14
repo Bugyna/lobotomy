@@ -1,0 +1,41 @@
+
+
+(record MARK
+	[
+		line: num
+		column: num
+	]
+)
+
+(record TOKEN
+	[
+		type
+		text
+		mark
+	]
+)
+
+(record LEXER
+	[
+		tokens
+		peek
+	]
+)
+
+
+(fn tokenize [content]
+	( LEXER lexer [[] 0] )
+	()
+	(
+		loop-over content (char lexer.peek)
+		(
+			match char
+			("abcdf..." ()
+		)
+	)
+	()
+	()
+	()
+	()
+	(lexer)
+)

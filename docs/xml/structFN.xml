@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structFN" kind="struct" language="C++" prot="public">
+    <compoundname>FN</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structFN_1a1a9bb40092cbc720ccdf99365292d26b" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* args</definition>
+        <argsstring></argsstring>
+        <name>args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="31" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFN_1a493440883218ce089dfd91547a91b934" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* body</definition>
+        <argsstring></argsstring>
+        <name>body</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="32" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFN_1ab082a901a23e5315ca84dd0c984d58f1" prot="public" static="no" mutable="no">
+        <type><ref refid="obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref> *</type>
+        <definition>ENV* env</definition>
+        <argsstring></argsstring>
+        <name>env</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="33" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>OBJ</label>
+        <link refid="structOBJ"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>body</edgelabel>
+          <edgelabel>c_fn</edgelabel>
+          <edgelabel>cdr</edgelabel>
+          <edgelabel>args</edgelabel>
+          <edgelabel>car</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>FN</label>
+        <link refid="structFN"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>body</edgelabel>
+          <edgelabel>args</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/bugy/projs/lobotomy/src/obj.c" line="30" column="1" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="29" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structFN_1a1a9bb40092cbc720ccdf99365292d26b" prot="public" virt="non-virtual"><scope>FN</scope><name>args</name></member>
+      <member refid="structFN_1a493440883218ce089dfd91547a91b934" prot="public" virt="non-virtual"><scope>FN</scope><name>body</name></member>
+      <member refid="structFN_1ab082a901a23e5315ca84dd0c984d58f1" prot="public" virt="non-virtual"><scope>FN</scope><name>env</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

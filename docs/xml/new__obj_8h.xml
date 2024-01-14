@@ -1,0 +1,671 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="new__obj_8h" kind="file" language="C++">
+    <compoundname>new_obj.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes refid="linked__list_8h" local="yes">linked_list.h</includes>
+    <includes local="yes">../../SHM/hashmap.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="7">
+        <label>../../SHM/hashmap.h</label>
+      </node>
+      <node id="5">
+        <label>linked_list.h</label>
+        <link refid="linked__list_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/new_obj.h</label>
+        <link refid="new__obj_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structCONS" prot="public">CONS</innerclass>
+    <innerclass refid="structOBJ" prot="public">OBJ</innerclass>
+    <innerclass refid="structFN" prot="public">FN</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" prot="public" static="no">
+        <name>STRINGIFY</name>
+        <param><defname>x</defname></param>
+        <initializer>#x</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="29" column="9" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="new__obj_8h_1ab91d02dc63defade63583c31c17334be" prot="public" static="no">
+        <name>ITERATE_OBJECT</name>
+        <param><defname>O</defname></param>
+        <param><defname>curr</defname></param>
+        <initializer>for(<ref refid="structCONS" kindref="compound">CONS</ref> curr = O; curr != NULL; curr = curr-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="82" column="9" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="new__obj_8h_1a91f10efe27d68e6e0310af89c0a72dfb" prot="public" static="no">
+        <name>ITERATE_OBJECT_PTR</name>
+        <param><defname>O</defname></param>
+        <param><defname>curr</defname></param>
+        <initializer>for(<ref refid="structCONS" kindref="compound">CONS</ref>* curr = &amp;O; curr != NULL &amp;&amp; curr-&gt;type != <ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" kindref="member">T_UNDEFINED</ref>; curr = &amp;curr-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="86" column="9" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="new__obj_8h_1a8232508d91e1747ea70bd1dc55ba0acd" prot="public" static="no">
+        <name>NEW</name>
+        <param></param>
+        <initializer>calloc(1, sizeof(<ref refid="structOBJ" kindref="compound">OBJ</ref>))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="172" column="9" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>OBJ_TYPE</name>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" prot="public">
+          <name>T_UNDEFINED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" prot="public">
+          <name>T_IDENTIFIER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0" prot="public">
+          <name>T_LIST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb" prot="public">
+          <name>T_C_FN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0" prot="public">
+          <name>T_FN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" prot="public">
+          <name>T_STR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" prot="public">
+          <name>T_NUM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" prot="public">
+          <name>T_DECIMAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075" prot="public">
+          <name>T_TRUE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead04c6fedfc6e82b9cd961d926579f541" prot="public">
+          <name>T_FALSE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" prot="public">
+          <name>T_UNDEFINED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eae711a251b1feff34fd9b1337a3caa6aa" prot="public">
+          <name>T_NIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" prot="public">
+          <name>T_IDENTIFIER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075" prot="public">
+          <name>T_TRUE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead04c6fedfc6e82b9cd961d926579f541" prot="public">
+          <name>T_FALSE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea9c5c7533b65f70c615307c5d149b7fee" prot="public">
+          <name>T_EXPR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0" prot="public">
+          <name>T_LIST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb" prot="public">
+          <name>T_C_FN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0" prot="public">
+          <name>T_FN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" prot="public">
+          <name>T_STR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" prot="public">
+          <name>T_NUM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" prot="public">
+          <name>T_DECIMAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eae3514db66d821cd913d6ff84ac030ad0" prot="public">
+          <name>T_REF</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="14" column="1" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="13" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="new__obj_8h_1a830efd366bee8f45b4728522df82c90f" prot="public" static="no">
+        <type>struct <ref refid="structFN" kindref="compound">FN</ref></type>
+        <definition>typedef struct FN FN</definition>
+        <argsstring></argsstring>
+        <name>FN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="31" column="12" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="new__obj_8h_1a0b3e62818fe3f67193959ddfa20793a6" prot="public" static="no">
+        <type>struct <ref refid="structOBJ" kindref="compound">OBJ</ref></type>
+        <definition>typedef struct OBJ OBJ</definition>
+        <argsstring></argsstring>
+        <name>OBJ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="31" column="12" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" prot="public" static="no">
+        <type>struct <ref refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref></type>
+        <definition>typedef struct ENV ENV</definition>
+        <argsstring></argsstring>
+        <name>ENV</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="31" column="12" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="new__obj_8h_1ae8d1d415973d8fdcac0e89e917f7b325" prot="public" static="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *(*</type>
+        <definition>typedef OBJ*(* C_FUNC_DEC) (OBJ *,...)</definition>
+        <argsstring>)(OBJ *,...)</argsstring>
+        <name>C_FUNC_DEC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="55" column="9" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="new__obj_8h_1ac84a9a7067a0f13fac90df2c95883165" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>const OBJ* OTRUE</definition>
+        <argsstring></argsstring>
+        <name>OTRUE</name>
+        <initializer>= &amp;(<ref refid="structOBJ" kindref="compound">OBJ</ref>){.type=<ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075" kindref="member">T_TRUE</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="90" column="18" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="new__obj_8h_1a4ec46e248187f78c5c6c25ea5f99dafd" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>const OBJ* OFALSE</definition>
+        <argsstring></argsstring>
+        <name>OFALSE</name>
+        <initializer>= &amp;(<ref refid="structOBJ" kindref="compound">OBJ</ref>){.type=<ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ead04c6fedfc6e82b9cd961d926579f541" kindref="member">T_FALSE</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="91" column="18" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="new__obj_8h_1ab802e56a26b009c82db469277a5e54cd" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>const OBJ* OUNDEFINED</definition>
+        <argsstring></argsstring>
+        <name>OUNDEFINED</name>
+        <initializer>= &amp;(<ref refid="structOBJ" kindref="compound">OBJ</ref>){.type=<ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" kindref="member">T_UNDEFINED</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="92" column="18" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="new__obj_8h_1a31f3e3ff9ee4a82a0c21d0ee51069867" prot="public" static="no" mutable="no">
+        <type><ref refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref></type>
+        <definition>ENV global_env</definition>
+        <argsstring></argsstring>
+        <name>global_env</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="161" column="5" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* type_name</definition>
+        <argsstring>(OBJ_TYPE i)</argsstring>
+        <name>type_name</name>
+        <param>
+          <type><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121e" kindref="member">OBJ_TYPE</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="31" column="12" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="31" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="new__obj_8h_1a521cc030b81fe690acc65f15f5d95703" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void __print_obj_simple</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>__print_obj_simple</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="95" column="6" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="95" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="new__obj_8h_1a0ff4ee4239a3c797e1c4e85d2e7d55a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_obj_simple</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>print_obj_simple</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="140" column="6" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="140" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="new__obj_8h_1a2a163456fda869d8db74ea891b4f75cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void __print_obj_full</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>__print_obj_full</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="147" column="6" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="147" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="new__obj_8h_1afef0f8196de8986895bc02ecbbaf2529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* empty_obj</definition>
+        <argsstring>()</argsstring>
+        <name>empty_obj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="173" column="5" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="173" bodyend="180"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="linked__list_8h" kindref="compound">linked_list.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../../SHM/hashmap.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;hashmap.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" kindref="member">T_UNDEFINED</ref>,</highlight></codeline>
+<codeline lineno="16" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" kindref="member">T_IDENTIFIER</ref>,</highlight></codeline>
+<codeline lineno="17" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0" kindref="member">T_LIST</ref>,</highlight></codeline>
+<codeline lineno="18" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb" kindref="member">T_C_FN</ref>,</highlight></codeline>
+<codeline lineno="19" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0" kindref="member">T_FN</ref>,</highlight></codeline>
+<codeline lineno="20" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" kindref="member">T_STR</ref>,</highlight></codeline>
+<codeline lineno="21" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>,</highlight></codeline>
+<codeline lineno="22" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>,</highlight></codeline>
+<codeline lineno="23" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075" kindref="member">T_TRUE</ref>,</highlight></codeline>
+<codeline lineno="24" refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead04c6fedfc6e82b9cd961d926579f541" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead04c6fedfc6e82b9cd961d926579f541" kindref="member">T_FALSE</ref>,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}<sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121e" kindref="member">OBJ_TYPE</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STRINGIFY(x)<sp/>#x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121e" kindref="member">OBJ_TYPE</ref><sp/>i)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(i)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" kindref="member">T_UNDEFINED</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" kindref="member">STRINGIFY</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" kindref="member">T_UNDEFINED</ref>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" kindref="member">T_IDENTIFIER</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" kindref="member">STRINGIFY</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" kindref="member">T_IDENTIFIER</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0" kindref="member">T_LIST</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" kindref="member">STRINGIFY</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0" kindref="member">T_LIST</ref>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb" kindref="member">T_C_FN</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" kindref="member">STRINGIFY</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb" kindref="member">T_C_FN</ref>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0" kindref="member">T_FN</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" kindref="member">STRINGIFY</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0" kindref="member">T_FN</ref>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" kindref="member">T_STR</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" kindref="member">STRINGIFY</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" kindref="member">T_STR</ref>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" kindref="member">STRINGIFY</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a6df1d22fb5f09eccc23b9f399670cfd7" kindref="member">STRINGIFY</ref>(<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;NO<sp/>IDEA&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="new__obj_8h_1a830efd366bee8f45b4728522df82c90f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structFN" kindref="compound">FN</ref><sp/><ref refid="structFN" kindref="compound">FN</ref>;</highlight></codeline>
+<codeline lineno="50" refid="new__obj_8h_1a0b3e62818fe3f67193959ddfa20793a6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>;</highlight></codeline>
+<codeline lineno="51" refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref><sp/><ref refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="new__obj_8h_1ae8d1d415973d8fdcac0e89e917f7b325" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>(*C_FUNC_DEC)(<ref refid="structOBJ" kindref="compound">OBJ</ref>*,<sp/>...);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="structCONS" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60" refid="structCONS_1affd697ead9a7597f834319e5367921b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="structCONS_1affd697ead9a7597f834319e5367921b7" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="61" refid="structCONS_1a6dbe7079071807ebef9356fb62403ab2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="structCONS_1a6dbe7079071807ebef9356fb62403ab2" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}<sp/><ref refid="obj_8h_1a17603768e25a1fbc716b45db156abb7c" kindref="member">CONS</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="structOBJ" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67" refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121e" kindref="member">OBJ_TYPE</ref><sp/><ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>;</highlight></codeline>
+<codeline lineno="68" refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">union</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="72" refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/><ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref>;</highlight></codeline>
+<codeline lineno="73" refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref>;</highlight></codeline>
+<codeline lineno="74" refid="structOBJ_1ab50d783982593ef993ea0b68f7ad8b80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="structOBJ_1ab50d783982593ef993ea0b68f7ad8b80" kindref="member">str</ref>;</highlight></codeline>
+<codeline lineno="75" refid="structOBJ_1aa4101b04f14a67b79cb72010a8f6fe84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structFN" kindref="compound">FN</ref>*<sp/><ref refid="structOBJ_1aa4101b04f14a67b79cb72010a8f6fe84" kindref="member">fn</ref>;</highlight></codeline>
+<codeline lineno="76" refid="structOBJ_1a3b5f8ac5990692795b17d185e9294646" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1ae8d1d415973d8fdcac0e89e917f7b325" kindref="member">C_FUNC_DEC</ref><sp/><ref refid="structOBJ_1a3b5f8ac5990692795b17d185e9294646" kindref="member">c_fn</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="new__obj_8h_1ab91d02dc63defade63583c31c17334be" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_OBJECT(O,<sp/>curr)\</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor">for(CONS<sp/>curr<sp/>=<sp/>O;<sp/>curr<sp/>!=<sp/>NULL;<sp/>curr<sp/>=<sp/>curr-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="new__obj_8h_1a91f10efe27d68e6e0310af89c0a72dfb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_OBJECT_PTR(O,<sp/>curr)\</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor">for(CONS*<sp/>curr<sp/>=<sp/>&amp;O;<sp/>curr<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>curr-&gt;type<sp/>!=<sp/>T_UNDEFINED;<sp/>curr<sp/>=<sp/>&amp;curr-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>OTRUE<sp/>=<sp/>&amp;(<ref refid="new__obj_8h_1a0b3e62818fe3f67193959ddfa20793a6" kindref="member">OBJ</ref>){.<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>=<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075" kindref="member">T_TRUE</ref>};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>OFALSE<sp/>=<sp/>&amp;(<ref refid="new__obj_8h_1a0b3e62818fe3f67193959ddfa20793a6" kindref="member">OBJ</ref>){.<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>=<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead04c6fedfc6e82b9cd961d926579f541" kindref="member">T_FALSE</ref>};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>OUNDEFINED<sp/>=<sp/>&amp;(<ref refid="new__obj_8h_1a0b3e62818fe3f67193959ddfa20793a6" kindref="member">OBJ</ref>){.<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>=<ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" kindref="member">T_UNDEFINED</ref>};</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="obj_8h_1a521cc030b81fe690acc65f15f5d95703" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a521cc030b81fe690acc65f15f5d95703" kindref="member">__print_obj_simple</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf" kindref="member">T_UNDEFINED</ref>:</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>%s:<sp/>UNDEFINED]&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>:</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>%s:<sp/>%ld]&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/>o-&gt;<ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>:</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>%s:<sp/>%f]&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/>o-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" kindref="member">T_IDENTIFIER</ref>:</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>%s]&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" kindref="member">T_STR</ref>:</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>%s:<sp/>%s]&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>,<sp/>o-&gt;<ref refid="structOBJ_1ab50d783982593ef993ea0b68f7ad8b80" kindref="member">str</ref>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0" kindref="member">T_LIST</ref>:</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>&lt;%s&gt;]<sp/>(&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1ab91d02dc63defade63583c31c17334be" kindref="member">ITERATE_OBJECT</ref>(o-&gt;next,<sp/>curr)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;<sp/>.\n\t&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a521cc030b81fe690acc65f15f5d95703" kindref="member">__print_obj_simple</ref>(curr);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;\n)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb" kindref="member">T_C_FN</ref>:</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>%s]&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0" kindref="member">T_FN</ref>:</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>%s]&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="obj_8h_1a0ff4ee4239a3c797e1c4e85d2e7d55a1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a0ff4ee4239a3c797e1c4e85d2e7d55a1" kindref="member">print_obj_simple</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a521cc030b81fe690acc65f15f5d95703" kindref="member">__print_obj_simple</ref>(o);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="obj_8h_1a2a163456fda869d8db74ea891b4f75cf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a2a163456fda869d8db74ea891b4f75cf" kindref="member">__print_obj_full</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;[%s<sp/>&lt;%s&gt;]<sp/>(&quot;</highlight><highlight class="normal">,<sp/><ref refid="new__obj_8h_1a4c7dc3a5200a4923b368108e9ecbac21" kindref="member">type_name</ref>(o-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>),<sp/>o-&gt;<ref refid="structOBJ_1a5ac083a645d964373f022d03df4849c8" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1ab91d02dc63defade63583c31c17334be" kindref="member">ITERATE_OBJECT</ref>(o-&gt;next,<sp/>curr)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;<sp/>.\n\t&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a521cc030b81fe690acc65f15f5d95703" kindref="member">__print_obj_simple</ref>(curr);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;\n)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><ref refid="hashmap_8h_1add57a74fbf76b95fc0fff0a12f43645a" kindref="member">DEFINE_HASHMAP</ref>(<ref refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref>,<sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name;<sp/><ref refid="util_8h_1a969c7c1ebb4f70581e040a3034b14ee0" kindref="member">u64</ref><sp/>id;<sp/><ref refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref>*<sp/>parent;)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><ref refid="linked__list_8h_1a390de6c597abe0492fd9e7a61ee77ff1" kindref="member">DEFINE_LINKED_LIST</ref>(OBJ_LIST,<sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="new__obj_8h_1a31f3e3ff9ee4a82a0c21d0ee51069867" refkind="member"><highlight class="normal"><ref refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref><sp/><ref refid="new__obj_8h_1a31f3e3ff9ee4a82a0c21d0ee51069867" kindref="member">global_env</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="structFN" refkind="compound"><highlight class="normal">struct<sp/><ref refid="structFN" kindref="compound">FN</ref></highlight></codeline>
+<codeline lineno="164"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="165" refid="structFN_1a0272b5bede72a20b46545cdec1d9acab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="structFN_1a0272b5bede72a20b46545cdec1d9acab" kindref="member">body</ref>;</highlight></codeline>
+<codeline lineno="166" refid="structFN_1a5b5432b912f1c1c422bcab97feab4cc0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="structFN_1a5b5432b912f1c1c422bcab97feab4cc0" kindref="member">args</ref>;</highlight></codeline>
+<codeline lineno="167" refid="structFN_1a176ab5b0413ad15ad44df0b7b3666c57" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="new__obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref>*<sp/><ref refid="structFN_1a176ab5b0413ad15ad44df0b7b3666c57" kindref="member">env</ref>;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="new__obj_8h_1a8232508d91e1747ea70bd1dc55ba0acd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NEW()<sp/>calloc(1,<sp/>sizeof(OBJ))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="obj_8h_1afef0f8196de8986895bc02ecbbaf2529" refkind="member"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="new__obj_8h_1afef0f8196de8986895bc02ecbbaf2529" kindref="member">empty_obj</ref>()</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>OBJ*<sp/>ret<sp/>=<sp/>NEW();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ret-&gt;name<sp/>=<sp/>malloc(5);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ret-&gt;name<sp/>=<sp/>&quot;2&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>ret;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="new__obj_8h_1a8232508d91e1747ea70bd1dc55ba0acd" kindref="member">NEW</ref>();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/new_obj.h"/>
+  </compounddef>
+</doxygen>

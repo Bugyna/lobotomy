@@ -1,0 +1,289 @@
+\hypertarget{eval_8c}{}\doxysection{/home/bugy/projs/lobotomy/src/eval.c File Reference}
+\label{eval_8c}\index{/home/bugy/projs/lobotomy/src/eval.c@{/home/bugy/projs/lobotomy/src/eval.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$dlfcn.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lexer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}l\+\_\+std.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}obj.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}eval.\+h\char`\"{}}\newline
+Include dependency graph for eval.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{eval_8c__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_ad4fb240fa7df36c609a9107a166064ff}{L\+\_\+less\+\_\+than}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a7d199208fe61ba29b4c7ea9fe787702c}{L\+\_\+more\+\_\+than}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a18a1221a1edff515f64c6110a5e9e9ea}{L\+\_\+less\+\_\+or\+\_\+eq\+\_\+than}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a251e43c27b60a626bad6b3b2a913bfa2}{L\+\_\+more\+\_\+or\+\_\+eq\+\_\+than}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_aa5b464a6cf57dc10cc768bc9f094839b}{L\+\_\+eq}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a32c5d0a62787386f7024d65e0a5fd152}{L\+\_\+car}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_aa1a9a591feaffa60920ab6eae85879a1}{L\+\_\+get\+\_\+input}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a356beef9314ed9207ea8919449785879}{L\+\_\+cdr}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_ac8c76bcc40b0f63f664273f4bcfb7d1b}{L\+\_\+list}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a48ce89bdc89656f631f90e1cce67806d}{L\+\_\+nth}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a97fcc5fb77dfc6c817d0531fc6449c45}{L\+\_\+exit}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_af0f04595e66237ccdb41eebe17a8f6e2}{L\+\_\+progn}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_acd120084c28c232f9e3698b31886a7b4}{L\+\_\+test}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_abd430801d907b8da3864e41c78c950b0}{L\+\_\+print}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a21a1dc39af88e719ea0d2fce93860b2f}{L\+\_\+type}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a6f50c955fc4d416861ac9d904f8e84be}{L\+\_\+help}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a6a1c5f34458e71ece858f679d394d9f3}{L\+\_\+create\+\_\+fn}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a4ef8ec1c1ba73db593d49c9c37d23720}{L\+\_\+obj\+\_\+name}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a6ffe71f9336fc2ac49bced3663418386}{L\+\_\+let}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_aa1e684ddf082e1d5e21e31fdf4f31e5d}{L\+\_\+loop}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_afe4bdc20829386e23795d610feb81f7e}{L\+\_\+cond}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a90653db80a81bc831fc811dc9c88daf2}{L\+\_\+copy}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_aec4a831fb8f7dff8ab61536544b9e7d5}{L\+\_\+get\+\_\+random\+\_\+num}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a312bf32f5c8a2351a189177fe238eb57}{L\+\_\+use}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a680fd583eff272ba70c58bee9c65351d}{L\+\_\+load}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_ab2bd43fb46de88a6a5423ab5bd6c9756}{preeval\+\_\+symbols}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_adb847aa5db0cf7d45779e5323f572095}{preeval}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+void \mbox{\hyperlink{eval_8c_a1cdc600bb2b74bf0be20959c5707af4f}{set\+\_\+env}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$head, \mbox{\hyperlink{new__obj_8h_a3cf8df4c53c907fcf7a53617956c43c2}{E\+NV}} $\ast$e)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_adf1e9c7a5dd15dd1001311e8961ef427}{run\+\_\+func}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$fn, \mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$args)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{eval_8c_a3cacabecfef3ff34c772815a0cae488d}{\+\_\+\+\_\+eval}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$head)
+\item 
+void \mbox{\hyperlink{eval_8c_ad79a38016d7a07d169447f944e407548}{eval\+\_\+program\+\_\+file}} (const char $\ast$filename)
+\item 
+void \mbox{\hyperlink{eval_8c_a41d61d7afc35290fee08acbf31161859}{eval\+\_\+program}} (const char text\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{eval_8c_a3cacabecfef3ff34c772815a0cae488d}\label{eval_8c_a3cacabecfef3ff34c772815a0cae488d}} 
+\index{eval.c@{eval.c}!\_\_eval@{\_\_eval}}
+\index{\_\_eval@{\_\_eval}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{\_\_eval()}{\_\_eval()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ \+\_\+\+\_\+eval (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a41d61d7afc35290fee08acbf31161859}\label{eval_8c_a41d61d7afc35290fee08acbf31161859}} 
+\index{eval.c@{eval.c}!eval\_program@{eval\_program}}
+\index{eval\_program@{eval\_program}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{eval\_program()}{eval\_program()}}
+{\footnotesize\ttfamily void eval\+\_\+program (\begin{DoxyParamCaption}\item[{const char}]{text\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_ad79a38016d7a07d169447f944e407548}\label{eval_8c_ad79a38016d7a07d169447f944e407548}} 
+\index{eval.c@{eval.c}!eval\_program\_file@{eval\_program\_file}}
+\index{eval\_program\_file@{eval\_program\_file}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{eval\_program\_file()}{eval\_program\_file()}}
+{\footnotesize\ttfamily void eval\+\_\+program\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a32c5d0a62787386f7024d65e0a5fd152}\label{eval_8c_a32c5d0a62787386f7024d65e0a5fd152}} 
+\index{eval.c@{eval.c}!L\_car@{L\_car}}
+\index{L\_car@{L\_car}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_car()}{L\_car()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+car (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a356beef9314ed9207ea8919449785879}\label{eval_8c_a356beef9314ed9207ea8919449785879}} 
+\index{eval.c@{eval.c}!L\_cdr@{L\_cdr}}
+\index{L\_cdr@{L\_cdr}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_cdr()}{L\_cdr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+cdr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_afe4bdc20829386e23795d610feb81f7e}\label{eval_8c_afe4bdc20829386e23795d610feb81f7e}} 
+\index{eval.c@{eval.c}!L\_cond@{L\_cond}}
+\index{L\_cond@{L\_cond}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_cond()}{L\_cond()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+cond (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a90653db80a81bc831fc811dc9c88daf2}\label{eval_8c_a90653db80a81bc831fc811dc9c88daf2}} 
+\index{eval.c@{eval.c}!L\_copy@{L\_copy}}
+\index{L\_copy@{L\_copy}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_copy()}{L\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a6a1c5f34458e71ece858f679d394d9f3}\label{eval_8c_a6a1c5f34458e71ece858f679d394d9f3}} 
+\index{eval.c@{eval.c}!L\_create\_fn@{L\_create\_fn}}
+\index{L\_create\_fn@{L\_create\_fn}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_create\_fn()}{L\_create\_fn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+create\+\_\+fn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_aa5b464a6cf57dc10cc768bc9f094839b}\label{eval_8c_aa5b464a6cf57dc10cc768bc9f094839b}} 
+\index{eval.c@{eval.c}!L\_eq@{L\_eq}}
+\index{L\_eq@{L\_eq}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_eq()}{L\_eq()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+eq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a97fcc5fb77dfc6c817d0531fc6449c45}\label{eval_8c_a97fcc5fb77dfc6c817d0531fc6449c45}} 
+\index{eval.c@{eval.c}!L\_exit@{L\_exit}}
+\index{L\_exit@{L\_exit}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_exit()}{L\_exit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+exit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_aa1a9a591feaffa60920ab6eae85879a1}\label{eval_8c_aa1a9a591feaffa60920ab6eae85879a1}} 
+\index{eval.c@{eval.c}!L\_get\_input@{L\_get\_input}}
+\index{L\_get\_input@{L\_get\_input}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_get\_input()}{L\_get\_input()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+get\+\_\+input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_aec4a831fb8f7dff8ab61536544b9e7d5}\label{eval_8c_aec4a831fb8f7dff8ab61536544b9e7d5}} 
+\index{eval.c@{eval.c}!L\_get\_random\_num@{L\_get\_random\_num}}
+\index{L\_get\_random\_num@{L\_get\_random\_num}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_get\_random\_num()}{L\_get\_random\_num()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+get\+\_\+random\+\_\+num (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a6f50c955fc4d416861ac9d904f8e84be}\label{eval_8c_a6f50c955fc4d416861ac9d904f8e84be}} 
+\index{eval.c@{eval.c}!L\_help@{L\_help}}
+\index{L\_help@{L\_help}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_help()}{L\_help()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+help (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a18a1221a1edff515f64c6110a5e9e9ea}\label{eval_8c_a18a1221a1edff515f64c6110a5e9e9ea}} 
+\index{eval.c@{eval.c}!L\_less\_or\_eq\_than@{L\_less\_or\_eq\_than}}
+\index{L\_less\_or\_eq\_than@{L\_less\_or\_eq\_than}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_less\_or\_eq\_than()}{L\_less\_or\_eq\_than()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+less\+\_\+or\+\_\+eq\+\_\+than (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_ad4fb240fa7df36c609a9107a166064ff}\label{eval_8c_ad4fb240fa7df36c609a9107a166064ff}} 
+\index{eval.c@{eval.c}!L\_less\_than@{L\_less\_than}}
+\index{L\_less\_than@{L\_less\_than}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_less\_than()}{L\_less\_than()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+less\+\_\+than (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+D\+OC\mbox{\Hypertarget{eval_8c_a6ffe71f9336fc2ac49bced3663418386}\label{eval_8c_a6ffe71f9336fc2ac49bced3663418386}} 
+\index{eval.c@{eval.c}!L\_let@{L\_let}}
+\index{L\_let@{L\_let}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_let()}{L\_let()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+let (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_ac8c76bcc40b0f63f664273f4bcfb7d1b}\label{eval_8c_ac8c76bcc40b0f63f664273f4bcfb7d1b}} 
+\index{eval.c@{eval.c}!L\_list@{L\_list}}
+\index{L\_list@{L\_list}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_list()}{L\_list()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a680fd583eff272ba70c58bee9c65351d}\label{eval_8c_a680fd583eff272ba70c58bee9c65351d}} 
+\index{eval.c@{eval.c}!L\_load@{L\_load}}
+\index{L\_load@{L\_load}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_load()}{L\_load()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_aa1e684ddf082e1d5e21e31fdf4f31e5d}\label{eval_8c_aa1e684ddf082e1d5e21e31fdf4f31e5d}} 
+\index{eval.c@{eval.c}!L\_loop@{L\_loop}}
+\index{L\_loop@{L\_loop}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_loop()}{L\_loop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a251e43c27b60a626bad6b3b2a913bfa2}\label{eval_8c_a251e43c27b60a626bad6b3b2a913bfa2}} 
+\index{eval.c@{eval.c}!L\_more\_or\_eq\_than@{L\_more\_or\_eq\_than}}
+\index{L\_more\_or\_eq\_than@{L\_more\_or\_eq\_than}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_more\_or\_eq\_than()}{L\_more\_or\_eq\_than()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+more\+\_\+or\+\_\+eq\+\_\+than (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a7d199208fe61ba29b4c7ea9fe787702c}\label{eval_8c_a7d199208fe61ba29b4c7ea9fe787702c}} 
+\index{eval.c@{eval.c}!L\_more\_than@{L\_more\_than}}
+\index{L\_more\_than@{L\_more\_than}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_more\_than()}{L\_more\_than()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+more\+\_\+than (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a48ce89bdc89656f631f90e1cce67806d}\label{eval_8c_a48ce89bdc89656f631f90e1cce67806d}} 
+\index{eval.c@{eval.c}!L\_nth@{L\_nth}}
+\index{L\_nth@{L\_nth}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_nth()}{L\_nth()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+nth (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a4ef8ec1c1ba73db593d49c9c37d23720}\label{eval_8c_a4ef8ec1c1ba73db593d49c9c37d23720}} 
+\index{eval.c@{eval.c}!L\_obj\_name@{L\_obj\_name}}
+\index{L\_obj\_name@{L\_obj\_name}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_obj\_name()}{L\_obj\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+obj\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_abd430801d907b8da3864e41c78c950b0}\label{eval_8c_abd430801d907b8da3864e41c78c950b0}} 
+\index{eval.c@{eval.c}!L\_print@{L\_print}}
+\index{L\_print@{L\_print}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_print()}{L\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_af0f04595e66237ccdb41eebe17a8f6e2}\label{eval_8c_af0f04595e66237ccdb41eebe17a8f6e2}} 
+\index{eval.c@{eval.c}!L\_progn@{L\_progn}}
+\index{L\_progn@{L\_progn}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_progn()}{L\_progn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+progn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_acd120084c28c232f9e3698b31886a7b4}\label{eval_8c_acd120084c28c232f9e3698b31886a7b4}} 
+\index{eval.c@{eval.c}!L\_test@{L\_test}}
+\index{L\_test@{L\_test}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_test()}{L\_test()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a21a1dc39af88e719ea0d2fce93860b2f}\label{eval_8c_a21a1dc39af88e719ea0d2fce93860b2f}} 
+\index{eval.c@{eval.c}!L\_type@{L\_type}}
+\index{L\_type@{L\_type}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_type()}{L\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a312bf32f5c8a2351a189177fe238eb57}\label{eval_8c_a312bf32f5c8a2351a189177fe238eb57}} 
+\index{eval.c@{eval.c}!L\_use@{L\_use}}
+\index{L\_use@{L\_use}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{L\_use()}{L\_use()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ L\+\_\+use (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_adb847aa5db0cf7d45779e5323f572095}\label{eval_8c_adb847aa5db0cf7d45779e5323f572095}} 
+\index{eval.c@{eval.c}!preeval@{preeval}}
+\index{preeval@{preeval}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{preeval()}{preeval()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ preeval (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_ab2bd43fb46de88a6a5423ab5bd6c9756}\label{eval_8c_ab2bd43fb46de88a6a5423ab5bd6c9756}} 
+\index{eval.c@{eval.c}!preeval\_symbols@{preeval\_symbols}}
+\index{preeval\_symbols@{preeval\_symbols}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{preeval\_symbols()}{preeval\_symbols()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ preeval\+\_\+symbols (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_adf1e9c7a5dd15dd1001311e8961ef427}\label{eval_8c_adf1e9c7a5dd15dd1001311e8961ef427}} 
+\index{eval.c@{eval.c}!run\_func@{run\_func}}
+\index{run\_func@{run\_func}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{run\_func()}{run\_func()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ run\+\_\+func (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{fn,  }\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{eval_8c_a1cdc600bb2b74bf0be20959c5707af4f}\label{eval_8c_a1cdc600bb2b74bf0be20959c5707af4f}} 
+\index{eval.c@{eval.c}!set\_env@{set\_env}}
+\index{set\_env@{set\_env}!eval.c@{eval.c}}
+\doxysubsubsection{\texorpdfstring{set\_env()}{set\_env()}}
+{\footnotesize\ttfamily void set\+\_\+env (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{new__obj_8h_a3cf8df4c53c907fcf7a53617956c43c2}{E\+NV}} $\ast$}]{e }\end{DoxyParamCaption})}
+

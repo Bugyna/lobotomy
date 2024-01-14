@@ -1,0 +1,271 @@
+\hypertarget{lexer_8h}{}\doxysection{/home/bugy/projs/lobotomy/src/lexer.h File Reference}
+\label{lexer_8h}\index{/home/bugy/projs/lobotomy/src/lexer.h@{/home/bugy/projs/lobotomy/src/lexer.h}}
+{\ttfamily \#include $<$wchar.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+Include dependency graph for lexer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lexer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{lexer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMARK}{M\+A\+RK}}
+\item 
+struct \mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}}
+\item 
+struct \mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lexer_8h_aa7f7c0583d8dceb05d6abb7396f930db}{I\+S\+\_\+\+T\+E\+R\+M\+I\+N\+A\+T\+OR}}(c)~(strchr(\char`\"{}() \textbackslash{}n\textbackslash{}t\mbox{[}$\,$\mbox{]}\textbackslash{}\char`\"{}\char`\"{}, c) != N\+U\+LL)
+\item 
+\#define \mbox{\hyperlink{lexer_8h_af80a9f355b3a6227ae89b448f5134ab0}{I\+S\+\_\+\+V\+A\+L\+I\+D\+\_\+\+S\+Y\+M\+B\+O\+L\+\_\+\+C\+H\+AR}}(c)~((c $>$ 128 $\vert$$\vert$ c $<$ 0) $\vert$$\vert$ (c $>$= \textquotesingle{}a\textquotesingle{} \&\& c $<$= \textquotesingle{}z\textquotesingle{}) $\vert$$\vert$ (c $>$= \textquotesingle{}A\textquotesingle{} \&\& c $<$= \textquotesingle{}Z\textquotesingle{}) $\vert$$\vert$ strchr(\char`\"{}+-\/\+\_\+/?$\vert$$\ast$\&$^\wedge$\%\$\#!$\sim$$<$$>$=\char`\"{}, c) != N\+U\+LL)
+\item 
+\#define \mbox{\hyperlink{lexer_8h_ac49b7a967599330b42fabeee1e3ac2e0}{I\+S\+\_\+\+N\+U\+M\+B\+ER}}(c)~(c $>$= \textquotesingle{}0\textquotesingle{} \&\& c $<$= \textquotesingle{}9\textquotesingle{})
+\item 
+\#define \mbox{\hyperlink{lexer_8h_a8e0cab4dcc3ef592793ac045edcd6344}{I\+S\+\_\+\+W\+H\+I\+T\+E\+S\+P\+A\+CE}}(c)~(c == \textquotesingle{}\textbackslash{}n\textquotesingle{} $\vert$$\vert$ c == \textquotesingle{}\textbackslash{}t\textquotesingle{} $\vert$$\vert$ c == \textquotesingle{} \textquotesingle{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7aadfc1978a51a953815cab51b30be7ea7}{T\+T\+\_\+}}, 
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7ac06233863baa0599eee41a5f224061cd}{T\+T\+\_\+\+L\+P\+A\+R\+EN}}, 
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a0722f48939ed4c943830cb288fc78881}{T\+T\+\_\+\+R\+P\+A\+R\+EN}}, 
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a0597d5576385f9f4f7df58a8dd83336e}{T\+T\+\_\+\+L\+B\+R\+A\+C\+K\+ET}}, 
+\newline
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a51f5c0e6edb2fa07591e5f67112d22bc}{T\+T\+\_\+\+R\+B\+R\+A\+C\+K\+ET}}, 
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a71d6777fe79532b9c0e1a8dd3afc9f49}{T\+T\+\_\+\+N\+U\+M\+B\+ER}}, 
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a4e24d2ca30a1cb3870d16f2b4329a3da}{T\+T\+\_\+\+D\+E\+C\+I\+M\+AL}}, 
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a769a2bc7bb4ac95500a51fe972c347de}{T\+T\+\_\+\+S\+TR}}, 
+\newline
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a464a5aac554c7208ae3a26a9a1fe1b6b}{T\+T\+\_\+\+I\+D\+E\+N\+T\+I\+F\+I\+ER}}, 
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7ab91e34ed298a476be9ff784afa02608e}{T\+T\+\_\+\+C\+O\+M\+M\+E\+NT}}, 
+\mbox{\hyperlink{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7aaa02ceb7278e9cef5153e63a48dce49e}{T\+T\+\_\+\+M\+U\+T\+A\+B\+LE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lexer_8h_a9c7e54203c54b35da2d8ccba4358c190}{print\+\_\+token}} (\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} t)
+\item 
+void \mbox{\hyperlink{lexer_8h_a1cb3a2c2312c4c83dde48121d7567f5f}{print\+\_\+token\+\_\+pos}} (\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} token, const char $\ast$s)
+\item 
+void \mbox{\hyperlink{lexer_8h_a5e1ff317ec6958c4495df3b3f865b71b}{lexer\+\_\+init}} (\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$lexer, const char $\ast$text)
+\item 
+void \mbox{\hyperlink{lexer_8h_a84e8fb183ea9c615e30a55c02d2183b2}{add\+\_\+token}} (\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$lexer, \mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} token, \mbox{\hyperlink{structMARK}{M\+A\+RK}} stop)
+\item 
+void \mbox{\hyperlink{lexer_8h_a21d18ec3f683685f92b39888d06de7fe}{str\+\_\+add\+\_\+char}} (\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} $\ast$token, char c)
+\item 
+void \mbox{\hyperlink{lexer_8h_ac78d1516a28c6352ee24588e003e50de}{init\+\_\+token}} (\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} $\ast$token, \mbox{\hyperlink{structMARK}{M\+A\+RK}} start)
+\item 
+void \mbox{\hyperlink{lexer_8h_adcafc84e6f69fdf1cdbea7281ad79b45}{reset\+\_\+token}} (\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} $\ast$token, \mbox{\hyperlink{structMARK}{M\+A\+RK}} position)
+\item 
+\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} \mbox{\hyperlink{lexer_8h_a907d215f50619b5799236d7babbcce8b}{new\+\_\+token}} (\mbox{\hyperlink{structMARK}{M\+A\+RK}} position, int type)
+\item 
+\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} \mbox{\hyperlink{lexer_8h_a5bbc272bd3fd81436ac17f73913c5eab}{lex\+\_\+word}} (\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$lexer)
+\item 
+\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} \mbox{\hyperlink{lexer_8h_a4306b7942d1e3c0932ed68bd5d5118e2}{lex\+\_\+number}} (\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$lexer)
+\item 
+\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} \mbox{\hyperlink{lexer_8h_a16a2fd86594ee8b87cad96b8342ac3b2}{lex\+\_\+string}} (\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$lexer)
+\item 
+\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} \mbox{\hyperlink{lexer_8h_ab9a6fc96b92482b6807fa125d7c19af8}{tokenize}} (const char text\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{lexer_8h_ac70079acd08e373c320b86d028dea7b6}{T\+O\+K\+E\+N\+\_\+\+N\+A\+M\+ES}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lexer_8h_ac49b7a967599330b42fabeee1e3ac2e0}\label{lexer_8h_ac49b7a967599330b42fabeee1e3ac2e0}} 
+\index{lexer.h@{lexer.h}!IS\_NUMBER@{IS\_NUMBER}}
+\index{IS\_NUMBER@{IS\_NUMBER}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{IS\_NUMBER}{IS\_NUMBER}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+N\+U\+M\+B\+ER(\begin{DoxyParamCaption}\item[{}]{c }\end{DoxyParamCaption})~(c $>$= \textquotesingle{}0\textquotesingle{} \&\& c $<$= \textquotesingle{}9\textquotesingle{})}
+
+\mbox{\Hypertarget{lexer_8h_aa7f7c0583d8dceb05d6abb7396f930db}\label{lexer_8h_aa7f7c0583d8dceb05d6abb7396f930db}} 
+\index{lexer.h@{lexer.h}!IS\_TERMINATOR@{IS\_TERMINATOR}}
+\index{IS\_TERMINATOR@{IS\_TERMINATOR}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{IS\_TERMINATOR}{IS\_TERMINATOR}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+T\+E\+R\+M\+I\+N\+A\+T\+OR(\begin{DoxyParamCaption}\item[{}]{c }\end{DoxyParamCaption})~(strchr(\char`\"{}() \textbackslash{}n\textbackslash{}t\mbox{[}$\,$\mbox{]}\textbackslash{}\char`\"{}\char`\"{}, c) != N\+U\+LL)}
+
+\mbox{\Hypertarget{lexer_8h_af80a9f355b3a6227ae89b448f5134ab0}\label{lexer_8h_af80a9f355b3a6227ae89b448f5134ab0}} 
+\index{lexer.h@{lexer.h}!IS\_VALID\_SYMBOL\_CHAR@{IS\_VALID\_SYMBOL\_CHAR}}
+\index{IS\_VALID\_SYMBOL\_CHAR@{IS\_VALID\_SYMBOL\_CHAR}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{IS\_VALID\_SYMBOL\_CHAR}{IS\_VALID\_SYMBOL\_CHAR}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+V\+A\+L\+I\+D\+\_\+\+S\+Y\+M\+B\+O\+L\+\_\+\+C\+H\+AR(\begin{DoxyParamCaption}\item[{}]{c }\end{DoxyParamCaption})~((c $>$ 128 $\vert$$\vert$ c $<$ 0) $\vert$$\vert$ (c $>$= \textquotesingle{}a\textquotesingle{} \&\& c $<$= \textquotesingle{}z\textquotesingle{}) $\vert$$\vert$ (c $>$= \textquotesingle{}A\textquotesingle{} \&\& c $<$= \textquotesingle{}Z\textquotesingle{}) $\vert$$\vert$ strchr(\char`\"{}+-\/\+\_\+/?$\vert$$\ast$\&$^\wedge$\%\$\#!$\sim$$<$$>$=\char`\"{}, c) != N\+U\+LL)}
+
+\mbox{\Hypertarget{lexer_8h_a8e0cab4dcc3ef592793ac045edcd6344}\label{lexer_8h_a8e0cab4dcc3ef592793ac045edcd6344}} 
+\index{lexer.h@{lexer.h}!IS\_WHITESPACE@{IS\_WHITESPACE}}
+\index{IS\_WHITESPACE@{IS\_WHITESPACE}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{IS\_WHITESPACE}{IS\_WHITESPACE}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+W\+H\+I\+T\+E\+S\+P\+A\+CE(\begin{DoxyParamCaption}\item[{}]{c }\end{DoxyParamCaption})~(c == \textquotesingle{}\textbackslash{}n\textquotesingle{} $\vert$$\vert$ c == \textquotesingle{}\textbackslash{}t\textquotesingle{} $\vert$$\vert$ c == \textquotesingle{} \textquotesingle{})}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_@{TT\_}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_@{TT\_}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7aadfc1978a51a953815cab51b30be7ea7}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7aadfc1978a51a953815cab51b30be7ea7}} 
+T\+T\+\_\+&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_LPAREN@{TT\_LPAREN}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_LPAREN@{TT\_LPAREN}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7ac06233863baa0599eee41a5f224061cd}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7ac06233863baa0599eee41a5f224061cd}} 
+T\+T\+\_\+\+L\+P\+A\+R\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_RPAREN@{TT\_RPAREN}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_RPAREN@{TT\_RPAREN}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a0722f48939ed4c943830cb288fc78881}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a0722f48939ed4c943830cb288fc78881}} 
+T\+T\+\_\+\+R\+P\+A\+R\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_LBRACKET@{TT\_LBRACKET}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_LBRACKET@{TT\_LBRACKET}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a0597d5576385f9f4f7df58a8dd83336e}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a0597d5576385f9f4f7df58a8dd83336e}} 
+T\+T\+\_\+\+L\+B\+R\+A\+C\+K\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_RBRACKET@{TT\_RBRACKET}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_RBRACKET@{TT\_RBRACKET}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a51f5c0e6edb2fa07591e5f67112d22bc}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a51f5c0e6edb2fa07591e5f67112d22bc}} 
+T\+T\+\_\+\+R\+B\+R\+A\+C\+K\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_NUMBER@{TT\_NUMBER}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_NUMBER@{TT\_NUMBER}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a71d6777fe79532b9c0e1a8dd3afc9f49}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a71d6777fe79532b9c0e1a8dd3afc9f49}} 
+T\+T\+\_\+\+N\+U\+M\+B\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_DECIMAL@{TT\_DECIMAL}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_DECIMAL@{TT\_DECIMAL}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a4e24d2ca30a1cb3870d16f2b4329a3da}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a4e24d2ca30a1cb3870d16f2b4329a3da}} 
+T\+T\+\_\+\+D\+E\+C\+I\+M\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_STR@{TT\_STR}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_STR@{TT\_STR}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a769a2bc7bb4ac95500a51fe972c347de}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a769a2bc7bb4ac95500a51fe972c347de}} 
+T\+T\+\_\+\+S\+TR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_IDENTIFIER@{TT\_IDENTIFIER}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_IDENTIFIER@{TT\_IDENTIFIER}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a464a5aac554c7208ae3a26a9a1fe1b6b}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7a464a5aac554c7208ae3a26a9a1fe1b6b}} 
+T\+T\+\_\+\+I\+D\+E\+N\+T\+I\+F\+I\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_COMMENT@{TT\_COMMENT}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_COMMENT@{TT\_COMMENT}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7ab91e34ed298a476be9ff784afa02608e}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7ab91e34ed298a476be9ff784afa02608e}} 
+T\+T\+\_\+\+C\+O\+M\+M\+E\+NT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TT\_MUTABLE@{TT\_MUTABLE}!lexer.h@{lexer.h}}\index{lexer.h@{lexer.h}!TT\_MUTABLE@{TT\_MUTABLE}}}\mbox{\Hypertarget{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7aaa02ceb7278e9cef5153e63a48dce49e}\label{lexer_8h_adf764cbdea00d65edcd07bb9953ad2b7aaa02ceb7278e9cef5153e63a48dce49e}} 
+T\+T\+\_\+\+M\+U\+T\+A\+B\+LE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lexer_8h_a84e8fb183ea9c615e30a55c02d2183b2}\label{lexer_8h_a84e8fb183ea9c615e30a55c02d2183b2}} 
+\index{lexer.h@{lexer.h}!add\_token@{add\_token}}
+\index{add\_token@{add\_token}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{add\_token()}{add\_token()}}
+{\footnotesize\ttfamily void add\+\_\+token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$}]{lexer,  }\item[{\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}}}]{token,  }\item[{\mbox{\hyperlink{structMARK}{M\+A\+RK}}}]{stop }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_ac78d1516a28c6352ee24588e003e50de}\label{lexer_8h_ac78d1516a28c6352ee24588e003e50de}} 
+\index{lexer.h@{lexer.h}!init\_token@{init\_token}}
+\index{init\_token@{init\_token}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{init\_token()}{init\_token()}}
+{\footnotesize\ttfamily void init\+\_\+token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} $\ast$}]{token,  }\item[{\mbox{\hyperlink{structMARK}{M\+A\+RK}}}]{start }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a4306b7942d1e3c0932ed68bd5d5118e2}\label{lexer_8h_a4306b7942d1e3c0932ed68bd5d5118e2}} 
+\index{lexer.h@{lexer.h}!lex\_number@{lex\_number}}
+\index{lex\_number@{lex\_number}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{lex\_number()}{lex\_number()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} lex\+\_\+number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$}]{lexer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a16a2fd86594ee8b87cad96b8342ac3b2}\label{lexer_8h_a16a2fd86594ee8b87cad96b8342ac3b2}} 
+\index{lexer.h@{lexer.h}!lex\_string@{lex\_string}}
+\index{lex\_string@{lex\_string}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{lex\_string()}{lex\_string()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} lex\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$}]{lexer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a5bbc272bd3fd81436ac17f73913c5eab}\label{lexer_8h_a5bbc272bd3fd81436ac17f73913c5eab}} 
+\index{lexer.h@{lexer.h}!lex\_word@{lex\_word}}
+\index{lex\_word@{lex\_word}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{lex\_word()}{lex\_word()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} lex\+\_\+word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$}]{lexer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a5e1ff317ec6958c4495df3b3f865b71b}\label{lexer_8h_a5e1ff317ec6958c4495df3b3f865b71b}} 
+\index{lexer.h@{lexer.h}!lexer\_init@{lexer\_init}}
+\index{lexer\_init@{lexer\_init}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{lexer\_init()}{lexer\_init()}}
+{\footnotesize\ttfamily void lexer\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} $\ast$}]{lexer,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a907d215f50619b5799236d7babbcce8b}\label{lexer_8h_a907d215f50619b5799236d7babbcce8b}} 
+\index{lexer.h@{lexer.h}!new\_token@{new\_token}}
+\index{new\_token@{new\_token}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{new\_token()}{new\_token()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} new\+\_\+token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMARK}{M\+A\+RK}}}]{position,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a9c7e54203c54b35da2d8ccba4358c190}\label{lexer_8h_a9c7e54203c54b35da2d8ccba4358c190}} 
+\index{lexer.h@{lexer.h}!print\_token@{print\_token}}
+\index{print\_token@{print\_token}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{print\_token()}{print\_token()}}
+{\footnotesize\ttfamily void print\+\_\+token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}}}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a1cb3a2c2312c4c83dde48121d7567f5f}\label{lexer_8h_a1cb3a2c2312c4c83dde48121d7567f5f}} 
+\index{lexer.h@{lexer.h}!print\_token\_pos@{print\_token\_pos}}
+\index{print\_token\_pos@{print\_token\_pos}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{print\_token\_pos()}{print\_token\_pos()}}
+{\footnotesize\ttfamily void print\+\_\+token\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}}}]{token,  }\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_adcafc84e6f69fdf1cdbea7281ad79b45}\label{lexer_8h_adcafc84e6f69fdf1cdbea7281ad79b45}} 
+\index{lexer.h@{lexer.h}!reset\_token@{reset\_token}}
+\index{reset\_token@{reset\_token}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{reset\_token()}{reset\_token()}}
+{\footnotesize\ttfamily void reset\+\_\+token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} $\ast$}]{token,  }\item[{\mbox{\hyperlink{structMARK}{M\+A\+RK}}}]{position }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a21d18ec3f683685f92b39888d06de7fe}\label{lexer_8h_a21d18ec3f683685f92b39888d06de7fe}} 
+\index{lexer.h@{lexer.h}!str\_add\_char@{str\_add\_char}}
+\index{str\_add\_char@{str\_add\_char}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{str\_add\_char()}{str\_add\_char()}}
+{\footnotesize\ttfamily void str\+\_\+add\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTOKEN}{T\+O\+K\+EN}} $\ast$}]{token,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_ab9a6fc96b92482b6807fa125d7c19af8}\label{lexer_8h_ab9a6fc96b92482b6807fa125d7c19af8}} 
+\index{lexer.h@{lexer.h}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{tokenize()}{tokenize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLEXER}{L\+E\+X\+ER}} tokenize (\begin{DoxyParamCaption}\item[{const char}]{text\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{lexer_8h_ac70079acd08e373c320b86d028dea7b6}\label{lexer_8h_ac70079acd08e373c320b86d028dea7b6}} 
+\index{lexer.h@{lexer.h}!TOKEN\_NAMES@{TOKEN\_NAMES}}
+\index{TOKEN\_NAMES@{TOKEN\_NAMES}!lexer.h@{lexer.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_NAMES}{TOKEN\_NAMES}}
+{\footnotesize\ttfamily const char$\ast$ T\+O\+K\+E\+N\+\_\+\+N\+A\+M\+ES\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= }
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_LPAREN"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_RPAREN"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_LBRACKET"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_RBRACKET"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_NUMBER"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_DECIMAL"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_STR"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_IDENTIFIER"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_COMMENT"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"TT\_MUTABLE"},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

@@ -17,8 +17,8 @@
 
 
 (loop (1) 
-	(print "dd: "
-		(decide-win (input "pleace pick rock, paper or scissors") (pick-random))
+	(print "PC: " (let b (pick-random)) "You: " (let a (input "pleace pick rock, paper or scissors: ")) "result: "
+		(decide-win a b)
 	)
 )
 

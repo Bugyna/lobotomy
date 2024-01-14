@@ -1,0 +1,142 @@
+\hypertarget{obj_8c}{}\doxysection{/home/bugy/projs/lobotomy/src/obj.c File Reference}
+\label{obj_8c}\index{/home/bugy/projs/lobotomy/src/obj.c@{/home/bugy/projs/lobotomy/src/obj.c}}
+{\ttfamily \#include \char`\"{}obj.\+h\char`\"{}}\newline
+Include dependency graph for obj.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{obj_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{obj_8c__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structFN}{FN}}
+\item 
+struct \mbox{\hyperlink{structOBJ}{O\+BJ}}
+\item 
+struct \mbox{\hyperlink{structGC}{GC}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{obj_8c_a8232508d91e1747ea70bd1dc55ba0acd}{N\+EW}}()~\mbox{\hyperlink{obj_8h_a62d4e8198e43895b7cfcaf3b9c7eb764}{G\+C\+\_\+alloc}}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{obj_8c_a4c7dc3a5200a4923b368108e9ecbac21}{type\+\_\+name}} (\mbox{\hyperlink{new__obj_8h_a714b9c2c276fbae637fee36453d9121e}{O\+B\+J\+\_\+\+T\+Y\+PE}} i)
+\item 
+void \mbox{\hyperlink{obj_8c_a521cc030b81fe690acc65f15f5d95703}{\+\_\+\+\_\+print\+\_\+obj\+\_\+simple}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+void \mbox{\hyperlink{obj_8c_a0ff4ee4239a3c797e1c4e85d2e7d55a1}{print\+\_\+obj\+\_\+simple}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+void \mbox{\hyperlink{obj_8c_a7efb121fca71b2964ab4e48b76ec1128}{print\+\_\+obj\+\_\+full}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+void \mbox{\hyperlink{obj_8c_a0e5a7962b223a44a11319e48d58004cc}{env\+\_\+add}} (\mbox{\hyperlink{new__obj_8h_a3cf8df4c53c907fcf7a53617956c43c2}{E\+NV}} $\ast$e, \mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{obj_8c_a14f09d8c7f0794cef89a7e17a9b7274e}{env\+\_\+get}} (\mbox{\hyperlink{new__obj_8h_a3cf8df4c53c907fcf7a53617956c43c2}{E\+NV}} $\ast$e, const char $\ast$key)
+\item 
+void \mbox{\hyperlink{obj_8c_ac9321bb3c3bc18b4c0e42b06258091f1}{G\+C\+\_\+init}} ()
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{obj_8c_a62d4e8198e43895b7cfcaf3b9c7eb764}{G\+C\+\_\+alloc}} ()
+\item 
+void \mbox{\hyperlink{obj_8c_aa565bd0cece59599d7f8bdaac3f5537b}{G\+C\+\_\+free}} (\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$o)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{obj_8c_afef0f8196de8986895bc02ecbbaf2529}{empty\+\_\+obj}} ()
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{obj_8c_a2257fb022ed4e979225cdf9d6048ff65}{empty\+\_\+obj\+\_\+t}} (\mbox{\hyperlink{new__obj_8h_a714b9c2c276fbae637fee36453d9121e}{O\+B\+J\+\_\+\+T\+Y\+PE}} type)
+\item 
+\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$ \mbox{\hyperlink{obj_8c_af706a6bda6ef0513b46c95fe1fcdfb6c}{create\+\_\+cfn}} (const char $\ast$name, \mbox{\hyperlink{obj_8h_a398b9f23afcf45de3cabf2002dbb1b67}{C\+\_\+\+F\+U\+N\+C\+\_\+\+D\+EC}} fn)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{obj_8c_a8232508d91e1747ea70bd1dc55ba0acd}\label{obj_8c_a8232508d91e1747ea70bd1dc55ba0acd}} 
+\index{obj.c@{obj.c}!NEW@{NEW}}
+\index{NEW@{NEW}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{NEW}{NEW}}
+{\footnotesize\ttfamily \#define N\+EW(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{obj_8h_a62d4e8198e43895b7cfcaf3b9c7eb764}{G\+C\+\_\+alloc}}()}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{obj_8c_a521cc030b81fe690acc65f15f5d95703}\label{obj_8c_a521cc030b81fe690acc65f15f5d95703}} 
+\index{obj.c@{obj.c}!\_\_print\_obj\_simple@{\_\_print\_obj\_simple}}
+\index{\_\_print\_obj\_simple@{\_\_print\_obj\_simple}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{\_\_print\_obj\_simple()}{\_\_print\_obj\_simple()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+print\+\_\+obj\+\_\+simple (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_af706a6bda6ef0513b46c95fe1fcdfb6c}\label{obj_8c_af706a6bda6ef0513b46c95fe1fcdfb6c}} 
+\index{obj.c@{obj.c}!create\_cfn@{create\_cfn}}
+\index{create\_cfn@{create\_cfn}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{create\_cfn()}{create\_cfn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ create\+\_\+cfn (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{\mbox{\hyperlink{obj_8h_a398b9f23afcf45de3cabf2002dbb1b67}{C\+\_\+\+F\+U\+N\+C\+\_\+\+D\+EC}}}]{fn }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_afef0f8196de8986895bc02ecbbaf2529}\label{obj_8c_afef0f8196de8986895bc02ecbbaf2529}} 
+\index{obj.c@{obj.c}!empty\_obj@{empty\_obj}}
+\index{empty\_obj@{empty\_obj}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{empty\_obj()}{empty\_obj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ empty\+\_\+obj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_a2257fb022ed4e979225cdf9d6048ff65}\label{obj_8c_a2257fb022ed4e979225cdf9d6048ff65}} 
+\index{obj.c@{obj.c}!empty\_obj\_t@{empty\_obj\_t}}
+\index{empty\_obj\_t@{empty\_obj\_t}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{empty\_obj\_t()}{empty\_obj\_t()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ empty\+\_\+obj\+\_\+t (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{new__obj_8h_a714b9c2c276fbae637fee36453d9121e}{O\+B\+J\+\_\+\+T\+Y\+PE}}}]{type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_a0e5a7962b223a44a11319e48d58004cc}\label{obj_8c_a0e5a7962b223a44a11319e48d58004cc}} 
+\index{obj.c@{obj.c}!env\_add@{env\_add}}
+\index{env\_add@{env\_add}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{env\_add()}{env\_add()}}
+{\footnotesize\ttfamily void env\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{new__obj_8h_a3cf8df4c53c907fcf7a53617956c43c2}{E\+NV}} $\ast$}]{e,  }\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_a14f09d8c7f0794cef89a7e17a9b7274e}\label{obj_8c_a14f09d8c7f0794cef89a7e17a9b7274e}} 
+\index{obj.c@{obj.c}!env\_get@{env\_get}}
+\index{env\_get@{env\_get}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{env\_get()}{env\_get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ env\+\_\+get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{new__obj_8h_a3cf8df4c53c907fcf7a53617956c43c2}{E\+NV}} $\ast$}]{e,  }\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_a62d4e8198e43895b7cfcaf3b9c7eb764}\label{obj_8c_a62d4e8198e43895b7cfcaf3b9c7eb764}} 
+\index{obj.c@{obj.c}!GC\_alloc@{GC\_alloc}}
+\index{GC\_alloc@{GC\_alloc}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{GC\_alloc()}{GC\_alloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOBJ}{O\+BJ}}$\ast$ G\+C\+\_\+alloc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_aa565bd0cece59599d7f8bdaac3f5537b}\label{obj_8c_aa565bd0cece59599d7f8bdaac3f5537b}} 
+\index{obj.c@{obj.c}!GC\_free@{GC\_free}}
+\index{GC\_free@{GC\_free}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{GC\_free()}{GC\_free()}}
+{\footnotesize\ttfamily void G\+C\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_ac9321bb3c3bc18b4c0e42b06258091f1}\label{obj_8c_ac9321bb3c3bc18b4c0e42b06258091f1}} 
+\index{obj.c@{obj.c}!GC\_init@{GC\_init}}
+\index{GC\_init@{GC\_init}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{GC\_init()}{GC\_init()}}
+{\footnotesize\ttfamily void G\+C\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_a7efb121fca71b2964ab4e48b76ec1128}\label{obj_8c_a7efb121fca71b2964ab4e48b76ec1128}} 
+\index{obj.c@{obj.c}!print\_obj\_full@{print\_obj\_full}}
+\index{print\_obj\_full@{print\_obj\_full}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{print\_obj\_full()}{print\_obj\_full()}}
+{\footnotesize\ttfamily void print\+\_\+obj\+\_\+full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_a0ff4ee4239a3c797e1c4e85d2e7d55a1}\label{obj_8c_a0ff4ee4239a3c797e1c4e85d2e7d55a1}} 
+\index{obj.c@{obj.c}!print\_obj\_simple@{print\_obj\_simple}}
+\index{print\_obj\_simple@{print\_obj\_simple}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{print\_obj\_simple()}{print\_obj\_simple()}}
+{\footnotesize\ttfamily void print\+\_\+obj\+\_\+simple (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOBJ}{O\+BJ}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{obj_8c_a4c7dc3a5200a4923b368108e9ecbac21}\label{obj_8c_a4c7dc3a5200a4923b368108e9ecbac21}} 
+\index{obj.c@{obj.c}!type\_name@{type\_name}}
+\index{type\_name@{type\_name}!obj.c@{obj.c}}
+\doxysubsubsection{\texorpdfstring{type\_name()}{type\_name()}}
+{\footnotesize\ttfamily const char$\ast$ type\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{new__obj_8h_a714b9c2c276fbae637fee36453d9121e}{O\+B\+J\+\_\+\+T\+Y\+PE}}}]{i }\end{DoxyParamCaption})}
+

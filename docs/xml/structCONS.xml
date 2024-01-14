@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structCONS" kind="struct" language="C++" prot="public">
+    <compoundname>CONS</compoundname>
+    <includes refid="new__obj_8h" local="no">new_obj.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structCONS_1affd697ead9a7597f834319e5367921b7" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="60" column="5" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCONS_1a6dbe7079071807ebef9356fb62403ab2" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="61" column="5" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>OBJ</label>
+        <link refid="structOBJ"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>body</edgelabel>
+          <edgelabel>c_fn</edgelabel>
+          <edgelabel>cdr</edgelabel>
+          <edgelabel>args</edgelabel>
+          <edgelabel>car</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>fn</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FN</label>
+        <link refid="structFN"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>body</edgelabel>
+          <edgelabel>args</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CONS</label>
+        <link refid="structCONS"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>val</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/bugy/projs/lobotomy/src/new_obj.h" line="59" column="1" bodyfile="/home/bugy/projs/lobotomy/src/new_obj.h" bodystart="58" bodyend="62"/>
+    <listofallmembers>
+      <member refid="structCONS_1a6dbe7079071807ebef9356fb62403ab2" prot="public" virt="non-virtual"><scope>CONS</scope><name>next</name></member>
+      <member refid="structCONS_1affd697ead9a7597f834319e5367921b7" prot="public" virt="non-virtual"><scope>CONS</scope><name>val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

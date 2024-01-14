@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="sample__module_8c" kind="file" language="C++">
+    <compoundname>sample_module.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="obj_8c" local="yes">obj.c</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>assert.h</label>
+      </node>
+      <node id="13">
+        <label>float.h</label>
+      </node>
+      <node id="6">
+        <label>stdint.h</label>
+      </node>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/sample_module.c</label>
+        <link refid="sample__module_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>SHM/hashmap.h</label>
+        <link refid="SHM_2hashmap_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>wchar.h</label>
+      </node>
+      <node id="11">
+        <label>string.h</label>
+      </node>
+      <node id="17">
+        <label>linked_list.h</label>
+        <link refid="linked__list_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>time.h</label>
+      </node>
+      <node id="12">
+        <label>math.h</label>
+      </node>
+      <node id="8">
+        <label>util.h</label>
+        <link refid="util_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>obj.c</label>
+        <link refid="obj_8c"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>obj.h</label>
+        <link refid="obj_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="sample__module_8c_1ac132debad37896933b33b2e17efd1cb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* hello_world</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>hello_world</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/sample_module.c" line="5" column="5" bodyfile="/home/bugy/projs/lobotomy/src/sample_module.c" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="sample__module_8c_1a5b252c9d6e1f3f1769de8e3be94a2935" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sample_module_load</definition>
+        <argsstring>(ENV *env)</argsstring>
+        <name>sample_module_load</name>
+        <param>
+          <type><ref refid="obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref> *</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/sample_module.c" line="10" column="6" bodyfile="/home/bugy/projs/lobotomy/src/sample_module.c" bodystart="10" bodyend="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="obj_8c" kindref="compound">obj.c</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="sample__module_8c_1ac132debad37896933b33b2e17efd1cb1" kindref="member">hello_world</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;((<ref refid="obj_8h_1a0b3e62818fe3f67193959ddfa20793a6" kindref="member">OBJ</ref>){.type=<ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" kindref="member">T_STR</ref>,<sp/>.name=</highlight><highlight class="stringliteral">&quot;hello<sp/>world&quot;</highlight><highlight class="normal">,<sp/>.str=</highlight><highlight class="stringliteral">&quot;hello<sp/>world&quot;</highlight><highlight class="normal">});</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sample__module_8c_1a5b252c9d6e1f3f1769de8e3be94a2935" kindref="member">sample_module_load</ref>(<ref refid="obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref>*<sp/>env)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;hello_world&quot;</highlight><highlight class="normal">,<sp/><ref refid="sample__module_8c_1ac132debad37896933b33b2e17efd1cb1" kindref="member">hello_world</ref>));</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/sample_module.c"/>
+  </compounddef>
+</doxygen>

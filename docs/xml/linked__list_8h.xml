@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="linked__list_8h" kind="file" language="C++">
+    <compoundname>linked_list.h</compoundname>
+    <includes refid="error_8h" local="yes">error.h</includes>
+    <includedby refid="obj_8h" local="yes">/home/bugy/projs/lobotomy/src/obj.h</includedby>
+    <includedby refid="repl_8h" local="yes">/home/bugy/projs/lobotomy/src/repl.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/linked_list.h</label>
+        <link refid="linked__list_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>/home/bugy/projs/lobotomy/src/eval.c</label>
+        <link refid="eval_8c"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/home/bugy/projs/lobotomy/src/l_std.h</label>
+        <link refid="l__std_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/home/bugy/projs/lobotomy/src/sample_module.c</label>
+        <link refid="sample__module_8c"/>
+      </node>
+      <node id="5">
+        <label>/home/bugy/projs/lobotomy/src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="10">
+        <label>/home/bugy/projs/lobotomy/src/repl.h</label>
+        <link refid="repl_8h"/>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/linked_list.h</label>
+        <link refid="linked__list_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/home/bugy/projs/lobotomy/src/gc.h</label>
+        <link refid="gc_8h"/>
+      </node>
+      <node id="3">
+        <label>/home/bugy/projs/lobotomy/src/parse.h</label>
+        <link refid="parse_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/home/bugy/projs/lobotomy/src/obj.c</label>
+        <link refid="obj_8c"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/home/bugy/projs/lobotomy/src/obj.h</label>
+        <link refid="obj_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="linked__list_8h_1a005a0beaff82f6b8ad7d6140fa285f63" prot="public" static="no">
+        <name>ITERATE_LIST_PTR</name>
+        <param><defname>L_TYPE</defname></param>
+        <param><defname>L_NAME</defname></param>
+        <param><defname>NAME</defname></param>
+        <initializer>for (L_TYPE##_NODE* NAME = L_NAME-&gt;first; NAME != NULL &amp;&amp; NAME-&gt;val != NULL; NAME = NAME-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/linked_list.h" line="5" column="9" bodyfile="/home/bugy/projs/lobotomy/src/linked_list.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="linked__list_8h_1af1efa9a8509998c80d0fcefc9029475b" prot="public" static="no">
+        <name>ITERATE_LINKED_LIST</name>
+        <param><defname>LIST_TYPE</defname></param>
+        <param><defname>LIST</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <initializer>LIST_TYPE##_NODE* NODE = LIST_TYPE##_GET_NODE(LIST);\
+VAL_TYPE* val = NULL;\
+if (NODE != NULL) val = NODE-&gt;val;\
+for (; NODE != NULL &amp;&amp; (val = NODE-&gt;val) != NULL; NODE = NODE-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/linked_list.h" line="11" column="9" bodyfile="/home/bugy/projs/lobotomy/src/linked_list.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="linked__list_8h_1abaa5d043011f9f8537fecc156cb779f1" prot="public" static="no">
+        <name>ITERATE_LINKED_LIST_INDEX</name>
+        <param><defname>LIST_TYPE</defname></param>
+        <param><defname>LIST</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>N</defname></param>
+        <initializer>LIST_TYPE##_NODE* NODE = LIST_TYPE##_GET_NODE_AT_INDEX(LIST, N);\
+VAL_TYPE* val = NULL;\
+if (NODE != NULL) val = NODE-&gt;val;\
+for (; NODE != NULL &amp;&amp; (val = NODE-&gt;val) != NULL; NODE = NODE-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/linked_list.h" line="18" column="9" bodyfile="/home/bugy/projs/lobotomy/src/linked_list.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="linked__list_8h_1a39ccf41fb291b4c4b874c3f314757782" prot="public" static="no">
+        <name>ITERATE_LINKED_LIST_VN</name>
+        <param><defname>LIST_TYPE</defname></param>
+        <param><defname>LIST</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>VAL_NAME</defname></param>
+        <initializer>LIST_TYPE##_NODE* NODE = LIST_TYPE##_GET_NODE(LIST);\
+VAL_TYPE* VAL_NAME = NULL;\
+if (NODE != NULL) VAL_NAME = NODE-&gt;val;\
+for (; NODE != NULL &amp;&amp; (VAL_NAME = NODE-&gt;val) != NULL; NODE = NODE-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/linked_list.h" line="26" column="9" bodyfile="/home/bugy/projs/lobotomy/src/linked_list.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="linked__list_8h_1a1e132c92abf45b935c8299184b912e19" prot="public" static="no">
+        <name>ITERATE_LINKED_LIST_INDEX_VN</name>
+        <param><defname>LIST_TYPE</defname></param>
+        <param><defname>LIST</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>VAL_NAME</defname></param>
+        <param><defname>N</defname></param>
+        <initializer>LIST_TYPE##_NODE* NODE = LIST_TYPE##_GET_NODE_AT_INDEX(LIST, N);\
+VAL_TYPE* VAL_NAME = NULL;\
+if (NODE != NULL) VAL_NAME = NODE-&gt;val;\
+for (; NODE != NULL &amp;&amp; (VAL_NAME = NODE-&gt;val) != NULL; NODE = NODE-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/linked_list.h" line="33" column="9" bodyfile="/home/bugy/projs/lobotomy/src/linked_list.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="linked__list_8h_1a390de6c597abe0492fd9e7a61ee77ff1" prot="public" static="no">
+        <name>DEFINE_LINKED_LIST</name>
+        <param><defname>NAME</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/linked_list.h" line="43" column="9" bodyfile="/home/bugy/projs/lobotomy/src/linked_list.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="error_8h" kindref="compound">error.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="linked__list_8h_1a005a0beaff82f6b8ad7d6140fa285f63" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_LIST_PTR(L_TYPE,<sp/>L_NAME,<sp/>NAME)\</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor">for<sp/>(L_TYPE##_NODE*<sp/>NAME<sp/>=<sp/>L_NAME-&gt;first;<sp/>NAME<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>NAME-&gt;val<sp/>!=<sp/>NULL;<sp/>NAME<sp/>=<sp/>NAME-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="linked__list_8h_1af1efa9a8509998c80d0fcefc9029475b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_LINKED_LIST(LIST_TYPE,<sp/>LIST,<sp/>VAL_TYPE)\</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor">LIST_TYPE##_NODE*<sp/>NODE<sp/>=<sp/>LIST_TYPE##_GET_NODE(LIST);\</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor">VAL_TYPE*<sp/>val<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor">if<sp/>(NODE<sp/>!=<sp/>NULL)<sp/>val<sp/>=<sp/>NODE-&gt;val;\</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor">for<sp/>(;<sp/>NODE<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>(val<sp/>=<sp/>NODE-&gt;val)<sp/>!=<sp/>NULL;<sp/>NODE<sp/>=<sp/>NODE-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="linked__list_8h_1abaa5d043011f9f8537fecc156cb779f1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_LINKED_LIST_INDEX(LIST_TYPE,<sp/>LIST,<sp/>VAL_TYPE,<sp/>N)\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor">LIST_TYPE##_NODE*<sp/>NODE<sp/>=<sp/>LIST_TYPE##_GET_NODE_AT_INDEX(LIST,<sp/>N);\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor">VAL_TYPE*<sp/>val<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor">if<sp/>(NODE<sp/>!=<sp/>NULL)<sp/>val<sp/>=<sp/>NODE-&gt;val;\</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor">for<sp/>(;<sp/>NODE<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>(val<sp/>=<sp/>NODE-&gt;val)<sp/>!=<sp/>NULL;<sp/>NODE<sp/>=<sp/>NODE-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="linked__list_8h_1a39ccf41fb291b4c4b874c3f314757782" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_LINKED_LIST_VN(LIST_TYPE,<sp/>LIST,<sp/>VAL_TYPE,<sp/>VAL_NAME)\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor">LIST_TYPE##_NODE*<sp/>NODE<sp/>=<sp/>LIST_TYPE##_GET_NODE(LIST);\</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor">VAL_TYPE*<sp/>VAL_NAME<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor">if<sp/>(NODE<sp/>!=<sp/>NULL)<sp/>VAL_NAME<sp/>=<sp/>NODE-&gt;val;\</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor">for<sp/>(;<sp/>NODE<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>(VAL_NAME<sp/>=<sp/>NODE-&gt;val)<sp/>!=<sp/>NULL;<sp/>NODE<sp/>=<sp/>NODE-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="linked__list_8h_1a1e132c92abf45b935c8299184b912e19" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_LINKED_LIST_INDEX_VN(LIST_TYPE,<sp/>LIST,<sp/>VAL_TYPE,<sp/>VAL_NAME,<sp/>N)\</highlight></codeline>
+<codeline lineno="34"><highlight class="preprocessor">LIST_TYPE##_NODE*<sp/>NODE<sp/>=<sp/>LIST_TYPE##_GET_NODE_AT_INDEX(LIST,<sp/>N);\</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor">VAL_TYPE*<sp/>VAL_NAME<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="36"><highlight class="preprocessor">if<sp/>(NODE<sp/>!=<sp/>NULL)<sp/>VAL_NAME<sp/>=<sp/>NODE-&gt;val;\</highlight></codeline>
+<codeline lineno="37"><highlight class="preprocessor">for<sp/>(;<sp/>NODE<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>(VAL_NAME<sp/>=<sp/>NODE-&gt;val)<sp/>!=<sp/>NULL;<sp/>NODE<sp/>=<sp/>NODE-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>Same<sp/>functions<sp/>but<sp/>without<sp/>custom<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="linked__list_8h_1a390de6c597abe0492fd9e7a61ee77ff1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFINE_LINKED_LIST(NAME,<sp/>VAL_TYPE)\</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor">typedef<sp/>struct<sp/>NAME##_NODE<sp/>NAME##_NODE;\</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor">typedef<sp/>struct<sp/>NAME<sp/>NAME;\</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor">struct<sp/>NAME##_NODE\</highlight></codeline>
+<codeline lineno="47"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>VAL_TYPE*<sp/>val;\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_NODE*<sp/>prev;\</highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_NODE*<sp/>next;\</highlight></codeline>
+<codeline lineno="51"><highlight class="preprocessor">};\</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor">struct<sp/>NAME\</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>length;\</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_NODE*<sp/>first;\</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_NODE*<sp/>last;\</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor">};\</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor">void<sp/>NAME##_APPEND_VAL(NAME*<sp/>l,<sp/>VAL_TYPE<sp/>val)\</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(l-&gt;last-&gt;val<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;last-&gt;val<sp/>=<sp/>malloc(sizeof(VAL_TYPE));\</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*l-&gt;last-&gt;val<sp/>=<sp/>val;\</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;last-&gt;next<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;\</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="66"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_NODE*<sp/>tmp<sp/>=<sp/>malloc(sizeof(NAME##_NODE));\</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;val<sp/>=<sp/>malloc(sizeof(VAL_TYPE));\</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>*tmp-&gt;val<sp/>=<sp/>val;\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;prev<sp/>=<sp/>l-&gt;last;\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;next<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;last-&gt;next<sp/>=<sp/>tmp;\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;last<sp/>=<sp/>tmp;\</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;length++;\</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor">void<sp/>NAME##_APPEND(NAME*<sp/>l,<sp/>VAL_TYPE*<sp/>val)\</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{\</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(l-&gt;last-&gt;val<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;last-&gt;val<sp/>=<sp/>val;\</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;last-&gt;next<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return;\</highlight></codeline>
+<codeline lineno="81"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="82"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_NODE*<sp/>tmp<sp/>=<sp/>malloc(sizeof(NAME##_NODE));\</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;val<sp/>=<sp/>val;\</highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;prev<sp/>=<sp/>l-&gt;last;\</highlight></codeline>
+<codeline lineno="85"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;next<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="86"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;last-&gt;next<sp/>=<sp/>tmp;\</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;last<sp/>=<sp/>tmp;\</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;length++;\</highlight></codeline>
+<codeline lineno="89"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="90"><highlight class="preprocessor">VAL_TYPE*<sp/>NAME##_GET(NAME*<sp/>l,<sp/>int<sp/>i)\</highlight></codeline>
+<codeline lineno="91"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="92"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>l-&gt;first-&gt;val;\</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor">VAL_TYPE*<sp/>NAME##_GET_AT_INDEX(NAME*<sp/>l,<sp/>int<sp/>i)\</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>j<sp/>=<sp/>0;\</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ITERATE_LIST_PTR(NAME,<sp/>l,<sp/>n)\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{\</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(j<sp/>==<sp/>i)\</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>n-&gt;val;\</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j++;\</highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>NULL;\</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor">NAME##_NODE*<sp/>NAME##_GET_NODE(NAME*<sp/>l)\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>l-&gt;first;\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor">NAME##_NODE*<sp/>NAME##_GET_NODE_AT_INDEX(NAME*<sp/>l,<sp/>int<sp/>i)\</highlight></codeline>
+<codeline lineno="110"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>j<sp/>=<sp/>0;\</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ITERATE_LIST_PTR(NAME,<sp/>l,<sp/>n)\</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{\</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(j<sp/>==<sp/>i)\</highlight></codeline>
+<codeline lineno="115"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>n;\</highlight></codeline>
+<codeline lineno="116"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j++;\</highlight></codeline>
+<codeline lineno="117"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor">return<sp/>NULL;\</highlight></codeline>
+<codeline lineno="119"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="120"><highlight class="preprocessor">void<sp/>NAME##_POP_AT_PTR(NAME*<sp/>l,<sp/>NAME##_NODE*<sp/>n)\</highlight></codeline>
+<codeline lineno="121"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="122"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(l-&gt;length<sp/>&lt;=<sp/>0)<sp/>return;\</highlight></codeline>
+<codeline lineno="123"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>free(n-&gt;val);\</highlight></codeline>
+<codeline lineno="124"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(n<sp/>==<sp/>l-&gt;first<sp/>&amp;&amp;<sp/>n<sp/>==<sp/>l-&gt;last)<sp/>{\</highlight></codeline>
+<codeline lineno="125"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n-&gt;val<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="126"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;\</highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(n<sp/>==<sp/>l-&gt;first)<sp/>l-&gt;first<sp/>=<sp/>n-&gt;next;\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(n<sp/>==<sp/>l-&gt;last)<sp/>l-&gt;last<sp/>=<sp/>n-&gt;prev;\</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(n-&gt;prev<sp/>!=<sp/>NULL)<sp/>n-&gt;prev-&gt;next<sp/>=<sp/>n-&gt;next;\</highlight></codeline>
+<codeline lineno="131"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(n-&gt;next<sp/>!=<sp/>NULL)<sp/>n-&gt;next-&gt;prev<sp/>=<sp/>n-&gt;prev;\</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>free(n);\</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;length--;\</highlight></codeline>
+<codeline lineno="134"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor">void<sp/>NAME##_POP(NAME*<sp/>l)\</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_POP_AT_PTR(l,<sp/>l-&gt;last);\</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor">void<sp/>NAME##_POP_AT_INDEX(NAME*<sp/>l,<sp/>int<sp/>i)\</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(l-&gt;length<sp/>&lt;<sp/>2)<sp/>return;\</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(i<sp/>&gt;<sp/>l-&gt;length)<sp/>return;\</highlight></codeline>
+<codeline lineno="143"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_POP_AT_PTR(l,<sp/>NAME##_GET_NODE_AT_INDEX(l,<sp/>i));\</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor">void<sp/>NAME##_INIT(NAME*<sp/>l)\</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_NODE*<sp/>tmp<sp/>=<sp/>malloc(sizeof(NAME##_NODE));\</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;prev<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;next<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tmp-&gt;val<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;length<sp/>=<sp/>1;\</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;first<sp/>=<sp/>tmp;\</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>l-&gt;last<sp/>=<sp/>tmp;\</highlight></codeline>
+<codeline lineno="154"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="155"><highlight class="preprocessor">void<sp/>NAME##_INIT_VAL(NAME*<sp/>l,<sp/>VAL_TYPE<sp/>val)\</highlight></codeline>
+<codeline lineno="156"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="157"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_INIT(l);\</highlight></codeline>
+<codeline lineno="158"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_APPEND_VAL(l,<sp/>val);\</highlight></codeline>
+<codeline lineno="159"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="160"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/linked_list.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="l__std_8h" kind="file" language="C++">
+    <compoundname>l_std.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">math.h</includes>
+    <includes refid="obj_8h" local="yes">obj.h</includes>
+    <includedby refid="eval_8c" local="yes">/home/bugy/projs/lobotomy/src/eval.c</includedby>
+    <includedby refid="main_8c" local="yes">/home/bugy/projs/lobotomy/src/main.c</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>stdbool.h</label>
+      </node>
+      <node id="11">
+        <label>assert.h</label>
+      </node>
+      <node id="12">
+        <label>float.h</label>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/l_std.h</label>
+        <link refid="l__std_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="15">
+        <label>SHM/hashmap.h</label>
+        <link refid="SHM_2hashmap_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>wchar.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+      <node id="16">
+        <label>linked_list.h</label>
+        <link refid="linked__list_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>time.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="9">
+        <label>util.h</label>
+        <link refid="util_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>obj.h</label>
+        <link refid="obj_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/bugy/projs/lobotomy/src/eval.c</label>
+        <link refid="eval_8c"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/l_std.h</label>
+        <link refid="l__std_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/home/bugy/projs/lobotomy/src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="l__std_8h_1a9b2a63793cdbd9175fe8fef8a5704f97" prot="public" static="no">
+        <name>DEF_ARITHMETIC_OPERATION</name>
+        <param><defname>NAME</defname></param>
+        <param><defname>SIGN</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="14" column="9" bodyfile="/home/bugy/projs/lobotomy/src/l_std.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="l__std_8h_1a615f04bf9115c6de5b514a8d93a3b2a1" prot="public" static="no">
+        <name>DEF_BINARY_OPERATION</name>
+        <param><defname>NAME</defname></param>
+        <param><defname>SIGN</defname></param>
+        <initializer><ref refid="structOBJ" kindref="compound">OBJ</ref>* L_##NAME(<ref refid="structOBJ" kindref="compound">OBJ</ref>* o)\
+{\
+	<ref refid="structOBJ" kindref="compound">OBJ</ref>* ret = <ref refid="obj_8h_1afef0f8196de8986895bc02ecbbaf2529" kindref="member">empty_obj</ref>();\
+	o = <ref refid="l__std_8h_1ad0496d954f7b22c3e4c59f4b5e204b85" kindref="member">preeval</ref>(o);\
+	ret-&gt;type = o-&gt;type;\
+	if (ret-&gt;type == <ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>)\
+		ret-&gt;num = o-&gt;num;\
+\
+	<ref refid="obj_8h_1ae1e180e18868549f629136a2d1a48dda" kindref="member">NEXT</ref>(o);\
+	if (o == NULL) return ret; \
+\
+	<ref refid="obj_8h_1ab91d02dc63defade63583c31c17334be" kindref="member">ITERATE_OBJECT</ref>(o, curr)\
+	{\
+		\
+		if (ret-&gt;type == <ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref> &amp;&amp; curr-&gt;type == <ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>)\
+			ret-&gt;num SIGN##= curr-&gt;num;\
+	}\
+	return ret;\
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="53" column="9" bodyfile="/home/bugy/projs/lobotomy/src/l_std.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="l__std_8h_1ad039014b29d9a76b7d9a4b794cb17cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* __eval</definition>
+        <argsstring>(OBJ *)</argsstring>
+        <name>__eval</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="10" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="663" bodyend="737" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="10" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1ad0496d954f7b22c3e4c59f4b5e204b85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* preeval</definition>
+        <argsstring>(OBJ *)</argsstring>
+        <name>preeval</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="11" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="490" bodyend="578" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="11" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a0226b99b2e08c6686b1ff89cc28553d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* preeval_symbols</definition>
+        <argsstring>(OBJ *)</argsstring>
+        <name>preeval_symbols</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="12" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="452" bodyend="488" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="12" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a22a8ad934e32d44281d194b914c64f97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_mod</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_mod</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="80" column="5" bodyfile="/home/bugy/projs/lobotomy/src/l_std.h" bodystart="80" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1ad4fb240fa7df36c609a9107a166064ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_less_than</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_less_than</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>DOC</para>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="128" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="21" bodyend="37" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="128" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a7d199208fe61ba29b4c7ea9fe787702c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_more_than</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_more_than</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="129" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="39" bodyend="46" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="129" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a18a1221a1edff515f64c6110a5e9e9ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_less_or_eq_than</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_less_or_eq_than</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="130" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="49" bodyend="56" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="130" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a251e43c27b60a626bad6b3b2a913bfa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_more_or_eq_than</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_more_or_eq_than</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="131" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="58" bodyend="65" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="131" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1aa5b464a6cf57dc10cc768bc9f094839b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_eq</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_eq</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="132" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="67" bodyend="94" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="132" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1ae6a18758432a10e32ff99b93e09f69eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_pow</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_pow</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="136" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="136" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1ab6d630748df16a36b496e3b41e739321" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_sqrt</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_sqrt</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="137" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="137" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1abdc0d946075cd8cb3faf540a0a6bd10b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_cbrt</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_cbrt</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="138" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="138" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a74a7b0a40b1d582debc07377d0aacfa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_nth_root</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_nth_root</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="139" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="139" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1af96dc762507c64a75f4c91534f6ae22c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_log</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_log</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="140" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="140" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a6c19ce76fcea91b6e0d275ef4aad854a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_log10</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_log10</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="141" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="141" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a290373066862c16fc63e60ba4a5cc805" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_ceil</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_ceil</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="142" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="142" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1aa8c5d6a9140f8e8f5c526e417b348c50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_floor</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_floor</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="143" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="143" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a48a6934896135a57d4c7e4e08b023617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_round</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_round</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="144" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="144" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a87de9c92fe51347722e52bba372dc8bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_max</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_max</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="145" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="145" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a84ced7fc9c59ce7646c77cfbca141bfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_min</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_min</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="146" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="146" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a6707e9cca06141f8ca270cdbddbd935b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_cos</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_cos</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="148" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="148" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a4531e20054c8c763be598cfb65c7c76b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_sin</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_sin</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="149" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="149" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1af4ca2a139a5081a01a8e0c7f20926491" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_tan</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_tan</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="150" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="150" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a9a56c63292c6e6c371c2bce9bd01a932" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_acos</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_acos</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="151" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="151" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1aae9eef9b5d417b2eb1c24a07ac026b47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_asin</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_asin</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="152" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="152" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a3ccbb601b1de46025b4984969e513468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_atan</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_atan</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="153" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="153" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1afd2eda74aa59a6d3310932d2fceb1973" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_atan2</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_atan2</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="154" column="5" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="154" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1af0f04595e66237ccdb41eebe17a8f6e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_progn</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_progn</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="159" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="166" bodyend="173" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="159" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a32c5d0a62787386f7024d65e0a5fd152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_car</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_car</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="160" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="97" bodyend="103" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="160" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a356beef9314ed9207ea8919449785879" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_cdr</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_cdr</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="161" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="124" bodyend="133" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="161" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1ac8c76bcc40b0f63f664273f4bcfb7d1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_list</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_list</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="162" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="135" bodyend="142" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="162" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a48ce89bdc89656f631f90e1cce67806d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_nth</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_nth</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="163" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="144" bodyend="154" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="163" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a90653db80a81bc831fc811dc9c88daf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_copy</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_copy</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="167" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="395" bodyend="401" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="167" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a21a1dc39af88e719ea0d2fce93860b2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_type</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_type</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="168" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="203" bodyend="208" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="168" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a6f50c955fc4d416861ac9d904f8e84be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_help</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_help</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="169" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="211" bodyend="218" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="169" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a97fcc5fb77dfc6c817d0531fc6449c45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_exit</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_exit</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="170" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="157" bodyend="163" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="170" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a4ef8ec1c1ba73db593d49c9c37d23720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_obj_name</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_obj_name</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="171" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="237" bodyend="243" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="171" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a6ffe71f9336fc2ac49bced3663418386" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_let</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_let</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="175" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="246" bodyend="314" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="175" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a6a1c5f34458e71ece858f679d394d9f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_create_fn</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_create_fn</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="176" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="220" bodyend="235" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="176" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1afe4bdc20829386e23795d610feb81f7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_cond</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_cond</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="179" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="366" bodyend="393" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="179" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1aa1e684ddf082e1d5e21e31fdf4f31e5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_loop</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_loop</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="180" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="317" bodyend="364" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="180" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1aa1a9a591feaffa60920ab6eae85879a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_get_input</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_get_input</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="183" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="107" bodyend="121" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="183" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1abd430801d907b8da3864e41c78c950b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_print</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_print</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="184" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="184" bodyend="201" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="184" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1aec4a831fb8f7dff8ab61536544b9e7d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_get_random_num</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_get_random_num</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="188" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="403" bodyend="415" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="188" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1acd120084c28c232f9e3698b31886a7b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_test</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_test</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="191" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="176" bodyend="181" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="191" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a680fd583eff272ba70c58bee9c65351d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_load</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_load</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="193" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="423" bodyend="450" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="193" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a312bf32f5c8a2351a189177fe238eb57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* L_use</definition>
+        <argsstring>(OBJ *o)</argsstring>
+        <name>L_use</name>
+        <param>
+          <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="194" column="5" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="417" bodyend="421" declfile="/home/bugy/projs/lobotomy/src/l_std.h" declline="194" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="l__std_8h_1a60a24e85aa80dd39ab240c89ae7244f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lobotomy_init</definition>
+        <argsstring>(ENV *env)</argsstring>
+        <name>lobotomy_init</name>
+        <param>
+          <type><ref refid="obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref> *</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/l_std.h" line="196" column="6" bodyfile="/home/bugy/projs/lobotomy/src/l_std.h" bodystart="196" bodyend="247"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="obj_8h" kindref="compound">obj.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1ad039014b29d9a76b7d9a4b794cb17cdf" kindref="member">__eval</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1ad0496d954f7b22c3e4c59f4b5e204b85" kindref="member">preeval</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a0226b99b2e08c6686b1ff89cc28553d9" kindref="member">preeval_symbols</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="l__std_8h_1a9b2a63793cdbd9175fe8fef8a5704f97" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEF_ARITHMETIC_OPERATION(NAME,<sp/>SIGN)\</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor">OBJ*<sp/>L_##NAME(OBJ*<sp/>o)\</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>OBJ*<sp/>ret<sp/>=<sp/>empty_obj();\</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>o<sp/>=<sp/>preeval(o);\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>OBJ*<sp/>curr<sp/>=<sp/>o;\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ret-&gt;type<sp/>=<sp/>o-&gt;type;\</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(ret-&gt;type<sp/>==<sp/>T_NUM)\</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;num<sp/>=<sp/>o-&gt;num;\</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(ret-&gt;type<sp/>==<sp/>T_DECIMAL)\</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;decimal<sp/>=<sp/>o-&gt;decimal;\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>o<sp/>=<sp/>NT(curr);\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(o<sp/>==<sp/>NULL)<sp/>{printf(&quot;\nhappend\n&quot;);<sp/>return<sp/>ret;}<sp/>\</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ITERATE_OBJECT(o,<sp/>tmp)\</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{\</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(tmp-&gt;type<sp/>==<sp/>T_IDENTIFIER)\</highlight></codeline>
+<codeline lineno="33"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>curr<sp/>=<sp/>tmp-&gt;car;\</highlight></codeline>
+<codeline lineno="34"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>curr<sp/>=<sp/>tmp;\</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="36"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ret-&gt;type<sp/>==<sp/>T_DECIMAL<sp/>&amp;&amp;<sp/>curr-&gt;type<sp/>==<sp/>T_NUM)\</highlight></codeline>
+<codeline lineno="37"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;decimal<sp/>SIGN##=<sp/>curr-&gt;num;\</highlight></codeline>
+<codeline lineno="38"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="39"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(ret-&gt;type<sp/>==<sp/>T_DECIMAL<sp/>&amp;&amp;<sp/>curr-&gt;type<sp/>==<sp/>T_DECIMAL)\</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;decimal<sp/>SIGN##=<sp/>curr-&gt;decimal;\</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(ret-&gt;type<sp/>==<sp/>T_NUM<sp/>&amp;&amp;<sp/>curr-&gt;type<sp/>==<sp/>T_DECIMAL){\</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;type<sp/>=<sp/>T_DECIMAL;<sp/>ret-&gt;decimal<sp/>=<sp/>ret-&gt;num;\</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;decimal<sp/>SIGN##=<sp/>curr-&gt;decimal;\</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(ret-&gt;type<sp/>==<sp/>T_NUM<sp/>&amp;&amp;<sp/>curr-&gt;type<sp/>==<sp/>T_NUM)\</highlight></codeline>
+<codeline lineno="47"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;num<sp/>SIGN##=<sp/>curr-&gt;num;\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>ret;\</highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="l__std_8h_1a615f04bf9115c6de5b514a8d93a3b2a1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEF_BINARY_OPERATION(NAME,<sp/>SIGN)\</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor">OBJ*<sp/>L_##NAME(OBJ*<sp/>o)\</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>OBJ*<sp/>ret<sp/>=<sp/>empty_obj();\</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>o<sp/>=<sp/>preeval(o);\</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ret-&gt;type<sp/>=<sp/>o-&gt;type;\</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(ret-&gt;type<sp/>==<sp/>T_NUM)\</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;num<sp/>=<sp/>o-&gt;num;\</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NEXT(o);\</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(o<sp/>==<sp/>NULL)<sp/>return<sp/>ret;<sp/>\</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ITERATE_OBJECT(o,<sp/>curr)\</highlight></codeline>
+<codeline lineno="66"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{\</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ret-&gt;type<sp/>==<sp/>T_NUM<sp/>&amp;&amp;<sp/>curr-&gt;type<sp/>==<sp/>T_NUM)\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;num<sp/>SIGN##=<sp/>curr-&gt;num;\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>ret;\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Arithmetic<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><ref refid="l__std_8h_1a9b2a63793cdbd9175fe8fef8a5704f97" kindref="member">DEF_ARITHMETIC_OPERATION</ref>(add,<sp/>+)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><ref refid="l__std_8h_1a9b2a63793cdbd9175fe8fef8a5704f97" kindref="member">DEF_ARITHMETIC_OPERATION</ref>(subtract,<sp/>-)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><ref refid="l__std_8h_1a9b2a63793cdbd9175fe8fef8a5704f97" kindref="member">DEF_ARITHMETIC_OPERATION</ref>(multiply,<sp/>*)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><ref refid="l__std_8h_1a9b2a63793cdbd9175fe8fef8a5704f97" kindref="member">DEF_ARITHMETIC_OPERATION</ref>(divide,<sp/>/)</highlight></codeline>
+<codeline lineno="80" refid="l__std_8h_1a22a8ad934e32d44281d194b914c64f97" refkind="member"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a22a8ad934e32d44281d194b914c64f97" kindref="member">L_mod</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>ret<sp/>=<sp/><ref refid="obj_8c_1afef0f8196de8986895bc02ecbbaf2529" kindref="member">empty_obj</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>o<sp/>=<sp/><ref refid="l__std_8h_1ad0496d954f7b22c3e4c59f4b5e204b85" kindref="member">preeval</ref>(o);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>curr<sp/>=<sp/>o;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>ret-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/>o-&gt;type;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;<ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref><sp/>=<sp/>o-&gt;num;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref><sp/>=<sp/>o-&gt;decimal;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>o<sp/>=<sp/><ref refid="obj_8h_1a179a6093bc435cbca8f4c1abb79db64c" kindref="member">NT</ref>(curr);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(o<sp/>==<sp/>NULL)<sp/>{<ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;\nhappend\n&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;}<sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8h_1ab91d02dc63defade63583c31c17334be" kindref="member">ITERATE_OBJECT</ref>(o,<sp/>tmp)\</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tmp-&gt;type<sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" kindref="member">T_IDENTIFIER</ref>)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>curr<sp/>=<sp/>tmp-&gt;<ref refid="structOBJ_1a7d38952916caef94a84c922e4d15fc88" kindref="member">car</ref>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>curr<sp/>=<sp/>tmp;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref><sp/>&amp;&amp;<sp/>curr-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>)\</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref><sp/>=<sp/>fmod(ret-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref>,<sp/>curr-&gt;<ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref><sp/>&amp;&amp;<sp/>curr-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref><sp/>=<sp/>fmod(ret-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref>,<sp/>curr-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref><sp/>&amp;&amp;<sp/>curr-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>){</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>;<sp/>ret-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref><sp/>=<sp/>ret-&gt;<ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref><sp/>=<sp/>fmod(ret-&gt;<ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref>,<sp/>curr-&gt;<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref><sp/>&amp;&amp;<sp/>curr-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>==<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret-&gt;<ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref><sp/>%=<sp/>curr-&gt;<ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Binary<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><ref refid="l__std_8h_1a615f04bf9115c6de5b514a8d93a3b2a1" kindref="member">DEF_BINARY_OPERATION</ref>(and,<sp/>&amp;)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><ref refid="l__std_8h_1a615f04bf9115c6de5b514a8d93a3b2a1" kindref="member">DEF_BINARY_OPERATION</ref>(or,<sp/>|)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><ref refid="l__std_8h_1a615f04bf9115c6de5b514a8d93a3b2a1" kindref="member">DEF_BINARY_OPERATION</ref>(xor,<sp/>^)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><ref refid="l__std_8h_1a615f04bf9115c6de5b514a8d93a3b2a1" kindref="member">DEF_BINARY_OPERATION</ref>(bitshift_left,<sp/>&lt;&lt;)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><ref refid="l__std_8h_1a615f04bf9115c6de5b514a8d93a3b2a1" kindref="member">DEF_BINARY_OPERATION</ref>(bitshift_right,<sp/>&gt;&gt;)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><ref refid="l__std_8h_1a615f04bf9115c6de5b514a8d93a3b2a1" kindref="member">DEF_BINARY_OPERATION</ref>(neg,<sp/>!)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/>numeric<sp/>comparisons</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1ad4fb240fa7df36c609a9107a166064ff" kindref="member">L_less_than</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a7d199208fe61ba29b4c7ea9fe787702c" kindref="member">L_more_than</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a18a1221a1edff515f64c6110a5e9e9ea" kindref="member">L_less_or_eq_than</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a251e43c27b60a626bad6b3b2a913bfa2" kindref="member">L_more_or_eq_than</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1aa5b464a6cf57dc10cc768bc9f094839b" kindref="member">L_eq</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Math</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1ae6a18758432a10e32ff99b93e09f69eb" kindref="member">L_pow</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1ab6d630748df16a36b496e3b41e739321" kindref="member">L_sqrt</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1abdc0d946075cd8cb3faf540a0a6bd10b" kindref="member">L_cbrt</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a74a7b0a40b1d582debc07377d0aacfa7" kindref="member">L_nth_root</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1af96dc762507c64a75f4c91534f6ae22c" kindref="member">L_log</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a6c19ce76fcea91b6e0d275ef4aad854a" kindref="member">L_log10</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a290373066862c16fc63e60ba4a5cc805" kindref="member">L_ceil</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1aa8c5d6a9140f8e8f5c526e417b348c50" kindref="member">L_floor</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a48a6934896135a57d4c7e4e08b023617" kindref="member">L_round</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a87de9c92fe51347722e52bba372dc8bb" kindref="member">L_max</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a84ced7fc9c59ce7646c77cfbca141bfb" kindref="member">L_min</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a6707e9cca06141f8ca270cdbddbd935b" kindref="member">L_cos</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a4531e20054c8c763be598cfb65c7c76b" kindref="member">L_sin</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1af4ca2a139a5081a01a8e0c7f20926491" kindref="member">L_tan</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a9a56c63292c6e6c371c2bce9bd01a932" kindref="member">L_acos</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1aae9eef9b5d417b2eb1c24a07ac026b47" kindref="member">L_asin</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a3ccbb601b1de46025b4984969e513468" kindref="member">L_atan</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1afd2eda74aa59a6d3310932d2fceb1973" kindref="member">L_atan2</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">//<sp/>lisp<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1af0f04595e66237ccdb41eebe17a8f6e2" kindref="member">L_progn</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a32c5d0a62787386f7024d65e0a5fd152" kindref="member">L_car</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a356beef9314ed9207ea8919449785879" kindref="member">L_cdr</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1ac8c76bcc40b0f63f664273f4bcfb7d1b" kindref="member">L_list</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a48ce89bdc89656f631f90e1cce67806d" kindref="member">L_nth</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">//<sp/>helper<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a90653db80a81bc831fc811dc9c88daf2" kindref="member">L_copy</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a21a1dc39af88e719ea0d2fce93860b2f" kindref="member">L_type</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a6f50c955fc4d416861ac9d904f8e84be" kindref="member">L_help</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a97fcc5fb77dfc6c817d0531fc6449c45" kindref="member">L_exit</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a4ef8ec1c1ba73db593d49c9c37d23720" kindref="member">L_obj_name</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//<sp/>variables<sp/>and<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a6ffe71f9336fc2ac49bced3663418386" kindref="member">L_let</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a6a1c5f34458e71ece858f679d394d9f3" kindref="member">L_create_fn</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment">//<sp/>flow<sp/>control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1afe4bdc20829386e23795d610feb81f7e" kindref="member">L_cond</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1aa1e684ddf082e1d5e21e31fdf4f31e5d" kindref="member">L_loop</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment">//<sp/>IO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1aa1a9a591feaffa60920ab6eae85879a1" kindref="member">L_get_input</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1abd430801d907b8da3864e41c78c950b0" kindref="member">L_print</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Random</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1aec4a831fb8f7dff8ab61536544b9e7d5" kindref="member">L_get_random_num</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">//<sp/>other</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1acd120084c28c232f9e3698b31886a7b4" kindref="member">L_test</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a680fd583eff272ba70c58bee9c65351d" kindref="member">L_load</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="l__std_8h_1a312bf32f5c8a2351a189177fe238eb57" kindref="member">L_use</ref>(<ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>o);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196" refid="l__std_8h_1a60a24e85aa80dd39ab240c89ae7244f3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="l__std_8h_1a60a24e85aa80dd39ab240c89ae7244f3" kindref="member">lobotomy_init</ref>(<ref refid="obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref>*<sp/>env)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ENV_ADD(global_env,<sp/>&quot;+&quot;,<sp/>create_cfn(&quot;+&quot;,<sp/>lobotomy_add));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;+&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;+&quot;</highlight><highlight class="normal">,<sp/>L_add));</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal">,<sp/>L_subtract));</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal">,<sp/>L_multiply));</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">,<sp/>L_divide));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;&amp;&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;&amp;&quot;</highlight><highlight class="normal">,<sp/>L_and));</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;|&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;|&quot;</highlight><highlight class="normal">,<sp/>L_or));</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;xor&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;xor&quot;</highlight><highlight class="normal">,<sp/>L_xor));</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a22a8ad934e32d44281d194b914c64f97" kindref="member">L_mod</ref>));</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;loop&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;loop&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1aa1e684ddf082e1d5e21e31fdf4f31e5d" kindref="member">L_loop</ref>));</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;?&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1afe4bdc20829386e23795d610feb81f7e" kindref="member">L_cond</ref>));</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;&lt;&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;&lt;&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1ad4fb240fa7df36c609a9107a166064ff" kindref="member">L_less_than</ref>));</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;&lt;=&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;&lt;=&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a18a1221a1edff515f64c6110a5e9e9ea" kindref="member">L_less_or_eq_than</ref>));</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;&gt;&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;&gt;&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a7d199208fe61ba29b4c7ea9fe787702c" kindref="member">L_more_than</ref>));</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;&gt;=&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;&gt;=&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a251e43c27b60a626bad6b3b2a913bfa2" kindref="member">L_more_or_eq_than</ref>));</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;=&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1aa5b464a6cf57dc10cc768bc9f094839b" kindref="member">L_eq</ref>));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;let&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;let&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a6ffe71f9336fc2ac49bced3663418386" kindref="member">L_let</ref>));</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;print&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;print&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1abd430801d907b8da3864e41c78c950b0" kindref="member">L_print</ref>));</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;type&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;type&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a21a1dc39af88e719ea0d2fce93860b2f" kindref="member">L_type</ref>));</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;exit&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;exit&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a97fcc5fb77dfc6c817d0531fc6449c45" kindref="member">L_exit</ref>));</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>ENV_ADD(env,<sp/></highlight><highlight class="stringliteral">&quot;help&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;help&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a6f50c955fc4d416861ac9d904f8e84be" kindref="member">L_help</ref>));</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;cdr&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a356beef9314ed9207ea8919449785879" kindref="member">L_cdr</ref>));</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;car&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a32c5d0a62787386f7024d65e0a5fd152" kindref="member">L_car</ref>));</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;list&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1ac8c76bcc40b0f63f664273f4bcfb7d1b" kindref="member">L_list</ref>));</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;nth&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a48ce89bdc89656f631f90e1cce67806d" kindref="member">L_nth</ref>));</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;tést&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1acd120084c28c232f9e3698b31886a7b4" kindref="member">L_test</ref>));</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;fn&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a6a1c5f34458e71ece858f679d394d9f3" kindref="member">L_create_fn</ref>));</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;use&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a312bf32f5c8a2351a189177fe238eb57" kindref="member">L_use</ref>));</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;load&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a680fd583eff272ba70c58bee9c65351d" kindref="member">L_load</ref>));</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;obj-name&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1a4ef8ec1c1ba73db593d49c9c37d23720" kindref="member">L_obj_name</ref>));</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;test&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1acd120084c28c232f9e3698b31886a7b4" kindref="member">L_test</ref>));</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;input&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1aa1a9a591feaffa60920ab6eae85879a1" kindref="member">L_get_input</ref>));</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/><ref refid="obj_8c_1af706a6bda6ef0513b46c95fe1fcdfb6c" kindref="member">create_cfn</ref>(</highlight><highlight class="stringliteral">&quot;random-num&quot;</highlight><highlight class="normal">,<sp/><ref refid="l__std_8h_1aec4a831fb8f7dff8ab61536544b9e7d5" kindref="member">L_get_random_num</ref>));</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref><sp/>PI<sp/>=<sp/>(<ref refid="obj_8h_1a0b3e62818fe3f67193959ddfa20793a6" kindref="member">OBJ</ref>){.<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref>=<ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>,<sp/>.name=</highlight><highlight class="stringliteral">&quot;PI&quot;</highlight><highlight class="normal">,<sp/>.decimal=3.141595265};</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8c_1a0e5a7962b223a44a11319e48d58004cc" kindref="member">env_add</ref>(env,<sp/>&amp;PI);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>env_add(env,<sp/>create_cfn(&quot;=&quot;,<sp/>L_eq));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>env_add(env,<sp/>create_cfn(&quot;is?&quot;,<sp/>L_is_same_obj));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/l_std.h"/>
+  </compounddef>
+</doxygen>

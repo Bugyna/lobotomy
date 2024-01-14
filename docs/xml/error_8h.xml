@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="error_8h" kind="file" language="C++">
+    <compoundname>error.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="util_8h" local="yes">/home/bugy/projs/lobotomy/src/util.h</includedby>
+    <includedby refid="linked__list_8h" local="yes">/home/bugy/projs/lobotomy/src/linked_list.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/home/bugy/projs/lobotomy/src/eval.c</label>
+        <link refid="eval_8c"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/home/bugy/projs/lobotomy/src/l_std.h</label>
+        <link refid="l__std_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>/home/bugy/projs/lobotomy/src/tui.h</label>
+        <link refid="tui_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>/home/bugy/projs/lobotomy/src/hashmap.h</label>
+        <link refid="hashmap_8h"/>
+      </node>
+      <node id="10">
+        <label>/home/bugy/projs/lobotomy/src/sample_module.c</label>
+        <link refid="sample__module_8c"/>
+      </node>
+      <node id="4">
+        <label>/home/bugy/projs/lobotomy/src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="15">
+        <label>/home/bugy/projs/lobotomy/src/repl.h</label>
+        <link refid="repl_8h"/>
+      </node>
+      <node id="14">
+        <label>/home/bugy/projs/lobotomy/src/linked_list.h</label>
+        <link refid="linked__list_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/home/bugy/projs/lobotomy/src/gc.h</label>
+        <link refid="gc_8h"/>
+      </node>
+      <node id="5">
+        <label>/home/bugy/projs/lobotomy/src/lexer.h</label>
+        <link refid="lexer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/home/bugy/projs/lobotomy/src/parse.h</label>
+        <link refid="parse_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/home/bugy/projs/lobotomy/src/util.h</label>
+        <link refid="util_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/home/bugy/projs/lobotomy/src/obj.c</label>
+        <link refid="obj_8c"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/home/bugy/projs/lobotomy/src/obj.h</label>
+        <link refid="obj_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="error_8h_1aea5fa624723d74c5c9b038948f3e9f92" prot="public" static="no">
+        <name>my_assert</name>
+        <param><defname>expr</defname></param>
+        <param><defname>err</defname></param>
+        <param><defname>err_code</defname></param>
+        <param><defname>line</defname></param>
+        <param><defname>column</defname></param>
+        <initializer>if (expr) { <ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(&quot;%s at %d.%d\n&quot;, err, line, column); <ref refid="util_8h_1a5134b2f308b8e125e5f987ac66222050" kindref="member">exit</ref>(err_code); }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="17" column="9" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="error_8h_1a07fd69b4dfba96e268fee3bf7fd6c8ea" prot="public" static="no">
+        <name>DEBUG</name>
+        <param><defname>s</defname></param>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(s __VA_ARGS__); <ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(&quot;\n\n&quot;);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="20" column="9" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="error_8h_1addd7b62fe15ff46feb471504966b406c" prot="public" static="no">
+        <name>lobotomy_warning</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="error_8h_1a07fd69b4dfba96e268fee3bf7fd6c8ea" kindref="member">DEBUG</ref>(&quot;warning: &quot;, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="21" column="9" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="error_8h_1abc535bec3835990a732280e1de9808ac" prot="public" static="no">
+        <name>LOBOTOMY_WARNING</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="error_8h_1a07fd69b4dfba96e268fee3bf7fd6c8ea" kindref="member">DEBUG</ref>(&quot;warning: &quot;, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="22" column="9" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="error_8h_1aac116a888ad2a9568e09ffb8a2a28bc5" prot="public" static="no">
+        <name>lobotomy_error_ne</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="error_8h_1a07fd69b4dfba96e268fee3bf7fd6c8ea" kindref="member">DEBUG</ref>(&quot;ERROR: &quot;, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="24" column="9" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="error_8h_1aaf5a3a25a3c8bf7799337ad144d8c617" prot="public" static="no">
+        <name>lobotomy_error_s_ne</name>
+        <param><defname>n</defname></param>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="error_8h_1a07fd69b4dfba96e268fee3bf7fd6c8ea" kindref="member">DEBUG</ref>(#n &quot;: &quot;, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="25" column="9" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="error_8h_1a168deda0bc3b2da8c582f7ab3f4c228c" prot="public" static="no">
+        <name>lobotomy_error</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="error_8h_1a07fd69b4dfba96e268fee3bf7fd6c8ea" kindref="member">DEBUG</ref>(&quot;ERROR: &quot;, __VA_ARGS__); <ref refid="util_8h_1a5134b2f308b8e125e5f987ac66222050" kindref="member">exit</ref>(-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="27" column="9" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="error_8h_1ad94fa9a0cd88ad6a38f08319aeefdebb" prot="public" static="no">
+        <name>lobotomy_error_s</name>
+        <param><defname>n</defname></param>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="error_8h_1a07fd69b4dfba96e268fee3bf7fd6c8ea" kindref="member">DEBUG</ref>(#n &quot;: &quot;, __VA_ARGS__); <ref refid="util_8h_1a5134b2f308b8e125e5f987ac66222050" kindref="member">exit</ref>(n)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="28" column="9" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>@0</name>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612" prot="public">
+          <name>ERR_NO_MATCHING_BRACKET</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba9050de8078352b9892e4bc2a969d9b30" prot="public">
+          <name>ERR_TOO_MANY_BRACKETS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba8018a3e40476ba0f5d26fefba1db06e0" prot="public">
+          <name>ERR_WORD_IN_NUMBER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8" prot="public">
+          <name>ERR_INVALID_DECIMAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55babdbe34d491ffaead3d75cc9cb5c45ea4" prot="public">
+          <name>ERR_INVALID_CHARACTER_IN_NUMBER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba1fec3900dbb6a0459a903002ec4b56b9" prot="public">
+          <name>ERR_UNESCAPED_NEW_LINE_IN_STRING_LITERAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55babc00a0934771db082ac84e60a45406cf" prot="public">
+          <name>ERR_UNKNOWN_CHARACTER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55bab4021abef25f14e03c2ea1d298101855" prot="public">
+          <name>ERR_UNEXPECTED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba5bb280b3fe12d695d5a7c158f93eb603" prot="public">
+          <name>ERR_UNDEFINED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/error.h" line="5" column="6" bodyfile="/home/bugy/projs/lobotomy/src/error.h" bodystart="5" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="6" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612" kindref="member">ERR_NO_MATCHING_BRACKET</ref>,</highlight></codeline>
+<codeline lineno="7" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba9050de8078352b9892e4bc2a969d9b30" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba9050de8078352b9892e4bc2a969d9b30" kindref="member">ERR_TOO_MANY_BRACKETS</ref>,</highlight></codeline>
+<codeline lineno="8" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba8018a3e40476ba0f5d26fefba1db06e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba8018a3e40476ba0f5d26fefba1db06e0" kindref="member">ERR_WORD_IN_NUMBER</ref>,</highlight></codeline>
+<codeline lineno="9" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8" kindref="member">ERR_INVALID_DECIMAL</ref>,</highlight></codeline>
+<codeline lineno="10" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55babdbe34d491ffaead3d75cc9cb5c45ea4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55babdbe34d491ffaead3d75cc9cb5c45ea4" kindref="member">ERR_INVALID_CHARACTER_IN_NUMBER</ref>,</highlight></codeline>
+<codeline lineno="11" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba1fec3900dbb6a0459a903002ec4b56b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba1fec3900dbb6a0459a903002ec4b56b9" kindref="member">ERR_UNESCAPED_NEW_LINE_IN_STRING_LITERAL</ref>,</highlight></codeline>
+<codeline lineno="12" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55babc00a0934771db082ac84e60a45406cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55babc00a0934771db082ac84e60a45406cf" kindref="member">ERR_UNKNOWN_CHARACTER</ref>,</highlight></codeline>
+<codeline lineno="13" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55bab4021abef25f14e03c2ea1d298101855" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55bab4021abef25f14e03c2ea1d298101855" kindref="member">ERR_UNEXPECTED</ref>,</highlight></codeline>
+<codeline lineno="14" refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba5bb280b3fe12d695d5a7c158f93eb603" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a06fc87d81c62e9abb8790b6e5713c55ba5bb280b3fe12d695d5a7c158f93eb603" kindref="member">ERR_UNDEFINED</ref>,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="error_8h_1aea5fa624723d74c5c9b038948f3e9f92" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>my_assert(expr,<sp/>err,<sp/>err_code,<sp/>line,<sp/>column)<sp/>if<sp/>(expr)<sp/>{<sp/>printf(&quot;%s<sp/>at<sp/>%d.%d\n&quot;,<sp/>err,<sp/>line,<sp/>column);<sp/>exit(err_code);<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="error_8h_1a07fd69b4dfba96e268fee3bf7fd6c8ea" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG(s,<sp/>...)<sp/>printf(s<sp/>__VA_ARGS__);<sp/>printf(&quot;\n\n&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="error_8h_1addd7b62fe15ff46feb471504966b406c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>lobotomy_warning(...)<sp/>DEBUG(&quot;warning:<sp/>&quot;,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="error_8h_1abc535bec3835990a732280e1de9808ac" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOBOTOMY_WARNING(...)<sp/>DEBUG(&quot;warning:<sp/>&quot;,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="error_8h_1aac116a888ad2a9568e09ffb8a2a28bc5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>lobotomy_error_ne(...)<sp/>DEBUG(&quot;ERROR:<sp/>&quot;,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="error_8h_1aaf5a3a25a3c8bf7799337ad144d8c617" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>lobotomy_error_s_ne(n,<sp/>...)<sp/>DEBUG(#n<sp/>&quot;:<sp/>&quot;,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="error_8h_1a168deda0bc3b2da8c582f7ab3f4c228c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>lobotomy_error(...)<sp/>DEBUG(&quot;ERROR:<sp/>&quot;,<sp/>__VA_ARGS__);<sp/>exit(-1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="error_8h_1ad94fa9a0cd88ad6a38f08319aeefdebb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>lobotomy_error_s(n,<sp/>...)<sp/>DEBUG(#n<sp/>&quot;:<sp/>&quot;,<sp/>__VA_ARGS__);<sp/>exit(n)</highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/error.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structGC" kind="struct" language="C++" prot="public">
+    <compoundname>GC</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGC_1a88848b15fe213a3165f8ddf63bf6c3c6" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> **</type>
+        <definition>OBJ** roots[100]</definition>
+        <argsstring>[100]</argsstring>
+        <name>roots</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="191" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGC_1a7adfc2fa2621dc0c79bafc9646a987c6" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* heap</definition>
+        <argsstring></argsstring>
+        <name>heap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="192" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGC_1ac70ebd0d531997214337acc4cf9bfbef" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* top</definition>
+        <argsstring></argsstring>
+        <name>top</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="193" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGC_1ae1bb12c74f8787980ecef2b1f772239b" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t allocated</definition>
+        <argsstring></argsstring>
+        <name>allocated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="194" column="8" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>OBJ</label>
+        <link refid="structOBJ"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>body</edgelabel>
+          <edgelabel>c_fn</edgelabel>
+          <edgelabel>cdr</edgelabel>
+          <edgelabel>args</edgelabel>
+          <edgelabel>car</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GC</label>
+        <link refid="structGC"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>roots</edgelabel>
+          <edgelabel>heap</edgelabel>
+          <edgelabel>top</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/bugy/projs/lobotomy/src/obj.c" line="190" column="1" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="189" bodyend="196"/>
+    <listofallmembers>
+      <member refid="structGC_1ae1bb12c74f8787980ecef2b1f772239b" prot="public" virt="non-virtual"><scope>GC</scope><name>allocated</name></member>
+      <member refid="structGC_1a7adfc2fa2621dc0c79bafc9646a987c6" prot="public" virt="non-virtual"><scope>GC</scope><name>heap</name></member>
+      <member refid="structGC_1a88848b15fe213a3165f8ddf63bf6c3c6" prot="public" virt="non-virtual"><scope>GC</scope><name>roots</name></member>
+      <member refid="structGC_1ac70ebd0d531997214337acc4cf9bfbef" prot="public" virt="non-virtual"><scope>GC</scope><name>top</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

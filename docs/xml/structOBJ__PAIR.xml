@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structOBJ__PAIR" kind="struct" language="C++" prot="public">
+    <compoundname>OBJ_PAIR</compoundname>
+    <includes refid="parse_8h" local="no">parse.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structOBJ__PAIR_1a9ae0244e8248dc2357a654a7f1e6f321" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/parse.h" line="9" column="5" bodyfile="/home/bugy/projs/lobotomy/src/parse.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ__PAIR_1aff567194ca9fac7b6fbf7fb50ffda13a" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* tail</definition>
+        <argsstring></argsstring>
+        <name>tail</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/parse.h" line="10" column="5" bodyfile="/home/bugy/projs/lobotomy/src/parse.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>OBJ</label>
+        <link refid="structOBJ"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>body</edgelabel>
+          <edgelabel>c_fn</edgelabel>
+          <edgelabel>cdr</edgelabel>
+          <edgelabel>args</edgelabel>
+          <edgelabel>car</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>OBJ_PAIR</label>
+        <link refid="structOBJ__PAIR"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>head</edgelabel>
+          <edgelabel>tail</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/bugy/projs/lobotomy/src/parse.h" line="8" column="1" bodyfile="/home/bugy/projs/lobotomy/src/parse.h" bodystart="7" bodyend="11"/>
+    <listofallmembers>
+      <member refid="structOBJ__PAIR_1a9ae0244e8248dc2357a654a7f1e6f321" prot="public" virt="non-virtual"><scope>OBJ_PAIR</scope><name>head</name></member>
+      <member refid="structOBJ__PAIR_1aff567194ca9fac7b6fbf7fb50ffda13a" prot="public" virt="non-virtual"><scope>OBJ_PAIR</scope><name>tail</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

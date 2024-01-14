@@ -10,6 +10,11 @@
 #include <time.h>
 #include <wchar.h>
 
+typedef void (*_lobotomy_exit_func)(int n);
+_lobotomy_exit_func _lobotomy_exit = &exit;
+_lobotomy_exit_func _real_exit = &exit;
+
+#define exit _lobotomy_exit
 #include "error.h"
 
 
@@ -55,6 +60,11 @@ char* read_file(const char path[])
 }
 
 
+#if DEBUGGING == 1
+#define printd(...) printf(__VA_ARGS__)
+#else
+#define printd(...)
+#endif
 
 #define HASHMAP_HASH_INIT 2166136261u
 

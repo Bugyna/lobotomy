@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>/home/bugy/projs/lobotomy/src</compoundname>
+    <innerdir refid="dir_47d867a667c915e1b2c76a010d6cec1f">/home/bugy/projs/lobotomy/src/SHM</innerdir>
+    <innerdir refid="dir_087931ad404481889865f02766f75098">/home/bugy/projs/lobotomy/src/SLL</innerdir>
+    <innerfile refid="error_8h">error.h</innerfile>
+    <innerfile refid="eval_8c">eval.c</innerfile>
+    <innerfile refid="eval_8h">eval.h</innerfile>
+    <innerfile refid="gc_8h">gc.h</innerfile>
+    <innerfile refid="hashmap_8h">hashmap.h</innerfile>
+    <innerfile refid="l__std_8h">l_std.h</innerfile>
+    <innerfile refid="lexer_8h">lexer.h</innerfile>
+    <innerfile refid="linked__list_8h">linked_list.h</innerfile>
+    <innerfile refid="main_8c">main.c</innerfile>
+    <innerfile refid="obj_8c">obj.c</innerfile>
+    <innerfile refid="obj_8h">obj.h</innerfile>
+    <innerfile refid="parse_8h">parse.h</innerfile>
+    <innerfile refid="repl_8h">repl.h</innerfile>
+    <innerfile refid="sample__module_8c">sample_module.c</innerfile>
+    <innerfile refid="tui_8h">tui.h</innerfile>
+    <innerfile refid="util_8h">util.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/bugy/projs/lobotomy/src/"/>
+  </compounddef>
+</doxygen>

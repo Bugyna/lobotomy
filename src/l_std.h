@@ -1,6 +1,9 @@
 #pragma once
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <math.h>
+#include <stdlib.h>
 #include "obj.h"
 
 
@@ -187,6 +190,9 @@ OBJ* L_get_random_num(OBJ* o);
 // other
 OBJ* L_test(OBJ* o);
 
+OBJ* L_load(OBJ* o);
+OBJ* L_use(OBJ* o);
+
 void lobotomy_init(ENV* env)
 {
 	// ENV_ADD(global_env, "+", create_cfn("+", lobotomy_add));
@@ -223,6 +229,8 @@ void lobotomy_init(ENV* env)
 	env_add(env, create_cfn("tést", L_test));
 
 	env_add(env, create_cfn("fn", L_create_fn));
+	env_add(env, create_cfn("use", L_use));
+	env_add(env, create_cfn("load", L_load));
 	env_add(env, create_cfn("obj-name", L_obj_name));
 	env_add(env, create_cfn("test", L_test));
 	env_add(env, create_cfn("input", L_get_input));

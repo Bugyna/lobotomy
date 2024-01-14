@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="eval_8h" kind="file" language="C++">
+    <compoundname>eval.h</compoundname>
+    <includedby refid="eval_8c" local="yes">/home/bugy/projs/lobotomy/src/eval.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/bugy/projs/lobotomy/src/eval.c</label>
+        <link refid="eval_8c"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/eval.h</label>
+        <link refid="eval_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/home/bugy/projs/lobotomy/src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="eval_8h_1ad79a38016d7a07d169447f944e407548" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eval_program_file</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>eval_program_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/eval.h" line="4" column="6" bodyfile="/home/bugy/projs/lobotomy/src/eval.c" bodystart="740" bodyend="744" declfile="/home/bugy/projs/lobotomy/src/eval.h" declline="4" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="eval_8h_1ad0b41f2ddc54bb4266ae4662919ff96c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eval_program</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>eval_program</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/eval.h" line="5" column="6" declfile="/home/bugy/projs/lobotomy/src/eval.h" declline="5" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eval_8h_1ad79a38016d7a07d169447f944e407548" kindref="member">eval_program_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>filename);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eval_8h_1ad0b41f2ddc54bb4266ae4662919ff96c" kindref="member">eval_program</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>text);</highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/eval.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structOBJ" kind="struct" language="C++" prot="public">
+    <compoundname>OBJ</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" prot="public" static="no" mutable="no">
+        <type><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121e" kindref="member">OBJ_TYPE</ref></type>
+        <definition>OBJ_TYPE type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="41" column="10" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a8f8f80d37794cde9472343e4487ba3eb" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="42" column="12" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t num</definition>
+        <argsstring></argsstring>
+        <name>num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="46" column="9" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double decimal</definition>
+        <argsstring></argsstring>
+        <name>decimal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="47" column="8" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1ab50d783982593ef993ea0b68f7ad8b80" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* str</definition>
+        <argsstring></argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="48" column="6" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a1a9bb40092cbc720ccdf99365292d26b" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* args</definition>
+        <argsstring></argsstring>
+        <name>args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="49" column="11" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a493440883218ce089dfd91547a91b934" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* body</definition>
+        <argsstring></argsstring>
+        <name>body</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="49" column="20" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a3b5f8ac5990692795b17d185e9294646" prot="public" static="no" mutable="no">
+        <type><ref refid="obj_8h_1a398b9f23afcf45de3cabf2002dbb1b67" kindref="member">C_FUNC_DEC</ref></type>
+        <definition>C_FUNC_DEC c_fn</definition>
+        <argsstring></argsstring>
+        <name>c_fn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="50" column="12" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a2e03552ebcf472b07748f51acc8d9694" prot="public" static="no" mutable="no">
+        <type>union OBJ::@2</type>
+        <definition>union OBJ::@2 @3</definition>
+        <argsstring></argsstring>
+        <name>@3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="51" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a7d38952916caef94a84c922e4d15fc88" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* car</definition>
+        <argsstring></argsstring>
+        <name>car</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="53" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" prot="public" static="no" mutable="no">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref> *</type>
+        <definition>OBJ* cdr</definition>
+        <argsstring></argsstring>
+        <name>cdr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="54" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOBJ_1ab082a901a23e5315ca84dd0c984d58f1" prot="public" static="no" mutable="no">
+        <type><ref refid="obj_8h_1a3cf8df4c53c907fcf7a53617956c43c2" kindref="member">ENV</ref> *</type>
+        <definition>ENV* env</definition>
+        <argsstring></argsstring>
+        <name>env</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/obj.c" line="55" column="5" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>does stuff </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>OBJ</label>
+        <link refid="structOBJ"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>body</edgelabel>
+          <edgelabel>c_fn</edgelabel>
+          <edgelabel>cdr</edgelabel>
+          <edgelabel>args</edgelabel>
+          <edgelabel>car</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/bugy/projs/lobotomy/src/obj.c" line="40" column="1" bodyfile="/home/bugy/projs/lobotomy/src/obj.c" bodystart="36" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structOBJ_1a1a9bb40092cbc720ccdf99365292d26b" prot="public" virt="non-virtual"><scope>OBJ</scope><name>args</name></member>
+      <member refid="structOBJ_1a493440883218ce089dfd91547a91b934" prot="public" virt="non-virtual"><scope>OBJ</scope><name>body</name></member>
+      <member refid="structOBJ_1a3b5f8ac5990692795b17d185e9294646" prot="public" virt="non-virtual"><scope>OBJ</scope><name>c_fn</name></member>
+      <member refid="structOBJ_1a7d38952916caef94a84c922e4d15fc88" prot="public" virt="non-virtual"><scope>OBJ</scope><name>car</name></member>
+      <member refid="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" prot="public" virt="non-virtual"><scope>OBJ</scope><name>cdr</name></member>
+      <member refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" prot="public" virt="non-virtual"><scope>OBJ</scope><name>decimal</name></member>
+      <member refid="structOBJ_1ab082a901a23e5315ca84dd0c984d58f1" prot="public" virt="non-virtual"><scope>OBJ</scope><name>env</name></member>
+      <member refid="structOBJ_1a8f8f80d37794cde9472343e4487ba3eb" prot="public" virt="non-virtual"><scope>OBJ</scope><name>name</name></member>
+      <member refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" prot="public" virt="non-virtual"><scope>OBJ</scope><name>num</name></member>
+      <member refid="structOBJ_1ab50d783982593ef993ea0b68f7ad8b80" prot="public" virt="non-virtual"><scope>OBJ</scope><name>str</name></member>
+      <member refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" prot="public" virt="non-virtual"><scope>OBJ</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

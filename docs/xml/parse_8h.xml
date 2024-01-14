@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="parse_8h" kind="file" language="C++">
+    <compoundname>parse.h</compoundname>
+    <includes local="no">wchar.h</includes>
+    <includes refid="lexer_8h" local="yes">lexer.h</includes>
+    <includes refid="util_8h" local="yes">util.h</includes>
+    <includes refid="obj_8h" local="yes">obj.h</includes>
+    <includedby refid="eval_8c" local="yes">/home/bugy/projs/lobotomy/src/eval.c</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>assert.h</label>
+      </node>
+      <node id="11">
+        <label>float.h</label>
+      </node>
+      <node id="12">
+        <label>stdint.h</label>
+      </node>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="16">
+        <label>SHM/hashmap.h</label>
+        <link refid="SHM_2hashmap_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>wchar.h</label>
+      </node>
+      <node id="9">
+        <label>string.h</label>
+      </node>
+      <node id="17">
+        <label>linked_list.h</label>
+        <link refid="linked__list_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>time.h</label>
+      </node>
+      <node id="10">
+        <label>math.h</label>
+      </node>
+      <node id="3">
+        <label>lexer.h</label>
+        <link refid="lexer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/parse.h</label>
+        <link refid="parse_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>util.h</label>
+        <link refid="util_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>obj.h</label>
+        <link refid="obj_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/bugy/projs/lobotomy/src/eval.c</label>
+        <link refid="eval_8c"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/home/bugy/projs/lobotomy/src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/parse.h</label>
+        <link refid="parse_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structOBJ__PAIR" prot="public">OBJ_PAIR</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="parse_8h_1aaab8c45d44c1fcee7c7ea107f2eece15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ" kindref="compound">OBJ</ref></type>
+        <definition>OBJ parse_atom</definition>
+        <argsstring>(TOKEN t)</argsstring>
+        <name>parse_atom</name>
+        <param>
+          <type><ref refid="structTOKEN" kindref="compound">TOKEN</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/parse.h" line="13" column="5" bodyfile="/home/bugy/projs/lobotomy/src/parse.h" bodystart="13" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="parse_8h_1ae8423d9c5ce3c748b61cc34888a2dafd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structOBJ__PAIR" kindref="compound">OBJ_PAIR</ref></type>
+        <definition>OBJ_PAIR parse_expr</definition>
+        <argsstring>(LEXER *lexer, int n)</argsstring>
+        <name>parse_expr</name>
+        <param>
+          <type><ref refid="structLEXER" kindref="compound">LEXER</ref> *</type>
+          <declname>lexer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/parse.h" line="49" column="10" bodyfile="/home/bugy/projs/lobotomy/src/parse.h" bodystart="49" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="parse_8h_1a3e32333ebc843938e42f990be4f7d563" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OBJ_LIST *</type>
+        <definition>OBJ_LIST* parse</definition>
+        <argsstring>(const char text[])</argsstring>
+        <name>parse</name>
+        <param>
+          <type>const char</type>
+          <declname>text</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/parse.h" line="144" column="10" bodyfile="/home/bugy/projs/lobotomy/src/parse.h" bodystart="144" bodyend="164"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;wchar.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="lexer_8h" kindref="compound">lexer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="util_8h" kindref="compound">util.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="obj_8h" kindref="compound">obj.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="structOBJ__PAIR" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9" refid="structOBJ__PAIR_1a9ae0244e8248dc2357a654a7f1e6f321" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="structOBJ__PAIR_1a9ae0244e8248dc2357a654a7f1e6f321" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="10" refid="structOBJ__PAIR_1aff567194ca9fac7b6fbf7fb50ffda13a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/><ref refid="structOBJ__PAIR_1aff567194ca9fac7b6fbf7fb50ffda13a" kindref="member">tail</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}<sp/><ref refid="structOBJ__PAIR" kindref="compound">OBJ_PAIR</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="parse_8h_1aaab8c45d44c1fcee7c7ea107f2eece15" refkind="member"><highlight class="normal"><ref refid="structOBJ" kindref="compound">OBJ</ref><sp/><ref refid="parse_8h_1aaab8c45d44c1fcee7c7ea107f2eece15" kindref="member">parse_atom</ref>(<ref refid="structTOKEN" kindref="compound">TOKEN</ref><sp/>t)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref><sp/>atom;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1ab082a901a23e5315ca84dd0c984d58f1" kindref="member">env</ref><sp/>=<sp/>global_env;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>end;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1a8f8f80d37794cde9472343e4487ba3eb" kindref="member">name</ref><sp/>=<sp/>malloc(1);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(t.<ref refid="structTOKEN_1ac765329451135abec74c45e1897abf26" kindref="member">type</ref>)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7a71d6777fe79532b9c0e1a8dd3afc9f49" kindref="member">TT_NUMBER</ref>:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc" kindref="member">T_NUM</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1a95fc76296e1d8cd7af09bc36dce0974f" kindref="member">num</ref><sp/>=<sp/>strtol(t.<ref refid="structTOKEN_1a5633b1433389cec21ade3811bbe9ca5b" kindref="member">text</ref>,<sp/>&amp;end,<sp/>10);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7a4e24d2ca30a1cb3870d16f2b4329a3da" kindref="member">TT_DECIMAL</ref>:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d" kindref="member">T_DECIMAL</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1a160d6366514b7fe5ec086f528835c5ce" kindref="member">decimal</ref><sp/>=<sp/>strtod(t.<ref refid="structTOKEN_1a5633b1433389cec21ade3811bbe9ca5b" kindref="member">text</ref>,<sp/>&amp;end);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7a769a2bc7bb4ac95500a51fe972c347de" kindref="member">TT_STR</ref>:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111" kindref="member">T_STR</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>atom-&gt;str<sp/>=<sp/>malloc(t.len);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1ab50d783982593ef993ea0b68f7ad8b80" kindref="member">str</ref><sp/>=<sp/>t.<ref refid="structTOKEN_1a5633b1433389cec21ade3811bbe9ca5b" kindref="member">text</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>atom.index<sp/>=<sp/>t.len-1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7a464a5aac554c7208ae3a26a9a1fe1b6b" kindref="member">TT_IDENTIFIER</ref>:</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(atom.<ref refid="structOBJ_1a8f8f80d37794cde9472343e4487ba3eb" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a" kindref="member">T_IDENTIFIER</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atom.<ref refid="structOBJ_1a8f8f80d37794cde9472343e4487ba3eb" kindref="member">name</ref><sp/>=<sp/>malloc(t.<ref refid="structTOKEN_1afed088663f8704004425cdae2120b9b3" kindref="member">len</ref>+1);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcpy(atom.<ref refid="structOBJ_1a8f8f80d37794cde9472343e4487ba3eb" kindref="member">name</ref>,<sp/>t.<ref refid="structTOKEN_1a5633b1433389cec21ade3811bbe9ca5b" kindref="member">text</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>atom;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="parse_8h_1ae8423d9c5ce3c748b61cc34888a2dafd" refkind="member"><highlight class="normal"><ref refid="structOBJ__PAIR" kindref="compound">OBJ_PAIR</ref><sp/><ref refid="parse_8h_1ae8423d9c5ce3c748b61cc34888a2dafd" kindref="member">parse_expr</ref>(<ref refid="structLEXER" kindref="compound">LEXER</ref>*<sp/>lexer,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structTOKEN" kindref="compound">TOKEN</ref><sp/>t<sp/>=<sp/>lexer-&gt;<ref refid="structLEXER_1ab3ced33ac8e367d2e28289b43bc99623" kindref="member">tokens</ref>[lexer-&gt;<ref refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" kindref="member">peek</ref>];</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;start<sp/>of<sp/>expr<sp/>%d:<sp/>\n&quot;,<sp/>t.start);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>==<sp/>0)<sp/><ref refid="lexer_8h_1a1cb3a2c2312c4c83dde48121d7567f5f" kindref="member">print_token_pos</ref>(t,<sp/></highlight><highlight class="stringliteral">&quot;start<sp/>of<sp/>expr&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>head<sp/>=<sp/><ref refid="obj_8c_1afef0f8196de8986895bc02ecbbaf2529" kindref="member">empty_obj</ref>();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>head-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea9c5c7533b65f70c615307c5d149b7fee" kindref="member">T_EXPR</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>cur<sp/>=<sp/>head;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p_count<sp/>=<sp/>0,<sp/>b_count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bool<sp/>last_was_quote<sp/>=<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>lexer-&gt;<ref refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" kindref="member">peek</ref><sp/>&lt;<sp/>lexer-&gt;<ref refid="structLEXER_1a750b5d744c39a06bfb13e6eb010e35d0" kindref="member">index</ref>;<sp/>lexer-&gt;<ref refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" kindref="member">peek</ref>++)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t<sp/>=<sp/>lexer-&gt;<ref refid="structLEXER_1ab3ced33ac8e367d2e28289b43bc99623" kindref="member">tokens</ref>[lexer-&gt;<ref refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" kindref="member">peek</ref>];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;N:<sp/>%d,<sp/>b:<sp/>%d<sp/>&quot;,<sp/>n,<sp/>b_count);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;token:<sp/>%d\n&quot;,<sp/>lexer-&gt;peek);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>print_token(t);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>print_obj_simple(cur);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(t.<ref refid="structTOKEN_1ac765329451135abec74c45e1897abf26" kindref="member">type</ref>)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7ac06233863baa0599eee41a5f224061cd" kindref="member">TT_LPAREN</ref>:</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_count++;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p_count<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea9c5c7533b65f70c615307c5d149b7fee" kindref="member">T_EXPR</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;starting<sp/>rec:<sp/>%d\n&quot;,<sp/>lexer-&gt;peek);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>lexer-&gt;peek++;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structOBJ__PAIR" kindref="compound">OBJ_PAIR</ref><sp/>pair<sp/>=<sp/><ref refid="parse_8h_1ae8423d9c5ce3c748b61cc34888a2dafd" kindref="member">parse_expr</ref>(lexer,<sp/>n+1);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;end<sp/>rec:<sp/>%d\n&quot;,<sp/>lexer-&gt;peek);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>OBJ*<sp/>tmp<sp/>=<sp/>cur-&gt;cdr;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur-&gt;<ref refid="structOBJ_1a7d38952916caef94a84c922e4d15fc88" kindref="member">car</ref><sp/>=<sp/>pair.<ref refid="structOBJ__PAIR_1a9ae0244e8248dc2357a654a7f1e6f321" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>print_obj_simple(cur);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>cur<sp/>=<sp/>tmp;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur-&gt;<ref refid="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" kindref="member">cdr</ref><sp/>=<sp/><ref refid="obj_8c_1afef0f8196de8986895bc02ecbbaf2529" kindref="member">empty_obj</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur<sp/>=<sp/>cur-&gt;<ref refid="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" kindref="member">cdr</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>OBJ<sp/>tmp_expr<sp/>=<sp/>parse_expr(lexer);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add_obj_to_obj(&amp;expr,<sp/>tmp_expr);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>obj<sp/>=<sp/>obj_reset;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>lexer-&gt;peek--;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_count--;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7a0597d5576385f9f4f7df58a8dd83336e" kindref="member">TT_LBRACKET</ref>:</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;hereaaaaaa\n&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b_count++;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lexer-&gt;<ref refid="structLEXER_1a76f07866ff6ee681791119992024df8d" kindref="member">b_count</ref>++;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur-&gt;<ref refid="structOBJ_1a79da2848e0aa990f3bfb6bbc679adb07" kindref="member">type</ref><sp/>=<sp/><ref refid="obj_8h_1a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0" kindref="member">T_LIST</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lexer-&gt;<ref refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" kindref="member">peek</ref>++;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structOBJ__PAIR" kindref="compound">OBJ_PAIR</ref><sp/>pair<sp/>=<sp/><ref refid="parse_8h_1ae8423d9c5ce3c748b61cc34888a2dafd" kindref="member">parse_expr</ref>(lexer,<sp/>n+1);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>b_count--;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>lexer-&gt;peek--;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur-&gt;<ref refid="structOBJ_1a7d38952916caef94a84c922e4d15fc88" kindref="member">car</ref><sp/>=<sp/>pair.<ref refid="structOBJ__PAIR_1a9ae0244e8248dc2357a654a7f1e6f321" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur-&gt;<ref refid="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" kindref="member">cdr</ref><sp/>=<sp/><ref refid="obj_8c_1afef0f8196de8986895bc02ecbbaf2529" kindref="member">empty_obj</ref>();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur<sp/>=<sp/>cur-&gt;<ref refid="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" kindref="member">cdr</ref>;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7a0722f48939ed4c943830cb288fc78881" kindref="member">TT_RPAREN</ref>:</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_count--;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p_count<sp/>&lt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/><ref refid="util_8h_1a5134b2f308b8e125e5f987ac66222050" kindref="member">exit</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7a51f5c0e6edb2fa07591e5f67112d22bc" kindref="member">TT_RBRACKET</ref>:</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lexer-&gt;<ref refid="structLEXER_1a76f07866ff6ee681791119992024df8d" kindref="member">b_count</ref>--;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b_count--;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b_count<sp/>&lt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/><ref refid="util_8h_1a5134b2f308b8e125e5f987ac66222050" kindref="member">exit</ref>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*cur<sp/>=<sp/><ref refid="parse_8h_1aaab8c45d44c1fcee7c7ea107f2eece15" kindref="member">parse_atom</ref>(t);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lexer-&gt;<ref refid="structLEXER_1ab3ced33ac8e367d2e28289b43bc99623" kindref="member">tokens</ref>[lexer-&gt;<ref refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" kindref="member">peek</ref>+1].<ref refid="structTOKEN_1ac765329451135abec74c45e1897abf26" kindref="member">type</ref><sp/>==<sp/><ref refid="lexer_8h_1adf764cbdea00d65edcd07bb9953ad2b7a0722f48939ed4c943830cb288fc78881" kindref="member">TT_RPAREN</ref>)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>*cur-&gt;cdr<sp/>=<sp/>empty_obj();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur-&gt;<ref refid="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" kindref="member">cdr</ref><sp/>=<sp/><ref refid="obj_8c_1afef0f8196de8986895bc02ecbbaf2529" kindref="member">empty_obj</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur<sp/>=<sp/>cur-&gt;<ref refid="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" kindref="member">cdr</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="util_8h_1a5134b2f308b8e125e5f987ac66222050" kindref="member">exit</ref>:</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>==<sp/>0)<sp/><ref refid="lexer_8h_1a1cb3a2c2312c4c83dde48121d7567f5f" kindref="member">print_token_pos</ref>(t,<sp/></highlight><highlight class="stringliteral">&quot;end<sp/>of<sp/>expr:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>cur-&gt;<ref refid="structOBJ_1a6b6699c1641de1410bbd6e1f85a0f837" kindref="member">cdr</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;deep:<sp/>%d<sp/>%s<sp/>%d\n&quot;,<sp/>n,<sp/>type_name(cur-&gt;type),<sp/>lexer-&gt;peek);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>__print_obj_full(head);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="structOBJ__PAIR" kindref="compound">OBJ_PAIR</ref>){.head=head,<sp/>.tail=cur};</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="parse_8h_1a3e32333ebc843938e42f990be4f7d563" refkind="member"><highlight class="normal">OBJ_LIST*<sp/><ref refid="parse_8h_1a3e32333ebc843938e42f990be4f7d563" kindref="member">parse</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>text[])</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>OBJ_LIST*<sp/>parsed<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(OBJ_LIST));</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>OBJ_LIST_INIT(parsed);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structOBJ" kindref="compound">OBJ</ref>*<sp/>head;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structLEXER" kindref="compound">LEXER</ref><sp/>lexer<sp/>=<sp/><ref refid="lexer_8h_1ab9a6fc96b92482b6807fa125d7c19af8" kindref="member">tokenize</ref>(text);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;;)<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lexer.<ref refid="structLEXER_1ab3ced33ac8e367d2e28289b43bc99623" kindref="member">tokens</ref>[lexer.<ref refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" kindref="member">peek</ref>].<ref refid="structTOKEN_1a5633b1433389cec21ade3811bbe9ca5b" kindref="member">text</ref><sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>head<sp/>=<sp/><ref refid="parse_8h_1ae8423d9c5ce3c748b61cc34888a2dafd" kindref="member">parse_expr</ref>(&amp;lexer,<sp/>0).<ref refid="structOBJ__PAIR_1a9ae0244e8248dc2357a654a7f1e6f321" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lexer.<ref refid="structLEXER_1a53b2e5f39966b20bc672afaaaf9edf86" kindref="member">peek</ref>++;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OBJ_LIST_APPEND(parsed,<sp/>head);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(</highlight><highlight class="stringliteral">&quot;ppp:<sp/>%p\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;\n\n-------------------\n\n&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parsed;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/parse.h"/>
+  </compounddef>
+</doxygen>
