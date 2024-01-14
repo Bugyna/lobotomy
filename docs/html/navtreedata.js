@@ -27,12 +27,26 @@ var NAVTREE =
       [ "What is Lobotomy", "index.html#autotoc_md0", null ]
     ] ],
     [ "Quickstart", "md_quickstart_quickstart.html", [
-      [ "Overview", "md_quickstart_quickstart.html#autotoc_md2", [
+      [ "General", "md_quickstart_quickstart.html#autotoc_md2", [
         [ "Writing an expression", "md_quickstart_quickstart.html#autotoc_md3", null ],
         [ "Valid names", "md_quickstart_quickstart.html#autotoc_md4", null ],
-        [ "Comments", "md_quickstart_quickstart.html#autotoc_md5", null ],
-        [ "Functions", "md_quickstart_quickstart.html#autotoc_md6", null ],
-        [ "Variables", "md_quickstart_quickstart.html#autotoc_md7", null ]
+        [ "Comments", "md_quickstart_quickstart.html#autotoc_md5", null ]
+      ] ],
+      [ "Data types", "md_quickstart_quickstart.html#autotoc_md6", [
+        [ "Lists", "md_quickstart_quickstart.html#autotoc_md7", null ],
+        [ "Numbers", "md_quickstart_quickstart.html#autotoc_md8", null ],
+        [ "Decimals", "md_quickstart_quickstart.html#autotoc_md9", null ],
+        [ "Strings", "md_quickstart_quickstart.html#autotoc_md10", null ],
+        [ "Functions", "md_quickstart_quickstart.html#autotoc_md11", null ],
+        [ "Variables", "md_quickstart_quickstart.html#autotoc_md12", null ]
+      ] ]
+    ] ],
+    [ "Available functions", "md_quickstart_zfunctions.html", [
+      [ "Numerical operations", "md_quickstart_zfunctions.html#autotoc_md14", [
+        [ "+", "md_quickstart_zfunctions.html#autotoc_md15", null ],
+        [ "-", "md_quickstart_zfunctions.html#autotoc_md16", null ],
+        [ "*", "md_quickstart_zfunctions.html#autotoc_md17", null ],
+        [ "/", "md_quickstart_zfunctions.html#autotoc_md18", null ]
       ] ]
     ] ],
     [ "Data Structures", "annotated.html", [
@@ -61,7 +75,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "SHM_2hashmap_8h.html",
-"obj_8h.html#a2a163456fda869d8db74ea891b4f75cf"
+"obj_8c.html#af706a6bda6ef0513b46c95fe1fcdfb6c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

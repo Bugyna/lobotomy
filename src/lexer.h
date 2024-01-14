@@ -165,6 +165,7 @@ TOKEN lex_word(LEXER* lexer)
 		char c = lexer->text[lexer->text_peek];
 		if (c == '\n') { lexer->pos.column = 0; lexer->pos.line++; }
 		else if (IS_VALID_SYMBOL_CHAR(c)) { str_add_char(&token, c); }
+		else if (IS_NUMBER(c)) { str_add_char(&token, c); }
 		else if (IS_TERMINATOR(c)) { goto exit; }
 	}
 
@@ -373,10 +374,10 @@ LEXER tokenize(const char text[])
 
 		else if (c == '"')
 		{
-			printf("before: %d.%d\n", lexer.pos.line, lexer.pos.column);
+			// printf("before: %d.%d\n", lexer.pos.line, lexer.pos.column);
 			lexer.text_peek++; // skip the first quote
 			add_token(&lexer, lex_string(&lexer), lexer.pos);
-			printf("after: %d.%d\n", lexer.pos.line, lexer.pos.column);
+			// printf("after: %d.%d\n", lexer.pos.line, lexer.pos.column);
 		}
 
 		else if (IS_NUMBER(c)) {

@@ -1,15 +1,13 @@
-#define DEBUGGING 1
+#define DEBUGGING 0
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <math.h>
-#include <ncurses.h>
 #include <dlfcn.h>
 
 #include "util.h"
-#include "tui.h"
 #include "obj.c"
 #include "l_std.h"
 #include "eval.c"
@@ -91,7 +89,6 @@ int main(int argc, char* argv[]) {
 	bool interactive = false;
 	char* text = "";
 	const char help_text[] = "lob error: No arguments provided\nUsage:\n\tlob [file] -> interprets a file\n\tlob -i opens a repl enviroment\n\n";
-	printd("orintf: %p\n", printf);
 
 
 	if (argc == 1) {
@@ -110,7 +107,6 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	printd("orintf: %p %p\n", printw, printf);
 	// printf("size of OBJ: %ld\n", sizeof(OBJ));
 	// printf("size of OBJ*: %ld\n", sizeof(SCOPE));
 	// printf("size of OBJ*: %ld\n", sizeof(TREE));

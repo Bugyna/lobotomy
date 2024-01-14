@@ -160,7 +160,7 @@ void print_obj_full(OBJ* o)
 		__print_obj_simple(curr);
 		printf(" ");
 	}
-	printf("\n)");
+	printf("\n");
 }
 
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_20page_496',['Main Page',['../index.html',1,'']]]
+  ['available_20functions_499',['Available functions',['../md_quickstart_zfunctions.html',1,'']]]
 ];

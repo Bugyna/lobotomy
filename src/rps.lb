@@ -11,14 +11,15 @@
 		(& (= player "paper") (= pc "rock")) ("win")
 		(& (= player "scissors") (= pc "rock")) ("lose")
 		(& (= player "scissors") (= pc "paper")) ("win")
-		(1) ("wrong choice" player pc)
+		(else) ("wrong choice" player pc)
 	)
 )
 
 
+
 (loop (1) 
-	(print "PC: " (let b (pick-random)) "You: " (let a (input "pleace pick rock, paper or scissors: ")) "result: "
-		(decide-win a b)
+	(print "PC: " (let b (pick-random)) "                    You: " (let a (input "pleace pick rock, paper or scissors: ")) "\nresult: "
+			(decide-win a b) "\n"
 	)
 )
 

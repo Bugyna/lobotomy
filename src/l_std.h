@@ -240,6 +240,9 @@ void lobotomy_init(ENV* env)
 	
 	static const OBJ PI = (OBJ){.type=T_DECIMAL, .name="PI", .decimal=3.141595265};
 	env_add(env, &PI);
+	
+	static const OBJ ELSE_ALIAS = (OBJ){.type=T_TRUE, .name="else", .num=1};
+	env_add(env, &ELSE_ALIAS);
 
 	
 	// env_add(env, create_cfn("=", L_eq));

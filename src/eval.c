@@ -26,7 +26,6 @@ OBJ* L_less_than(OBJ* o)
 	OBJ* ret = empty_obj();
 	ret->type = T_NUM;
 	o = preeval(o);
-	print_objf("less than: ", o);
 
 	// if (o->type == T_IDENTIFIER)
 		// ret->num = (o->car->num < NT(o)->num);
@@ -224,7 +223,7 @@ OBJ* L_create_fn(OBJ* o)
 	OBJ* args = NT(name);
 	OBJ* body = NT(args);
 
-	print_objf("fn: ", body);
+	// print_objf("fn: ", body);
 
 	fn->name = name->name;
 	fn->type = T_FN;
@@ -322,14 +321,14 @@ OBJ* L_loop(OBJ* o)
 	// cond_expr = preeval(cond_expr);
 	// cond_expr->car = preeval_symbols(cond_expr->car);
 	// printf("cond_exprp: %s", type_name(cond_expr->cdr->car->type));
-	print_objf("cond_expr: ", cond_expr);
+	// print_objf("cond_expr: ", cond_expr);
 
 	OBJ* exec_expr = NT(cond_expr);
 	// exec_expr = preeval(exec_expr);
 	// exec_expr->car = preeval_symbols(exec_expr->car);
 	// print_obj_simple(cond_expr);
 
-	print_objf("exec_expr: ", exec_expr);
+	// print_objf("exec_expr: ", exec_expr);
 
 	// preeval(cond_expr);
 	// preeval(exec_expr);
@@ -459,7 +458,6 @@ OBJ* preeval_symbols(OBJ* o)
 
 	ITERATE_OBJECT(o, curr)
 	{
-		print_objf("curr: ", curr);
 		switch (curr->type)
 		{
 			case T_IDENTIFIER:
@@ -642,7 +640,11 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 	set_env(fn->body, e);
 
 	// printf("\ngot here\n");
-	return progn(fn->body->car);
+	// print_objf("::: ", fn->body->car->cdr);
+
+	if (fn->body->car->type == T_EXPR)
+		return progn(fn->body->car);
+	else return __eval(fn->body);
 }
 
 

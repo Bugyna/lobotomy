@@ -4,3 +4,7 @@
 (fn local-definition (b) ( (let a (+ b 22)) (+ a 3)) )
 (local-definition a)
 (print a)
+
+
+(print "multinline\
+string")
