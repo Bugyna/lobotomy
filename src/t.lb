@@ -6,5 +6,26 @@
 (print a)
 
 
-(print "multinline\
-string")
+
+(let a 2)
+(?
+	(< a 4) (let a (+ a 2))
+	(else) (print "can't add anymore, number too big")` 
+)
+(?
+	(< a 4) (let a (+ a 2))
+	(else) (print "can't add anymore, number too big")` 
+)
+
+
+(?
+	(< a 4) (let a (+ a 2))
+)
+
+(let a 2)
+(loop (< a 10)  
+	(let a (+ a 2))  
+)
+(loop (< a 10)  
+	(let a (+ a 2))  
+)

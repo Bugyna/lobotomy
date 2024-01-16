@@ -6,11 +6,14 @@
 
 const char* type_name(OBJ_TYPE i)
 {
+	#define STRINGIFY_TYPENAME(t) case t: return STRINGIFY(t);
 	switch (i)
 	{
-		case T_UNDEFINED: return STRINGIFY(T_UNDEFINED);
+		STRINGIFY_TYPENAME(T_UNDEFINED);
+		// case T_UNDEFINED: return STRINGIFY(T_UNDEFINED);
 		case T_NIL: return STRINGIFY(T_NIL);
 		case T_IDENTIFIER: return STRINGIFY(T_IDENTIFIER);
+		STRINGIFY_TYPENAME(T_MAP);
 		case T_EXPR: return STRINGIFY(T_EXPR);
 		case T_LIST: return STRINGIFY(T_LIST);
 		case T_C_FN: return STRINGIFY(T_C_FN);
@@ -48,6 +51,7 @@ struct OBJ
 		char* str;
 		struct { OBJ* args; OBJ* body; };
 		C_FUNC_DEC c_fn;
+		ENV* map;
 	};
 
 	OBJ* car;
@@ -78,6 +82,18 @@ void __print_obj_simple(OBJ* o)
 		case T_NIL:
 			// printf("[%s %s: UNDEFINED]", type_name(o->type), o->name);
 			printf("#NIL#");
+		break;
+
+		case T_MAP:
+			for (int i = 0; i < o->map->size; i++) {
+				if (o->map->list[i].key != NULL)
+					printf("::> '%s'\n", o->map->list[i].key);
+			}
+			// printf("MAP");
+		break;
+
+		case T_TRUE: case T_FALSE:
+			printf(type_name(o->type));
 		break;
 
 		case T_NUM:
@@ -139,6 +155,9 @@ void __print_obj_simple(OBJ* o)
 			// }
 		break;
 
+		default:
+			printf("what the fuck %d", o->type);
+
 	}
 }
 
@@ -148,7 +167,6 @@ void print_obj_simple(OBJ* o)
 	__print_obj_simple(o);
 	printf("\n");
 }
-
 
 
 void print_obj_full(OBJ* o)

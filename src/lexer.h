@@ -4,18 +4,20 @@
 
 
 
-#define IS_TERMINATOR(c) (strchr("() \n\t[]\"", c) != NULL)
+#define IS_TERMINATOR(c) (strchr("() \n\t[]\{}", c) != NULL)
 #define IS_VALID_SYMBOL_CHAR(c) ((c > 128 || c < 0) || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || strchr("+-_/?|*&^%$#!~<>=", c) != NULL)
 #define IS_NUMBER(c) (c >= '0' && c <= '9')
 #define IS_WHITESPACE(c) (c == '\n' || c == '\t' || c == ' ')
 
-enum
+static enum
 {
 	TT_,
 	TT_LPAREN,
 	TT_RPAREN,
 	TT_LBRACKET,
 	TT_RBRACKET,
+	TT_LCBRACKET,
+	TT_RCBRACKET,
 	TT_NUMBER,
 	TT_DECIMAL,
 	TT_STR,
@@ -24,13 +26,15 @@ enum
 	TT_MUTABLE,
 };
 
-const char* TOKEN_NAMES[] = 
+static const char* TOKEN_NAMES[] = 
 {
 	"TT_",
 	"TT_LPAREN",
 	"TT_RPAREN",
 	"TT_LBRACKET",
 	"TT_RBRACKET",
+	"TT_LCBRACKET",
+	"TT_RCBRACKET",
 	"TT_NUMBER",
 	"TT_DECIMAL",
 	"TT_STR",
@@ -413,6 +417,14 @@ LEXER tokenize(const char text[])
 						// lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", line, column);
 					// }
 				break;
+				case '{':
+					token.type = TT_LCBRACKET;
+				break;
+				
+				case '}':
+					token.type = TT_RCBRACKET;
+				break;
+
 				default:
 					lobotomy_error_s_ne(ERR_UNKNOWN_CHARACTER, "ENCOUNTERED UNKNOWN CHARACTER '%c' at %d.%d", c, lexer.pos.line, lexer.pos.column);
 			}

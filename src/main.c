@@ -120,7 +120,7 @@ int main(int argc, char* argv[]) {
 	GC_init();
 	global_env = calloc(1, sizeof(ENV));
 	global_env->name = "global_env";
-	ENV_INIT(global_env, 100);
+	ENV_INIT(global_env, 127);
 	lobotomy_init(global_env);
 	// L_help(NIL);
 

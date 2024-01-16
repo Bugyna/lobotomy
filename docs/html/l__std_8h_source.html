@@ -338,12 +338,15 @@ $(document).ready(function(){initNavTree('l__std_8h_source.html',''); initResiza
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    </div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="structOBJ.html">OBJ</a> PI = (<a class="code" href="obj_8h.html#a0b3e62818fe3f67193959ddfa20793a6">OBJ</a>){.<a class="code" href="structOBJ.html#a79da2848e0aa990f3bfb6bbc679adb07">type</a>=<a class="code" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d">T_DECIMAL</a>, .name=<span class="stringliteral">&quot;PI&quot;</span>, .decimal=3.141595265};</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <a class="code" href="obj_8c.html#a0e5a7962b223a44a11319e48d58004cc">env_add</a>(env, &amp;PI);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// env_add(env, create_cfn(&quot;=&quot;, L_eq));</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">// env_add(env, create_cfn(&quot;is?&quot;, L_is_same_obj));</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;}</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="structOBJ.html">OBJ</a> ELSE_ALIAS = (<a class="code" href="obj_8h.html#a0b3e62818fe3f67193959ddfa20793a6">OBJ</a>){.<a class="code" href="structOBJ.html#a79da2848e0aa990f3bfb6bbc679adb07">type</a>=<a class="code" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075">T_TRUE</a>, .name=<span class="stringliteral">&quot;else&quot;</span>, .num=1};</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <a class="code" href="obj_8c.html#a0e5a7962b223a44a11319e48d58004cc">env_add</a>(env, &amp;ELSE_ALIAS);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="comment">// env_add(env, create_cfn(&quot;=&quot;, L_eq));</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="comment">// env_add(env, create_cfn(&quot;is?&quot;, L_is_same_obj));</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="al__std_8h_html_ad039014b29d9a76b7d9a4b794cb17cdf"><div class="ttname"><a href="l__std_8h.html#ad039014b29d9a76b7d9a4b794cb17cdf">__eval</a></div><div class="ttdeci">OBJ * __eval(OBJ *)</div><div class="ttdef"><b>Definition:</b> eval.c:690</div></div>
@@ -399,6 +402,7 @@ $(document).ready(function(){initNavTree('l__std_8h_source.html',''); initResiza
 <div class="ttc" id="al__std_8h_html_a3ccbb601b1de46025b4984969e513468"><div class="ttname"><a href="l__std_8h.html#a3ccbb601b1de46025b4984969e513468">L_atan</a></div><div class="ttdeci">OBJ * L_atan(OBJ *o)</div></div>
 <div class="ttc" id="al__std_8h_html_aa1a9a591feaffa60920ab6eae85879a1"><div class="ttname"><a href="l__std_8h.html#aa1a9a591feaffa60920ab6eae85879a1">L_get_input</a></div><div class="ttdeci">OBJ * L_get_input(OBJ *o)</div><div class="ttdef"><b>Definition:</b> eval.c:106</div></div>
 <div class="ttc" id="aobj_8h_html_a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d"><div class="ttname"><a href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d">T_DECIMAL</a></div><div class="ttdeci">@ T_DECIMAL</div><div class="ttdef"><b>Definition:</b> obj.h:30</div></div>
+<div class="ttc" id="aobj_8h_html_a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075"><div class="ttname"><a href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075">T_TRUE</a></div><div class="ttdeci">@ T_TRUE</div><div class="ttdef"><b>Definition:</b> obj.h:22</div></div>
 <div class="ttc" id="al__std_8h_html_a6c19ce76fcea91b6e0d275ef4aad854a"><div class="ttname"><a href="l__std_8h.html#a6c19ce76fcea91b6e0d275ef4aad854a">L_log10</a></div><div class="ttdeci">OBJ * L_log10(OBJ *o)</div></div>
 <div class="ttc" id="aobj_8h_html"><div class="ttname"><a href="obj_8h.html">obj.h</a></div></div>
 <div class="ttc" id="al__std_8h_html_a90653db80a81bc831fc811dc9c88daf2"><div class="ttname"><a href="l__std_8h.html#a90653db80a81bc831fc811dc9c88daf2">L_copy</a></div><div class="ttdeci">OBJ * L_copy(OBJ *o)</div><div class="ttdef"><b>Definition:</b> eval.c:396</div></div>

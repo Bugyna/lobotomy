@@ -39,14 +39,49 @@ var NAVTREE =
         [ "Strings", "md_quickstart_quickstart.html#autotoc_md10", null ],
         [ "Functions", "md_quickstart_quickstart.html#autotoc_md11", null ],
         [ "Variables", "md_quickstart_quickstart.html#autotoc_md12", null ]
+      ] ],
+      [ "Control flow", "md_quickstart_quickstart.html#autotoc_md13", [
+        [ "Conditionals", "md_quickstart_quickstart.html#autotoc_md14", null ],
+        [ "Loops", "md_quickstart_quickstart.html#autotoc_md15", null ]
       ] ]
     ] ],
     [ "Available functions", "md_quickstart_zfunctions.html", [
-      [ "Numerical operations", "md_quickstart_zfunctions.html#autotoc_md14", [
-        [ "+", "md_quickstart_zfunctions.html#autotoc_md15", null ],
-        [ "-", "md_quickstart_zfunctions.html#autotoc_md16", null ],
-        [ "*", "md_quickstart_zfunctions.html#autotoc_md17", null ],
-        [ "/", "md_quickstart_zfunctions.html#autotoc_md18", null ]
+      [ "Numerical operations", "md_quickstart_zfunctions.html#autotoc_md17", [
+        [ "+", "md_quickstart_zfunctions.html#autotoc_md18", null ],
+        [ "-", "md_quickstart_zfunctions.html#autotoc_md19", null ],
+        [ "*", "md_quickstart_zfunctions.html#autotoc_md20", null ],
+        [ "/", "md_quickstart_zfunctions.html#autotoc_md21", null ],
+        [ "%", "md_quickstart_zfunctions.html#autotoc_md22", null ]
+      ] ],
+      [ "Binary", "md_quickstart_zfunctions.html#autotoc_md23", [
+        [ "&", "md_quickstart_zfunctions.html#autotoc_md24", null ],
+        [ "|", "md_quickstart_zfunctions.html#autotoc_md25", null ],
+        [ "xor", "md_quickstart_zfunctions.html#autotoc_md26", null ]
+      ] ],
+      [ "Control flow", "md_quickstart_zfunctions.html#autotoc_md27", [
+        [ "?", "md_quickstart_zfunctions.html#autotoc_md28", null ],
+        [ "loop", "md_quickstart_zfunctions.html#autotoc_md29", null ]
+      ] ],
+      [ "Comparisons", "md_quickstart_zfunctions.html#autotoc_md30", [
+        [ "<", "md_quickstart_zfunctions.html#autotoc_md31", null ],
+        [ ">", "md_quickstart_zfunctions.html#autotoc_md32", null ],
+        [ "<=", "md_quickstart_zfunctions.html#autotoc_md33", null ],
+        [ ">=", "md_quickstart_zfunctions.html#autotoc_md34", null ],
+        [ "=", "md_quickstart_zfunctions.html#autotoc_md35", null ]
+      ] ],
+      [ "IO", "md_quickstart_zfunctions.html#autotoc_md36", [
+        [ "print", "md_quickstart_zfunctions.html#autotoc_md37", null ],
+        [ "input", "md_quickstart_zfunctions.html#autotoc_md38", null ]
+      ] ],
+      [ "General", "md_quickstart_zfunctions.html#autotoc_md39", [
+        [ "exit", "md_quickstart_zfunctions.html#autotoc_md40", null ],
+        [ "help", "md_quickstart_zfunctions.html#autotoc_md41", null ],
+        [ "type", "md_quickstart_zfunctions.html#autotoc_md42", null ],
+        [ "let", "md_quickstart_zfunctions.html#autotoc_md43", null ],
+        [ "fn", "md_quickstart_zfunctions.html#autotoc_md44", null ]
+      ] ],
+      [ "Random", "md_quickstart_zfunctions.html#autotoc_md45", [
+        [ "random-num", "md_quickstart_zfunctions.html#autotoc_md46", null ]
       ] ]
     ] ],
     [ "Data Structures", "annotated.html", [
@@ -75,7 +110,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "SHM_2hashmap_8h.html",
-"obj_8c.html#af706a6bda6ef0513b46c95fe1fcdfb6c"
+"md_quickstart_zfunctions.html#autotoc_md31"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

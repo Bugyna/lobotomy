@@ -16,13 +16,14 @@ _print_func _printf = &printf;
 
 typedef enum
 {
-	T_UNDEFINED,
-	T_NIL,
-	T_IDENTIFIER,
+	T_UNDEFINED, /*! T_UNDEFINED */
+	T_NIL, /*! NIL/NULL value */
+	T_IDENTIFIER, /*! NIL/NULL value */
 	T_TRUE,
 	T_FALSE,
 	T_EXPR,
 	T_LIST,
+	T_MAP,
 	T_C_FN,
 	T_FN,
 	T_STR,
@@ -73,7 +74,9 @@ for(OBJ *curr = O, *curr1 = NT(O); curr1 != NULL && curr1->type != T_UNDEFINED &
 
 void __print_obj_simple(OBJ* o);
 void print_obj_simple(OBJ* o);
+#define print_of(o, ...) printf(__VA_ARGS__); print_obj_simple(o);
 #define print_objf(fmt, o, ...) printf(fmt __VA_ARGS__); print_obj_simple(o);
+#define print_objff(fmt, o, ...) printf(fmt __VA_ARGS__); print_obj_full(o);
 void __print_obj_full(OBJ* o);
 
 void env_add(ENV* e, OBJ* o);

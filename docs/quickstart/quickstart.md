@@ -103,8 +103,40 @@ In the following example we create a function `local-definition`
 ### Conditionals
 
 Conditionals are a basic control flow element allowing you to execute a piece of code based on a set condition.
-> `(let a 2)`
-> `(? (< a 4) (`
-> `(let a 2)`
+In this example we check if `a` is bigger than `4` and if it isn't add `2` otherwise print `"can't add anymore, number too big"`
+> `(let a 2)`  
+> `(?`  
+>	`&nbsp;&ensp;(< a 4) (let a (+ a 2))`  
+>	`&nbsp;&ensp;(else) (print "can't add anymore, number too big")`  
+>	`)`  
+>> `4`
+> `(?`  
+>	`&nbsp;&ensp;(< a 4) (let a (+ a 2))`  
+>	`&nbsp;&ensp;(else) (print "can't add anymore, number too big")`  
+>	`)`  
+>> `print>> can't add anymore, number too big`
+If we do not add an `else` clause to our condition and none of the other conditions match our return value is #NIL.
+> `(let a 8)`
+> `(?`  
+>	`&nbsp;&ensp;(< a 4) (let a (+ a 2))`  
+>	`&nbsp;&ensp;(> a 10) (let a (- a 2))`  
+>	`)`  
+>> `#NIL`
+
+
+### Loops
+
+If you want to repeat the same code over and over under a certain condition.
+> `(let a 2)`  
+> `(loop (< a 10)`  
+>	`&nbsp;&ensp;(let a (+ a 2))`  
+>	`)`  
+>> `10`
+If you want to repeat the same code infinitely.
+> `(let a 2)`  
+> `(loop (1)`  
+>	`&nbsp;&ensp;(let a (+ a 2))`  
+>	`)`  
+This doesn't return anything because it never ends.
 
 

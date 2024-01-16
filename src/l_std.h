@@ -162,6 +162,11 @@ OBJ* L_cdr(OBJ* o);
 OBJ* L_list(OBJ* o);
 OBJ* L_nth(OBJ* o);
 
+// Map functions
+OBJ* L_map(OBJ* o);
+OBJ* L_map_get(OBJ* o);
+OBJ* L_map_add(OBJ* o);
+
 
 // helper functions
 OBJ* L_copy(OBJ* o);
@@ -220,6 +225,10 @@ void lobotomy_init(ENV* env)
 
 
 	ENV_ADD(env, "help", create_cfn("help", L_help));
+
+
+	env_add(env, create_cfn("map-get", L_map_get));
+	env_add(env, create_cfn("map-add", L_map_add));
 
 
 	env_add(env, create_cfn("cdr", L_cdr));

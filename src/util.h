@@ -122,7 +122,7 @@ int hash(const char* key)
 	for (unsigned int i = 0; i < strlen(key); i++) {
 		mask += (int)key[i];
 	}
-	return mask ^ (mask >> 4);
+	return (mask ^ (mask >> 4));
 }
 
 

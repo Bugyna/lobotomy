@@ -9,446 +9,13 @@
 #include "util.h"
 #include "lexer.h"
 #include "parse.h"
-#include "l_std.h"
+#include "l_std.c"
 #include "obj.c"
 
 
 #include "eval.h"
 
 
-
-
-OBJ* L_less_than(OBJ* o)
-{
-	/*!
-			 DOC
-	*/
-	OBJ* ret = empty_obj();
-	ret->type = T_NUM;
-	o = preeval(o);
-
-	// if (o->type == T_IDENTIFIER)
-		// ret->num = (o->car->num < NT(o)->num);
-	// else
-	ret->num = (o->num < NT(o)->num);
-
-	return ret;
-}
-
-OBJ* L_more_than(OBJ* o)
-{
-	OBJ* ret = empty_obj();
-	ret->type = T_NUM;
-	o = preeval(o);
-	ret->num = (o->num > NT(o)->num);
-	return ret;
-}
-
-
-OBJ* L_less_or_eq_than(OBJ* o)
-{
-	OBJ* ret = empty_obj();
-	ret->type = T_NUM;
-	o = preeval(o);
-	ret->num = (o->num <= NT(o)->num);
-	return ret;
-}
-
-OBJ* L_more_or_eq_than(OBJ* o)
-{
-	OBJ* ret = empty_obj();
-	ret->type = T_NUM;
-	o = preeval(o);
-	ret->num = (o->num >= NT(o)->num);
-	return ret;
-}
-
-OBJ* L_eq(OBJ* o)
-{
-	OBJ* ret = empty_obj();
-	ret->type = T_NUM;
-	o = preeval(o);
-	switch (o->type)
-	{
-		case T_NUM: T_DECIMAL:
-			if (NT(o)->type == T_NUM || NT(o)->type == T_DECIMAL) {
-				ret->num = (o->num == NT(o)->num);
-			}
-			else {
-				lobotomy_error("Invalid types for comparison: trying to compare '%s' and '%s'\n", type_name(o->type), type_name(NT(o)->type));
-			}
-		break;
-
-		case T_STR:
-			if (NT(o)->type == T_STR) {
-				ret->num = !strcmp(o->str, NT(o)->str);
-			}
-			else {
-				lobotomy_error("Invalid types for comparison: trying to compare '%s' and '%s'\n", type_name(o->type), type_name(NT(o)->type));
-			}
-		break;
-	}
-	
-	return ret;
-}
-
-
-OBJ* L_car(OBJ* o)
-{
-	o = preeval(o);
-	print_obj_simple(o->car->cdr);
-	return o->car;
-	// return NIL;
-}
-
-
-
-OBJ* L_get_input(OBJ* o)
-{
-	if (o != NULL && o->type != T_NIL)
-		__print_obj_simple(o);
-	char x[200] = "";
-	fgets(x, 200, stdin);
-	size_t l = strlen(x);
-
-	OBJ* ret = empty_obj();
-	ret->type = T_STR;
-	ret->str = malloc(l);
-	x[l-1] = '\0';
-	strcpy(ret->str, x);
-	return ret;
-}
-
-
-OBJ* L_cdr(OBJ* o)
-{
-	o = preeval(o);
-	OBJ* tmp = empty_obj();
-	tmp->type = T_LIST;
-	tmp->car = o->cdr;
-	return tmp;
-	// print_objf("obj: ", o->cdr);
-	return o->cdr;
-}
-
-OBJ* L_list(OBJ* o)
-{
-	OBJ* tmp = empty_obj();
-	tmp->type = T_LIST;
-	tmp->car = o;
-	return tmp;
-	// return o->cdr;
-}
-
-OBJ* L_nth(OBJ* o)
-{
-	o = preeval(o);
-	OBJ* list = NT(o);
-	OBJ* tmp = list->car;
-	for (int i = 0; i < o->num; i++) {
-		tmp = NT(tmp);
-	}
-
-	return L_copy(tmp);
-}
-
-
-OBJ* L_exit(OBJ* o)
-{
-	if (o == NULL)
-		exit(0);
-	else
-		exit(o->num);
-}
-
-
-OBJ* L_progn(OBJ* o)
-{
-	// ITERATE_OBJ(o, curr)
-	// {
-		
-	// }
-	return NIL;
-}
-
-
-OBJ* L_test(OBJ* o)
-{
-	// printf("pp: %p\n", o->cdr->cdr);
-	o = preeval(o);
-	return NIL;
-}
-
-
-OBJ* L_print(OBJ* o)
-{
-	// o = NT(o);
-	// o = preeval(o);
-	// printf("type: %s\n", type_name(o->cdr->type));
-	OBJ* tmp = preeval(o);
-	printf("print>>");
-	print_obj_full(tmp);
-	// print_obj_simple(L_list(tmp));
-
-	// ITERATE_OBJECT(NT(tmp), curr)
-	// {
-		// __print_obj_simple(__eval(curr));
-	// }
-	// printf("\n");
-	// print_objf("print>>", NT(tmp));
-	return NIL;
-}
-
-OBJ* L_type(OBJ* o)
-{
-	preeval(o);
-	printf("%s\n", type_name(o->type));
-	return NIL;
-}
-
-
-OBJ* L_help(OBJ* o)
-{
-	for (int i = 0; i < o->env->size; i++) {
-		if (o->env->list[i].key != NULL)
-			printf("::> '%s'\n", o->env->list[i].key);
-	}
-	return NIL;
-}
-
-OBJ* L_create_fn(OBJ* o)
-{
-	OBJ* fn = empty_obj();
-	OBJ* name = o;
-	OBJ* args = NT(name);
-	OBJ* body = NT(args);
-
-	// print_objf("fn: ", body);
-
-	fn->name = name->name;
-	fn->type = T_FN;
-	fn->args=args;
-	fn->body=body;
-	env_add(global_env, fn);
-	return fn;
-}
-
-OBJ* L_obj_name(OBJ* o)
-{
-	OBJ* ret = NEW();
-	ret->type = T_STR;
-	ret->str = o->name;
-	return ret;
-}
-
-
-OBJ* L_let(OBJ* o)
-{
-	ENV* e = o->env;
-	OBJ* var = o;
-	if (var->type != T_IDENTIFIER) {
-		if (var->name != NULL && var->name != "") var->type = T_IDENTIFIER;
-		else var = preeval(var);
-	}
-	OBJ* val = NT(var);
-	val = preeval(val);
-	printd("let: %s %s\n", var->name, var->env->name);
-	OBJ* ret = ENV_GET(var->env, var->name); // can't use env_get because we have to check only the scope we're currently in
-
-	if (ret == NULL)
-	{
-
-		if (val->type == T_EXPR){printf("xxx\n"); ret = __eval(val->car);}
-		else ret = L_copy(val);
-		ret->name = var->name;
-
-		// printf("\npp: %s\n", ret->name);
-		// printf("blabla: %s :", ret->name); print_obj_simple(ret);
-		env_add(e, ret);
-		// print_obj_simple(ENV_GET(&global_env, var->name));
-		return ret;
-	}
-
-	if (val->type == T_EXPR)
-		*ret = *__eval(val->car);
-	else
-		*ret = *val;
-
-	ret->name = var->name;
-	// printf("blabla: "); print_obj_simple(ret);
-
-
-	return L_copy(ret);
-
-
-	// if (var->car == NULL)
-	// {
-		// printf("\neee\n");
-		// if (val->type == T_EXPR)
-		// {
-			// printf("xxx\n");
-			// OBJ* tmp = __eval(val->car);
-			// var->car = malloc(tmp);
-			// *var->car = *tmp;
-		// }
-		// else
-		// {
-			// var->car = malloc(sizeof(val));
-			// *var->car = *L_copy(val);
-		// }
-		// // var->car->name = var->name;
-
-		// // printf("\npp: %s\n", ret->name);
-		// printf("blabla: "); print_obj_simple(var->car);
-		// var->car = ENV_ADD(&global_env, var->name, var->car);
-		
-		// return var;
-	// }
-
-	// if (val->type == T_EXPR){printf("xxx\n"); *var->car = *__eval(val->car);}
-	// else
-	// {
-		// *var->car = *val;
-	// }
-	
-	// return var;
-}
-
-
-OBJ* L_loop(OBJ* o)
-{
-	OBJ* cond_expr = o;
-	// cond_expr = preeval(cond_expr);
-	// cond_expr->car = preeval_symbols(cond_expr->car);
-	// printf("cond_exprp: %s", type_name(cond_expr->cdr->car->type));
-	// print_objf("cond_expr: ", cond_expr);
-
-	OBJ* exec_expr = NT(cond_expr);
-	// exec_expr = preeval(exec_expr);
-	// exec_expr->car = preeval_symbols(exec_expr->car);
-	// print_obj_simple(cond_expr);
-
-	// print_objf("exec_expr: ", exec_expr);
-
-	// preeval(cond_expr);
-	// preeval(exec_expr);
-	OBJ* ret = NIL;
-
-	printd("loop starting now\n");
-
-	while (1)
-	{
-		OBJ* tmp = __eval(cond_expr->car);
-		// printf("tmp: "); print_obj_simple(tmp);
-		// print_objf("cond_expr: ", cond_expr);
-		// print_objf("exec_expr: ", exec_expr);
-
-		// (loop (< a 10) (let a (+ a 2)))
-		if (!tmp->num)
-		{
-			// printf("aaaaa: "); print_obj_simple(tmp);
-			break;
-			goto ret;
-		}
-		// (loop (a) (let a (+ a 2)))
-			
-		// printf("aaaaa");
-		ret = __eval(exec_expr->car);
-		// __print_obj_full(__eval(exec_expr->car));
-		// usleep(200);
-		// sleep(1);
-	}
-
-	ret:
-	return ret;
-	// return NT(o);
-}
-
-OBJ* L_cond(OBJ* o)
-{
-	// OBJ* cond_expr = NT(o);
-	// print_objf("cond_expr: ", cond_expr);
-
-	// OBJ* exec_expr = NT(cond_expr);
-	// print_objf("exec_expr: ", exec_expr);
-
-	OBJ* ret = NIL;
-
-	ITERATE_OBJECT_PAIR(o, cond_expr, exec_expr)
-	{
-		// print_objf("cond_expr: ", cond_expr);
-		// print_objf("exec_expr: ", exec_expr);
-		OBJ* tmp = __eval(cond_expr->car);
-		// print_objf("tmp: ", tmp);
-
-
-		if (tmp->num || tmp->type == T_TRUE) {
-			// printd("aaa: %s\n", exec_expr->car->cdr->env->name);
-			ret = __eval(exec_expr);
-			goto ret;
-		}
-	}
-
-	ret:
-	return ret;
-}
-
-OBJ* L_copy(OBJ* o)
-{
-	OBJ* ret = empty_obj();
-	*ret = *o;
-	ret->cdr = NIL;
-	return ret;
-}
-
-OBJ* L_get_random_num(OBJ* o)
-{
-	OBJ* ret = empty_obj_t(T_NUM);
-	ret->num = time(NULL);
-	// printf("t: %d", ret->num);
-	if (o != NULL && o->type != T_NIL) {
-		ret->cdr = o;
-		ret = L_mod(ret);
-		// o = preeval(NT(o));
-		// ret->num %= o->num;
-	}
-	return ret;
-}
-
-OBJ* L_use(OBJ* o)
-{
-	eval_program_file(o->str);
-	return NIL;
-}
-
-OBJ* L_load(OBJ* o)
-{
-	void* handle = NULL;
-	load_lib_func fn = NULL;
-	size_t len = strlen(o->str);
-	char x[len+3];
-	char xx[len+5];
-	strcpy(x, o->str);
-	strcpy(xx, o->str);
-
-	strcat(x, ".so");
-	strcat(xx, "_load");
-	printd("strcat: %s\n", x);
-	printd("strcat: %s\n", xx);
-
-	handle = dlopen("./sample_module.so", RTLD_NOW | RTLD_GLOBAL);
-	if (handle == NULL) {
-		lobotomy_error("unable to load library '%s'\n", x);
-	}
-	fn = dlsym(handle, xx);
-	if (fn == NULL) {
-		lobotomy_error("unable to load library '%s' because %s couldn't be loaded\n", x, xx);
-	}
-	printd("load: %p\n", fn);
-	fn(global_env);
-	
-	return NIL;
-}
 
 OBJ* preeval_symbols(OBJ* o)
 {
@@ -519,13 +86,15 @@ OBJ* preeval(OBJ* o)
 
 			case T_LIST:
 				ret->cdr = empty_obj();
-				*ret->cdr = *curr->cdr;
-				ret->cdr->car = preeval(curr->car);
+				*ret->cdr = *curr;
+				// *ret->cdr = *curr->cdr;
+				// ret->cdr->car = preeval(curr->car);
 			break;
 
 			case T_REF:
 				ret->cdr = curr->car;
 			break;
+
 
 			default:
 				ret->cdr = empty_obj();
@@ -702,6 +271,10 @@ OBJ* __eval(OBJ* head)
 			return head;
 		break;
 
+		case T_MAP:
+			return head;
+		break;
+
 		case T_NUM: case T_STR: case T_DECIMAL:
 			return head;
 		break;
@@ -784,7 +357,7 @@ void eval_program(const char text[])
 		if (lexer.tokens[lexer.peek].text == NULL)
 			break;
 		// head = parse_expr(&lexer, 0).head;
-		print_obj_simple(__eval(parse_expr(&lexer, 0).head));
+		print_obj_simple(__eval(parse_expr(&lexer, 0, 0).head));
 		
 		lexer.peek++;
 	}
