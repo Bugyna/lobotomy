@@ -1,7 +1,9 @@
 #pragma once
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 #include <wchar.h>
 
 typedef void (*_print_func)(const char* fmt, ...);
@@ -12,6 +14,8 @@ _print_func _printf = &printf;
 #include "SHM/hashmap.h"
 #include "linked_list.h"
 
+
+#define OBJ_FN_ARGS int argc, OBJ* o
 
 
 typedef enum
@@ -30,6 +34,16 @@ typedef enum
 	T_NUM,
 	T_DECIMAL,
 	T_REF,
+
+	// C Types that are different from the types above
+	T_C_INT32,
+	T_C_UINT32,
+	T_FLOAT,
+	T_VOID_PTR,
+
+	// looks info up
+	T_OTHER,
+	
 } OBJ_TYPE;
 
 #define STRINGIFY(x) #x
@@ -42,12 +56,42 @@ typedef struct FN FN;
 typedef struct OBJ OBJ;
 typedef struct CONS CONS;
 typedef struct ENV ENV;
-typedef struct GC GC;
-typedef OBJ* (*C_FUNC_DEC)(OBJ*);
+// typedef struct GC GC;
+typedef OBJ* (*C_FUNC_DEC)(OBJ_FN_ARGS);
+
+
+struct OBJ
+/*!
+	does stuff
+*/
+{
+	u8 marked;
+	OBJ_TYPE type;
+	const char* name;
+
+	union
+	{
+		int64_t num;
+		double decimal;
+		char* str;
+		struct { OBJ* args; OBJ* body; };
+		C_FUNC_DEC c_fn;
+		ENV* map;
+		int len;
+		void* data;
+	};
+
+	OBJ* car;
+	OBJ* cdr;
+	ENV* env;
+	const char* env_name;
+};
 
 static OBJ* NIL;
 static OBJ* O_TRUE;
 static OBJ* O_FALSE;
+
+DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
 
 typedef void (*load_lib_func)(ENV*);
 
@@ -86,8 +130,8 @@ OBJ* env_get(ENV* e, const char* key);
 void GC_init();
 OBJ* GC_alloc();
 void GC_free(OBJ* o);
-#define NEW() GC_alloc()
+
 OBJ* empty_obj();
 OBJ* empty_obj_t(OBJ_TYPE type);
-OBJ* create_cfn(const char* name, C_FUNC_DEC fn);
+OBJ* create_cfn(char* name, C_FUNC_DEC fn);
 

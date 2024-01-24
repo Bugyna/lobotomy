@@ -13,6 +13,7 @@ lalala")
 
 (f 4)
 
+(print (f 4))
 
 (match [player pc]
 	([player player] "draw")
@@ -35,3 +36,4 @@ lalala")
 		(& (= player "scissors") (= pc "paper")) ("win")
 	)
 )
+

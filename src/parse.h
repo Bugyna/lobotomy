@@ -7,8 +7,14 @@
 
 typedef struct
 {
+	
+} PARSER;
+
+typedef struct
+{
 	OBJ* head;
 	OBJ* tail;
+	int size;
 } OBJ_PAIR;
 
 OBJ parse_map(LEXER*, int, int);
@@ -90,28 +96,35 @@ OBJ* parse_object(LEXER* lexer, int p, int b)
 {
 	if (lexer->peek >= lexer->index) return NIL;
 	TOKEN t = lexer->tokens[lexer->peek++];
-	OBJ* cur = empty_obj();
+	OBJ* cur = NIL;
 	OBJ_PAIR pair;
 
 	switch (t.type)
 	{
 		case TT_LPAREN:
-			printd("starting list\n");
+			// printd("starting list\n");
 			lexer->p_count++;
+			cur = empty_obj();
 			cur->type = T_EXPR;
-			cur->car = parse_expr(lexer, p+1, b).head;
+			pair = parse_expr(lexer, p+1, b);
+			cur->car = pair.head;
+			cur->len = pair.size;
+			// lexer->peek--;
 		break;
 
 		case TT_LBRACKET:
+			lexer->b_count++;
+
+			cur = empty_obj();
+
 			cur->type = T_LIST;
-			// lexer->peek++;
-			cur->car = parse_expr(lexer, p, b+1).head;
-
-			// cur->car = pair.head;
-
+			pair = parse_expr(lexer, p, b+1);
+			cur->car = pair.head;
+			cur->len = pair.size;
 		break;
 
 		case TT_LCBRACKET:
+			cur = empty_obj();
 			*cur = parse_map(lexer, p, b);
 			cur->cdr = NIL;
 		break;
@@ -119,7 +132,7 @@ OBJ* parse_object(LEXER* lexer, int p, int b)
 		case TT_RPAREN:
 			lexer->p_count--;
 			if (lexer->p_count <= p) {
-				printd("ending list\n");
+				// printd("ending list\n");
 				goto exit;
 			}
 		break;
@@ -130,15 +143,21 @@ OBJ* parse_object(LEXER* lexer, int p, int b)
 				goto exit;
 		break;
 
+		case TT_ACCESS:
+			cur = parse_object(lexer, p, b);
+			cur->env_name = t.text;
+		break;
+
 
 		default:
+			cur = empty_obj();
 			*cur = parse_atom(t);
 			cur->cdr = NIL;
 	}
 
 
 	exit:
-	print_of(cur, "returning: %s %d %d ", t.text, p, b);
+	// print_of(cur, "returning: %s %d %d ", t.text, p, b);
 	return cur;
 }
 
@@ -147,42 +166,48 @@ OBJ_PAIR parse_expr(LEXER* lexer, int p, int b)
 {
 	TOKEN t = lexer->tokens[lexer->peek];
 	// printf("start of expr %d: \n", t.start);
-	if (p == 0) print_token_pos(t, "start of expr");
+	// if (p == 0) print_token_pos(t, "start of expr");
 	// OBJ* head = empty_obj_t(T_EXPR);
-
-	OBJ* head = parse_object(lexer, p, b);
-	OBJ* cur = head;
-	cur->cdr = parse_object(lexer, p, b);
+	int size = 1;
 	
-	for (; lexer->peek < lexer->index; )
+	OBJ* head = parse_object(lexer, p, b);
+	OBJ* cur = head; // needs to be here because it gets returned as .tail in OBJ_PAIR
+	if (p == 0 && b == 0) lexer->peek--; // without this it connects all expressions when parsing a file
+	if (head->type == T_NIL) {
+		goto exit;
+	}
+
+	
+	for (; lexer->peek <= lexer->index; )
 	{
-		if (cur->cdr->type == T_NIL) goto exit;
-		print_of(cur->cdr, "still going %d %d\n", lexer->peek, lexer->text_len);
-		cur = cur->cdr;
 		cur->cdr = parse_object(lexer, p, b);
+		if (cur->cdr->type == T_NIL) goto exit;
+		// print_of(cur->cdr, "still going %d %d\n", lexer->peek, lexer->text_len);
+		size++;
+		cur = cur->cdr;
+		// cur->cdr = parse_object(lexer, p, b);
 		// cur = cur->cdr;
 	}
 	// if (cur->cdr->type == T_NIL) goto exit;
 	// else cur->cdr->cdr = parse_object(lexer, n);
-	
-
+	// lexer->peek++;
 	exit:
 	// if (n == 0) print_token_pos(t, "end of expr: ");
 	// cur->cdr = NULL;
 	// printf("deep: %d %s %d\n", n, type_name(cur->type), lexer->peek);
-	// __print_obj_full(head);
-	return (OBJ_PAIR){.head=head, .tail=cur};
+	// print_obj_full(head);
+	return (OBJ_PAIR){.head=head, .tail=cur, .size=size};
 }
 
 
 
-OBJ_LIST* parse(const char text[])
+OBJ_LIST* parse(const char filename[], const char text[])
 {
 	OBJ_LIST* parsed = malloc(sizeof(OBJ_LIST));
 	OBJ_LIST_INIT(parsed);
 	OBJ* head;
 
-	LEXER lexer = tokenize(text);
+	LEXER lexer = tokenize(filename, text);
 
 	for (;;) {
 		if (lexer.tokens[lexer.peek].text == NULL)

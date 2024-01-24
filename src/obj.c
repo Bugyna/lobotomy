@@ -1,6 +1,13 @@
 #pragma once
-#include "obj.h"
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
+#include <wchar.h>
 
+#include "obj.h"
+#include "gc.h"
 
 
 
@@ -22,6 +29,14 @@ const char* type_name(OBJ_TYPE i)
 		case T_NUM: return STRINGIFY(T_NUM);
 		case T_DECIMAL: return STRINGIFY(T_DECIMAL);
 		case T_REF: return STRINGIFY(T_REF);
+		STRINGIFY_TYPENAME(T_TRUE);
+		STRINGIFY_TYPENAME(T_FALSE);
+		STRINGIFY_TYPENAME(T_OTHER);
+		STRINGIFY_TYPENAME(T_FLOAT);
+		STRINGIFY_TYPENAME(T_C_INT32);
+		STRINGIFY_TYPENAME(T_C_UINT32);
+		STRINGIFY_TYPENAME(T_VOID_PTR);
+		
 	}
 
 
@@ -36,36 +51,13 @@ struct FN
 	ENV* env;
 };
 
-struct OBJ
-/*!
-	does stuff
-*/
-{
-	OBJ_TYPE type;
-	const char* name;
-
-	union
-	{
-		int64_t num;
-		double decimal;
-		char* str;
-		struct { OBJ* args; OBJ* body; };
-		C_FUNC_DEC c_fn;
-		ENV* map;
-	};
-
-	OBJ* car;
-	OBJ* cdr;
-	ENV* env;
-};
-
 
 static OBJ* NIL = &((OBJ){.type=T_NIL});
 static OBJ* O_TRUE = &((OBJ){.type=T_TRUE});
 static OBJ* O_FALSE = &((OBJ){.type=T_FALSE});
 
 
-DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
+// DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
 DEFINE_LINKED_LIST(OBJ_LIST, OBJ)
 
 static ENV* global_env;
@@ -204,45 +196,45 @@ OBJ* env_get(ENV* e, const char* key)
 // #define GC_ENABLED
 
 
-struct GC
-{
-	OBJ** roots[100];
-	OBJ* heap;
-	OBJ* top;
-	size_t allocated;
+// struct GC
+// {
+	// OBJ** roots[100];
+	// OBJ* heap;
+	// OBJ* top;
+	// size_t allocated;
 	
-};
+// };
 
-static GC gc;
-
-
-void GC_init()
-{
-	gc.top = gc.heap = malloc(1000*sizeof(OBJ));
-	gc.allocated = 0;
-}
-
-OBJ* GC_alloc()
-{
-	gc.allocated++;
-	// printf("allocated: %d\n", gc.allocated);
-	#ifdef GC_ENABLED
-		// printf("alloc: %d\n", gc.top - gc.heap);
-		return gc.top++;
-	#else
-		return calloc(1, sizeof(OBJ));
-	#endif
-}
-
-void GC_free(OBJ* o)
-{
-	#ifndef GC_ENABLED
-	free(o);
-	#endif
-}
+// static GC gc;
 
 
-#define NEW() GC_alloc()
+// void GC_init()
+// {
+	// gc.top = gc.heap = malloc(1000*sizeof(OBJ));
+	// gc.allocated = 0;
+// }
+
+// OBJ* GC_alloc()
+// {
+	// gc.allocated++;
+	// // printf("allocated: %d\n", gc.allocated);
+	// #ifdef GC_ENABLED
+		// // printf("alloc: %d\n", gc.top - gc.heap);
+		// return gc.top++;
+	// #else
+		// return calloc(1, sizeof(OBJ));
+	// #endif
+// }
+
+// void GC_free(OBJ* o)
+// {
+	// #ifndef GC_ENABLED
+	// free(o);
+	// #endif
+// }
+
+
+#define NEW() GCL_alloc()
 // #define NEW() calloc(1, sizeof(OBJ))
 OBJ* empty_obj()
 {
@@ -250,6 +242,7 @@ OBJ* empty_obj()
 	OBJ* ret = NEW();
 	ret->type = T_NIL;
 	ret->env = global_env;
+	ret->marked = false;
 	return ret;
 }
 
@@ -260,16 +253,17 @@ OBJ* empty_obj_t(OBJ_TYPE type)
 	OBJ* ret = NEW();
 	ret->type = type;
 	ret->env = global_env;
+	ret->marked = false;
 	return ret;
 }
 
 
-OBJ* create_cfn(const char* name, C_FUNC_DEC fn)
+OBJ* create_cfn(char* name, C_FUNC_DEC fn)
 {
 	OBJ* o = empty_obj();
 	o->type = T_C_FN;
 	o->name = name;
 	o->c_fn = fn;
+	// o->marked = false;
 	return o;
 }
-

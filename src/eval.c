@@ -50,7 +50,7 @@ OBJ* preeval_symbols(OBJ* o)
 
 	tmp = head;
 	head = NT(head);
-	GC_free(tmp);
+	GCL_free(tmp);
 	return head;
 }
 
@@ -81,12 +81,13 @@ OBJ* preeval(OBJ* o)
 			case T_EXPR:
 				// printf("occuring for: %s\n", curr->car->name);
 				// ret->cdr = __eval(curr->car);
-				ret->cdr = __eval(curr->car);
+				ret->cdr = __eval(curr->car, curr->len);
 			break;
 
 			case T_LIST:
-				ret->cdr = empty_obj();
-				*ret->cdr = *curr;
+				ret->cdr = curr;
+				// ret->cdr = empty_obj();
+				// *ret->cdr = *curr;
 				// *ret->cdr = *curr->cdr;
 				// ret->cdr->car = preeval(curr->car);
 			break;
@@ -105,70 +106,10 @@ OBJ* preeval(OBJ* o)
 
 	tmp = head;
 	head = NT(head);
-	GC_free(tmp);
-	return head;
-
-	ITERATE_OBJECT_PTR(o, curr)
-	{
-		if ((*curr)->type == T_IDENTIFIER)
-		{
-			OBJ* tmp = env_get(o->env, (*curr)->name);
-			if (tmp != NULL) {
-				*ret = *tmp;
-				ret->cdr = empty_obj();
-				// ret->cdr = (*curr)->cdr;
-			}
-			else {
-				lobotomy_error("Variable '%s' '%s' not found", (*curr)->name, o->env->name);
-			}
-		}
-		
-		else if ((*curr)->type == T_EXPR) {
-			*ret = *__eval((*curr)->car);
-			ret->cdr = empty_obj();
-		}
-
-		else if ((*curr)->type == T_LIST) {
-			// *ret = **curr;
-			*ret = *preeval((*curr)->car);
-			ret->cdr = empty_obj();
-		}
-
-		else {
-			*ret = **curr;
-		}
-		
-		ret = ret->cdr;
-		// ret->cdr = empty_obj();
-	}
-	print_obj_simple(L_list(ooo));
-	print_obj_simple(L_list(head));
+	GCL_free(tmp);
 	return head;
 }
 
-
-OBJ* progn(OBJ* o)
-{
-	/*!
-		evaluate a list of expressions and return the last result
-	*/
-	OBJ* ooo = o;
-	OBJ* ret = empty_obj();
-	OBJ* head = ret;
-
-	OBJ* tmp;
-	ITERATE_OBJECT(o, curr)
-	{
-		printd("progn: %s\n", type_name(curr->type));
-		ret->cdr = __eval(curr);
-		ret = ret->cdr;
-	}
-
-	tmp = head;
-	head = NT(head);
-	GC_free(tmp);
-	return ret;
-}
 
 void set_env(OBJ* head, ENV* e)
 {
@@ -202,7 +143,7 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 			// print_objf("saaa: ", curr);
 			// print_objf("saaa1: ", curr1);
 			curr1->name = curr->name;
-			env_add(e, L_copy(curr1));
+			env_add(e, L_copy(1, curr1));
 		}
 	)
 	// print_obj_simple(fn->body);
@@ -212,8 +153,8 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 	// print_objf("::: ", fn->body->car->cdr);
 
 	if (fn->body->car->type == T_EXPR)
-		return progn(fn->body->car);
-	else return __eval(fn->body);
+		return L_progn(fn->body->len, fn->body->car);
+	else return __eval(fn->body, fn->body->len);
 }
 
 
@@ -256,7 +197,7 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 // }
 
 
-OBJ* __eval(OBJ* head)
+OBJ* __eval(OBJ* head, int argc)
 {
 	// printf("allocated: %d\n", gc.allocated);
 	OBJ* o;
@@ -264,7 +205,7 @@ OBJ* __eval(OBJ* head)
 	{
 
 		case T_EXPR:
-			return __eval(head->car);
+			return __eval(head->car, head->len);
 		break;
 
 		case T_LIST:
@@ -280,7 +221,7 @@ OBJ* __eval(OBJ* head)
 		break;
 
 		case T_C_FN:
-			return head->c_fn(head);
+			return head->c_fn(argc, head);
 		break;
 
 		case T_FN:
@@ -295,7 +236,7 @@ OBJ* __eval(OBJ* head)
 			switch (o->type)
 			{
 				case T_C_FN:
-					return o->c_fn(NT(head));
+					return o->c_fn(argc, NT(head));
 				break;
 
 				case T_FN:
@@ -317,7 +258,7 @@ OBJ* __eval(OBJ* head)
 			switch (o->type)
 			{
 				case T_C_FN:
-					return o->c_fn(NT(head));
+					return o->c_fn(argc, NT(head));
 				break;
 
 				case T_FN:
@@ -340,11 +281,11 @@ OBJ* __eval(OBJ* head)
 void eval_program_file(const char* filename)
 {
 	const char* text = read_file(filename);
-	eval_program(text);
+	eval_program(filename, text);
 }
 
 
-void eval_program(const char text[])
+void eval_program(const char filename[], const char text[])
 {
 	// OBJ_LIST* parsed = parse(text);
 	// ITERATE_LINKED_LIST_VN(OBJ_LIST, parsed, OBJ, head)
@@ -352,13 +293,16 @@ void eval_program(const char text[])
 		// print_obj_simple(__eval(head));
 	// }
 
-	LEXER lexer = tokenize(text);
+	LEXER lexer = tokenize(filename, text);
+	printf("text: %s\n", text);
 	for (;;) {
-		if (lexer.tokens[lexer.peek].text == NULL)
-			break;
 		// head = parse_expr(&lexer, 0).head;
-		print_obj_simple(__eval(parse_expr(&lexer, 0, 0).head));
-		
-		lexer.peek++;
+		OBJ_PAIR pair = parse_expr(&lexer, 0, 0);
+		// print_obj_simple(pair.head);
+		print_obj_simple(__eval(pair.head, pair.size));
+		// lexer.peek++;
+		// if (pair.head->type == T_NIL) return;
+		if (lexer.tokens[lexer.peek].text == NULL || lexer.tokens[lexer.peek].type == TT_)
+			break;
 	}
 }

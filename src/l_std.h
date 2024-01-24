@@ -7,12 +7,12 @@
 #include "obj.h"
 
 
-OBJ* __eval(OBJ*);
+OBJ* __eval(OBJ*, int argc);
 OBJ* preeval(OBJ*);
 OBJ* preeval_symbols(OBJ*);
 
 #define DEF_ARITHMETIC_OPERATION(NAME, SIGN)\
-OBJ* L_##NAME(OBJ* o)\
+OBJ* L_##NAME(OBJ_FN_ARGS)\
 {\
 	OBJ* ret = empty_obj();\
 	o = preeval(o);\
@@ -51,7 +51,7 @@ OBJ* L_##NAME(OBJ* o)\
 
 
 #define DEF_BINARY_OPERATION(NAME, SIGN)\
-OBJ* L_##NAME(OBJ* o)\
+OBJ* L_##NAME(OBJ_FN_ARGS)\
 {\
 	OBJ* ret = empty_obj();\
 	o = preeval(o);\
@@ -77,7 +77,7 @@ DEF_ARITHMETIC_OPERATION(add, +)
 DEF_ARITHMETIC_OPERATION(subtract, -)
 DEF_ARITHMETIC_OPERATION(multiply, *)
 DEF_ARITHMETIC_OPERATION(divide, /)
-OBJ* L_mod(OBJ* o)
+OBJ* L_mod(OBJ_FN_ARGS)
 {
 	OBJ* ret = empty_obj();
 	o = preeval(o);
@@ -125,78 +125,92 @@ DEF_BINARY_OPERATION(neg, !)
 
 
 // numeric comparisons
-OBJ* L_less_than(OBJ* o);
-OBJ* L_more_than(OBJ* o);
-OBJ* L_less_or_eq_than(OBJ* o);
-OBJ* L_more_or_eq_than(OBJ* o);
-OBJ* L_eq(OBJ* o);
+OBJ* L_less_than(OBJ_FN_ARGS);
+OBJ* L_more_than(OBJ_FN_ARGS);
+OBJ* L_less_or_eq_than(OBJ_FN_ARGS);
+OBJ* L_more_or_eq_than(OBJ_FN_ARGS);
+OBJ* L_eq(OBJ_FN_ARGS);
 
 
 // Math
-OBJ* L_pow(OBJ* o);
-OBJ* L_sqrt(OBJ* o);
-OBJ* L_cbrt(OBJ* o);
-OBJ* L_nth_root(OBJ* o);
-OBJ* L_log(OBJ* o);
-OBJ* L_log10(OBJ* o);
-OBJ* L_ceil(OBJ* o);
-OBJ* L_floor(OBJ* o);
-OBJ* L_round(OBJ* o);
-OBJ* L_max(OBJ* o);
-OBJ* L_min(OBJ* o);
+OBJ* L_pow(OBJ_FN_ARGS);
+OBJ* L_sqrt(OBJ_FN_ARGS);
+OBJ* L_cbrt(OBJ_FN_ARGS);
+OBJ* L_nth_root(OBJ_FN_ARGS);
+OBJ* L_log(OBJ_FN_ARGS);
+OBJ* L_log10(OBJ_FN_ARGS);
+OBJ* L_ceil(OBJ_FN_ARGS);
+OBJ* L_floor(OBJ_FN_ARGS);
+OBJ* L_round(OBJ_FN_ARGS);
+OBJ* L_max(OBJ_FN_ARGS);
+OBJ* L_min(OBJ_FN_ARGS);
 
-OBJ* L_cos(OBJ* o);
-OBJ* L_sin(OBJ* o);
-OBJ* L_tan(OBJ* o);
-OBJ* L_acos(OBJ* o);
-OBJ* L_asin(OBJ* o);
-OBJ* L_atan(OBJ* o);
-OBJ* L_atan2(OBJ* o);
+OBJ* L_cos(OBJ_FN_ARGS);
+OBJ* L_sin(OBJ_FN_ARGS);
+OBJ* L_tan(OBJ_FN_ARGS);
+OBJ* L_acos(OBJ_FN_ARGS);
+OBJ* L_asin(OBJ_FN_ARGS);
+OBJ* L_atan(OBJ_FN_ARGS);
+OBJ* L_atan2(OBJ_FN_ARGS);
 
 
 
 // lisp functions
-OBJ* L_progn(OBJ* o);
-OBJ* L_car(OBJ* o);
-OBJ* L_cdr(OBJ* o);
-OBJ* L_list(OBJ* o);
-OBJ* L_nth(OBJ* o);
+OBJ* L_car(OBJ_FN_ARGS);
+OBJ* L_cdr(OBJ_FN_ARGS);
+OBJ* L_list(OBJ_FN_ARGS);
+OBJ* L_progn(OBJ_FN_ARGS);
+
+// List/vector operatins
+OBJ* L_first(OBJ_FN_ARGS);
+OBJ* L_last(OBJ_FN_ARGS);
+OBJ* L_nth(OBJ_FN_ARGS);
+OBJ* L_len(OBJ_FN_ARGS);
+OBJ* L_insert(OBJ_FN_ARGS);
+OBJ* L_append(OBJ_FN_ARGS);
+OBJ* L_pop(OBJ_FN_ARGS);
+OBJ* L_pop_at(OBJ_FN_ARGS);
 
 // Map functions
-OBJ* L_map(OBJ* o);
-OBJ* L_map_get(OBJ* o);
-OBJ* L_map_add(OBJ* o);
+OBJ* L_map(OBJ_FN_ARGS);
+OBJ* L_map_get(OBJ_FN_ARGS);
+OBJ* L_map_add(OBJ_FN_ARGS);
 
 
 // helper functions
-OBJ* L_copy(OBJ* o);
-OBJ* L_type(OBJ* o);
-OBJ* L_help(OBJ* o);
-OBJ* L_exit(OBJ* o);
-OBJ* L_obj_name(OBJ* o);
+OBJ* L_copy(OBJ_FN_ARGS);
+OBJ* L_type(OBJ_FN_ARGS);
+OBJ* L_help(OBJ_FN_ARGS);
+OBJ* L_exit(OBJ_FN_ARGS);
+OBJ* L_obj_name(OBJ_FN_ARGS);
 
+// GC helpers
+OBJ* L_gc_top(OBJ_FN_ARGS);
+OBJ* L_gc_size(OBJ_FN_ARGS);
+OBJ* L_gc_print(OBJ_FN_ARGS);
+OBJ* L_gc_collect(OBJ_FN_ARGS);
 
 // variables and functions
-OBJ* L_let(OBJ* o);
-OBJ* L_create_fn(OBJ* o);
+OBJ* L_let(OBJ_FN_ARGS);
+OBJ* L_create_fn(OBJ_FN_ARGS);
 
 // flow control
-OBJ* L_cond(OBJ* o);
-OBJ* L_loop(OBJ* o);
+OBJ* L_cond(OBJ_FN_ARGS);
+OBJ* L_loop(OBJ_FN_ARGS);
 
 // IO
-OBJ* L_get_input(OBJ* o);
-OBJ* L_print(OBJ* o);
+OBJ* L_get_input(OBJ_FN_ARGS);
+OBJ* L_print(OBJ_FN_ARGS);
 
 
 // Random
-OBJ* L_get_random_num(OBJ* o);
+OBJ* L_get_random_num(OBJ_FN_ARGS);
 
 // other
-OBJ* L_test(OBJ* o);
+OBJ* L_test(OBJ_FN_ARGS);
 
-OBJ* L_load(OBJ* o);
-OBJ* L_use(OBJ* o);
+OBJ* L_load(OBJ_FN_ARGS);
+OBJ* L_use(OBJ_FN_ARGS);
 
 void lobotomy_init(ENV* env)
 {
@@ -223,6 +237,9 @@ void lobotomy_init(ENV* env)
 	ENV_ADD(env, "type", create_cfn("type", L_type));
 	ENV_ADD(env, "exit", create_cfn("exit", L_exit));
 
+	env_add(env, create_cfn("gc-top", L_gc_top));
+	env_add(env, create_cfn("gc-collect", L_gc_collect));
+
 
 	ENV_ADD(env, "help", create_cfn("help", L_help));
 
@@ -234,7 +251,12 @@ void lobotomy_init(ENV* env)
 	env_add(env, create_cfn("cdr", L_cdr));
 	env_add(env, create_cfn("car", L_car));
 	env_add(env, create_cfn("list", L_list));
+	env_add(env, create_cfn("progn", L_progn));
+	
+	
 	env_add(env, create_cfn("nth", L_nth));
+	env_add(env, create_cfn("len", L_len));
+	
 	env_add(env, create_cfn("tést", L_test));
 
 	env_add(env, create_cfn("fn", L_create_fn));
@@ -247,10 +269,10 @@ void lobotomy_init(ENV* env)
 	env_add(env, create_cfn("random-num", L_get_random_num));
 	
 	
-	static const OBJ PI = (OBJ){.type=T_DECIMAL, .name="PI", .decimal=3.141595265};
+	OBJ PI = (OBJ){.marked=true, .type=T_DECIMAL, .name="PI", .decimal=3.141595265};
 	env_add(env, &PI);
 	
-	static const OBJ ELSE_ALIAS = (OBJ){.type=T_TRUE, .name="else", .num=1};
+	OBJ ELSE_ALIAS = (OBJ){.marked=true, .type=T_TRUE, .name="else", .num=1};
 	env_add(env, &ELSE_ALIAS);
 
 	

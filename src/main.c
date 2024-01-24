@@ -1,4 +1,4 @@
-#define DEBUGGING 0
+#define DEBUGGING 1
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -80,7 +80,7 @@ void interactive_shell()
 	while (1) {
 		fputs("#> ", stdout);
 		fgets(text, 1000, stdin);
-		eval_program(text);
+		eval_program("repl", text);
 	}
 }
 
@@ -88,12 +88,17 @@ int main(int argc, char* argv[]) {
 
 	bool interactive = false;
 	char* text = "";
+	char* filename = "";
 	const char help_text[] = "lob error: No arguments provided\nUsage:\n\tlob [file] -> interprets a file\n\tlob -i opens a repl enviroment\n\n";
 
 
 	if (argc == 1) {
-		// text = read_file("t2.lb");
+		#if DEBUGGING == 1
+		text = read_file("t2.lb");
+		filename = "t2.lb";
+		#else
 		fputs(help_text, stderr);
+		#endif
 	}
 
 	else if (argc == 2) {
@@ -103,11 +108,12 @@ int main(int argc, char* argv[]) {
 		}
 
 		else {
-			text = read_file(argv[1]);
+			filename = argv[1];
+			text = read_file(filename);
 		}
 	}
 
-	// printf("size of OBJ: %ld\n", sizeof(OBJ));
+	printd("size of OBJ: %ld\n", sizeof(OBJ));
 	// printf("size of OBJ*: %ld\n", sizeof(SCOPE));
 	// printf("size of OBJ*: %ld\n", sizeof(TREE));
 	// printf("size of OBJ*: %ld\n", sizeof(FUNC));
@@ -117,10 +123,12 @@ int main(int argc, char* argv[]) {
 	// // printf("hash: %d\n", hash("ábc"));
 	// return 0;
 	printd("hash test: %s, %d \n", "help", hash("help"));
-	GC_init();
+
+	// printd("GCL init: %d\n", GCL.size);
 	global_env = calloc(1, sizeof(ENV));
 	global_env->name = "global_env";
 	ENV_INIT(global_env, 127);
+	GCL_init(global_env);
 	lobotomy_init(global_env);
 	// L_help(NIL);
 
@@ -128,7 +136,7 @@ int main(int argc, char* argv[]) {
 		interactive_shell();
 	}
 	else {
-		eval_program(text);
+		eval_program(filename, text);
 	}
 
 

@@ -10,6 +10,9 @@
 #include <time.h>
 #include <wchar.h>
 
+
+#include "os.h"
+
 typedef void (*_lobotomy_exit_func)(int n);
 _lobotomy_exit_func _lobotomy_exit = &exit;
 _lobotomy_exit_func _real_exit = &exit;
