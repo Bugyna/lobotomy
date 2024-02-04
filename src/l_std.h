@@ -11,6 +11,9 @@ OBJ* __eval(OBJ*, int argc);
 OBJ* preeval(OBJ*);
 OBJ* preeval_symbols(OBJ*);
 
+static OBJ PI = (OBJ){.marked=true, .type=T_DECIMAL, .name="PI", .decimal=3.141595265};
+static OBJ ELSE_ALIAS = (OBJ){.marked=true, .type=T_TRUE, .name="else", .num=1};
+
 #define DEF_ARITHMETIC_OPERATION(NAME, SIGN)\
 OBJ* L_##NAME(OBJ_FN_ARGS)\
 {\
@@ -184,6 +187,10 @@ OBJ* L_help(OBJ_FN_ARGS);
 OBJ* L_exit(OBJ_FN_ARGS);
 OBJ* L_obj_name(OBJ_FN_ARGS);
 
+
+// meta functions
+OBJ* L_expand(OBJ_FN_ARGS);
+
 // GC helpers
 OBJ* L_gc_top(OBJ_FN_ARGS);
 OBJ* L_gc_size(OBJ_FN_ARGS);
@@ -242,6 +249,9 @@ void lobotomy_init(ENV* env)
 
 
 	ENV_ADD(env, "help", create_cfn("help", L_help));
+	
+	
+	env_add(env, create_cfn("expand", L_expand));
 
 
 	env_add(env, create_cfn("map-get", L_map_get));
@@ -269,10 +279,7 @@ void lobotomy_init(ENV* env)
 	env_add(env, create_cfn("random-num", L_get_random_num));
 	
 	
-	OBJ PI = (OBJ){.marked=true, .type=T_DECIMAL, .name="PI", .decimal=3.141595265};
 	env_add(env, &PI);
-	
-	OBJ ELSE_ALIAS = (OBJ){.marked=true, .type=T_TRUE, .name="else", .num=1};
 	env_add(env, &ELSE_ALIAS);
 
 	

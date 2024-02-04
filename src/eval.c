@@ -143,7 +143,7 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 			// print_objf("saaa: ", curr);
 			// print_objf("saaa1: ", curr1);
 			curr1->name = curr->name;
-			env_add(e, L_copy(1, curr1));
+			env_add(e,  curr1);
 		}
 	)
 	// print_obj_simple(fn->body);
@@ -152,9 +152,10 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 	// printf("\ngot here\n");
 	// print_objf("::: ", fn->body->car->cdr);
 
-	if (fn->body->car->type == T_EXPR)
-		return L_progn(fn->body->len, fn->body->car);
-	else return __eval(fn->body, fn->body->len);
+	return L_progn(fn->body->len, fn->body);
+	// if (fn->body->car->type == T_EXPR)
+		// return L_progn(fn->body->len, fn->body->car);
+	// else return __eval(fn->body, fn->body->len);
 }
 
 

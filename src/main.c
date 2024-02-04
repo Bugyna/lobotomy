@@ -130,6 +130,7 @@ int main(int argc, char* argv[]) {
 	ENV_INIT(global_env, 127);
 	GCL_init(global_env);
 	lobotomy_init(global_env);
+	// GCL_collect();
 	// L_help(NIL);
 
 	if (interactive) {

@@ -13,7 +13,7 @@
 
 const char* type_name(OBJ_TYPE i)
 {
-	#define STRINGIFY_TYPENAME(t) case t: return STRINGIFY(t);
+	#define STRINGIFY_TYPENAME(t) case t: return #t;
 	switch (i)
 	{
 		STRINGIFY_TYPENAME(T_UNDEFINED);
@@ -52,8 +52,10 @@ struct FN
 };
 
 
+
+static const OBJ DEFAULT_OBJ = ((OBJ){.type=T_UNDEFINED});
 static OBJ* NIL = &((OBJ){.type=T_NIL});
-static OBJ* O_TRUE = &((OBJ){.type=T_TRUE});
+static OBJ* O_TRUE = &((OBJ){.type=T_TRUE, .name="TRUE"});
 static OBJ* O_FALSE = &((OBJ){.type=T_FALSE});
 
 
@@ -78,8 +80,13 @@ void __print_obj_simple(OBJ* o)
 
 		case T_MAP:
 			for (int i = 0; i < o->map->size; i++) {
-				if (o->map->list[i].key != NULL)
-					printf("::> '%s'\n", o->map->list[i].key);
+				if (o->env->list[i].key == NULL) continue;
+				__ITERATE_HASHMAP(ENV, o->map, OBJ, o->map->list[i].key)
+				{
+					printf("::> '%s'\n", BUCKET->key);
+				}
+				// if (o->map->list[i].key != NULL)
+					// printf("::> '%s'\n", o->map->list[i].key);
 			}
 			// printf("MAP");
 		break;
@@ -99,9 +106,7 @@ void __print_obj_simple(OBJ* o)
 		break;
 
 		case T_IDENTIFIER:
-			printf("[%s %s] = ", type_name(o->type), o->name);
-			if (o->car != NULL) __print_obj_simple(o->car);
-			else printf("#NIL#");
+			printf("[%s %s]", type_name(o->type), o->name);
 		break;
 
 		case T_REF:
@@ -153,6 +158,111 @@ void __print_obj_simple(OBJ* o)
 	}
 }
 
+
+void __print_obj_expand(OBJ* o)
+{
+	switch (o->type)
+	{
+		case T_UNDEFINED:
+			// printf("[%s %s: UNDEFINED]", type_name(o->type), o->name);
+			printf("!UNDEFINED!");
+		break;
+
+		case T_NIL:
+			// printf("[%s %s: UNDEFINED]", type_name(o->type), o->name);
+			printf("#NIL#");
+		break;
+
+		case T_MAP:
+			for (int i = 0; i < o->map->size; i++) {
+				if (o->env->list[i].key == NULL) continue;
+				__ITERATE_HASHMAP(ENV, o->map, OBJ, o->map->list[i].key)
+				{
+					printf("::> '%s'\n", BUCKET->key);
+				}
+				// if (o->map->list[i].key != NULL)
+					// printf("::> '%s'\n", o->map->list[i].key);
+			}
+			// printf("MAP");
+		break;
+
+		case T_TRUE: case T_FALSE:
+			printf(type_name(o->type));
+		break;
+
+		case T_NUM:
+			// printf("[%s %s: %ld]", type_name(o->type), o->name, o->num);
+			printf("%ld", o->num);
+		break;
+
+		case T_DECIMAL:
+			// printf("[%s %s: %f]", type_name(o->type), o->name, o->decimal);
+			printf("%f", o->decimal);
+		break;
+
+		case T_IDENTIFIER:
+			printf("[%s %s]", type_name(o->type), o->name);
+		break;
+
+		case T_REF:
+			printf("[%s %s] = ", type_name(o->type), o->name);
+			if (o->car != NULL) __print_obj_simple(o->car);
+			else printf("#NIL#");
+		break;
+
+		case T_STR:
+			// printf("[%s %s: %s]", type_name(o->type), o->name, o->str);
+			printf("%s", o->str);
+		break;
+
+		case T_LIST: case T_EXPR:
+			printf("%s <%s>: ( ", type_name(o->type), o->name);
+			// printf("[%s <%s>]", type_name(o->car->type), o->car->name);
+			__print_obj_simple(o->car);
+			ITERATE_OBJECT_PTR(o->car->cdr, curr)
+			{
+				printf(" . ");
+				__print_obj_simple(*curr);
+			}
+			// printf(" )\n\t( ");
+
+			// ITERATE_OBJECT(o->cdr, curr)
+			// {
+				// printf(" . ");
+				// __print_obj_simple(curr);
+			// }
+			printf(" )\n");
+		break;
+
+		case T_C_FN:
+			printf("[%s %s]", type_name(o->type), o->name);
+		break;
+
+		case T_FN:
+			printf("[%s %s]\n", type_name(o->type), o->name);
+			printf("ARGS: (");
+			ITERATE_OBJECT(o->args->car, curr)
+			{
+				printf(" . ");
+				__print_obj_simple(curr);
+			}
+			printf(" )\n");
+			
+			printf("BODY: (");
+			ITERATE_OBJECT(o->body->car, curr)
+			{
+				printf(" . ");
+				__print_obj_simple(curr);
+			}
+			printf(" )\n");
+		break;
+
+		default:
+			printf("what the fuck %d", o->type);
+
+	}
+}
+
 void print_obj_simple(OBJ* o)
 {
 
@@ -161,7 +271,14 @@ void print_obj_simple(OBJ* o)
 }
 
 
-void print_obj_full(OBJ* o)
+inline void print_obj_expand(OBJ* o)
+{
+	__print_obj_expand(o);
+	printf("\n");
+}
+
+
+inline void __print_obj_full(OBJ* o)
 {
 	// printf("[%s <%s>] (", type_name(o->type), o->name);
 	ITERATE_OBJECT(o, curr)
@@ -170,6 +287,13 @@ void print_obj_full(OBJ* o)
 		__print_obj_simple(curr);
 		printf(" ");
 	}
+}
+
+
+
+inline void print_obj_full(OBJ* o)
+{
+	__print_obj_full(o);
 	printf("\n");
 }
 
@@ -236,6 +360,15 @@ OBJ* env_get(ENV* e, const char* key)
 
 #define NEW() GCL_alloc()
 // #define NEW() calloc(1, sizeof(OBJ))
+
+
+
+
+void reset_obj(OBJ* o)
+{
+	*o = DEFAULT_OBJ;
+}
+
 OBJ* empty_obj()
 {
 	
@@ -243,6 +376,7 @@ OBJ* empty_obj()
 	ret->type = T_NIL;
 	ret->env = global_env;
 	ret->marked = false;
+	ret->car = NULL;
 	return ret;
 }
 
@@ -254,6 +388,7 @@ OBJ* empty_obj_t(OBJ_TYPE type)
 	ret->type = type;
 	ret->env = global_env;
 	ret->marked = false;
+	ret->car = NULL;
 	return ret;
 }
 
@@ -264,6 +399,7 @@ OBJ* create_cfn(char* name, C_FUNC_DEC fn)
 	o->type = T_C_FN;
 	o->name = name;
 	o->c_fn = fn;
+	o->car = NULL;
 	// o->marked = false;
 	return o;
 }

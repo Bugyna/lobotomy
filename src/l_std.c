@@ -54,7 +54,7 @@ OBJ* L_eq(OBJ_FN_ARGS)
 	o = preeval(o);
 	switch (o->type)
 	{
-		case T_NUM: T_DECIMAL:
+		case T_NUM: case T_DECIMAL:
 			if (NT(o)->type == T_NUM || NT(o)->type == T_DECIMAL) {
 				ret->num = (o->num == NT(o)->num);
 			}
@@ -134,9 +134,10 @@ OBJ* L_progn(OBJ_FN_ARGS)
 	OBJ* head = ret;
 
 	OBJ* tmp;
+	// if (o->type == T_LIST || o->type == T_EXPR) o = o->car;
 	ITERATE_OBJECT(o, curr)
 	{
-		printd("progn: %s\n", type_name(curr->type));
+		// printd("progn: %s\n", type_name(curr->type));
 		ret->cdr = __eval(curr, curr->len);
 		ret = ret->cdr;
 	}
@@ -151,12 +152,27 @@ OBJ* L_nth(OBJ_FN_ARGS)
 {
 	o = preeval(o);
 	OBJ* list = NT(o);
-	OBJ* tmp = list->car;
-	for (int i = 0; i < o->num; i++) {
-		tmp = NT(tmp);
+	OBJ* ret = NIL;
+
+	if (list->type == T_LIST || list->type == T_EXPR)
+	{
+		ret = list->car;
+		for (int i = 0; i < o->num; i++) {
+			ret = NT(ret);
+		}
+		ret = L_copy(1, ret);
 	}
 
-	return L_copy(1, tmp);
+	else {
+		ret = empty_obj();
+		ret->type = T_STR;
+		// char x[] = {list->str[o->num], '\0'};
+		ret->str = malloc(2);
+		ret->str[0] = list->str[o->num];
+		ret->str[1] = '\0';
+	}
+	
+	return ret;
 }
 
 
@@ -183,28 +199,33 @@ OBJ* L_len(OBJ_FN_ARGS)
 OBJ* L_insert(OBJ_FN_ARGS)
 {
 	o = preeval(o);
+	return o;
 }
 
 OBJ* L_append(OBJ_FN_ARGS)
 {
-	
+
+	return NIL;
 }
 
 OBJ* L_pop(OBJ_FN_ARGS)
 {
 	
+	return o;
 }
 
 OBJ* L_pop_at(OBJ_FN_ARGS)
 {
-	
+
+	return NIL;
 }
 
 
 
 OBJ* L_map(OBJ_FN_ARGS)
 {
-	
+
+	return NIL;
 }
 
 
@@ -233,6 +254,8 @@ OBJ* L_exit(OBJ_FN_ARGS)
 		exit(0);
 	else
 		exit(o->num);
+
+	return NIL;
 }
 
 
@@ -246,7 +269,7 @@ OBJ* L_test(OBJ_FN_ARGS)
 
 OBJ* L_gc_top(OBJ_FN_ARGS)
 {
-	printf("GC: %d\n", gcl->top);
+	printf("GC: %d\n", gcl->occupied);
 	return NIL;
 }
 
@@ -277,16 +300,25 @@ OBJ* L_print(OBJ_FN_ARGS)
 	// o = preeval(o);
 	// printf("type: %s\n", type_name(o->cdr->type));
 	OBJ* tmp = preeval(o);
-	printf("print>>");
-	print_obj_full(tmp);
-	// print_obj_simple(L_list(tmp));
+	// printf("print>>");
+	__print_obj_full(tmp);
+	// print_objf("aa: ", tmp);
 
-	// ITERATE_OBJECT(NT(tmp), curr)
+	// ITERATE_OBJECT(tmp, curr)
 	// {
-		// __print_obj_simple(__eval(curr));
+		// __print_obj_simple(__eval(curr, curr->len));
 	// }
 	// printf("\n");
 	// print_objf("print>>", NT(tmp));
+	return NIL;
+}
+
+
+
+OBJ* L_expand(OBJ_FN_ARGS)
+{
+	OBJ* tmp = preeval(o);
+	__print_obj_expand(tmp);
 	return NIL;
 }
 
@@ -300,9 +332,13 @@ OBJ* L_type(OBJ_FN_ARGS)
 
 OBJ* L_help(OBJ_FN_ARGS)
 {
-	for (int i = 0; i < o->env->size; i++) {
-		if (o->env->list[i].key != NULL)
-			printf("::> '%s'\n", o->env->list[i].key);
+	for (size_t i = 0; i < o->env->size; i++) {
+		if (o->env->list[i].key == NULL) continue;
+		__ITERATE_HASHMAP(ENV, o->env, OBJ, o->env->list[i].key)
+		{
+			printf("::> '%s'\n", BUCKET->key);
+		}
+			// printf("::> '%s'\n", o->env->list[i].key);
 	}
 	return NIL;
 }
@@ -327,8 +363,9 @@ OBJ* L_create_fn(OBJ_FN_ARGS)
 
 OBJ* L_obj_name(OBJ_FN_ARGS)
 {
-	OBJ* ret = NEW();
+	OBJ* ret = empty_obj();
 	ret->type = T_STR;
+
 	ret->str = o->name;
 	return ret;
 }
@@ -339,7 +376,7 @@ OBJ* L_let(OBJ_FN_ARGS)
 	ENV* e = o->env;
 	OBJ* var = o;
 	if (var->type != T_IDENTIFIER) {
-		if (var->name != NULL && var->name != "") var->type = T_IDENTIFIER;
+		if (var->name != NULL) var->type = T_IDENTIFIER;
 		else var = preeval(var);
 	}
 	OBJ* val = NT(var);
@@ -418,7 +455,7 @@ OBJ* L_loop(OBJ_FN_ARGS)
 	OBJ* exec_expr = NT(cond_expr);
 	// exec_expr = preeval(exec_expr);
 	// exec_expr->car = preeval_symbols(exec_expr->car);
-	// print_obj_simple(cond_expr);
+	// print_obj_simple(exec_expr);
 
 	// print_objf("exec_expr: ", exec_expr);
 
@@ -426,11 +463,11 @@ OBJ* L_loop(OBJ_FN_ARGS)
 	// preeval(exec_expr);
 	OBJ* ret = NIL;
 
-	printd("loop starting now\n");
+	// printd("loop starting now\n");
 
 	while (1)
 	{
-		OBJ* tmp = __eval(cond_expr->car, cond_expr->len);
+		OBJ* tmp = __eval(cond_expr, cond_expr->len);
 		// printf("tmp: "); print_obj_simple(tmp);
 		// print_objf("cond_expr: ", cond_expr);
 		// print_objf("exec_expr: ", exec_expr);
@@ -445,7 +482,8 @@ OBJ* L_loop(OBJ_FN_ARGS)
 		// (loop (a) (let a (+ a 2)))
 			
 		// printf("aaaaa");
-		ret = __eval(exec_expr->car, cond_expr->len);
+		// print_objf("ret: ", ret);
+		ret = L_progn(exec_expr->len, exec_expr);
 		// __print_obj_full(__eval(exec_expr->car));
 		// usleep(200);
 		// sleep(1);
@@ -470,13 +508,14 @@ OBJ* L_cond(OBJ_FN_ARGS)
 	{
 		// print_objf("cond_expr: ", cond_expr);
 		// print_objf("exec_expr: ", exec_expr);
-		OBJ* tmp = __eval(cond_expr->car, cond_expr->len);
+		OBJ* tmp = __eval(cond_expr, cond_expr->len);
 		// print_objf("tmp: ", tmp);
 
 
 		if (tmp->num || tmp->type == T_TRUE) {
 			// printd("aaa: %s\n", exec_expr->car->cdr->env->name);
 			ret = __eval(exec_expr, exec_expr->len);
+			// print_objf("ret: ", ret);
 			goto ret;
 		}
 	}

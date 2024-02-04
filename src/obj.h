@@ -6,7 +6,7 @@
 #include <string.h>
 #include <wchar.h>
 
-typedef void (*_print_func)(const char* fmt, ...);
+typedef int (*_print_func)(const char* restrict, ...);
 _print_func _printf = &printf;
 #define printf _printf
 
@@ -67,7 +67,7 @@ struct OBJ
 {
 	u8 marked;
 	OBJ_TYPE type;
-	const char* name;
+	char* name;
 
 	union
 	{
@@ -93,7 +93,7 @@ static OBJ* O_FALSE;
 
 DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
 
-typedef void (*load_lib_func)(ENV*);
+typedef void(*load_lib_func)(ENV*);
 
 #define ITERATE_OBJECT(O, curr)\
 for(OBJ* curr = O; curr != NULL && curr->type != T_UNDEFINED && curr->type != T_NIL; curr = curr->cdr)

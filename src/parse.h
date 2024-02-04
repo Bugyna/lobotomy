@@ -66,14 +66,14 @@ OBJ parse_map(LEXER* lexer, int p, int b)
 
 	
 	map.map = calloc(1, sizeof(ENV));
-	ENV_INIT(map.map, 10);
+	ENV_INIT(map.map, 11);
 	for (; lexer->peek < lexer->index; )
 	{
 		TOKEN t = lexer->tokens[lexer->peek];
 		switch (t.type)
 		{
 			case TT_RCBRACKET:
-				lexer->peek++;
+				lexer->peek--;
 				goto exit;
 			break;
 		}

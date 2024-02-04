@@ -2,31 +2,100 @@
 
 (let a 2)
 (fn local-definition (b) ( (let a (+ b 22)) (+ a 3)) )
-(local-definition a)
-(print a)
+(fn smn (b) ( (let a (+ b 22)) (+ a 3)) )
+(print "local a: " (local-definition a))
+(print "a: " a)
 
 
 ;; (::a)
 
-(let a 2)
-(?
-	(< a 4) (let a (+ a 2))
-	(else) (print "can't add anymore, number too big")` 
-)
-(?
-	(< a 4) (let a (+ a 2))
-	(else) (print "can't add anymore, number too big")` 
-)
-
-
-(?
-	(< a 4) (let a (+ a 2))
-)
 
 (let a 2)
+(?
+	(< a 4) (let a (+ a 2))
+	(else) (print "can't add anymore, number too big")
+)
+(?
+	(< a 4) (let a (+ a 2))
+	(else) (print "can't add anymore, number too big")
+)
+
+
+(?
+	(< a 4) (let a (+ a 2))
+)
+
+(let a 2)
+
+
 (loop (< a 10)  
 	(let a (+ a 2))  
 )
+
+
 (loop (< a 10)  
 	(let a (+ a 2))  
 )
+
+
+
+(let a 2)
+
+(loop (< a 10)
+		(let a (+ a 2))
+		(let b (+ a 4))
+)
+
+
+;; (fn traverse (i str)
+	;; (loop (<= i (len str))
+		;; (print (nth i str)
+			;; (? 
+				;; (<= (let i (+ i 1)) (len str)) (" -> ")
+				;; (else) (" ")
+			;; )
+		;; )
+	;; )
+;; )
+
+
+(fn decide (i str) 
+	(print
+		(? 
+			(<= i (len str)) (nth i str)
+			(else) ("big")
+		)
+	)
+	(nth i str)
+)
+
+(fn traverse (i str)
+	(loop (<= (let i (+ i 1)) (len str))
+		(print i (nth i str)
+			(?
+				(<= (+ i 1) (len str)) ("->")
+				(else) ("\n")
+			)
+		)
+	)
+)
+
+
+(fn recur (i) (? (< i 5) (i)(else) (recur (- i 1))))
+
+
+(decide 4 "abc")
+(print "1")
+;; (traverse 0 "banget string")
+(print "collecting")
+(let c 1)
+(loop (= c 1)
+	(? 
+		(= (input) "a") (print "ok")
+		(else) (gc-collect)
+	)
+)
+
+(print "1")
+
+(print 2)

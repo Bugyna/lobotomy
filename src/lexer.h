@@ -201,8 +201,8 @@ TOKEN lex_word(LEXER* lexer)
 	for (; lexer->text_peek < lexer->text_len; lexer->text_peek++, lexer->pos.column++)
 	{
 		char c = lexer->text[lexer->text_peek];
-		if (c == '\n') { lexer->pos.column = 0; lexer->pos.line++; }
-		else if (IS_VALID_SYMBOL_CHAR(c)) { str_add_char(&token, c); }
+		// if (c == '\n') { lexer->pos.column = 0; lexer->pos.line++; }
+		if (IS_VALID_SYMBOL_CHAR(c)) { str_add_char(&token, c); }
 		else if (IS_NUMBER(c)) { str_add_char(&token, c); }
 		else if (IS_TERMINATOR(c)) { goto exit; }
 	}

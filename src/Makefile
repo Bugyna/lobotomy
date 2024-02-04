@@ -10,7 +10,7 @@ CFILES=$(wildcard %.c %.h)
 
 
 main: *.c *.h
-	$(CC) -o main main.c $(CFLAGS) $(CLIBS) $(IGNORE)
+	$(CC) -o main main.c $(CFLAGS) $(CLIBS) $(IGNORE) -pg -g
 
 
 a: sample_module.c
