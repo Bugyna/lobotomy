@@ -18,7 +18,7 @@ typedef struct
 	OBJ* ptr;
 	size_t size;
 	int occupied;
-	int top;
+	int top, curr;
 	ENV* env;
 } GC;
 
@@ -34,6 +34,7 @@ void GCL_init(ENV* env)
 	gcl->ptr = &gcl->memory_pool[0];
 	gcl->occupied = 0;
 	gcl->top = 0;
+	gcl->curr = 0;
 	gcl->env = env;
 }
 
@@ -103,7 +104,7 @@ int GCL_collect()
 		// if (!gcl->memory_pool[i].marked) gcl->
 	// }
 
-	int tmp_top = gcl->top;
+	int tmp_top = gcl->curr;
 	// gcl->top = 0;
 	int collected = 0;
 	printf("gcl-top: %d\n", gcl->occupied);

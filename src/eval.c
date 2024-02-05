@@ -298,6 +298,7 @@ void eval_program(const char filename[], const char text[])
 	printf("text: %s\n", text);
 	for (;;) {
 		// head = parse_expr(&lexer, 0).head;
+		gcl->curr = gcl->top;
 		OBJ_PAIR pair = parse_expr(&lexer, 0, 0);
 		// print_obj_simple(pair.head);
 		print_obj_simple(__eval(pair.head, pair.size));
