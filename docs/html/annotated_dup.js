@@ -6,5 +6,6 @@ var annotated_dup =
     [ "MARK", "structMARK.html", "structMARK" ],
     [ "OBJ", "structOBJ.html", "structOBJ" ],
     [ "OBJ_PAIR", "structOBJ__PAIR.html", "structOBJ__PAIR" ],
+    [ "PARSER", "structPARSER.html", null ],
     [ "TOKEN", "structTOKEN.html", "structTOKEN" ]
 ];

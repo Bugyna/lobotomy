@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['ignore_5funtill_5fcurrent_5ftoken_5fend_382',['ignore_untill_current_token_end',['../structLEXER.html#a95bb7727fb13bbbd97de25281799dc58',1,'LEXER']]],
-  ['ignore_5funtill_5fnext_5ftoken_5fend_383',['ignore_untill_next_token_end',['../structLEXER.html#a5a353135a122c568e4edfa553ae74df7',1,'LEXER']]],
-  ['index_384',['index',['../structTOKEN.html#a750b5d744c39a06bfb13e6eb010e35d0',1,'TOKEN::index()'],['../structLEXER.html#a750b5d744c39a06bfb13e6eb010e35d0',1,'LEXER::index()']]]
+  ['gcl_485',['gcl',['../gc_8h.html#a8dc1b0cb6159e97d99346148c9c5806b',1,'gc.h']]]
 ];

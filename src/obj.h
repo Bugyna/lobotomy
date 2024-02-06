@@ -13,6 +13,7 @@ _print_func _printf = &printf;
 #include "util.h"
 #include "SHM/hashmap.h"
 #include "linked_list.h"
+#include "io.h"
 
 
 #define OBJ_FN_ARGS int argc, OBJ* o
@@ -34,6 +35,7 @@ typedef enum
 	T_NUM,
 	T_DECIMAL,
 	T_REF,
+	T_FILE,
 
 	// C Types that are different from the types above
 	T_C_INT32,
@@ -79,6 +81,7 @@ struct OBJ
 		ENV* map;
 		int len;
 		void* data;
+		FILE* file;
 	};
 
 	OBJ* car;
@@ -90,6 +93,11 @@ struct OBJ
 static OBJ* NIL;
 static OBJ* O_TRUE;
 static OBJ* O_FALSE;
+
+static const OBJ DEFAULT_OBJ = {.type=T_UNDEFINED};
+static OBJ* NIL = &((OBJ){.type=T_NIL});
+static OBJ* O_TRUE = &((OBJ){.type=T_TRUE, .name="TRUE"});
+static OBJ* O_FALSE = &((OBJ){.type=T_FALSE});
 
 DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
 
@@ -116,6 +124,7 @@ for(OBJ *curr = O, *curr1 = NT(O); curr1 != NULL && curr1->type != T_UNDEFINED &
 		exprs\
 }\
 
+
 void __print_obj_simple(OBJ* o);
 void print_obj_simple(OBJ* o);
 #define print_of(o, ...) printf(__VA_ARGS__); print_obj_simple(o);
@@ -131,7 +140,21 @@ void GC_init();
 OBJ* GC_alloc();
 void GC_free(OBJ* o);
 
+
+void reset_obj(OBJ* o);
 OBJ* empty_obj();
 OBJ* empty_obj_t(OBJ_TYPE type);
 OBJ* create_cfn(char* name, C_FUNC_DEC fn);
+
+
+#define L_CHECK_ARITY(ARGC, N) if (ARGC != -1 && ARGC != N) { LOBOTOMY_ERROR_S(ERR_ARITY_MISMATCH, "Expected '%d' arguments, but got '%d'", ARGC, N); }
+
+#define L_DEF_C_FN(NAME, ARITY, DOC, EXEC)\
+OBJ* NAME(OBJ_FN_ARGS)\
+{\
+	/*! ## DOC ## */\
+	L_CHECK_ARITY(ARITY, argc)\
+	EXEC\
+}\
+
 

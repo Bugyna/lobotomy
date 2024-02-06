@@ -1,9 +1,10 @@
 #include "obj.h"
 #include "eval.h"
-
+#include "io.c"
 
 OBJ* L_less_than(OBJ_FN_ARGS)
 {
+	L_CHECK_ARITY(argc, 2);
 	/*!
 			 DOC
 	*/
@@ -21,6 +22,8 @@ OBJ* L_less_than(OBJ_FN_ARGS)
 
 OBJ* L_more_than(OBJ_FN_ARGS)
 {
+	L_CHECK_ARITY(argc, 2);
+
 	OBJ* ret = empty_obj();
 	ret->type = T_NUM;
 	o = preeval(o);
@@ -52,25 +55,24 @@ OBJ* L_eq(OBJ_FN_ARGS)
 	OBJ* ret = empty_obj();
 	ret->type = T_NUM;
 	o = preeval(o);
-	switch (o->type)
+	if (o->type == T_NUM || o->type == T_DECIMAL)
 	{
-		case T_NUM: case T_DECIMAL:
-			if (NT(o)->type == T_NUM || NT(o)->type == T_DECIMAL) {
-				ret->num = (o->num == NT(o)->num);
-			}
-			else {
-				lobotomy_error("Invalid types for comparison: trying to compare '%s' and '%s'\n", type_name(o->type), type_name(NT(o)->type));
-			}
-		break;
+		if (NT(o)->type == T_NUM || NT(o)->type == T_DECIMAL) {
+			ret->num = (o->num == NT(o)->num);
+		}
+		else {
+			lobotomy_error("Invalid types for comparison: trying to compare '%s' and '%s'\n", type_name(o->type), type_name(NT(o)->type));
+		}
+	}
 
-		case T_STR:
-			if (NT(o)->type == T_STR) {
-				ret->num = !strcmp(o->str, NT(o)->str);
-			}
-			else {
-				lobotomy_error("Invalid types for comparison: trying to compare '%s' and '%s'\n", type_name(o->type), type_name(NT(o)->type));
-			}
-		break;
+	else if (o->type == T_STR)
+	{
+		if (NT(o)->type == T_STR) {
+			ret->num = !strcmp(o->str, NT(o)->str);
+		}
+		else {
+			lobotomy_error("Invalid types for comparison: trying to compare '%s' and '%s'\n", type_name(o->type), type_name(NT(o)->type));
+		}
 	}
 	
 	return ret;
@@ -310,6 +312,54 @@ OBJ* L_print(OBJ_FN_ARGS)
 	// }
 	// printf("\n");
 	// print_objf("print>>", NT(tmp));
+	return NIL;
+}
+
+
+OBJ* L_fprint(OBJ_FN_ARGS)
+{
+	/*! */
+}
+
+
+OBJ* L_file_open(OBJ_FN_ARGS)
+{
+	o = preeval(o);
+	L_CHECK_ARITY(2, argc);
+	OBJ* ret = empty_obj_t(T_FILE);
+	OBJ* file_name = o;
+	OBJ* mode = NT(file_name);
+	FILE* f = fopen(file_name->str, mode->str);
+	printf("opened file: %s in %s\n", file_name->str, mode->str);
+	if (f == NULL) {
+		LOBOTOMY_ERROR_S(ERR_RUNTIME, "Couldn't open file '%s' with mode '%s'", file_name->str, mode->str);
+	}
+	ret->file = f;
+	return ret;
+}
+	
+
+OBJ* L_file_write(OBJ_FN_ARGS)
+{
+	return o;
+}
+
+OBJ* L_file_close(OBJ_FN_ARGS)
+{
+	o = preeval(o);
+	L_CHECK_ARITY(1, argc);
+	fclose(o->file);
+	return NIL;
+}
+
+OBJ* L_file_read(OBJ_FN_ARGS)
+{
+	o = preeval(o);
+	OBJ* ret = empty_obj_t(T_STR);
+	OBJ* file = o;
+	OBJ* n = NT(file);
+	char* str = malloc(n->num+1);
+	fread(str, sizeof(char), n->num, file->file);
 	return NIL;
 }
 
@@ -557,9 +607,11 @@ OBJ* L_load(OBJ_FN_ARGS)
 	void* handle = NULL;
 	load_lib_func fn = NULL;
 	size_t len = strlen(o->str);
-	char x[len+3];
-	char xx[len+5];
-	strcpy(x, o->str);
+	char x[len+6];
+	char xx[len+6];
+	x[0] = '.';
+	x[1] = '/';
+	strcpy(x+2, o->str);
 	strcpy(xx, o->str);
 
 	strcat(x, ".so");
@@ -567,8 +619,9 @@ OBJ* L_load(OBJ_FN_ARGS)
 	printd("strcat: %s\n", x);
 	printd("strcat: %s\n", xx);
 
-	handle = dlopen("./sample_module.so", RTLD_NOW | RTLD_GLOBAL);
+	handle = dlopen(x, RTLD_NOW | RTLD_GLOBAL);
 	if (handle == NULL) {
+		fputs(dlerror(), stderr);
 		lobotomy_error("unable to load library '%s'\n", x);
 	}
 	fn = dlsym(handle, xx);
@@ -576,7 +629,8 @@ OBJ* L_load(OBJ_FN_ARGS)
 		lobotomy_error("unable to load library '%s' because %s couldn't be loaded\n", x, xx);
 	}
 	printd("load: %p\n", fn);
-	fn(global_env);
+	fn(gcl->env);
+	// dlclose(handle);
 	
 	return NIL;
 }

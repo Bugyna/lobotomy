@@ -1,6 +1,7 @@
 var structLEXER =
 [
     [ "b_count", "structLEXER.html#a76f07866ff6ee681791119992024df8d", null ],
+    [ "filename", "structLEXER.html#a7efa5e9c7494c7d4586359300221aa5d", null ],
     [ "ignore_untill_current_token_end", "structLEXER.html#a95bb7727fb13bbbd97de25281799dc58", null ],
     [ "ignore_untill_next_token_end", "structLEXER.html#a5a353135a122c568e4edfa553ae74df7", null ],
     [ "index", "structLEXER.html#a750b5d744c39a06bfb13e6eb010e35d0", null ],

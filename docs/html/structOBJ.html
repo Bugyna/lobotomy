@@ -98,6 +98,8 @@ $(document).ready(function(){initNavTree('structOBJ.html',''); initResizable(); 
 <div class="title">OBJ Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="obj_8h_source.html">obj.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for OBJ:</div>
 <div class="dyncontent">
@@ -109,10 +111,12 @@ Collaboration diagram for OBJ:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
+<tr class="memitem:ac4b2ccbbdfa470ea38f1bcdca987077a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="util_8h.html#af3b86d961da0a3575b4f99c9ffaf01fd">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOBJ.html#ac4b2ccbbdfa470ea38f1bcdca987077a">marked</a></td></tr>
+<tr class="separator:ac4b2ccbbdfa470ea38f1bcdca987077a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79da2848e0aa990f3bfb6bbc679adb07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121e">OBJ_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOBJ.html#a79da2848e0aa990f3bfb6bbc679adb07">type</a></td></tr>
 <tr class="separator:a79da2848e0aa990f3bfb6bbc679adb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f8f80d37794cde9472343e4487ba3eb"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOBJ.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></td></tr>
-<tr class="separator:a8f8f80d37794cde9472343e4487ba3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ac083a645d964373f022d03df4849c8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOBJ.html#a5ac083a645d964373f022d03df4849c8">name</a></td></tr>
+<tr class="separator:a5ac083a645d964373f022d03df4849c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e03552ebcf472b07748f51acc8d9694"><td class="memItemLeft" >union {</td></tr>
 <tr class="memitem:a95fc76296e1d8cd7af09bc36dce0974f"><td class="memItemLeft" >&#160;&#160;&#160;int64_t&#160;&#160;&#160;<a class="el" href="structOBJ.html#a95fc76296e1d8cd7af09bc36dce0974f">num</a></td></tr>
 <tr class="separator:a95fc76296e1d8cd7af09bc36dce0974f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,8 +131,14 @@ Data Fields</h2></td></tr>
 <tr class="separator:a493440883218ce089dfd91547a91b934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8b8b8c69b87bdc5f4f3568d88f871ae"><td class="memItemLeft" valign="top">&#160;&#160;&#160;}&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="separator:ad8b8b8c69b87bdc5f4f3568d88f871ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5f8ac5990692795b17d185e9294646"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="obj_8h.html#a398b9f23afcf45de3cabf2002dbb1b67">C_FUNC_DEC</a>&#160;&#160;&#160;<a class="el" href="structOBJ.html#a3b5f8ac5990692795b17d185e9294646">c_fn</a></td></tr>
+<tr class="memitem:a3b5f8ac5990692795b17d185e9294646"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="obj_8h.html#a531efa8d0d049cf656a3c31c5c94873a">C_FUNC_DEC</a>&#160;&#160;&#160;<a class="el" href="structOBJ.html#a3b5f8ac5990692795b17d185e9294646">c_fn</a></td></tr>
 <tr class="separator:a3b5f8ac5990692795b17d185e9294646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a683932d1d77403bc543db2e1d5ae6b2f"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a> *&#160;&#160;&#160;<a class="el" href="structOBJ.html#a683932d1d77403bc543db2e1d5ae6b2f">map</a></td></tr>
+<tr class="separator:a683932d1d77403bc543db2e1d5ae6b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afed088663f8704004425cdae2120b9b3"><td class="memItemLeft" >&#160;&#160;&#160;int&#160;&#160;&#160;<a class="el" href="structOBJ.html#afed088663f8704004425cdae2120b9b3">len</a></td></tr>
+<tr class="separator:afed088663f8704004425cdae2120b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735984d41155bc1032e09bece8f8d66d"><td class="memItemLeft" >&#160;&#160;&#160;void *&#160;&#160;&#160;<a class="el" href="structOBJ.html#a735984d41155bc1032e09bece8f8d66d">data</a></td></tr>
+<tr class="separator:a735984d41155bc1032e09bece8f8d66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e03552ebcf472b07748f51acc8d9694"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="separator:a2e03552ebcf472b07748f51acc8d9694"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d38952916caef94a84c922e4d15fc88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOBJ.html#a7d38952916caef94a84c922e4d15fc88">car</a></td></tr>
@@ -137,6 +147,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a6b6699c1641de1410bbd6e1f85a0f837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab082a901a23e5315ca84dd0c984d58f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOBJ.html#ab082a901a23e5315ca84dd0c984d58f1">env</a></td></tr>
 <tr class="separator:ab082a901a23e5315ca84dd0c984d58f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeea1c1848bccc2c856a6d65b5e61b85d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOBJ.html#aeea1c1848bccc2c856a6d65b5e61b85d">env_name</a></td></tr>
+<tr class="separator:aeea1c1848bccc2c856a6d65b5e61b85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>does stuff </p>
@@ -190,7 +202,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="obj_8h.html#a398b9f23afcf45de3cabf2002dbb1b67">C_FUNC_DEC</a> c_fn</td>
+          <td class="memname"><a class="el" href="obj_8h.html#a531efa8d0d049cf656a3c31c5c94873a">C_FUNC_DEC</a> c_fn</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -225,6 +237,20 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a id="a735984d41155bc1032e09bece8f8d66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a735984d41155bc1032e09bece8f8d66d">&#9670;&nbsp;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a160d6366514b7fe5ec086f528835c5ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a160d6366514b7fe5ec086f528835c5ce">&#9670;&nbsp;</a></span>decimal</h2>
 
@@ -253,14 +279,70 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a8f8f80d37794cde9472343e4487ba3eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f8f80d37794cde9472343e4487ba3eb">&#9670;&nbsp;</a></span>name</h2>
+<a id="aeea1c1848bccc2c856a6d65b5e61b85d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeea1c1848bccc2c856a6d65b5e61b85d">&#9670;&nbsp;</a></span>env_name</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* name</td>
+          <td class="memname">const char* env_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afed088663f8704004425cdae2120b9b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afed088663f8704004425cdae2120b9b3">&#9670;&nbsp;</a></span>len</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int len</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a683932d1d77403bc543db2e1d5ae6b2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a683932d1d77403bc543db2e1d5ae6b2f">&#9670;&nbsp;</a></span>map</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a>* map</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4b2ccbbdfa470ea38f1bcdca987077a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4b2ccbbdfa470ea38f1bcdca987077a">&#9670;&nbsp;</a></span>marked</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="util_8h.html#af3b86d961da0a3575b4f99c9ffaf01fd">u8</a> marked</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ac083a645d964373f022d03df4849c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ac083a645d964373f022d03df4849c8">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* name</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -310,7 +392,7 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/bugy/projs/lobotomy/src/<a class="el" href="obj_8c.html">obj.c</a></li>
+<li>/home/bugy/projs/lobotomy/src/<a class="el" href="obj_8h_source.html">obj.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

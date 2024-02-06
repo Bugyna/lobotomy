@@ -1,10 +1,12 @@
 <map id="/home/bugy/projs/lobotomy/src/obj.h" name="/home/bugy/projs/lobotomy/src/obj.h">
-<area shape="rect" id="node1" title=" " alt="" coords="343,5,544,47"/>
-<area shape="rect" id="node2" href="$parse_8h.html" title=" " alt="" coords="231,95,432,136"/>
-<area shape="rect" id="node5" href="$l__std_8h.html" title=" " alt="" coords="5,95,207,136"/>
-<area shape="rect" id="node6" href="$obj_8c.html" title=" " alt="" coords="456,95,657,136"/>
-<area shape="rect" id="node8" href="$gc_8h.html" title=" " alt="" coords="681,95,883,136"/>
-<area shape="rect" id="node3" href="$eval_8c.html" title=" " alt="" coords="204,184,405,225"/>
-<area shape="rect" id="node4" href="$main_8c.html" title=" " alt="" coords="204,273,405,315"/>
-<area shape="rect" id="node7" href="$sample__module_8c.html" title=" " alt="" coords="481,184,683,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="264,5,465,47"/>
+<area shape="rect" id="node2" href="$parse_8h.html" title=" " alt="" coords="5,184,207,225"/>
+<area shape="rect" id="node5" href="$l__std_8c.html" title=" " alt="" coords="144,273,345,315"/>
+<area shape="rect" id="node6" href="$eval_8h.html" title=" " alt="" coords="283,184,484,225"/>
+<area shape="rect" id="node7" href="$l__std_8h.html" title=" " alt="" coords="333,95,535,136"/>
+<area shape="rect" id="node8" href="$obj_8c.html" title=" " alt="" coords="611,184,812,225"/>
+<area shape="rect" id="node10" href="$gc_8h.html" title=" " alt="" coords="611,95,812,136"/>
+<area shape="rect" id="node3" href="$eval_8c.html" title=" " alt="" coords="283,363,484,404"/>
+<area shape="rect" id="node4" href="$main_8c.html" title=" " alt="" coords="421,452,623,493"/>
+<area shape="rect" id="node9" href="$sample__module_8c.html" title=" " alt="" coords="611,273,812,315"/>
 </map>

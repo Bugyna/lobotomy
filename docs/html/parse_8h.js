@@ -1,7 +1,10 @@
 var parse_8h =
 [
+    [ "PARSER", "structPARSER.html", null ],
     [ "OBJ_PAIR", "structOBJ__PAIR.html", "structOBJ__PAIR" ],
-    [ "parse", "parse_8h.html#a3e32333ebc843938e42f990be4f7d563", null ],
+    [ "parse", "parse_8h.html#a26622c45e3bf85029d30987080085900", null ],
     [ "parse_atom", "parse_8h.html#aaab8c45d44c1fcee7c7ea107f2eece15", null ],
-    [ "parse_expr", "parse_8h.html#ae8423d9c5ce3c748b61cc34888a2dafd", null ]
+    [ "parse_expr", "parse_8h.html#a4ff2b50b363a5982274caa7a418c533c", null ],
+    [ "parse_map", "parse_8h.html#a16bb24880a9e0b58977350226589ddbb", null ],
+    [ "parse_object", "parse_8h.html#af2fcafe32ffac40be0f7e89bd9b081a1", null ]
 ];

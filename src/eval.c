@@ -222,7 +222,7 @@ OBJ* __eval(OBJ* head, int argc)
 		break;
 
 		case T_C_FN:
-			return head->c_fn(argc, head);
+			return head->c_fn(argc-1, head);
 		break;
 
 		case T_FN:
@@ -237,7 +237,7 @@ OBJ* __eval(OBJ* head, int argc)
 			switch (o->type)
 			{
 				case T_C_FN:
-					return o->c_fn(argc, NT(head));
+					return o->c_fn(argc-1, NT(head));
 				break;
 
 				case T_FN:
@@ -259,7 +259,7 @@ OBJ* __eval(OBJ* head, int argc)
 			switch (o->type)
 			{
 				case T_C_FN:
-					return o->c_fn(argc, NT(head));
+					return o->c_fn(argc-1, NT(head));
 				break;
 
 				case T_FN:
@@ -298,7 +298,7 @@ void eval_program(const char filename[], const char text[])
 	printf("text: %s\n", text);
 	for (;;) {
 		// head = parse_expr(&lexer, 0).head;
-		gcl->curr = gcl->top;
+		// gcl->curr = gcl->top;
 		OBJ_PAIR pair = parse_expr(&lexer, 0, 0);
 		// print_obj_simple(pair.head);
 		print_obj_simple(__eval(pair.head, pair.size));

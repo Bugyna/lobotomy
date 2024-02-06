@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('obj_8h.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
@@ -104,7 +105,9 @@ $(document).ready(function(){initNavTree('obj_8h.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;wchar.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SHM_2hashmap_8h_source.html">SHM/hashmap.h</a>&quot;</code><br />
@@ -114,21 +117,22 @@ Include dependency graph for obj.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="obj_8h__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2obj_8h" alt=""/></div>
 <map name="_2home_2bugy_2projs_2lobotomy_2src_2obj_8h" id="_2home_2bugy_2projs_2lobotomy_2src_2obj_8h">
-<area shape="rect" title=" " alt="" coords="374,5,575,47"/>
-<area shape="rect" title=" " alt="" coords="242,244,313,271"/>
-<area shape="rect" title=" " alt="" coords="882,169,953,196"/>
-<area shape="rect" title=" " alt="" coords="808,244,875,271"/>
-<area shape="rect" title=" " alt="" coords="23,169,97,196"/>
-<area shape="rect" href="util_8h.html" title=" " alt="" coords="447,95,502,121"/>
-<area shape="rect" href="SHM_2hashmap_8h.html" title=" " alt="" coords="755,95,883,121"/>
-<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="213,95,313,121"/>
-<area shape="rect" title=" " alt="" coords="680,169,763,196"/>
-<area shape="rect" title=" " alt="" coords="437,169,512,196"/>
-<area shape="rect" title=" " alt="" coords="787,169,858,196"/>
-<area shape="rect" title=" " alt="" coords="537,169,605,196"/>
-<area shape="rect" title=" " alt="" coords="211,169,275,196"/>
-<area shape="rect" title=" " alt="" coords="299,169,363,196"/>
-<area shape="rect" href="error_8h.html" title=" " alt="" coords="121,169,186,196"/>
+<area shape="rect" title=" " alt="" coords="285,5,487,47"/>
+<area shape="rect" title=" " alt="" coords="5,244,76,271"/>
+<area shape="rect" title=" " alt="" coords="103,244,173,271"/>
+<area shape="rect" title=" " alt="" coords="283,244,366,271"/>
+<area shape="rect" title=" " alt="" coords="733,244,799,271"/>
+<area shape="rect" title=" " alt="" coords="457,244,528,271"/>
+<area shape="rect" title=" " alt="" coords="1116,244,1189,271"/>
+<area shape="rect" href="util_8h.html" title=" " alt="" coords="573,95,628,121"/>
+<area shape="rect" href="SHM_2hashmap_8h.html" title=" " alt="" coords="201,169,329,196"/>
+<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="336,95,436,121"/>
+<area shape="rect" title=" " alt="" coords="889,169,963,196"/>
+<area shape="rect" title=" " alt="" coords="495,169,563,196"/>
+<area shape="rect" title=" " alt="" coords="638,169,702,196"/>
+<area shape="rect" title=" " alt="" coords="726,169,790,196"/>
+<area shape="rect" href="os_8h.html" title=" " alt="" coords="815,169,864,196"/>
+<area shape="rect" href="error_8h.html" title=" " alt="" coords="353,169,419,196"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -136,23 +140,32 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="obj_8h__dep__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2obj_8hdep" alt=""/></div>
 <map name="_2home_2bugy_2projs_2lobotomy_2src_2obj_8hdep" id="_2home_2bugy_2projs_2lobotomy_2src_2obj_8hdep">
-<area shape="rect" title=" " alt="" coords="343,5,544,47"/>
-<area shape="rect" href="parse_8h.html" title=" " alt="" coords="231,95,432,136"/>
-<area shape="rect" href="l__std_8h.html" title=" " alt="" coords="5,95,207,136"/>
-<area shape="rect" href="obj_8c.html" title=" " alt="" coords="456,95,657,136"/>
-<area shape="rect" href="gc_8h.html" title=" " alt="" coords="681,95,883,136"/>
-<area shape="rect" href="eval_8c.html" title=" " alt="" coords="204,184,405,225"/>
-<area shape="rect" href="main_8c.html" title=" " alt="" coords="204,273,405,315"/>
-<area shape="rect" href="sample__module_8c.html" title=" " alt="" coords="481,184,683,225"/>
+<area shape="rect" title=" " alt="" coords="264,5,465,47"/>
+<area shape="rect" href="parse_8h.html" title=" " alt="" coords="5,184,207,225"/>
+<area shape="rect" href="l__std_8c.html" title=" " alt="" coords="144,273,345,315"/>
+<area shape="rect" href="eval_8h.html" title=" " alt="" coords="283,184,484,225"/>
+<area shape="rect" href="l__std_8h.html" title=" " alt="" coords="333,95,535,136"/>
+<area shape="rect" href="obj_8c.html" title=" " alt="" coords="611,184,812,225"/>
+<area shape="rect" href="gc_8h.html" title=" " alt="" coords="611,95,812,136"/>
+<area shape="rect" href="eval_8c.html" title=" " alt="" coords="283,363,484,404"/>
+<area shape="rect" href="main_8c.html" title=" " alt="" coords="421,452,623,493"/>
+<area shape="rect" href="sample__module_8c.html" title=" " alt="" coords="611,273,812,315"/>
 </map>
 </div>
 </div>
 <p><a href="obj_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOBJ.html">OBJ</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a3cb9f0894fab1c8fbb0753c9c7c2a8d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>&#160;&#160;&#160;<a class="el" href="obj_8h.html#a4433d2ed84066d56a27f73898f4332fe">_printf</a></td></tr>
 <tr class="separator:a3cb9f0894fab1c8fbb0753c9c7c2a8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ad5d21f9a97102fffd5cc6c2672ea9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a06ad5d21f9a97102fffd5cc6c2672ea9">OBJ_FN_ARGS</a>&#160;&#160;&#160;int argc, <a class="el" href="structOBJ.html">OBJ</a>* o</td></tr>
+<tr class="separator:a06ad5d21f9a97102fffd5cc6c2672ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6df1d22fb5f09eccc23b9f399670cfd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a6df1d22fb5f09eccc23b9f399670cfd7">STRINGIFY</a>(x)&#160;&#160;&#160;#x</td></tr>
 <tr class="separator:a6df1d22fb5f09eccc23b9f399670cfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a179a6093bc435cbca8f4c1abb79db64c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a179a6093bc435cbca8f4c1abb79db64c">NT</a>(X)&#160;&#160;&#160;X-&gt;cdr</td></tr>
@@ -167,15 +180,21 @@ Macros</h2></td></tr>
 <tr class="separator:a9f01fe02cc375ece93297c3f34f763ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ddf29c6e2b3e9193f3ebb9fd3beec2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a9ddf29c6e2b3e9193f3ebb9fd3beec2a">ZIP_ITERATE_OBJECT</a>(O,  P,  curr,  curr1,  exprs)</td></tr>
 <tr class="separator:a9ddf29c6e2b3e9193f3ebb9fd3beec2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa37e806afdba642328d3ce012d8b0eae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#aa37e806afdba642328d3ce012d8b0eae">print_of</a>(o, ...)&#160;&#160;&#160;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(__VA_ARGS__); <a class="el" href="obj_8h.html#a0ff4ee4239a3c797e1c4e85d2e7d55a1">print_obj_simple</a>(o);</td></tr>
+<tr class="separator:aa37e806afdba642328d3ce012d8b0eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5d7d57bf0fdbed31316480959ef84a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#aa5d7d57bf0fdbed31316480959ef84a1">print_objf</a>(fmt,  o, ...)&#160;&#160;&#160;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(fmt __VA_ARGS__); <a class="el" href="obj_8h.html#a0ff4ee4239a3c797e1c4e85d2e7d55a1">print_obj_simple</a>(o);</td></tr>
 <tr class="separator:aa5d7d57bf0fdbed31316480959ef84a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8232508d91e1747ea70bd1dc55ba0acd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a8232508d91e1747ea70bd1dc55ba0acd">NEW</a>()&#160;&#160;&#160;<a class="el" href="obj_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">GC_alloc</a>()</td></tr>
-<tr class="separator:a8232508d91e1747ea70bd1dc55ba0acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15cf913d1c2ed25cdf686cb7064a7150"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a15cf913d1c2ed25cdf686cb7064a7150">print_objff</a>(fmt,  o, ...)&#160;&#160;&#160;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(fmt __VA_ARGS__); <a class="el" href="obj_8c.html#a7efb121fca71b2964ab4e48b76ec1128">print_obj_full</a>(o);</td></tr>
+<tr class="separator:a15cf913d1c2ed25cdf686cb7064a7150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33b4a0ce57ebfe5894ab8d6c2db4ff95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a33b4a0ce57ebfe5894ab8d6c2db4ff95">L_CHECK_ARITY</a>(ARGC,  N)&#160;&#160;&#160;if (ARGC != -1 &amp;&amp; ARGC != N) { <a class="el" href="error_8h.html#ac9f6aacb588a695a78c49b731ad93975">LOBOTOMY_ERROR_S</a>(<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1bc1205331a4f94721829528fd915ef2">ERR_ARITY_MISMATCH</a>, &quot;Expected '%d' arguments, but got '%d'&quot;, ARGC, N); }</td></tr>
+<tr class="separator:a33b4a0ce57ebfe5894ab8d6c2db4ff95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4aea5f7cff5b72b3123774b2493aad4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#ac4aea5f7cff5b72b3123774b2493aad4">L_DEF_C_FN</a>(NAME,  ARITY,  DOC,  EXEC)</td></tr>
+<tr class="separator:ac4aea5f7cff5b72b3123774b2493aad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a09430c0a7f64ea7a2510be979774c037"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a09430c0a7f64ea7a2510be979774c037">_print_func</a>) (const char *fmt,...)</td></tr>
-<tr class="separator:a09430c0a7f64ea7a2510be979774c037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0975fd5cc137bc49650904b8e3ac3129"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a0975fd5cc137bc49650904b8e3ac3129">_print_func</a>) (const char *restrict,...)</td></tr>
+<tr class="separator:a0975fd5cc137bc49650904b8e3ac3129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a830efd366bee8f45b4728522df82c90f"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structFN.html">FN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a830efd366bee8f45b4728522df82c90f">FN</a></td></tr>
 <tr class="separator:a830efd366bee8f45b4728522df82c90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3e62818fe3f67193959ddfa20793a6"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structOBJ.html">OBJ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a0b3e62818fe3f67193959ddfa20793a6">OBJ</a></td></tr>
@@ -184,10 +203,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a17603768e25a1fbc716b45db156abb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cf8df4c53c907fcf7a53617956c43c2"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a></td></tr>
 <tr class="separator:a3cf8df4c53c907fcf7a53617956c43c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7367140a73435d5b6fc062da55e4845"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structGC.html">GC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#ad7367140a73435d5b6fc062da55e4845">GC</a></td></tr>
-<tr class="separator:ad7367140a73435d5b6fc062da55e4845"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a398b9f23afcf45de3cabf2002dbb1b67"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structOBJ.html">OBJ</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a398b9f23afcf45de3cabf2002dbb1b67">C_FUNC_DEC</a>) (<a class="el" href="structOBJ.html">OBJ</a> *)</td></tr>
-<tr class="separator:a398b9f23afcf45de3cabf2002dbb1b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531efa8d0d049cf656a3c31c5c94873a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structOBJ.html">OBJ</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a531efa8d0d049cf656a3c31c5c94873a">C_FUNC_DEC</a>) (<a class="el" href="obj_8h.html#a06ad5d21f9a97102fffd5cc6c2672ea9">OBJ_FN_ARGS</a>)</td></tr>
+<tr class="separator:a531efa8d0d049cf656a3c31c5c94873a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a305c8182d607e7f1f3c15fbc454a7265"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a305c8182d607e7f1f3c15fbc454a7265">load_lib_func</a>) (<a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a> *)</td></tr>
 <tr class="separator:a305c8182d607e7f1f3c15fbc454a7265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -202,14 +219,21 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ead04c6fedfc6e82b9cd961d926579f541">T_FALSE</a>, 
 <a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea9c5c7533b65f70c615307c5d149b7fee">T_EXPR</a>, 
 <a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0">T_LIST</a>, 
-<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb">T_C_FN</a>, 
+<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea49c3cad9d23176405114d15a247d8093">T_MAP</a>, 
 <br />
-&#160;&#160;<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0">T_FN</a>, 
+&#160;&#160;<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb">T_C_FN</a>, 
+<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0">T_FN</a>, 
 <a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111">T_STR</a>, 
 <a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc">T_NUM</a>, 
-<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d">T_DECIMAL</a>, 
 <br />
-&#160;&#160;<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eae3514db66d821cd913d6ff84ac030ad0">T_REF</a>
+&#160;&#160;<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d">T_DECIMAL</a>, 
+<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eae3514db66d821cd913d6ff84ac030ad0">T_REF</a>, 
+<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ead23c2dce9230d8ec91bbfc8caff4f45d">T_C_INT32</a>, 
+<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea5b4357f9726fa858aa9698d717eb6f4a">T_C_UINT32</a>, 
+<br />
+&#160;&#160;<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eafa49937803703ecf8a7c66d2457041d4">T_FLOAT</a>, 
+<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eaf24365da2f520145adf4335eadd074bc">T_VOID_PTR</a>, 
+<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea965178b449bcfdbd4dc1a31f63e99af8">T_OTHER</a>
 <br />
  }</td></tr>
 <tr class="separator:a714b9c2c276fbae637fee36453d9121e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -238,12 +262,12 @@ Functions</h2></td></tr>
 <tr class="separator:afef0f8196de8986895bc02ecbbaf2529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2257fb022ed4e979225cdf9d6048ff65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a2257fb022ed4e979225cdf9d6048ff65">empty_obj_t</a> (<a class="el" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121e">OBJ_TYPE</a> type)</td></tr>
 <tr class="separator:a2257fb022ed4e979225cdf9d6048ff65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af706a6bda6ef0513b46c95fe1fcdfb6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#af706a6bda6ef0513b46c95fe1fcdfb6c">create_cfn</a> (const char *name, <a class="el" href="obj_8h.html#a398b9f23afcf45de3cabf2002dbb1b67">C_FUNC_DEC</a> fn)</td></tr>
-<tr class="separator:af706a6bda6ef0513b46c95fe1fcdfb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab72a6d7dae41c14ba1a414597d56bedd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#ab72a6d7dae41c14ba1a414597d56bedd">create_cfn</a> (char *name, <a class="el" href="obj_8h.html#a531efa8d0d049cf656a3c31c5c94873a">C_FUNC_DEC</a> fn)</td></tr>
+<tr class="separator:ab72a6d7dae41c14ba1a414597d56bedd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a4433d2ed84066d56a27f73898f4332fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="obj_8h.html#a09430c0a7f64ea7a2510be979774c037">_print_func</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a4433d2ed84066d56a27f73898f4332fe">_printf</a> = &amp;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a></td></tr>
+<tr class="memitem:a4433d2ed84066d56a27f73898f4332fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="obj_8h.html#a0975fd5cc137bc49650904b8e3ac3129">_print_func</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj_8h.html#a4433d2ed84066d56a27f73898f4332fe">_printf</a> = &amp;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a></td></tr>
 <tr class="separator:a4433d2ed84066d56a27f73898f4332fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -337,21 +361,77 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a8232508d91e1747ea70bd1dc55ba0acd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8232508d91e1747ea70bd1dc55ba0acd">&#9670;&nbsp;</a></span>NEW</h2>
+<a id="a33b4a0ce57ebfe5894ab8d6c2db4ff95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33b4a0ce57ebfe5894ab8d6c2db4ff95">&#9670;&nbsp;</a></span>L_CHECK_ARITY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define NEW</td>
+          <td class="memname">#define L_CHECK_ARITY</td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="obj_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">GC_alloc</a>()</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ARGC, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">N&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;if (ARGC != -1 &amp;&amp; ARGC != N) { <a class="el" href="error_8h.html#ac9f6aacb588a695a78c49b731ad93975">LOBOTOMY_ERROR_S</a>(<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1bc1205331a4f94721829528fd915ef2">ERR_ARITY_MISMATCH</a>, &quot;Expected '%d' arguments, but got '%d'&quot;, ARGC, N); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="ac4aea5f7cff5b72b3123774b2493aad4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4aea5f7cff5b72b3123774b2493aad4">&#9670;&nbsp;</a></span>L_DEF_C_FN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define L_DEF_C_FN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ARITY, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">DOC, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">EXEC&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="structOBJ.html">OBJ</a>* NAME(<a class="code" href="obj_8h.html#a06ad5d21f9a97102fffd5cc6c2672ea9">OBJ_FN_ARGS</a>)\</div>
+<div class="line">{\\</div>
+<div class="line">    L_CHECK_ARITY(ARITY, argc)\</div>
+<div class="line">    EXEC\</div>
+<div class="line">}\</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae1e180e18868549f629136a2d1a48dda"></a>
@@ -390,6 +470,20 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a06ad5d21f9a97102fffd5cc6c2672ea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ad5d21f9a97102fffd5cc6c2672ea9">&#9670;&nbsp;</a></span>OBJ_FN_ARGS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJ_FN_ARGS&#160;&#160;&#160;int argc, <a class="el" href="structOBJ.html">OBJ</a>* o</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa5d7d57bf0fdbed31316480959ef84a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa5d7d57bf0fdbed31316480959ef84a1">&#9670;&nbsp;</a></span>print_objf</h2>
 
@@ -418,6 +512,68 @@ Variables</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td>&#160;&#160;&#160;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(fmt __VA_ARGS__); <a class="el" href="obj_8h.html#a0ff4ee4239a3c797e1c4e85d2e7d55a1">print_obj_simple</a>(o);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15cf913d1c2ed25cdf686cb7064a7150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15cf913d1c2ed25cdf686cb7064a7150">&#9670;&nbsp;</a></span>print_objff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define print_objff</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fmt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">o, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(fmt __VA_ARGS__); <a class="el" href="obj_8c.html#a7efb121fca71b2964ab4e48b76ec1128">print_obj_full</a>(o);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa37e806afdba642328d3ce012d8b0eae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37e806afdba642328d3ce012d8b0eae">&#9670;&nbsp;</a></span>print_of</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define print_of</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">o, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(__VA_ARGS__); <a class="el" href="obj_8h.html#a0ff4ee4239a3c797e1c4e85d2e7d55a1">print_obj_simple</a>(o);</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -509,28 +665,28 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a09430c0a7f64ea7a2510be979774c037"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09430c0a7f64ea7a2510be979774c037">&#9670;&nbsp;</a></span>_print_func</h2>
+<a id="a0975fd5cc137bc49650904b8e3ac3129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0975fd5cc137bc49650904b8e3ac3129">&#9670;&nbsp;</a></span>_print_func</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void(* _print_func) (const char *fmt,...)</td>
+          <td class="memname">typedef int(* _print_func) (const char *restrict,...)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a398b9f23afcf45de3cabf2002dbb1b67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a398b9f23afcf45de3cabf2002dbb1b67">&#9670;&nbsp;</a></span>C_FUNC_DEC</h2>
+<a id="a531efa8d0d049cf656a3c31c5c94873a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531efa8d0d049cf656a3c31c5c94873a">&#9670;&nbsp;</a></span>C_FUNC_DEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structOBJ.html">OBJ</a>*(* C_FUNC_DEC) (<a class="el" href="structOBJ.html">OBJ</a> *)</td>
+          <td class="memname">typedef <a class="el" href="structOBJ.html">OBJ</a>*(* C_FUNC_DEC) (<a class="el" href="obj_8h.html#a06ad5d21f9a97102fffd5cc6c2672ea9">OBJ_FN_ARGS</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -579,20 +735,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad7367140a73435d5b6fc062da55e4845"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7367140a73435d5b6fc062da55e4845">&#9670;&nbsp;</a></span>GC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="structGC.html">GC</a> <a class="el" href="structGC.html">GC</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a305c8182d607e7f1f3c15fbc454a7265"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a305c8182d607e7f1f3c15fbc454a7265">&#9670;&nbsp;</a></span>load_lib_func</h2>
 
@@ -635,18 +777,27 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf"></a>T_UNDEFINED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121eae711a251b1feff34fd9b1337a3caa6aa"></a>T_NIL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a"></a>T_IDENTIFIER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075"></a>T_TRUE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121eae711a251b1feff34fd9b1337a3caa6aa"></a>T_NIL&#160;</td><td class="fielddoc"><p>T_UNDEFINED </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea141e88afb82d0cd392318a5c3534c33a"></a>T_IDENTIFIER&#160;</td><td class="fielddoc"><p>NIL/NULL value </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea66901c4f0f0cf6cd9002834b1f8f2075"></a>T_TRUE&#160;</td><td class="fielddoc"><p>NIL/NULL value </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ead04c6fedfc6e82b9cd961d926579f541"></a>T_FALSE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea9c5c7533b65f70c615307c5d149b7fee"></a>T_EXPR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea7d71804aa7657b5efe565b8c8eb2ccb0"></a>T_LIST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea49c3cad9d23176405114d15a247d8093"></a>T_MAP&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121eac489cf3871b0975cb8019f773eda6cdb"></a>T_C_FN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ead44b94de1da3c13a848deb5759e9f9d0"></a>T_FN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121eab0caeb1d37ca0a20fce4464a80ef4111"></a>T_STR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc"></a>T_NUM&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d"></a>T_DECIMAL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121eae3514db66d821cd913d6ff84ac030ad0"></a>T_REF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ead23c2dce9230d8ec91bbfc8caff4f45d"></a>T_C_INT32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea5b4357f9726fa858aa9698d717eb6f4a"></a>T_C_UINT32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121eafa49937803703ecf8a7c66d2457041d4"></a>T_FLOAT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121eaf24365da2f520145adf4335eadd074bc"></a>T_VOID_PTR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a714b9c2c276fbae637fee36453d9121ea965178b449bcfdbd4dc1a31f63e99af8"></a>T_OTHER&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -657,6 +808,9 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void __print_obj_full </td>
@@ -666,6 +820,11 @@ Variables</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -688,8 +847,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af706a6bda6ef0513b46c95fe1fcdfb6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af706a6bda6ef0513b46c95fe1fcdfb6c">&#9670;&nbsp;</a></span>create_cfn()</h2>
+<a id="ab72a6d7dae41c14ba1a414597d56bedd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab72a6d7dae41c14ba1a414597d56bedd">&#9670;&nbsp;</a></span>create_cfn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -697,13 +856,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* create_cfn </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
+          <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="obj_8h.html#a398b9f23afcf45de3cabf2002dbb1b67">C_FUNC_DEC</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="obj_8h.html#a531efa8d0d049cf656a3c31c5c94873a">C_FUNC_DEC</a>&#160;</td>
           <td class="paramname"><em>fn</em>&#160;</td>
         </tr>
         <tr>
@@ -903,7 +1062,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="obj_8h.html#a09430c0a7f64ea7a2510be979774c037">_print_func</a> _printf = &amp;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a></td>
+          <td class="memname"><a class="el" href="obj_8h.html#a0975fd5cc137bc49650904b8e3ac3129">_print_func</a> _printf = &amp;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -912,11 +1071,12 @@ Variables</h2></td></tr>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aobj_8h_html_a714b9c2c276fbae637fee36453d9121eae711a251b1feff34fd9b1337a3caa6aa"><div class="ttname"><a href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eae711a251b1feff34fd9b1337a3caa6aa">T_NIL</a></div><div class="ttdeci">@ T_NIL</div><div class="ttdef"><b>Definition:</b> obj.h:20</div></div>
-<div class="ttc" id="aobj_8h_html_a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf"><div class="ttname"><a href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf">T_UNDEFINED</a></div><div class="ttdeci">@ T_UNDEFINED</div><div class="ttdef"><b>Definition:</b> obj.h:19</div></div>
-<div class="ttc" id="astructOBJ_html_a6b6699c1641de1410bbd6e1f85a0f837"><div class="ttname"><a href="structOBJ.html#a6b6699c1641de1410bbd6e1f85a0f837">OBJ::cdr</a></div><div class="ttdeci">OBJ * cdr</div><div class="ttdef"><b>Definition:</b> obj.c:54</div></div>
-<div class="ttc" id="astructOBJ_html"><div class="ttname"><a href="structOBJ.html">OBJ</a></div><div class="ttdef"><b>Definition:</b> obj.c:36</div></div>
-<div class="ttc" id="astructOBJ_html_a79da2848e0aa990f3bfb6bbc679adb07"><div class="ttname"><a href="structOBJ.html#a79da2848e0aa990f3bfb6bbc679adb07">OBJ::type</a></div><div class="ttdeci">OBJ_TYPE type</div><div class="ttdef"><b>Definition:</b> obj.c:41</div></div>
+<div class="ttc" id="aobj_8h_html_a714b9c2c276fbae637fee36453d9121eae711a251b1feff34fd9b1337a3caa6aa"><div class="ttname"><a href="obj_8h.html#a714b9c2c276fbae637fee36453d9121eae711a251b1feff34fd9b1337a3caa6aa">T_NIL</a></div><div class="ttdeci">@ T_NIL</div><div class="ttdef"><b>Definition:</b> obj.h:24</div></div>
+<div class="ttc" id="aobj_8h_html_a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf"><div class="ttname"><a href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea70d13b7dc63331cc4562bcf794f21fdf">T_UNDEFINED</a></div><div class="ttdeci">@ T_UNDEFINED</div><div class="ttdef"><b>Definition:</b> obj.h:23</div></div>
+<div class="ttc" id="aobj_8h_html_a06ad5d21f9a97102fffd5cc6c2672ea9"><div class="ttname"><a href="obj_8h.html#a06ad5d21f9a97102fffd5cc6c2672ea9">OBJ_FN_ARGS</a></div><div class="ttdeci">#define OBJ_FN_ARGS</div><div class="ttdef"><b>Definition:</b> obj.h:18</div></div>
+<div class="ttc" id="astructOBJ_html_a6b6699c1641de1410bbd6e1f85a0f837"><div class="ttname"><a href="structOBJ.html#a6b6699c1641de1410bbd6e1f85a0f837">OBJ::cdr</a></div><div class="ttdeci">OBJ * cdr</div><div class="ttdef"><b>Definition:</b> obj.h:85</div></div>
+<div class="ttc" id="astructOBJ_html"><div class="ttname"><a href="structOBJ.html">OBJ</a></div><div class="ttdef"><b>Definition:</b> obj.h:63</div></div>
+<div class="ttc" id="astructOBJ_html_a79da2848e0aa990f3bfb6bbc679adb07"><div class="ttname"><a href="structOBJ.html#a79da2848e0aa990f3bfb6bbc679adb07">OBJ::type</a></div><div class="ttdeci">OBJ_TYPE type</div><div class="ttdef"><b>Definition:</b> obj.h:69</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

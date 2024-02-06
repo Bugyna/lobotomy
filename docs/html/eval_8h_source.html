@@ -97,14 +97,29 @@ $(document).ready(function(){initNavTree('eval_8h_source.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <a href="eval_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keywordtype">void</span> <a class="code" href="eval_8h.html#ad79a38016d7a07d169447f944e407548">eval_program_file</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename);</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">void</span> <a class="code" href="eval_8h.html#ad0b41f2ddc54bb4266ae4662919ff96c">eval_program</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text);</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obj_8h.html">obj.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="l__std_8h.html">l_std.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<a class="code" href="structOBJ.html">OBJ</a>* <a class="code" href="eval_8h.html#ab2bd43fb46de88a6a5423ab5bd6c9756">preeval_symbols</a>(<a class="code" href="structOBJ.html">OBJ</a>* o);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<a class="code" href="structOBJ.html">OBJ</a>* <a class="code" href="eval_8h.html#adb847aa5db0cf7d45779e5323f572095">preeval</a>(<a class="code" href="structOBJ.html">OBJ</a>* o);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="eval_8h.html#ad79a38016d7a07d169447f944e407548">eval_program_file</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="eval_8h.html#aeb3b67ca57e40227f060ec98226a3eda">eval_program</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> filename[], <span class="keyword">const</span> <span class="keywordtype">char</span> text[]);</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aeval_8h_html_ad0b41f2ddc54bb4266ae4662919ff96c"><div class="ttname"><a href="eval_8h.html#ad0b41f2ddc54bb4266ae4662919ff96c">eval_program</a></div><div class="ttdeci">void eval_program(const char *text)</div></div>
-<div class="ttc" id="aeval_8h_html_ad79a38016d7a07d169447f944e407548"><div class="ttname"><a href="eval_8h.html#ad79a38016d7a07d169447f944e407548">eval_program_file</a></div><div class="ttdeci">void eval_program_file(const char *filename)</div><div class="ttdef"><b>Definition:</b> eval.c:767</div></div>
+<div class="ttc" id="al__std_8h_html"><div class="ttname"><a href="l__std_8h.html">l_std.h</a></div></div>
+<div class="ttc" id="aeval_8h_html_aeb3b67ca57e40227f060ec98226a3eda"><div class="ttname"><a href="eval_8h.html#aeb3b67ca57e40227f060ec98226a3eda">eval_program</a></div><div class="ttdeci">void eval_program(const char filename[], const char text[])</div><div class="ttdef"><b>Definition:</b> eval.c:289</div></div>
+<div class="ttc" id="aeval_8h_html_ab2bd43fb46de88a6a5423ab5bd6c9756"><div class="ttname"><a href="eval_8h.html#ab2bd43fb46de88a6a5423ab5bd6c9756">preeval_symbols</a></div><div class="ttdeci">OBJ * preeval_symbols(OBJ *o)</div><div class="ttdef"><b>Definition:</b> eval.c:20</div></div>
+<div class="ttc" id="aeval_8h_html_adb847aa5db0cf7d45779e5323f572095"><div class="ttname"><a href="eval_8h.html#adb847aa5db0cf7d45779e5323f572095">preeval</a></div><div class="ttdeci">OBJ * preeval(OBJ *o)</div><div class="ttdef"><b>Definition:</b> eval.c:57</div></div>
+<div class="ttc" id="aobj_8h_html"><div class="ttname"><a href="obj_8h.html">obj.h</a></div></div>
+<div class="ttc" id="astructOBJ_html"><div class="ttname"><a href="structOBJ.html">OBJ</a></div><div class="ttdef"><b>Definition:</b> obj.h:63</div></div>
+<div class="ttc" id="aeval_8h_html_ad79a38016d7a07d169447f944e407548"><div class="ttname"><a href="eval_8h.html#ad79a38016d7a07d169447f944e407548">eval_program_file</a></div><div class="ttdeci">void eval_program_file(const char *filename)</div><div class="ttdef"><b>Definition:</b> eval.c:282</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -85,7 +85,7 @@ int GCL_mark(OBJ* root)
 
 int GCL_collect()
 {
-	for (int i = 0; i < gcl->env->size; i++)
+	for (size_t i = 0; i < gcl->env->size; i++)
 	{
 		if (gcl->env->list[i].val != NULL && gcl->env->list[i].key != NULL) {
 			// print_objf("aaaaa: ", gcl->env->list[i].val);

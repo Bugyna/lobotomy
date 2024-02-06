@@ -99,16 +99,24 @@ $(document).ready(function(){initNavTree('error_8h.html',''); initResizable(); }
 <div class="title">error.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;wchar.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for error.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="error_8h__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2error_8h" alt=""/></div>
 <map name="_2home_2bugy_2projs_2lobotomy_2src_2error_8h" id="_2home_2bugy_2projs_2lobotomy_2src_2error_8h">
-<area shape="rect" title=" " alt="" coords="5,5,207,47"/>
-<area shape="rect" title=" " alt="" coords="26,95,93,121"/>
-<area shape="rect" title=" " alt="" coords="117,95,188,121"/>
+<area shape="rect" title=" " alt="" coords="185,5,387,47"/>
+<area shape="rect" title=" " alt="" coords="5,95,76,121"/>
+<area shape="rect" title=" " alt="" coords="100,95,171,121"/>
+<area shape="rect" title=" " alt="" coords="195,95,278,121"/>
+<area shape="rect" title=" " alt="" coords="302,95,369,121"/>
+<area shape="rect" title=" " alt="" coords="393,95,464,121"/>
+<area shape="rect" title=" " alt="" coords="488,95,561,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -116,21 +124,23 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="error_8h__dep__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2error_8hdep" alt=""/></div>
 <map name="_2home_2bugy_2projs_2lobotomy_2src_2error_8hdep" id="_2home_2bugy_2projs_2lobotomy_2src_2error_8hdep">
-<area shape="rect" title=" " alt="" coords="477,5,679,47"/>
-<area shape="rect" href="util_8h.html" title=" " alt="" coords="252,95,453,136"/>
-<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="772,95,973,136"/>
-<area shape="rect" href="eval_8c.html" title=" " alt="" coords="204,363,405,404"/>
-<area shape="rect" href="main_8c.html" title=" " alt="" coords="316,452,517,493"/>
-<area shape="rect" href="lexer_8h.html" title=" " alt="" coords="44,184,245,225"/>
-<area shape="rect" href="parse_8h.html" title=" " alt="" coords="183,273,384,315"/>
-<area shape="rect" href="obj_8h.html" title=" " alt="" coords="772,184,973,225"/>
-<area shape="rect" href="hashmap_8h.html" title=" " alt="" coords="321,184,523,225"/>
-<area shape="rect" href="tui_8h.html" title=" " alt="" coords="547,184,748,225"/>
-<area shape="rect" href="l__std_8h.html" title=" " alt="" coords="408,273,609,315"/>
-<area shape="rect" href="obj_8c.html" title=" " alt="" coords="633,273,835,315"/>
-<area shape="rect" href="gc_8h.html" title=" " alt="" coords="859,273,1060,315"/>
-<area shape="rect" href="sample__module_8c.html" title=" " alt="" coords="633,363,835,404"/>
-<area shape="rect" href="repl_8h.html" title=" " alt="" coords="997,184,1199,225"/>
+<area shape="rect" title=" " alt="" coords="600,5,801,47"/>
+<area shape="rect" href="util_8h.html" title=" " alt="" coords="436,95,637,136"/>
+<area shape="rect" href="lexer_8h.html" title=" " alt="" coords="600,184,801,225"/>
+<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="825,95,1026,136"/>
+<area shape="rect" href="eval_8c.html" title=" " alt="" coords="738,541,940,583"/>
+<area shape="rect" href="main_8c.html" title=" " alt="" coords="877,631,1078,672"/>
+<area shape="rect" href="parse_8h.html" title=" " alt="" coords="600,273,801,315"/>
+<area shape="rect" href="obj_8h.html" title=" " alt="" coords="825,184,1026,225"/>
+<area shape="rect" href="hashmap_8h.html" title=" " alt="" coords="46,184,248,225"/>
+<area shape="rect" href="tui_8h.html" title=" " alt="" coords="272,184,473,225"/>
+<area shape="rect" href="l__std_8c.html" title=" " alt="" coords="738,452,940,493"/>
+<area shape="rect" href="eval_8h.html" title=" " alt="" coords="877,363,1078,404"/>
+<area shape="rect" href="l__std_8h.html" title=" " alt="" coords="928,273,1129,315"/>
+<area shape="rect" href="obj_8c.html" title=" " alt="" coords="1205,363,1406,404"/>
+<area shape="rect" href="gc_8h.html" title=" " alt="" coords="1205,273,1406,315"/>
+<area shape="rect" href="sample__module_8c.html" title=" " alt="" coords="1205,452,1406,493"/>
+<area shape="rect" href="repl_8h.html" title=" " alt="" coords="1050,184,1252,225"/>
 </map>
 </div>
 </div>
@@ -138,8 +148,6 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aea5fa624723d74c5c9b038948f3e9f92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#aea5fa624723d74c5c9b038948f3e9f92">my_assert</a>(expr,  err,  err_code,  line,  column)&#160;&#160;&#160;if (expr) { <a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(&quot;%s at %d.%d\n&quot;, err, line, column); <a class="el" href="util_8h.html#a5134b2f308b8e125e5f987ac66222050">exit</a>(err_code); }</td></tr>
-<tr class="separator:aea5fa624723d74c5c9b038948f3e9f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07fd69b4dfba96e268fee3bf7fd6c8ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#a07fd69b4dfba96e268fee3bf7fd6c8ea">DEBUG</a>(s, ...)&#160;&#160;&#160;<a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(s __VA_ARGS__); <a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(&quot;\n\n&quot;);</td></tr>
 <tr class="separator:a07fd69b4dfba96e268fee3bf7fd6c8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addd7b62fe15ff46feb471504966b406c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#addd7b62fe15ff46feb471504966b406c">lobotomy_warning</a>(...)&#160;&#160;&#160;<a class="el" href="error_8h.html#a07fd69b4dfba96e268fee3bf7fd6c8ea">DEBUG</a>(&quot;warning: &quot;, __VA_ARGS__)</td></tr>
@@ -154,21 +162,33 @@ Macros</h2></td></tr>
 <tr class="separator:a168deda0bc3b2da8c582f7ab3f4c228c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad94fa9a0cd88ad6a38f08319aeefdebb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#ad94fa9a0cd88ad6a38f08319aeefdebb">lobotomy_error_s</a>(n, ...)&#160;&#160;&#160;<a class="el" href="error_8h.html#a07fd69b4dfba96e268fee3bf7fd6c8ea">DEBUG</a>(#n &quot;: &quot;, __VA_ARGS__); <a class="el" href="util_8h.html#a5134b2f308b8e125e5f987ac66222050">exit</a>(n)</td></tr>
 <tr class="separator:ad94fa9a0cd88ad6a38f08319aeefdebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc8226bb6d6471d8eecde8983e79cf2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#a8cc8226bb6d6471d8eecde8983e79cf2">LOBOTOMY_ERROR</a>&#160;&#160;&#160;<a class="el" href="error_8h.html#a168deda0bc3b2da8c582f7ab3f4c228c">lobotomy_error</a></td></tr>
+<tr class="separator:a8cc8226bb6d6471d8eecde8983e79cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f6aacb588a695a78c49b731ad93975"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#ac9f6aacb588a695a78c49b731ad93975">LOBOTOMY_ERROR_S</a>&#160;&#160;&#160;<a class="el" href="error_8h.html#ad94fa9a0cd88ad6a38f08319aeefdebb">lobotomy_error_s</a></td></tr>
+<tr class="separator:ac9f6aacb588a695a78c49b731ad93975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2593dd57921d63bd75a8effb0d37b4a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#a2593dd57921d63bd75a8effb0d37b4a4">LOBOTOMY_ERROR_FULL</a>(EXEC,  FILE,  POS,  ERR,  MSG, ...)</td></tr>
+<tr class="separator:a2593dd57921d63bd75a8effb0d37b4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612">ERR_NO_MATCHING_BRACKET</a>, 
+&#160;&#160;<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba79521b24be889f70d9195113b07bd91c">ERR_LEXER</a>, 
+<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55bac0150a98a6c3c0850712c1631bfa632f">ERR_PARSER</a>, 
+<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba538229d04de2327ba91d6d56f0613a63">ERR_EVAL</a>, 
+<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55baea3255c81cbcc7ad0f0f85b1e360567e">ERR_RUNTIME</a>, 
+<br />
+&#160;&#160;<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1bc1205331a4f94721829528fd915ef2">ERR_ARITY_MISMATCH</a>, 
+<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612">ERR_NO_MATCHING_BRACKET</a>, 
 <a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9050de8078352b9892e4bc2a969d9b30">ERR_TOO_MANY_BRACKETS</a>, 
 <a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8018a3e40476ba0f5d26fefba1db06e0">ERR_WORD_IN_NUMBER</a>, 
-<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8">ERR_INVALID_DECIMAL</a>, 
 <br />
-&#160;&#160;<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55babdbe34d491ffaead3d75cc9cb5c45ea4">ERR_INVALID_CHARACTER_IN_NUMBER</a>, 
+&#160;&#160;<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8">ERR_INVALID_DECIMAL</a>, 
+<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55babdbe34d491ffaead3d75cc9cb5c45ea4">ERR_INVALID_CHARACTER_IN_NUMBER</a>, 
 <a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1fec3900dbb6a0459a903002ec4b56b9">ERR_UNESCAPED_NEW_LINE_IN_STRING_LITERAL</a>, 
 <a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55babc00a0934771db082ac84e60a45406cf">ERR_UNKNOWN_CHARACTER</a>, 
-<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab4021abef25f14e03c2ea1d298101855">ERR_UNEXPECTED</a>, 
 <br />
-&#160;&#160;<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba5bb280b3fe12d695d5a7c158f93eb603">ERR_UNDEFINED</a>
+&#160;&#160;<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab4021abef25f14e03c2ea1d298101855">ERR_UNEXPECTED</a>, 
+<a class="el" href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba5bb280b3fe12d695d5a7c158f93eb603">ERR_UNDEFINED</a>
 <br />
  }</td></tr>
 <tr class="separator:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,6 +240,75 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
+<a id="a8cc8226bb6d6471d8eecde8983e79cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cc8226bb6d6471d8eecde8983e79cf2">&#9670;&nbsp;</a></span>LOBOTOMY_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOBOTOMY_ERROR&#160;&#160;&#160;<a class="el" href="error_8h.html#a168deda0bc3b2da8c582f7ab3f4c228c">lobotomy_error</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2593dd57921d63bd75a8effb0d37b4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2593dd57921d63bd75a8effb0d37b4a4">&#9670;&nbsp;</a></span>LOBOTOMY_ERROR_FULL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOBOTOMY_ERROR_FULL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">EXEC, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FILE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">POS, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ERR, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">MSG, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(<span class="stringliteral">&quot;\n%s:%ld.%ld %s\n\t&quot;</span> MSG LINE_TERMINATOR, FILE, POS.line, POS.column, #ERR, __VA_ARGS__);\</div>
+<div class="line">EXEC;\</div>
+<div class="line">printf(<span class="stringliteral">&quot;\n\n&quot;</span>); <a class="code" href="util_8h.html#a5134b2f308b8e125e5f987ac66222050">exit</a>(ERR);</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="aac116a888ad2a9568e09ffb8a2a28bc5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac116a888ad2a9568e09ffb8a2a28bc5">&#9670;&nbsp;</a></span>lobotomy_error_ne</h2>
 
@@ -260,6 +349,20 @@ Enumerations</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td>&#160;&#160;&#160;<a class="el" href="error_8h.html#a07fd69b4dfba96e268fee3bf7fd6c8ea">DEBUG</a>(#n &quot;: &quot;, __VA_ARGS__); <a class="el" href="util_8h.html#a5134b2f308b8e125e5f987ac66222050">exit</a>(n)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9f6aacb588a695a78c49b731ad93975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f6aacb588a695a78c49b731ad93975">&#9670;&nbsp;</a></span>LOBOTOMY_ERROR_S</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOBOTOMY_ERROR_S&#160;&#160;&#160;<a class="el" href="error_8h.html#ad94fa9a0cd88ad6a38f08319aeefdebb">lobotomy_error_s</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -330,52 +433,6 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a id="aea5fa624723d74c5c9b038948f3e9f92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea5fa624723d74c5c9b038948f3e9f92">&#9670;&nbsp;</a></span>my_assert</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define my_assert</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">expr, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">err, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">err_code, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">line, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">column&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;if (expr) { <a class="el" href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a>(&quot;%s at %d.%d\n&quot;, err, line, column); <a class="el" href="util_8h.html#a5134b2f308b8e125e5f987ac66222050">exit</a>(err_code); }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a06fc87d81c62e9abb8790b6e5713c55b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a06fc87d81c62e9abb8790b6e5713c55b">&#9670;&nbsp;</a></span>anonymous enum</h2>
@@ -389,7 +446,12 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612"></a>ERR_NO_MATCHING_BRACKET&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba79521b24be889f70d9195113b07bd91c"></a>ERR_LEXER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac0150a98a6c3c0850712c1631bfa632f"></a>ERR_PARSER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba538229d04de2327ba91d6d56f0613a63"></a>ERR_EVAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baea3255c81cbcc7ad0f0f85b1e360567e"></a>ERR_RUNTIME&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1bc1205331a4f94721829528fd915ef2"></a>ERR_ARITY_MISMATCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab96a38071bdf6607e9febb458814c612"></a>ERR_NO_MATCHING_BRACKET&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba9050de8078352b9892e4bc2a969d9b30"></a>ERR_TOO_MANY_BRACKETS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8018a3e40476ba0f5d26fefba1db06e0"></a>ERR_WORD_IN_NUMBER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa4568e0e01703b60c13a1cf4dad0d0d8"></a>ERR_INVALID_DECIMAL&#160;</td><td class="fielddoc"></td></tr>
@@ -404,6 +466,8 @@ Enumerations</h2></td></tr>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aobj_8h_html_a3cb9f0894fab1c8fbb0753c9c7c2a8d9"><div class="ttname"><a href="obj_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9">printf</a></div><div class="ttdeci">#define printf</div><div class="ttdef"><b>Definition:</b> obj.h:11</div></div>
+<div class="ttc" id="autil_8h_html_a5134b2f308b8e125e5f987ac66222050"><div class="ttname"><a href="util_8h.html#a5134b2f308b8e125e5f987ac66222050">exit</a></div><div class="ttdeci">#define exit</div><div class="ttdef"><b>Definition:</b> util.h:20</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

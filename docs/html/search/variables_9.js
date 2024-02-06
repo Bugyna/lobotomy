@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['name_387',['name',['../structOBJ.html#a8f8f80d37794cde9472343e4487ba3eb',1,'OBJ']]],
-  ['num_388',['num',['../structOBJ.html#a95fc76296e1d8cd7af09bc36dce0974f',1,'OBJ']]]
+  ['ignore_5funtill_5fcurrent_5ftoken_5fend_487',['ignore_untill_current_token_end',['../structLEXER.html#a95bb7727fb13bbbd97de25281799dc58',1,'LEXER']]],
+  ['ignore_5funtill_5fnext_5ftoken_5fend_488',['ignore_untill_next_token_end',['../structLEXER.html#a5a353135a122c568e4edfa553ae74df7',1,'LEXER']]],
+  ['index_489',['index',['../structTOKEN.html#a750b5d744c39a06bfb13e6eb010e35d0',1,'TOKEN::index()'],['../structLEXER.html#a750b5d744c39a06bfb13e6eb010e35d0',1,'LEXER::index()']]]
 ];

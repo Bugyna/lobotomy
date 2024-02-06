@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('eval_8c.html',''); initResizable(); })
 <code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="lexer_8h_source.html">lexer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="parse_8h_source.html">parse.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="l__std_8h_source.html">l_std.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="l__std_8c.html">l_std.c</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="obj_8c.html">obj.c</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="eval_8h_source.html">eval.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -114,28 +114,31 @@ Include dependency graph for eval.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="eval_8c__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2eval_8c" alt=""/></div>
 <map name="_2home_2bugy_2projs_2lobotomy_2src_2eval_8c" id="_2home_2bugy_2projs_2lobotomy_2src_2eval_8c">
-<area shape="rect" title=" " alt="" coords="610,5,811,47"/>
-<area shape="rect" title=" " alt="" coords="1009,393,1079,420"/>
-<area shape="rect" title=" " alt="" coords="819,393,885,420"/>
-<area shape="rect" title=" " alt="" coords="1107,319,1178,345"/>
-<area shape="rect" title=" " alt="" coords="45,319,113,345"/>
-<area shape="rect" title=" " alt="" coords="607,95,673,121"/>
-<area shape="rect" href="util_8h.html" title=" " alt="" coords="546,244,601,271"/>
-<area shape="rect" href="lexer_8h.html" title=" " alt="" coords="353,169,420,196"/>
-<area shape="rect" href="parse_8h.html" title=" " alt="" coords="511,95,582,121"/>
-<area shape="rect" href="l__std_8h.html" title=" " alt="" coords="955,95,1021,121"/>
-<area shape="rect" href="obj_8c.html" title=" " alt="" coords="749,95,803,121"/>
-<area shape="rect" href="eval_8h.html" title=" " alt="" coords="1355,95,1418,121"/>
-<area shape="rect" title=" " alt="" coords="611,319,693,345"/>
-<area shape="rect" title=" " alt="" coords="285,319,360,345"/>
-<area shape="rect" title=" " alt="" coords="384,319,448,345"/>
-<area shape="rect" title=" " alt="" coords="718,319,789,345"/>
-<area shape="rect" title=" " alt="" coords="472,319,536,345"/>
-<area shape="rect" title=" " alt="" coords="137,319,210,345"/>
-<area shape="rect" href="error_8h.html" title=" " alt="" coords="915,319,981,345"/>
-<area shape="rect" href="obj_8h.html" title=" " alt="" coords="749,169,803,196"/>
-<area shape="rect" href="SHM_2hashmap_8h.html" title=" " alt="" coords="712,244,840,271"/>
-<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="915,244,1015,271"/>
+<area shape="rect" title=" " alt="" coords="819,5,1021,47"/>
+<area shape="rect" title=" " alt="" coords="1973,543,2043,569"/>
+<area shape="rect" title=" " alt="" coords="921,543,988,569"/>
+<area shape="rect" title=" " alt="" coords="1345,543,1415,569"/>
+<area shape="rect" title=" " alt="" coords="246,468,314,495"/>
+<area shape="rect" title=" " alt="" coords="816,95,883,121"/>
+<area shape="rect" href="util_8h.html" title=" " alt="" coords="741,393,795,420"/>
+<area shape="rect" href="lexer_8h.html" title=" " alt="" coords="1073,319,1140,345"/>
+<area shape="rect" href="parse_8h.html" title=" " alt="" coords="743,244,814,271"/>
+<area shape="rect" href="l__std_8c.html" title=" " alt="" coords="1469,95,1533,121"/>
+<area shape="rect" href="eval_8h.html" title=" " alt="" coords="1539,169,1602,196"/>
+<area shape="rect" href="obj_8c.html" title=" " alt="" coords="2032,169,2085,196"/>
+<area shape="rect" title=" " alt="" coords="2245,543,2328,569"/>
+<area shape="rect" title=" " alt="" coords="603,468,677,495"/>
+<area shape="rect" title=" " alt="" coords="701,468,765,495"/>
+<area shape="rect" title=" " alt="" coords="1618,543,1689,569"/>
+<area shape="rect" title=" " alt="" coords="440,468,504,495"/>
+<area shape="rect" title=" " alt="" coords="341,543,414,569"/>
+<area shape="rect" href="os_8h.html" title=" " alt="" coords="529,468,578,495"/>
+<area shape="rect" href="error_8h.html" title=" " alt="" coords="1347,468,1413,495"/>
+<area shape="rect" href="obj_8h.html" title=" " alt="" coords="1543,319,1598,345"/>
+<area shape="rect" href="SHM_2hashmap_8h.html" title=" " alt="" coords="1691,468,1819,495"/>
+<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="1457,393,1557,420"/>
+<area shape="rect" href="l__std_8h.html" title=" " alt="" coords="1398,244,1463,271"/>
+<area shape="rect" href="gc_8h.html" title=" " alt="" coords="2225,244,2274,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -150,76 +153,24 @@ This graph shows which files directly or indirectly include this file:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad4fb240fa7df36c609a9107a166064ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ad4fb240fa7df36c609a9107a166064ff">L_less_than</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:ad4fb240fa7df36c609a9107a166064ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d199208fe61ba29b4c7ea9fe787702c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a7d199208fe61ba29b4c7ea9fe787702c">L_more_than</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a7d199208fe61ba29b4c7ea9fe787702c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18a1221a1edff515f64c6110a5e9e9ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a18a1221a1edff515f64c6110a5e9e9ea">L_less_or_eq_than</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a18a1221a1edff515f64c6110a5e9e9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a251e43c27b60a626bad6b3b2a913bfa2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a251e43c27b60a626bad6b3b2a913bfa2">L_more_or_eq_than</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a251e43c27b60a626bad6b3b2a913bfa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5b464a6cf57dc10cc768bc9f094839b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa5b464a6cf57dc10cc768bc9f094839b">L_eq</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:aa5b464a6cf57dc10cc768bc9f094839b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32c5d0a62787386f7024d65e0a5fd152"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a32c5d0a62787386f7024d65e0a5fd152">L_car</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a32c5d0a62787386f7024d65e0a5fd152"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1a9a591feaffa60920ab6eae85879a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa1a9a591feaffa60920ab6eae85879a1">L_get_input</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:aa1a9a591feaffa60920ab6eae85879a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a356beef9314ed9207ea8919449785879"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a356beef9314ed9207ea8919449785879">L_cdr</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a356beef9314ed9207ea8919449785879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8c76bcc40b0f63f664273f4bcfb7d1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ac8c76bcc40b0f63f664273f4bcfb7d1b">L_list</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:ac8c76bcc40b0f63f664273f4bcfb7d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ce89bdc89656f631f90e1cce67806d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a48ce89bdc89656f631f90e1cce67806d">L_nth</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a48ce89bdc89656f631f90e1cce67806d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97fcc5fb77dfc6c817d0531fc6449c45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a97fcc5fb77dfc6c817d0531fc6449c45">L_exit</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a97fcc5fb77dfc6c817d0531fc6449c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0f04595e66237ccdb41eebe17a8f6e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#af0f04595e66237ccdb41eebe17a8f6e2">L_progn</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:af0f04595e66237ccdb41eebe17a8f6e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd120084c28c232f9e3698b31886a7b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#acd120084c28c232f9e3698b31886a7b4">L_test</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:acd120084c28c232f9e3698b31886a7b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd430801d907b8da3864e41c78c950b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#abd430801d907b8da3864e41c78c950b0">L_print</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:abd430801d907b8da3864e41c78c950b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21a1dc39af88e719ea0d2fce93860b2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a21a1dc39af88e719ea0d2fce93860b2f">L_type</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a21a1dc39af88e719ea0d2fce93860b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f50c955fc4d416861ac9d904f8e84be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a6f50c955fc4d416861ac9d904f8e84be">L_help</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a6f50c955fc4d416861ac9d904f8e84be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a1c5f34458e71ece858f679d394d9f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a6a1c5f34458e71ece858f679d394d9f3">L_create_fn</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a6a1c5f34458e71ece858f679d394d9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ef8ec1c1ba73db593d49c9c37d23720"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a4ef8ec1c1ba73db593d49c9c37d23720">L_obj_name</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a4ef8ec1c1ba73db593d49c9c37d23720"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ffe71f9336fc2ac49bced3663418386"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a6ffe71f9336fc2ac49bced3663418386">L_let</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a6ffe71f9336fc2ac49bced3663418386"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1e684ddf082e1d5e21e31fdf4f31e5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa1e684ddf082e1d5e21e31fdf4f31e5d">L_loop</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:aa1e684ddf082e1d5e21e31fdf4f31e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe4bdc20829386e23795d610feb81f7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#afe4bdc20829386e23795d610feb81f7e">L_cond</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:afe4bdc20829386e23795d610feb81f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90653db80a81bc831fc811dc9c88daf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a90653db80a81bc831fc811dc9c88daf2">L_copy</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a90653db80a81bc831fc811dc9c88daf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec4a831fb8f7dff8ab61536544b9e7d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aec4a831fb8f7dff8ab61536544b9e7d5">L_get_random_num</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:aec4a831fb8f7dff8ab61536544b9e7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a312bf32f5c8a2351a189177fe238eb57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a312bf32f5c8a2351a189177fe238eb57">L_use</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a312bf32f5c8a2351a189177fe238eb57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a680fd583eff272ba70c58bee9c65351d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a680fd583eff272ba70c58bee9c65351d">L_load</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:a680fd583eff272ba70c58bee9c65351d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2bd43fb46de88a6a5423ab5bd6c9756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ab2bd43fb46de88a6a5423ab5bd6c9756">preeval_symbols</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
 <tr class="separator:ab2bd43fb46de88a6a5423ab5bd6c9756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb847aa5db0cf7d45779e5323f572095"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#adb847aa5db0cf7d45779e5323f572095">preeval</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
 <tr class="separator:adb847aa5db0cf7d45779e5323f572095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb256bd423b12e34d396f5eb41a990cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#abb256bd423b12e34d396f5eb41a990cf">progn</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
-<tr class="separator:abb256bd423b12e34d396f5eb41a990cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cdc600bb2b74bf0be20959c5707af4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a1cdc600bb2b74bf0be20959c5707af4f">set_env</a> (<a class="el" href="structOBJ.html">OBJ</a> *head, <a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a> *e)</td></tr>
 <tr class="separator:a1cdc600bb2b74bf0be20959c5707af4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf1e9c7a5dd15dd1001311e8961ef427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#adf1e9c7a5dd15dd1001311e8961ef427">run_func</a> (<a class="el" href="structOBJ.html">OBJ</a> *fn, <a class="el" href="structOBJ.html">OBJ</a> *args)</td></tr>
 <tr class="separator:adf1e9c7a5dd15dd1001311e8961ef427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cacabecfef3ff34c772815a0cae488d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a3cacabecfef3ff34c772815a0cae488d">__eval</a> (<a class="el" href="structOBJ.html">OBJ</a> *head)</td></tr>
-<tr class="separator:a3cacabecfef3ff34c772815a0cae488d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa00da9afd33987ad3263742b91d04770"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa00da9afd33987ad3263742b91d04770">__eval</a> (<a class="el" href="structOBJ.html">OBJ</a> *head, int argc)</td></tr>
+<tr class="separator:aa00da9afd33987ad3263742b91d04770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad79a38016d7a07d169447f944e407548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ad79a38016d7a07d169447f944e407548">eval_program_file</a> (const char *filename)</td></tr>
 <tr class="separator:ad79a38016d7a07d169447f944e407548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41d61d7afc35290fee08acbf31161859"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a41d61d7afc35290fee08acbf31161859">eval_program</a> (const char text[])</td></tr>
-<tr class="separator:a41d61d7afc35290fee08acbf31161859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb3b67ca57e40227f060ec98226a3eda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aeb3b67ca57e40227f060ec98226a3eda">eval_program</a> (const char filename[], const char text[])</td></tr>
+<tr class="separator:aeb3b67ca57e40227f060ec98226a3eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3cacabecfef3ff34c772815a0cae488d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cacabecfef3ff34c772815a0cae488d">&#9670;&nbsp;</a></span>__eval()</h2>
+<a id="aa00da9afd33987ad3263742b91d04770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa00da9afd33987ad3263742b91d04770">&#9670;&nbsp;</a></span>__eval()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,16 +179,26 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* __eval </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>head</em></td><td>)</td>
+          <td class="paramname"><em>head</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a41d61d7afc35290fee08acbf31161859"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41d61d7afc35290fee08acbf31161859">&#9670;&nbsp;</a></span>eval_program()</h2>
+<a id="aeb3b67ca57e40227f060ec98226a3eda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb3b67ca57e40227f060ec98226a3eda">&#9670;&nbsp;</a></span>eval_program()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,8 +207,18 @@ Functions</h2></td></tr>
           <td class="memname">void eval_program </td>
           <td>(</td>
           <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>text</em>[]</td><td>)</td>
+          <td class="paramname"><em>filename</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>text</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -265,457 +236,6 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a32c5d0a62787386f7024d65e0a5fd152"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32c5d0a62787386f7024d65e0a5fd152">&#9670;&nbsp;</a></span>L_car()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_car </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a356beef9314ed9207ea8919449785879"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a356beef9314ed9207ea8919449785879">&#9670;&nbsp;</a></span>L_cdr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_cdr </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afe4bdc20829386e23795d610feb81f7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe4bdc20829386e23795d610feb81f7e">&#9670;&nbsp;</a></span>L_cond()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_cond </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a90653db80a81bc831fc811dc9c88daf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90653db80a81bc831fc811dc9c88daf2">&#9670;&nbsp;</a></span>L_copy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_copy </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6a1c5f34458e71ece858f679d394d9f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a1c5f34458e71ece858f679d394d9f3">&#9670;&nbsp;</a></span>L_create_fn()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_create_fn </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa5b464a6cf57dc10cc768bc9f094839b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5b464a6cf57dc10cc768bc9f094839b">&#9670;&nbsp;</a></span>L_eq()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_eq </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a97fcc5fb77dfc6c817d0531fc6449c45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97fcc5fb77dfc6c817d0531fc6449c45">&#9670;&nbsp;</a></span>L_exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_exit </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa1a9a591feaffa60920ab6eae85879a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1a9a591feaffa60920ab6eae85879a1">&#9670;&nbsp;</a></span>L_get_input()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_get_input </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aec4a831fb8f7dff8ab61536544b9e7d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec4a831fb8f7dff8ab61536544b9e7d5">&#9670;&nbsp;</a></span>L_get_random_num()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_get_random_num </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6f50c955fc4d416861ac9d904f8e84be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f50c955fc4d416861ac9d904f8e84be">&#9670;&nbsp;</a></span>L_help()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_help </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a18a1221a1edff515f64c6110a5e9e9ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18a1221a1edff515f64c6110a5e9e9ea">&#9670;&nbsp;</a></span>L_less_or_eq_than()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_less_or_eq_than </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad4fb240fa7df36c609a9107a166064ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4fb240fa7df36c609a9107a166064ff">&#9670;&nbsp;</a></span>L_less_than()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_less_than </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>DOC</p>
-
-</div>
-</div>
-<a id="a6ffe71f9336fc2ac49bced3663418386"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ffe71f9336fc2ac49bced3663418386">&#9670;&nbsp;</a></span>L_let()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_let </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac8c76bcc40b0f63f664273f4bcfb7d1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8c76bcc40b0f63f664273f4bcfb7d1b">&#9670;&nbsp;</a></span>L_list()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_list </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a680fd583eff272ba70c58bee9c65351d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680fd583eff272ba70c58bee9c65351d">&#9670;&nbsp;</a></span>L_load()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_load </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa1e684ddf082e1d5e21e31fdf4f31e5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1e684ddf082e1d5e21e31fdf4f31e5d">&#9670;&nbsp;</a></span>L_loop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_loop </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a251e43c27b60a626bad6b3b2a913bfa2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a251e43c27b60a626bad6b3b2a913bfa2">&#9670;&nbsp;</a></span>L_more_or_eq_than()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_more_or_eq_than </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7d199208fe61ba29b4c7ea9fe787702c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d199208fe61ba29b4c7ea9fe787702c">&#9670;&nbsp;</a></span>L_more_than()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_more_than </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a48ce89bdc89656f631f90e1cce67806d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48ce89bdc89656f631f90e1cce67806d">&#9670;&nbsp;</a></span>L_nth()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_nth </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4ef8ec1c1ba73db593d49c9c37d23720"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ef8ec1c1ba73db593d49c9c37d23720">&#9670;&nbsp;</a></span>L_obj_name()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_obj_name </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abd430801d907b8da3864e41c78c950b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd430801d907b8da3864e41c78c950b0">&#9670;&nbsp;</a></span>L_print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_print </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af0f04595e66237ccdb41eebe17a8f6e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0f04595e66237ccdb41eebe17a8f6e2">&#9670;&nbsp;</a></span>L_progn()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_progn </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acd120084c28c232f9e3698b31886a7b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd120084c28c232f9e3698b31886a7b4">&#9670;&nbsp;</a></span>L_test()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_test </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a21a1dc39af88e719ea0d2fce93860b2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21a1dc39af88e719ea0d2fce93860b2f">&#9670;&nbsp;</a></span>L_type()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_type </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a312bf32f5c8a2351a189177fe238eb57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a312bf32f5c8a2351a189177fe238eb57">&#9670;&nbsp;</a></span>L_use()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* L_use </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -756,25 +276,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="abb256bd423b12e34d396f5eb41a990cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb256bd423b12e34d396f5eb41a990cf">&#9670;&nbsp;</a></span>progn()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* progn </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>evaluate a list of expressions and return the last result</p>
 
 </div>
 </div>

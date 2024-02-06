@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gc_411',['GC',['../obj_8h.html#ad7367140a73435d5b6fc062da55e4845',1,'obj.h']]]
+  ['load_5flib_5ffunc_520',['load_lib_func',['../obj_8h.html#a305c8182d607e7f1f3c15fbc454a7265',1,'obj.h']]]
 ];

@@ -11,8 +11,8 @@ OBJ* __eval(OBJ*, int argc);
 OBJ* preeval(OBJ*);
 OBJ* preeval_symbols(OBJ*);
 
-static OBJ PI = (OBJ){.marked=true, .type=T_DECIMAL, .name="PI", .decimal=3.141595265};
-static OBJ ELSE_ALIAS = (OBJ){.marked=true, .type=T_TRUE, .name="else", .num=1};
+static OBJ PI = {.marked=true, .type=T_DECIMAL, .name="PI", .decimal=3.141595265};
+static OBJ ELSE_ALIAS = {.marked=true, .type=T_TRUE, .name="else", .num=1};
 
 #define DEF_ARITHMETIC_OPERATION(NAME, SIGN)\
 OBJ* L_##NAME(OBJ_FN_ARGS)\
@@ -74,6 +74,27 @@ OBJ* L_##NAME(OBJ_FN_ARGS)\
 	return ret;\
 }
 
+#define DEF_UNARY_OPERATION(NAME, SIGN)\
+OBJ* L_##NAME(OBJ_FN_ARGS)\
+{\
+	OBJ* ret = empty_obj();\
+	o = preeval(o);\
+	ret->type = o->type;\
+	if (ret->type == T_NUM)\
+		ret->num = o->num;\
+\
+	NEXT(o);\
+	if (o == NULL) return ret; \
+\
+	ITERATE_OBJECT(o, curr)\
+	{\
+		\
+		if (ret->type == T_NUM && curr->type == T_NUM)\
+			ret->num = SIGN ret->num;\
+	}\
+	return ret;\
+}
+
 
 // Arithmetic operations
 DEF_ARITHMETIC_OPERATION(add, +)
@@ -124,7 +145,11 @@ DEF_BINARY_OPERATION(or, |)
 DEF_BINARY_OPERATION(xor, ^)
 DEF_BINARY_OPERATION(bitshift_left, <<)
 DEF_BINARY_OPERATION(bitshift_right, >>)
-DEF_BINARY_OPERATION(neg, !)
+
+
+DEF_UNARY_OPERATION(neg, !)
+DEF_UNARY_OPERATION(flip, ~)
+
 
 
 // numeric comparisons
@@ -208,6 +233,11 @@ OBJ* L_loop(OBJ_FN_ARGS);
 // IO
 OBJ* L_get_input(OBJ_FN_ARGS);
 OBJ* L_print(OBJ_FN_ARGS);
+OBJ* L_fprint(OBJ_FN_ARGS);
+OBJ* L_file_open(OBJ_FN_ARGS);
+OBJ* L_file_write(OBJ_FN_ARGS);
+OBJ* L_file_close(OBJ_FN_ARGS);
+OBJ* L_file_read(OBJ_FN_ARGS);
 
 
 // Random
@@ -274,7 +304,18 @@ void lobotomy_init(ENV* env)
 	env_add(env, create_cfn("load", L_load));
 	env_add(env, create_cfn("obj-name", L_obj_name));
 	env_add(env, create_cfn("test", L_test));
+	
+	
 	env_add(env, create_cfn("input", L_get_input));
+
+
+	env_add(env, create_cfn("fprint", L_fprint));
+	
+	env_add(env, create_cfn("file-open", L_file_open));
+	env_add(env, create_cfn("file-write", L_file_write));
+	env_add(env, create_cfn("file-close", L_file_close));
+	env_add(env, create_cfn("file-read", L_file_read));
+	
 
 	env_add(env, create_cfn("random-num", L_get_random_num));
 	

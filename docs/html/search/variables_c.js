@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['size_393',['size',['../structLEXER.html#a439227feff9d7f55384e8780cfc2eb82',1,'LEXER']]],
-  ['start_394',['start',['../structTOKEN.html#a4a0391da14ef565d12d9287bc470f1eb',1,'TOKEN']]],
-  ['stop_395',['stop',['../structTOKEN.html#aa04b301e4126e479f367d43c7fe62046',1,'TOKEN']]],
-  ['str_396',['str',['../structOBJ.html#ab50d783982593ef993ea0b68f7ad8b80',1,'OBJ']]]
+  ['name_495',['name',['../structOBJ.html#a5ac083a645d964373f022d03df4849c8',1,'OBJ']]],
+  ['num_496',['num',['../structOBJ.html#a95fc76296e1d8cd7af09bc36dce0974f',1,'OBJ']]]
 ];

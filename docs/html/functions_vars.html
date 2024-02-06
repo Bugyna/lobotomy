@@ -95,9 +95,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 &#160;
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>allocated
-: <a class="el" href="structGC.html#ae1bb12c74f8787980ecef2b1f772239b">GC</a>
-</li>
 <li>args
 : <a class="el" href="structFN.html#a1a9bb40092cbc720ccdf99365292d26b">FN</a>
 , <a class="el" href="structOBJ.html#a1a9bb40092cbc720ccdf99365292d26b">OBJ</a>
@@ -129,10 +126,16 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>column
 : <a class="el" href="structMARK.html#a60dae4c6e78188cd718b696e4f08fc71">MARK</a>
 </li>
+<li>curr
+: <a class="el" href="structGC.html#a96010e8f175b18e5988b95a0cf09faa1">GC</a>
+</li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>data
+: <a class="el" href="structOBJ.html#a735984d41155bc1032e09bece8f8d66d">OBJ</a>
+</li>
 <li>decimal
 : <a class="el" href="structOBJ.html#a160d6366514b7fe5ec086f528835c5ce">OBJ</a>
 </li>
@@ -142,7 +145,18 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_e"></a>- e -</h3><ul>
 <li>env
 : <a class="el" href="structFN.html#ab082a901a23e5315ca84dd0c984d58f1">FN</a>
+, <a class="el" href="structGC.html#ab082a901a23e5315ca84dd0c984d58f1">GC</a>
 , <a class="el" href="structOBJ.html#ab082a901a23e5315ca84dd0c984d58f1">OBJ</a>
+</li>
+<li>env_name
+: <a class="el" href="structOBJ.html#aeea1c1848bccc2c856a6d65b5e61b85d">OBJ</a>
+</li>
+</ul>
+
+
+<h3><a id="index_f"></a>- f -</h3><ul>
+<li>filename
+: <a class="el" href="structLEXER.html#a7efa5e9c7494c7d4586359300221aa5d">LEXER</a>
 </li>
 </ul>
 
@@ -150,9 +164,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_h"></a>- h -</h3><ul>
 <li>head
 : <a class="el" href="structOBJ__PAIR.html#a9ae0244e8248dc2357a654a7f1e6f321">OBJ_PAIR</a>
-</li>
-<li>heap
-: <a class="el" href="structGC.html#a7adfc2fa2621dc0c79bafc9646a987c6">GC</a>
 </li>
 </ul>
 
@@ -173,7 +184,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 <h3><a id="index_l"></a>- l -</h3><ul>
 <li>len
-: <a class="el" href="structTOKEN.html#afed088663f8704004425cdae2120b9b3">TOKEN</a>
+: <a class="el" href="structOBJ.html#afed088663f8704004425cdae2120b9b3">OBJ</a>
+, <a class="el" href="structTOKEN.html#afed088663f8704004425cdae2120b9b3">TOKEN</a>
 </li>
 <li>line
 : <a class="el" href="structMARK.html#a41ebd28ef1d7c6ade45642cb6acc1039">MARK</a>
@@ -181,12 +193,32 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </ul>
 
 
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>map
+: <a class="el" href="structOBJ.html#a683932d1d77403bc543db2e1d5ae6b2f">OBJ</a>
+</li>
+<li>marked
+: <a class="el" href="structOBJ.html#ac4b2ccbbdfa470ea38f1bcdca987077a">OBJ</a>
+</li>
+<li>memory_pool
+: <a class="el" href="structGC.html#ad78744f22bb97f50586187c23877f7e2">GC</a>
+</li>
+</ul>
+
+
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>name
-: <a class="el" href="structOBJ.html#a8f8f80d37794cde9472343e4487ba3eb">OBJ</a>
+: <a class="el" href="structOBJ.html#a5ac083a645d964373f022d03df4849c8">OBJ</a>
 </li>
 <li>num
 : <a class="el" href="structOBJ.html#a95fc76296e1d8cd7af09bc36dce0974f">OBJ</a>
+</li>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
+<li>occupied
+: <a class="el" href="structGC.html#ae3966afc4a03e5e7db07a5dd4cfa4c52">GC</a>
 </li>
 </ul>
 
@@ -201,22 +233,23 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>pos
 : <a class="el" href="structLEXER.html#a7b8c86d9685c5e4cca94667c88c19440">LEXER</a>
 </li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
-<li>roots
-: <a class="el" href="structGC.html#a88848b15fe213a3165f8ddf63bf6c3c6">GC</a>
+<li>ptr
+: <a class="el" href="structGC.html#a69a22ca2de83908b72981dfec4c0c95b">GC</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>size
-: <a class="el" href="structLEXER.html#a439227feff9d7f55384e8780cfc2eb82">LEXER</a>
+: <a class="el" href="structGC.html#a854352f53b148adc24983a58a1866d66">GC</a>
+, <a class="el" href="structLEXER.html#a439227feff9d7f55384e8780cfc2eb82">LEXER</a>
+, <a class="el" href="structOBJ__PAIR.html#a439227feff9d7f55384e8780cfc2eb82">OBJ_PAIR</a>
 </li>
 <li>start
 : <a class="el" href="structTOKEN.html#a4a0391da14ef565d12d9287bc470f1eb">TOKEN</a>
+</li>
+<li>state
+: <a class="el" href="structGC.html#a9a8c23d5a938890c21546e6d1208c514">GC</a>
 </li>
 <li>stop
 : <a class="el" href="structTOKEN.html#aa04b301e4126e479f367d43c7fe62046">TOKEN</a>
@@ -245,7 +278,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="structLEXER.html#ab3ced33ac8e367d2e28289b43bc99623">LEXER</a>
 </li>
 <li>top
-: <a class="el" href="structGC.html#ac70ebd0d531997214337acc4cf9bfbef">GC</a>
+: <a class="el" href="structGC.html#af93f4f37fc2ad9c37af4a715423b110c">GC</a>
 </li>
 <li>type
 : <a class="el" href="structOBJ.html#a79da2848e0aa990f3bfb6bbc679adb07">OBJ</a>

@@ -29,6 +29,7 @@ const char* type_name(OBJ_TYPE i)
 		case T_NUM: return STRINGIFY(T_NUM);
 		case T_DECIMAL: return STRINGIFY(T_DECIMAL);
 		case T_REF: return STRINGIFY(T_REF);
+		STRINGIFY_TYPENAME(T_FILE);
 		STRINGIFY_TYPENAME(T_TRUE);
 		STRINGIFY_TYPENAME(T_FALSE);
 		STRINGIFY_TYPENAME(T_OTHER);
@@ -53,16 +54,10 @@ struct FN
 
 
 
-static const OBJ DEFAULT_OBJ = ((OBJ){.type=T_UNDEFINED});
-static OBJ* NIL = &((OBJ){.type=T_NIL});
-static OBJ* O_TRUE = &((OBJ){.type=T_TRUE, .name="TRUE"});
-static OBJ* O_FALSE = &((OBJ){.type=T_FALSE});
-
-
 // DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
 DEFINE_LINKED_LIST(OBJ_LIST, OBJ)
 
-static ENV* global_env;
+ENV* global_env;
 
 void __print_obj_simple(OBJ* o)
 {
@@ -79,7 +74,7 @@ void __print_obj_simple(OBJ* o)
 		break;
 
 		case T_MAP:
-			for (int i = 0; i < o->map->size; i++) {
+			for (size_t i = 0; i < o->map->size; i++) {
 				if (o->env->list[i].key == NULL) continue;
 				__ITERATE_HASHMAP(ENV, o->map, OBJ, o->map->list[i].key)
 				{
@@ -113,6 +108,10 @@ void __print_obj_simple(OBJ* o)
 			printf("[%s %s] = ", type_name(o->type), o->name);
 			if (o->car != NULL) __print_obj_simple(o->car);
 			else printf("#NIL#");
+		break;
+
+		case T_FILE:
+			printf("[%s %p]", type_name(o->type), o->file);
 		break;
 
 		case T_STR:
@@ -174,7 +173,7 @@ void __print_obj_expand(OBJ* o)
 		break;
 
 		case T_MAP:
-			for (int i = 0; i < o->map->size; i++) {
+			for (size_t i = 0; i < o->map->size; i++) {
 				if (o->env->list[i].key == NULL) continue;
 				__ITERATE_HASHMAP(ENV, o->map, OBJ, o->map->list[i].key)
 				{
@@ -209,6 +208,11 @@ void __print_obj_expand(OBJ* o)
 			if (o->car != NULL) __print_obj_simple(o->car);
 			else printf("#NIL#");
 		break;
+
+		case T_FILE:
+			printf("[%s %p]", type_name(o->type), o->file);
+		break;
+		
 
 		case T_STR:
 			// printf("[%s %s: %s]", type_name(o->type), o->name, o->str);
@@ -358,8 +362,8 @@ OBJ* env_get(ENV* e, const char* key)
 // }
 
 
-#define NEW() GCL_alloc()
-// #define NEW() calloc(1, sizeof(OBJ))
+// #define NEW() GCL_alloc()
+#define NEW() calloc(1, sizeof(OBJ))
 
 
 

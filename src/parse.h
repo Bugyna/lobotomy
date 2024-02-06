@@ -5,10 +5,10 @@
 #include "obj.h"
 
 
-typedef struct
-{
+// typedef struct
+// {
 	
-} PARSER;
+// } PARSER;
 
 typedef struct
 {
@@ -79,11 +79,11 @@ OBJ parse_map(LEXER* lexer, int p, int b)
 		}
 		OBJ* key = parse_object(lexer, p, b);
 		OBJ* val = parse_object(lexer, p, b);
-		print_objf("key: ", key);
-		print_objf("val: ", val);
+		// print_objf("key: ", key);
+		// print_objf("val: ", val);
 		val->name = key->name;
 		env_add(map.map, val);
-		print_objf("bb: ", env_get(map.map, key->name));
+		// print_objf("bb: ", env_get(map.map, key->name));
 	}
 
 	exit:
