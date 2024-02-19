@@ -9,13 +9,24 @@
 #include "util.h"
 #include "lexer.h"
 #include "parse.h"
-#include "l_std.c"
+#include "l_std.h"
 #include "obj.c"
-
+#include "gc.h"
 
 #include "eval.h"
 
 
+
+OBJ* eval_into(OBJ* base, OBJ* res)
+{
+	ITERATE_OBJECT(base, curr)
+	{
+		OBJ* tmp = res->cdr;
+		*res = *__eval(curr, curr->len);
+		res = tmp;
+	}
+	return res;
+}
 
 OBJ* preeval_symbols(OBJ* o)
 {
@@ -30,11 +41,11 @@ OBJ* preeval_symbols(OBJ* o)
 			case T_IDENTIFIER:
 				tmp = env_get(o->env, curr->name);
 				if (tmp != NULL) {
-					// ret->cdr = empty_obj();
-					// *ret->cdr = *tmp;
-					ret->cdr = curr;
-					ret->cdr->type = T_REF;
-					ret->cdr->car = tmp;
+					ret->cdr = empty_obj();
+					*ret->cdr = *tmp;
+					// ret->cdr = curr;
+					// ret->cdr->type = T_REF;
+					// ret->cdr->car = tmp;
 				}
 			break;
 
@@ -56,7 +67,7 @@ OBJ* preeval_symbols(OBJ* o)
 
 OBJ* preeval(OBJ* o)
 {
-	OBJ* ooo = o;
+	// OBJ* ooo = o;
 	OBJ* ret = empty_obj();
 	// DO_THIS(&o, ret);
 	OBJ* head = ret;
@@ -85,7 +96,7 @@ OBJ* preeval(OBJ* o)
 			break;
 
 			case T_LIST:
-				ret->cdr = curr;
+				ret->cdr= curr;
 				// ret->cdr = empty_obj();
 				// *ret->cdr = *curr;
 				// *ret->cdr = *curr->cdr;
@@ -100,6 +111,13 @@ OBJ* preeval(OBJ* o)
 			default:
 				ret->cdr = empty_obj();
 				*ret->cdr = *curr;
+				// if (ret->cdr != NULL || ret->cdr->type != T_NIL) {
+					// tmp = ret->cdr->cdr;
+				// }
+				// ret->cdr = curr;
+				// if (ret->cdr != NULL || ret->cdr->type != T_NIL) {
+					// ret->cdr->cdr = tmp;
+				// }
 		}
 		ret = ret->cdr;
 	}
@@ -107,6 +125,7 @@ OBJ* preeval(OBJ* o)
 	tmp = head;
 	head = NT(head);
 	GCL_free(tmp);
+	printf("gc: %d\n", gcl->occupied);
 	return head;
 }
 
@@ -272,7 +291,10 @@ OBJ* __eval(OBJ* head, int argc)
 		break;
 
 		default:
-			LOBOTOMY_WARNING("[%s] not implemented yet", type_name(head->type));
+			LOBOTOMY_WARNING(
+				"[%s] not implemented yet",
+				type_name(head->type)
+			);
 	}
 
 	return head;
@@ -295,16 +317,22 @@ void eval_program(const char filename[], const char text[])
 	// }
 
 	LEXER lexer = tokenize(filename, text);
-	printf("text: %s\n", text);
+	// printf("text: %s\n", text);
 	for (;;) {
 		// head = parse_expr(&lexer, 0).head;
-		// gcl->curr = gcl->top;
-		OBJ_PAIR pair = parse_expr(&lexer, 0, 0);
-		// print_obj_simple(pair.head);
-		print_obj_simple(__eval(pair.head, pair.size));
+		gcl->curr = gcl->top;
+		OBJ* pair = parse_object(&lexer, 0, 0);
+		print_obj_simple(__eval(pair, pair->len));
+		
+		// OBJ_PAIR pair = parse_expr(&lexer, 0, 0);
+		// print_obj_simple(__eval(pair.head, pair.size));
+		
+		printf("gc: %d\n", gcl->occupied);
 		// lexer.peek++;
 		// if (pair.head->type == T_NIL) return;
 		if (lexer.tokens[lexer.peek].text == NULL || lexer.tokens[lexer.peek].type == TT_)
 			break;
 	}
 }
+
+

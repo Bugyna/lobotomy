@@ -37,6 +37,7 @@ var obj_8h =
       [ "T_NUM", "obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc", null ],
       [ "T_DECIMAL", "obj_8h.html#a714b9c2c276fbae637fee36453d9121ea6cc4b533d086313980cb3d2455d4119d", null ],
       [ "T_REF", "obj_8h.html#a714b9c2c276fbae637fee36453d9121eae3514db66d821cd913d6ff84ac030ad0", null ],
+      [ "T_FILE", "obj_8h.html#a714b9c2c276fbae637fee36453d9121eab28e0da208efca6160c28404aa2513e7", null ],
       [ "T_C_INT32", "obj_8h.html#a714b9c2c276fbae637fee36453d9121ead23c2dce9230d8ec91bbfc8caff4f45d", null ],
       [ "T_C_UINT32", "obj_8h.html#a714b9c2c276fbae637fee36453d9121ea5b4357f9726fa858aa9698d717eb6f4a", null ],
       [ "T_FLOAT", "obj_8h.html#a714b9c2c276fbae637fee36453d9121eafa49937803703ecf8a7c66d2457041d4", null ],
@@ -54,6 +55,7 @@ var obj_8h =
     [ "GC_free", "obj_8h.html#aa565bd0cece59599d7f8bdaac3f5537b", null ],
     [ "GC_init", "obj_8h.html#ac9321bb3c3bc18b4c0e42b06258091f1", null ],
     [ "print_obj_simple", "obj_8h.html#a0ff4ee4239a3c797e1c4e85d2e7d55a1", null ],
+    [ "reset_obj", "obj_8h.html#a30fb6d42bb2f6a4747c77fc7bd779542", null ],
     [ "type_name", "obj_8h.html#a4c7dc3a5200a4923b368108e9ecbac21", null ],
     [ "_printf", "obj_8h.html#a4433d2ed84066d56a27f73898f4332fe", null ]
 ];

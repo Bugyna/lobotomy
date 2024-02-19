@@ -17,9 +17,16 @@
 
 
 
-(loop (1) 
+;; (fn play-sample () 
+	;; (print "aa: " (let pc (pick-random)) "bb: " (let pc1 (pick-random)) (decide-win pc pc1))
+;; )
+
+(let i 0)
+
+(loop (< i 3) 
 	(print "PC: " (let b (pick-random)) "                    You: " (let a (input "pleace pick rock, paper or scissors: ")) "\nresult: "
 			(decide-win a b) "\n"
 	)
+	(let i (+ i 1))
 )
-
+(gc-collect)

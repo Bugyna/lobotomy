@@ -41,6 +41,12 @@ enum {
 #define LOBOTOMY_ERROR_S lobotomy_error_s
 
 #define LOBOTOMY_ERROR_FULL(EXEC, FILE, POS, ERR, MSG, ...) \
-printf("\n%s:%ld.%ld %s\n\t" MSG LINE_TERMINATOR, FILE, POS.line, POS.column, #ERR, __VA_ARGS__);\
 EXEC;\
+printf("\n%s:%ld.%ld %s\n\t" MSG LINE_TERMINATOR, FILE, POS.line, POS.column, #ERR, __VA_ARGS__);\
 printf("\n\n"); exit(ERR);
+
+#define LOBOTOMY_ERROR_FULL_NO_EXIT(EXEC, FILE, POS, ERR, MSG, ...) \
+printf("\n%s:%ld.%ld %s\n", FILE, POS.line, POS.column, #ERR, __VA_ARGS__);\
+EXEC;\
+printf(MSG, __VA_ARGS__);\
+printf("\n\n");

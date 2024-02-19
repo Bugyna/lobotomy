@@ -1,6 +1,9 @@
 #include "obj.h"
 #include "eval.h"
 #include "io.c"
+#include "l_std.h"
+
+#include <dlfcn.h>
 
 OBJ* L_less_than(OBJ_FN_ARGS)
 {
@@ -82,9 +85,18 @@ OBJ* L_eq(OBJ_FN_ARGS)
 OBJ* L_car(OBJ_FN_ARGS)
 {
 	o = preeval(o);
-	print_obj_simple(o->car->cdr);
+	// print_obj_simple(o->car->cdr);
 	return o->car;
 	// return NIL;
+}
+
+OBJ* L_cdr(OBJ_FN_ARGS)
+{
+	o = preeval(o);
+	OBJ* tmp = empty_obj();
+	tmp->type = T_LIST;
+	tmp->car = o->car->cdr;
+	return tmp;
 }
 
 
@@ -105,17 +117,6 @@ OBJ* L_get_input(OBJ_FN_ARGS)
 	return ret;
 }
 
-
-OBJ* L_cdr(OBJ_FN_ARGS)
-{
-	o = preeval(o);
-	OBJ* tmp = empty_obj();
-	tmp->type = T_LIST;
-	tmp->car = o->cdr;
-	return tmp;
-	// print_objf("obj: ", o->cdr);
-	return o->cdr;
-}
 
 OBJ* L_list(OBJ_FN_ARGS)
 {
@@ -291,6 +292,7 @@ OBJ* L_gc_print(OBJ_FN_ARGS)
 
 OBJ* L_gc_collect(OBJ_FN_ARGS)
 {
+	gcl->curr = gcl->top;
 	GCL_collect();
 	return NIL;
 }
@@ -405,8 +407,8 @@ OBJ* L_create_fn(OBJ_FN_ARGS)
 
 	fn->name = name->name;
 	fn->type = T_FN;
-	fn->args=args;
-	fn->body=body;
+	fn->args = args;
+	fn->body = body;
 	env_add(global_env, fn);
 	return fn;
 }
@@ -427,10 +429,10 @@ OBJ* L_let(OBJ_FN_ARGS)
 	OBJ* var = o;
 	if (var->type != T_IDENTIFIER) {
 		if (var->name != NULL) var->type = T_IDENTIFIER;
-		else var = preeval(var);
+		else var = __eval(var, var->len);
 	}
 	OBJ* val = NT(var);
-	val = preeval(val);
+	val = __eval(val, val->len);
 	// printd("let: %s %s\n", var->name, var->env->name);
 	OBJ* ret = ENV_GET(var->env, var->name); // can't use env_get because we have to check only the scope we're currently in
 
@@ -457,7 +459,7 @@ OBJ* L_let(OBJ_FN_ARGS)
 	// printf("blabla: "); print_obj_simple(ret);
 
 
-	return L_copy(1, ret);
+	return ret;
 
 
 	// if (var->car == NULL)
@@ -503,7 +505,7 @@ OBJ* L_loop(OBJ_FN_ARGS)
 	// print_objf("cond_expr: ", cond_expr);
 
 	OBJ* exec_expr = NT(cond_expr);
-	// exec_expr = preeval(exec_expr);
+	// OBJ* new_exec_expr = preeval_symbols(exec_expr);
 	// exec_expr->car = preeval_symbols(exec_expr->car);
 	// print_obj_simple(exec_expr);
 
@@ -520,7 +522,7 @@ OBJ* L_loop(OBJ_FN_ARGS)
 		OBJ* tmp = __eval(cond_expr, cond_expr->len);
 		// printf("tmp: "); print_obj_simple(tmp);
 		// print_objf("cond_expr: ", cond_expr);
-		// print_objf("exec_expr: ", exec_expr);
+		print_objf("exec_expr: ", exec_expr);
 
 		// (loop (< a 10) (let a (+ a 2)))
 		if (!tmp->num)
@@ -533,6 +535,9 @@ OBJ* L_loop(OBJ_FN_ARGS)
 			
 		// printf("aaaaa");
 		// print_objf("ret: ", ret);
+		// eval_into(exec_expr, new_exec_expr);
+		// ret = L_progn(new_exec_expr->len, new_exec_expr);
+		
 		ret = L_progn(exec_expr->len, exec_expr);
 		// __print_obj_full(__eval(exec_expr->car));
 		// usleep(200);
@@ -542,6 +547,25 @@ OBJ* L_loop(OBJ_FN_ARGS)
 	ret:
 	return ret;
 	// return NT(o);
+}
+
+OBJ* L_if(OBJ_FN_ARGS)
+{
+	OBJ* ret = NIL;
+	OBJ* cond_expr = o;
+	OBJ* if_true_expr = NT(cond_expr);
+	OBJ* else_expr = NT(if_true_expr);
+
+	OBJ* tmp = __eval(cond_expr, cond_expr->len);
+	if (tmp->num || tmp->type == T_TRUE) {
+		ret = __eval(if_true_expr, if_true_expr->len);
+	}
+	else {
+		ret = __eval(else_expr, else_expr->len);
+	}
+
+	ret:
+	return ret;
 }
 
 OBJ* L_cond(OBJ_FN_ARGS)
@@ -606,6 +630,7 @@ OBJ* L_load(OBJ_FN_ARGS)
 {
 	void* handle = NULL;
 	load_lib_func fn = NULL;
+	if (o->type = T_IDENTIFIER) o->str = o->name;
 	size_t len = strlen(o->str);
 	char x[len+6];
 	char xx[len+6];
@@ -619,7 +644,7 @@ OBJ* L_load(OBJ_FN_ARGS)
 	printd("strcat: %s\n", x);
 	printd("strcat: %s\n", xx);
 
-	handle = dlopen(x, RTLD_NOW | RTLD_GLOBAL);
+	handle = dlopen(x, RTLD_LAZY | RTLD_GLOBAL);
 	if (handle == NULL) {
 		fputs(dlerror(), stderr);
 		lobotomy_error("unable to load library '%s'\n", x);

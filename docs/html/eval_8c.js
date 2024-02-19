@@ -1,6 +1,7 @@
 var eval_8c =
 [
     [ "__eval", "eval_8c.html#aa00da9afd33987ad3263742b91d04770", null ],
+    [ "eval_into", "eval_8c.html#aa8eced299ac15690a17628892c94cb53", null ],
     [ "eval_program", "eval_8c.html#aeb3b67ca57e40227f060ec98226a3eda", null ],
     [ "eval_program_file", "eval_8c.html#ad79a38016d7a07d169447f944e407548", null ],
     [ "preeval", "eval_8c.html#adb847aa5db0cf7d45779e5323f572095", null ],

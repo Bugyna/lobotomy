@@ -15,5 +15,6 @@ var obj_8c =
     [ "print_obj_full", "obj_8c.html#a7efb121fca71b2964ab4e48b76ec1128", null ],
     [ "print_obj_simple", "obj_8c.html#a0ff4ee4239a3c797e1c4e85d2e7d55a1", null ],
     [ "reset_obj", "obj_8c.html#a30fb6d42bb2f6a4747c77fc7bd779542", null ],
-    [ "type_name", "obj_8c.html#a4c7dc3a5200a4923b368108e9ecbac21", null ]
+    [ "type_name", "obj_8c.html#a4c7dc3a5200a4923b368108e9ecbac21", null ],
+    [ "global_env", "obj_8c.html#ab83204d65a7ff566584f684abd832fe6", null ]
 ];

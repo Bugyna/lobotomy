@@ -2,6 +2,7 @@ var l__std_8h =
 [
     [ "DEF_ARITHMETIC_OPERATION", "l__std_8h.html#a9b2a63793cdbd9175fe8fef8a5704f97", null ],
     [ "DEF_BINARY_OPERATION", "l__std_8h.html#a615f04bf9115c6de5b514a8d93a3b2a1", null ],
+    [ "DEF_UNARY_OPERATION", "l__std_8h.html#a50f6ea34745480dc4765ba6bbe49cd2f", null ],
     [ "__eval", "l__std_8h.html#abbcf2a0f0d21f7e2589866c89f0c0d87", null ],
     [ "L_acos", "l__std_8h.html#a11d88064e1b5e6250f438112bef6ab4e", null ],
     [ "L_append", "l__std_8h.html#a193e39b6a85a44e6cafc530d745050ad", null ],

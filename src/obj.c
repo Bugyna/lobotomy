@@ -10,7 +10,6 @@
 #include "gc.h"
 
 
-
 const char* type_name(OBJ_TYPE i)
 {
 	#define STRINGIFY_TYPENAME(t) case t: return #t;
@@ -57,7 +56,7 @@ struct FN
 // DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
 DEFINE_LINKED_LIST(OBJ_LIST, OBJ)
 
-ENV* global_env;
+static ENV* global_env;
 
 void __print_obj_simple(OBJ* o)
 {
@@ -120,7 +119,8 @@ void __print_obj_simple(OBJ* o)
 		break;
 
 		case T_LIST: case T_EXPR:
-			printf("%s <%s>: ( ", type_name(o->type), o->name);
+			// printf("%s <%s>: ( ", type_name(o->type), o->name);
+			printf("( ");
 			// printf("[%s <%s>]", type_name(o->car->type), o->car->name);
 			__print_obj_simple(o->car);
 			ITERATE_OBJECT_PTR(o->car->cdr, curr)

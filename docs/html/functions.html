@@ -106,6 +106,9 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>b_count
 : <a class="el" href="structLEXER.html#a76f07866ff6ee681791119992024df8d">LEXER</a>
 </li>
+<li>block_size
+: <a class="el" href="structARENA.html#ad7524613c3881d09bda0d270ede83779">ARENA</a>
+</li>
 <li>body
 : <a class="el" href="structFN.html#a493440883218ce089dfd91547a91b934">FN</a>
 , <a class="el" href="structOBJ.html#a493440883218ce089dfd91547a91b934">OBJ</a>
@@ -127,14 +130,17 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="structMARK.html#a60dae4c6e78188cd718b696e4f08fc71">MARK</a>
 </li>
 <li>curr
-: <a class="el" href="structGC.html#a96010e8f175b18e5988b95a0cf09faa1">GC</a>
+: <a class="el" href="structARENA.html#ae4a10bd50bbe1421007062a2a7e238be">ARENA</a>
+, <a class="el" href="structGC.html#a96010e8f175b18e5988b95a0cf09faa1">GC</a>
 </li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>data
-: <a class="el" href="structOBJ.html#a735984d41155bc1032e09bece8f8d66d">OBJ</a>
+: <a class="el" href="structARENA.html#a735984d41155bc1032e09bece8f8d66d">ARENA</a>
+, <a class="el" href="structARENA__NODE.html#a735984d41155bc1032e09bece8f8d66d">ARENA_NODE</a>
+, <a class="el" href="structOBJ.html#a735984d41155bc1032e09bece8f8d66d">OBJ</a>
 </li>
 <li>decimal
 : <a class="el" href="structOBJ.html#a160d6366514b7fe5ec086f528835c5ce">OBJ</a>
@@ -145,7 +151,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_e"></a>- e -</h3><ul>
 <li>env
 : <a class="el" href="structFN.html#ab082a901a23e5315ca84dd0c984d58f1">FN</a>
-, <a class="el" href="structGC.html#ab082a901a23e5315ca84dd0c984d58f1">GC</a>
+, <a class="el" href="structGC.html#a176ab5b0413ad15ad44df0b7b3666c57">GC</a>
 , <a class="el" href="structOBJ.html#ab082a901a23e5315ca84dd0c984d58f1">OBJ</a>
 </li>
 <li>env_name
@@ -155,13 +161,30 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_f"></a>- f -</h3><ul>
+<li>file
+: <a class="el" href="structL__FILE.html#a702945180aa732857b380a007a7e2a21">L_FILE</a>
+, <a class="el" href="structOBJ.html#a702945180aa732857b380a007a7e2a21">OBJ</a>
+</li>
 <li>filename
 : <a class="el" href="structLEXER.html#a7efa5e9c7494c7d4586359300221aa5d">LEXER</a>
+</li>
+<li>flags
+: <a class="el" href="structL__FILE.html#a0e752f07b682dc62da79a9baa3155fa9">L_FILE</a>
+</li>
+</ul>
+
+
+<h3><a id="index_g"></a>- g -</h3><ul>
+<li>global_env
+: <a class="el" href="structLVM.html#ab83204d65a7ff566584f684abd832fe6">LVM</a>
 </li>
 </ul>
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
+<li>half_size
+: <a class="el" href="structGC.html#a4db8ba437d96e994cc471ba7f496a5b4">GC</a>
+</li>
 <li>head
 : <a class="el" href="structOBJ__PAIR.html#a9ae0244e8248dc2357a654a7f1e6f321">OBJ_PAIR</a>
 </li>
@@ -177,7 +200,11 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>index
 : <a class="el" href="structLEXER.html#a750b5d744c39a06bfb13e6eb010e35d0">LEXER</a>
+, <a class="el" href="structMARK.html#a750b5d744c39a06bfb13e6eb010e35d0">MARK</a>
 , <a class="el" href="structTOKEN.html#a750b5d744c39a06bfb13e6eb010e35d0">TOKEN</a>
+</li>
+<li>interned_strings
+: <a class="el" href="structGC.html#a32075db924db6c8414bbe75e4acfdb99">GC</a>
 </li>
 </ul>
 
@@ -201,7 +228,8 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="structOBJ.html#ac4b2ccbbdfa470ea38f1bcdca987077a">OBJ</a>
 </li>
 <li>memory_pool
-: <a class="el" href="structGC.html#ad78744f22bb97f50586187c23877f7e2">GC</a>
+: <a class="el" href="structGC.html#a97abc6ad2937dde797f2aca6cb8d5b11">GC</a>
+, <a class="el" href="structLVM.html#a1e2d67e50809d1f673f9ea0d2aa5ba2e">LVM</a>
 </li>
 </ul>
 
@@ -209,6 +237,9 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>name
 : <a class="el" href="structOBJ.html#a5ac083a645d964373f022d03df4849c8">OBJ</a>
+</li>
+<li>next
+: <a class="el" href="structARENA__NODE.html#a75b19ffcca77bfc647ff02695958fd95">ARENA_NODE</a>
 </li>
 <li>num
 : <a class="el" href="structOBJ.html#a95fc76296e1d8cd7af09bc36dce0974f">OBJ</a>
@@ -219,6 +250,9 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>occupied
 : <a class="el" href="structGC.html#ae3966afc4a03e5e7db07a5dd4cfa4c52">GC</a>
+</li>
+<li>op_stack
+: <a class="el" href="structLVM.html#a2ed6b9ccfb688116a0dc6b5a7d32fa11">LVM</a>
 </li>
 </ul>
 
@@ -234,14 +268,15 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="structLEXER.html#a7b8c86d9685c5e4cca94667c88c19440">LEXER</a>
 </li>
 <li>ptr
-: <a class="el" href="structGC.html#a69a22ca2de83908b72981dfec4c0c95b">GC</a>
+: <a class="el" href="structGC.html#a5d1ed056116414ab3644c7c160ca2cfd">GC</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>size
-: <a class="el" href="structGC.html#a854352f53b148adc24983a58a1866d66">GC</a>
+: <a class="el" href="structARENA.html#a854352f53b148adc24983a58a1866d66">ARENA</a>
+, <a class="el" href="structGC.html#a854352f53b148adc24983a58a1866d66">GC</a>
 , <a class="el" href="structLEXER.html#a439227feff9d7f55384e8780cfc2eb82">LEXER</a>
 , <a class="el" href="structOBJ__PAIR.html#a439227feff9d7f55384e8780cfc2eb82">OBJ_PAIR</a>
 </li>
@@ -282,7 +317,15 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>type
 : <a class="el" href="structOBJ.html#a79da2848e0aa990f3bfb6bbc679adb07">OBJ</a>
+, <a class="el" href="structSDL__Win__wrapper.html#ac765329451135abec74c45e1897abf26">SDL_Win_wrapper</a>
 , <a class="el" href="structTOKEN.html#ac765329451135abec74c45e1897abf26">TOKEN</a>
+</li>
+</ul>
+
+
+<h3><a id="index_w"></a>- w -</h3><ul>
+<li>win
+: <a class="el" href="structSDL__Win__wrapper.html#a885d46b7e650d1d20384739a65e8b425">SDL_Win_wrapper</a>
 </li>
 </ul>
 </div><!-- contents -->

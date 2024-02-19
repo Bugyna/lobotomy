@@ -94,7 +94,7 @@ static OBJ* NIL;
 static OBJ* O_TRUE;
 static OBJ* O_FALSE;
 
-static const OBJ DEFAULT_OBJ = {.type=T_UNDEFINED};
+static const OBJ DEFAULT_OBJ = {.marked=false, .type=T_UNDEFINED};
 static OBJ* NIL = &((OBJ){.type=T_NIL});
 static OBJ* O_TRUE = &((OBJ){.type=T_TRUE, .name="TRUE"});
 static OBJ* O_FALSE = &((OBJ){.type=T_FALSE});

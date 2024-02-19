@@ -107,38 +107,12 @@ $(document).ready(function(){initNavTree('l__std_8h.html',''); initResizable(); 
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for l_std.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="l__std_8h__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2l__std_8h" alt=""/></div>
-<map name="_2home_2bugy_2projs_2lobotomy_2src_2l__std_8h" id="_2home_2bugy_2projs_2lobotomy_2src_2l__std_8h">
-<area shape="rect" title=" " alt="" coords="1032,5,1233,47"/>
-<area shape="rect" title=" " alt="" coords="110,319,177,345"/>
-<area shape="rect" title=" " alt="" coords="852,319,923,345"/>
-<area shape="rect" title=" " alt="" coords="1097,319,1168,345"/>
-<area shape="rect" title=" " alt="" coords="976,244,1044,271"/>
-<area shape="rect" href="obj_8h.html" title=" " alt="" coords="577,95,632,121"/>
-<area shape="rect" title=" " alt="" coords="225,319,296,345"/>
-<area shape="rect" title=" " alt="" coords="694,319,777,345"/>
-<area shape="rect" title=" " alt="" coords="5,319,79,345"/>
-<area shape="rect" href="util_8h.html" title=" " alt="" coords="495,169,549,196"/>
-<area shape="rect" href="SHM_2hashmap_8h.html" title=" " alt="" coords="722,244,850,271"/>
-<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="267,169,367,196"/>
-<area shape="rect" title=" " alt="" coords="485,244,559,271"/>
-<area shape="rect" title=" " alt="" coords="583,244,647,271"/>
-<area shape="rect" title=" " alt="" coords="322,244,386,271"/>
-<area shape="rect" href="os_8h.html" title=" " alt="" coords="411,244,460,271"/>
-<area shape="rect" href="error_8h.html" title=" " alt="" coords="181,244,247,271"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="l__std_8h__incl.svg" width="1308" height="351"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="l__std_8h__dep__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2l__std_8hdep" alt=""/></div>
-<map name="_2home_2bugy_2projs_2lobotomy_2src_2l__std_8hdep" id="_2home_2bugy_2projs_2lobotomy_2src_2l__std_8hdep">
-<area shape="rect" title=" " alt="" coords="169,5,371,47"/>
-<area shape="rect" href="eval_8h.html" title=" " alt="" coords="100,95,301,136"/>
-<area shape="rect" href="main_8c.html" title=" " alt="" coords="169,363,371,404"/>
-<area shape="rect" href="l__std_8c.html" title=" " alt="" coords="5,184,207,225"/>
-<area shape="rect" href="eval_8c.html" title=" " alt="" coords="100,273,301,315"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="l__std_8h__dep__incl.svg" width="376" height="410"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="l__std_8h_source.html">Go to the source code of this file.</a></p>
@@ -149,6 +123,8 @@ Macros</h2></td></tr>
 <tr class="separator:a9b2a63793cdbd9175fe8fef8a5704f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a615f04bf9115c6de5b514a8d93a3b2a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="l__std_8h.html#a615f04bf9115c6de5b514a8d93a3b2a1">DEF_BINARY_OPERATION</a>(NAME,  SIGN)</td></tr>
 <tr class="separator:a615f04bf9115c6de5b514a8d93a3b2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50f6ea34745480dc4765ba6bbe49cd2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="l__std_8h.html#a50f6ea34745480dc4765ba6bbe49cd2f">DEF_UNARY_OPERATION</a>(NAME,  SIGN)</td></tr>
+<tr class="separator:a50f6ea34745480dc4765ba6bbe49cd2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -359,6 +335,53 @@ Functions</h2></td></tr>
 <div class="line">        \</div>
 <div class="line">        if (ret-&gt;type == <a class="code" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc">T_NUM</a> &amp;&amp; curr-&gt;type == <a class="code" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc">T_NUM</a>)\</div>
 <div class="line">            ret-&gt;num SIGN##= curr-&gt;num;\</div>
+<div class="line">    }\</div>
+<div class="line">    return ret;\</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a50f6ea34745480dc4765ba6bbe49cd2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50f6ea34745480dc4765ba6bbe49cd2f">&#9670;&nbsp;</a></span>DEF_UNARY_OPERATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEF_UNARY_OPERATION</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SIGN&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="structOBJ.html">OBJ</a>* L_##NAME(<a class="code" href="obj_8h.html#a06ad5d21f9a97102fffd5cc6c2672ea9">OBJ_FN_ARGS</a>)\</div>
+<div class="line">{\</div>
+<div class="line">    OBJ* ret = <a class="code" href="obj_8c.html#afef0f8196de8986895bc02ecbbaf2529">empty_obj</a>();\</div>
+<div class="line">    o = <a class="code" href="l__std_8h.html#ad0496d954f7b22c3e4c59f4b5e204b85">preeval</a>(o);\</div>
+<div class="line">    ret-&gt;type = o-&gt;type;\</div>
+<div class="line">    if (ret-&gt;type == <a class="code" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc">T_NUM</a>)\</div>
+<div class="line">        ret-&gt;num = o-&gt;num;<a class="code" href="obj_8h.html#ae1e180e18868549f629136a2d1a48dda">\</a></div>
+<div class="line"><a class="code" href="obj_8h.html#ae1e180e18868549f629136a2d1a48dda">\</a></div>
+<div class="line"><a class="code" href="obj_8h.html#ae1e180e18868549f629136a2d1a48dda">	NEXT</a>(o);\</div>
+<div class="line">    if (o == NULL) <span class="keywordflow">return</span> ret; <a class="code" href="obj_8h.html#ab91d02dc63defade63583c31c17334be">\</a></div>
+<div class="line"><a class="code" href="obj_8h.html#ab91d02dc63defade63583c31c17334be">\</a></div>
+<div class="line"><a class="code" href="obj_8h.html#ab91d02dc63defade63583c31c17334be">	ITERATE_OBJECT</a>(o, curr)\</div>
+<div class="line">    {\</div>
+<div class="line">        \</div>
+<div class="line">        if (ret-&gt;type == <a class="code" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc">T_NUM</a> &amp;&amp; curr-&gt;type == <a class="code" href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc">T_NUM</a>)\</div>
+<div class="line">            ret-&gt;num = SIGN ret-&gt;num;\</div>
 <div class="line">    }\</div>
 <div class="line">    return ret;\</div>
 <div class="line">}</div>
@@ -1604,13 +1627,13 @@ Functions</h2></td></tr>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aobj_8h_html_ae1e180e18868549f629136a2d1a48dda"><div class="ttname"><a href="obj_8h.html#ae1e180e18868549f629136a2d1a48dda">NEXT</a></div><div class="ttdeci">#define NEXT(X)</div><div class="ttdef"><b>Definition:</b> obj.h:51</div></div>
-<div class="ttc" id="aobj_8h_html_ab91d02dc63defade63583c31c17334be"><div class="ttname"><a href="obj_8h.html#ab91d02dc63defade63583c31c17334be">ITERATE_OBJECT</a></div><div class="ttdeci">#define ITERATE_OBJECT(O, curr)</div><div class="ttdef"><b>Definition:</b> obj.h:98</div></div>
-<div class="ttc" id="aobj_8h_html_a06ad5d21f9a97102fffd5cc6c2672ea9"><div class="ttname"><a href="obj_8h.html#a06ad5d21f9a97102fffd5cc6c2672ea9">OBJ_FN_ARGS</a></div><div class="ttdeci">#define OBJ_FN_ARGS</div><div class="ttdef"><b>Definition:</b> obj.h:18</div></div>
-<div class="ttc" id="al__std_8h_html_ad0496d954f7b22c3e4c59f4b5e204b85"><div class="ttname"><a href="l__std_8h.html#ad0496d954f7b22c3e4c59f4b5e204b85">preeval</a></div><div class="ttdeci">OBJ * preeval(OBJ *)</div><div class="ttdef"><b>Definition:</b> eval.c:57</div></div>
-<div class="ttc" id="aobj_8c_html_afef0f8196de8986895bc02ecbbaf2529"><div class="ttname"><a href="obj_8c.html#afef0f8196de8986895bc02ecbbaf2529">empty_obj</a></div><div class="ttdeci">OBJ * empty_obj()</div><div class="ttdef"><b>Definition:</b> obj.c:372</div></div>
-<div class="ttc" id="astructOBJ_html"><div class="ttname"><a href="structOBJ.html">OBJ</a></div><div class="ttdef"><b>Definition:</b> obj.h:63</div></div>
-<div class="ttc" id="aobj_8h_html_a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc"><div class="ttname"><a href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc">T_NUM</a></div><div class="ttdeci">@ T_NUM</div><div class="ttdef"><b>Definition:</b> obj.h:34</div></div>
+<div class="ttc" id="aobj_8h_html_ae1e180e18868549f629136a2d1a48dda"><div class="ttname"><a href="obj_8h.html#ae1e180e18868549f629136a2d1a48dda">NEXT</a></div><div class="ttdeci">#define NEXT(X)</div><div class="ttdef"><b>Definition:</b> obj.h:53</div></div>
+<div class="ttc" id="aobj_8h_html_ab91d02dc63defade63583c31c17334be"><div class="ttname"><a href="obj_8h.html#ab91d02dc63defade63583c31c17334be">ITERATE_OBJECT</a></div><div class="ttdeci">#define ITERATE_OBJECT(O, curr)</div><div class="ttdef"><b>Definition:</b> obj.h:106</div></div>
+<div class="ttc" id="aobj_8h_html_a06ad5d21f9a97102fffd5cc6c2672ea9"><div class="ttname"><a href="obj_8h.html#a06ad5d21f9a97102fffd5cc6c2672ea9">OBJ_FN_ARGS</a></div><div class="ttdeci">#define OBJ_FN_ARGS</div><div class="ttdef"><b>Definition:</b> obj.h:19</div></div>
+<div class="ttc" id="al__std_8h_html_ad0496d954f7b22c3e4c59f4b5e204b85"><div class="ttname"><a href="l__std_8h.html#ad0496d954f7b22c3e4c59f4b5e204b85">preeval</a></div><div class="ttdeci">OBJ * preeval(OBJ *)</div><div class="ttdef"><b>Definition:</b> eval.c:68</div></div>
+<div class="ttc" id="aobj_8c_html_afef0f8196de8986895bc02ecbbaf2529"><div class="ttname"><a href="obj_8c.html#afef0f8196de8986895bc02ecbbaf2529">empty_obj</a></div><div class="ttdeci">OBJ * empty_obj()</div><div class="ttdef"><b>Definition:</b> obj.c:377</div></div>
+<div class="ttc" id="astructOBJ_html"><div class="ttname"><a href="structOBJ.html">OBJ</a></div><div class="ttdef"><b>Definition:</b> obj.h:65</div></div>
+<div class="ttc" id="aobj_8h_html_a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc"><div class="ttname"><a href="obj_8h.html#a714b9c2c276fbae637fee36453d9121ea368ba65e0bf0f76505c831f6516d17fc">T_NUM</a></div><div class="ttdeci">@ T_NUM</div><div class="ttdef"><b>Definition:</b> obj.h:35</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

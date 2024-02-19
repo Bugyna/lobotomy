@@ -57,6 +57,7 @@ static const char* TOKEN_NAMES[] =
 typedef struct
 {
 	int line, column;
+	int index;
 } MARK;
 
 typedef struct
@@ -79,6 +80,11 @@ TOKEN merge_tokens(TOKEN a, TOKEN b)
 
 typedef struct
 {
+	/*!
+		LEXER struct stores info about the text input and the tokens it stores
+	*/
+
+	/*! @param filename */ 
 	const char* filename;
 	const char* text;
 	size_t text_len, text_peek;
@@ -125,6 +131,7 @@ void lexer_init(LEXER* lexer, const char* filename, const char* text)
 
 	lexer->pos.line = 1;
 	lexer->pos.column = 0;
+	lexer->pos.index = 0;
 }
 
 
@@ -387,7 +394,8 @@ static inline void lexer_print_highlight_at_pos(LEXER* lexer, MARK pos)
 		putchar(' ');
 	}
 	putchar('^');
-	printf(LINE_TERMINATOR);
+	putchar(' ');
+	// printf(LINE_TERMINATOR);
 }
 
 
@@ -395,6 +403,23 @@ void lexer_highlight_error_token(LEXER* lexer, MARK pos, size_t n)
 {
 	lexer_print_until_eol(lexer, n);
 	lexer_print_highlight_at_pos(lexer, pos);
+}
+
+int lexer_get_last_newline_index(LEXER* lexer, TOKEN t)
+{
+	MARK m = t.start;
+	int ret = m.index;
+	printd("getting shit: %d.%d %d\n", m.line, m.column, m.index);
+	for (int i = m.index; i > 0; i--)
+	{
+		if (lexer->text[i] == '\n') 
+		{
+			ret -= i;
+			break;
+		}
+	}
+
+	return ret;
 }
 
 LEXER tokenize(const char filename[], const char text[])
@@ -415,7 +440,7 @@ LEXER tokenize(const char filename[], const char text[])
 	
     
 	
-	for (; lexer.text_peek < lexer.text_len; lexer.text_peek++, lexer.pos.column++)
+	for (; lexer.text_peek < lexer.text_len; lexer.text_peek++, lexer.pos.column++, lexer.pos.index++)
 	{
 		char c = lexer.text[lexer.text_peek];
 		// printf("c: %c\n", c);
@@ -517,7 +542,13 @@ LEXER tokenize(const char filename[], const char text[])
 					token.type = TT_RPAREN;
 					b_count--;
 					if (b_count < 0) {
-						lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", lexer.pos.line, lexer.pos.column);
+						// lobotomy_error_s_ne(ERR_TOO_MANY_BRACKETS, "too many brackets at %d.%d", lexer.pos.line, lexer.pos.column);
+						LOBOTOMY_ERROR_FULL_NO_EXIT(
+							lexer_highlight_error_token(&lexer, token.start, current_line_index),
+							lexer.filename, token.start, ERR_TOO_MANY_BRACKETS, "Too many parenthesis %s", token.text
+						);
+						b_count = 0;
+						continue;
 					}
 				break;
 				case '[':
@@ -581,6 +612,8 @@ LEXER tokenize(const char filename[], const char text[])
 	return lexer;
 	// free(lexer.tokens);
 }
+
+
 
 
 

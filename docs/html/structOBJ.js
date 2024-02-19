@@ -9,6 +9,7 @@ var structOBJ =
     [ "decimal", "structOBJ.html#a160d6366514b7fe5ec086f528835c5ce", null ],
     [ "env", "structOBJ.html#ab082a901a23e5315ca84dd0c984d58f1", null ],
     [ "env_name", "structOBJ.html#aeea1c1848bccc2c856a6d65b5e61b85d", null ],
+    [ "file", "structOBJ.html#a702945180aa732857b380a007a7e2a21", null ],
     [ "len", "structOBJ.html#afed088663f8704004425cdae2120b9b3", null ],
     [ "map", "structOBJ.html#a683932d1d77403bc543db2e1d5ae6b2f", null ],
     [ "marked", "structOBJ.html#ac4b2ccbbdfa470ea38f1bcdca987077a", null ],

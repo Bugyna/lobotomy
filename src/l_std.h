@@ -27,7 +27,9 @@ OBJ* L_##NAME(OBJ_FN_ARGS)\
 		ret->decimal = o->decimal;\
 \
 	o = NT(curr);\
-	if (o == NULL) {printf("\nhappend\n"); return ret;} \
+	if (o == NIL) {\
+		LOBOTOMY_ERROR("Not enough arguments for arithmetic: '%s'", #SIGN);\
+	}\
 \
 	ITERATE_OBJECT(o, tmp)\
 	{\
@@ -227,6 +229,7 @@ OBJ* L_let(OBJ_FN_ARGS);
 OBJ* L_create_fn(OBJ_FN_ARGS);
 
 // flow control
+OBJ* L_if(OBJ_FN_ARGS);
 OBJ* L_cond(OBJ_FN_ARGS);
 OBJ* L_loop(OBJ_FN_ARGS);
 

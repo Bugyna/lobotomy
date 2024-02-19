@@ -132,6 +132,12 @@ OBJ* parse_object(LEXER* lexer, int p, int b)
 		case TT_RPAREN:
 			lexer->p_count--;
 			if (lexer->p_count <= p) {
+				if (lexer->p_count < 0) {
+					LOBOTOMY_ERROR_FULL(
+						lexer_highlight_error_token(lexer, t.start, lexer_get_last_newline_index(lexer, t)),
+						lexer->filename, t.start, ERR_LEXER, "Too many parenthesis %s", t.text
+					);
+				}
 				// printd("ending list\n");
 				goto exit;
 			}
@@ -221,6 +227,8 @@ OBJ_LIST* parse(const char filename[], const char text[])
 	// printf("\n\n-------------------\n\n");
 	return parsed;
 }
+
+
 
 
 

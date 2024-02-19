@@ -9,7 +9,7 @@
 
 #include "util.h"
 #include "obj.c"
-#include "l_std.h"
+#include "l_std.c"
 #include "eval.c"
 
 
@@ -122,7 +122,7 @@ int main(int argc, char* argv[]) {
 	// printf("h: %08x\n", U'é');
 	// // printf("hash: %d\n", hash("ábc"));
 	// return 0;
-	printd("hash test: %s, %d \n", "help", hash("help"));
+	// printd("hash test: %s, %d \n", "help", hash("help"));
 
 	// printd("GCL init: %d\n", GCL.size);
 	global_env = calloc(1, sizeof(ENV));

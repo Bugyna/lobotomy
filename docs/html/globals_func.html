@@ -117,6 +117,15 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>add_token()
 : <a class="el" href="lexer_8h.html#a84e8fb183ea9c615e30a55c02d2183b2">lexer.h</a>
 </li>
+<li>arena_alloc()
+: <a class="el" href="arena_8h.html#ad38fde0f120eee6b3dc50aa0dd3ddd98">arena.h</a>
+</li>
+<li>arena_create()
+: <a class="el" href="arena_8h.html#a2a6973e69ea22e56049ee49d5564a34d">arena.h</a>
+</li>
+<li>arena_free()
+: <a class="el" href="arena_8h.html#a746a7e290fb7b1d50ec6b53d288dc3e8">arena.h</a>
+</li>
 </ul>
 
 
@@ -145,6 +154,10 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 : <a class="el" href="obj_8c.html#a14f09d8c7f0794cef89a7e17a9b7274e">obj.c</a>
 , <a class="el" href="obj_8h.html#a14f09d8c7f0794cef89a7e17a9b7274e">obj.h</a>
 </li>
+<li>eval_into()
+: <a class="el" href="eval_8c.html#aa8eced299ac15690a17628892c94cb53">eval.c</a>
+, <a class="el" href="eval_8h.html#aa8eced299ac15690a17628892c94cb53">eval.h</a>
+</li>
 <li>eval_program()
 : <a class="el" href="eval_8c.html#aeb3b67ca57e40227f060ec98226a3eda">eval.c</a>
 , <a class="el" href="eval_8h.html#aeb3b67ca57e40227f060ec98226a3eda">eval.h</a>
@@ -158,28 +171,39 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>GC_alloc()
-: <a class="el" href="obj_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">obj.h</a>
+: <a class="el" href="gc_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">gc.h</a>
+, <a class="el" href="obj_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">obj.h</a>
 </li>
 <li>GC_free()
-: <a class="el" href="obj_8h.html#aa565bd0cece59599d7f8bdaac3f5537b">obj.h</a>
+: <a class="el" href="gc_8h.html#aa565bd0cece59599d7f8bdaac3f5537b">gc.h</a>
+, <a class="el" href="obj_8h.html#aa565bd0cece59599d7f8bdaac3f5537b">obj.h</a>
 </li>
 <li>GC_init()
-: <a class="el" href="obj_8h.html#ac9321bb3c3bc18b4c0e42b06258091f1">obj.h</a>
+: <a class="el" href="gc_8h.html#ac9321bb3c3bc18b4c0e42b06258091f1">gc.h</a>
+, <a class="el" href="obj_8h.html#ac9321bb3c3bc18b4c0e42b06258091f1">obj.h</a>
 </li>
 <li>GCL_alloc()
-: <a class="el" href="gc_8h.html#a0410318f4c41c57a5195b6628b866325">gc.h</a>
+: <a class="el" href="cgc_8h.html#a0410318f4c41c57a5195b6628b866325">cgc.h</a>
+, <a class="el" href="tgc_8h.html#a0410318f4c41c57a5195b6628b866325">tgc.h</a>
 </li>
 <li>GCL_collect()
-: <a class="el" href="gc_8h.html#af3e5ba74b5724e774429fa2222fbcbc9">gc.h</a>
+: <a class="el" href="cgc_8h.html#af3e5ba74b5724e774429fa2222fbcbc9">cgc.h</a>
+, <a class="el" href="tgc_8h.html#af3e5ba74b5724e774429fa2222fbcbc9">tgc.h</a>
 </li>
 <li>GCL_free()
-: <a class="el" href="gc_8h.html#a315e39c9ef33560066c039ccea9f3bfd">gc.h</a>
+: <a class="el" href="cgc_8h.html#a315e39c9ef33560066c039ccea9f3bfd">cgc.h</a>
+, <a class="el" href="tgc_8h.html#a315e39c9ef33560066c039ccea9f3bfd">tgc.h</a>
 </li>
 <li>GCL_init()
-: <a class="el" href="gc_8h.html#a3ca367ba48933a5321ade46d40afabe3">gc.h</a>
+: <a class="el" href="cgc_8h.html#a3ca367ba48933a5321ade46d40afabe3">cgc.h</a>
+, <a class="el" href="tgc_8h.html#a3ca367ba48933a5321ade46d40afabe3">tgc.h</a>
+</li>
+<li>GCL_intern_string()
+: <a class="el" href="cgc_8h.html#aa2c5406cda00a8955c1a71aee14e2f56">cgc.h</a>
 </li>
 <li>GCL_mark()
-: <a class="el" href="gc_8h.html#ababd5cca5e467d3f57fc88ddbf8fa0ff">gc.h</a>
+: <a class="el" href="cgc_8h.html#ababd5cca5e467d3f57fc88ddbf8fa0ff">cgc.h</a>
+, <a class="el" href="tgc_8h.html#ababd5cca5e467d3f57fc88ddbf8fa0ff">tgc.h</a>
 </li>
 </ul>
 
@@ -187,9 +211,6 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <h3><a id="index_h"></a>- h -</h3><ul>
 <li>hash()
 : <a class="el" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">util.h</a>
-</li>
-<li>hello_world()
-: <a class="el" href="sample__module_8c.html#ac132debad37896933b33b2e17efd1cb1">sample_module.c</a>
 </li>
 </ul>
 
@@ -236,12 +257,10 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 : <a class="el" href="l__std_8h.html#aab65af01fed2f84f7927e71cabb39e6f">l_std.h</a>
 </li>
 <li>L_cond()
-: <a class="el" href="l__std_8c.html#aea4871d7ef1eec60d167e9684267764a">l_std.c</a>
-, <a class="el" href="l__std_8h.html#aea4871d7ef1eec60d167e9684267764a">l_std.h</a>
+: <a class="el" href="l__std_8h.html#aea4871d7ef1eec60d167e9684267764a">l_std.h</a>
 </li>
 <li>L_copy()
-: <a class="el" href="l__std_8c.html#a378689eaaceb412f39846674269006c3">l_std.c</a>
-, <a class="el" href="l__std_8h.html#a378689eaaceb412f39846674269006c3">l_std.h</a>
+: <a class="el" href="l__std_8h.html#a378689eaaceb412f39846674269006c3">l_std.h</a>
 </li>
 <li>L_cos()
 : <a class="el" href="l__std_8h.html#afcf3dc55a76b8f97a572cd24b762caf6">l_std.h</a>
@@ -249,9 +268,6 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>L_create_fn()
 : <a class="el" href="l__std_8c.html#abdc69f5db89d99dc0b8718387e8c23df">l_std.c</a>
 , <a class="el" href="l__std_8h.html#abdc69f5db89d99dc0b8718387e8c23df">l_std.h</a>
-</li>
-<li>L_DEF_C_FN()
-: <a class="el" href="l__std_8c.html#a415993bfd0027b35d026f2fd0b6998f2">l_std.c</a>
 </li>
 <li>L_eq()
 : <a class="el" href="l__std_8c.html#ac68dde33e9157ce819d8e2f938dd6915">l_std.c</a>
@@ -266,7 +282,8 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 , <a class="el" href="l__std_8h.html#a04a8976d0a1a41761db87dac7ecb4457">l_std.h</a>
 </li>
 <li>L_file_close()
-: <a class="el" href="l__std_8h.html#af08ad0fc88ed640e2f319beca2f505b4">l_std.h</a>
+: <a class="el" href="l__std_8c.html#af08ad0fc88ed640e2f319beca2f505b4">l_std.c</a>
+, <a class="el" href="l__std_8h.html#af08ad0fc88ed640e2f319beca2f505b4">l_std.h</a>
 </li>
 <li>L_file_open()
 : <a class="el" href="l__std_8c.html#a6fac7873e5d9d1454c86fc137a8bc05a">l_std.c</a>
@@ -277,7 +294,8 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 , <a class="el" href="l__std_8h.html#a48c2f0925aae13f96b682994cdcb0553">l_std.h</a>
 </li>
 <li>L_file_write()
-: <a class="el" href="l__std_8h.html#a7a11a3fc85145d0535185bf42ba740eb">l_std.h</a>
+: <a class="el" href="l__std_8c.html#a7a11a3fc85145d0535185bf42ba740eb">l_std.c</a>
+, <a class="el" href="l__std_8h.html#a7a11a3fc85145d0535185bf42ba740eb">l_std.h</a>
 </li>
 <li>L_first()
 : <a class="el" href="l__std_8h.html#a39dee74dca8960e0c0c09faecd341265">l_std.h</a>
@@ -310,12 +328,14 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 , <a class="el" href="l__std_8h.html#a9c963075603ef4ba05c1eeb5867aaf3e">l_std.h</a>
 </li>
 <li>L_get_random_num()
-: <a class="el" href="l__std_8c.html#ae510536dc7750d133fc65350b9e80ea9">l_std.c</a>
-, <a class="el" href="l__std_8h.html#ae510536dc7750d133fc65350b9e80ea9">l_std.h</a>
+: <a class="el" href="l__std_8h.html#ae510536dc7750d133fc65350b9e80ea9">l_std.h</a>
 </li>
 <li>L_help()
 : <a class="el" href="l__std_8c.html#abfee641540840b1b18d9664654c947e9">l_std.c</a>
 , <a class="el" href="l__std_8h.html#abfee641540840b1b18d9664654c947e9">l_std.h</a>
+</li>
+<li>L_if()
+: <a class="el" href="l__std_8c.html#a2f86306ce163738076f29c3a64c799d3">l_std.c</a>
 </li>
 <li>L_insert()
 : <a class="el" href="l__std_8c.html#ade6e9d0fbf4b45a135ebceac7f758625">l_std.c</a>
@@ -345,8 +365,7 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 , <a class="el" href="l__std_8h.html#a50e11881ef75ae871c93c16e359fe2f5">l_std.h</a>
 </li>
 <li>L_load()
-: <a class="el" href="l__std_8c.html#a44ee6b98bbb563d9a1e0e91899c73b65">l_std.c</a>
-, <a class="el" href="l__std_8h.html#a44ee6b98bbb563d9a1e0e91899c73b65">l_std.h</a>
+: <a class="el" href="l__std_8h.html#a44ee6b98bbb563d9a1e0e91899c73b65">l_std.h</a>
 </li>
 <li>L_log()
 : <a class="el" href="l__std_8h.html#a29306f37a406b92a3da806c931fbf03e">l_std.h</a>
@@ -420,6 +439,9 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>L_round()
 : <a class="el" href="l__std_8h.html#a783a919aff49b1edb3421be9af81d2d0">l_std.h</a>
 </li>
+<li>l_sdl_load()
+: <a class="el" href="l__sdl_8c.html#a5083dcd291f5b8c46e4a9ea7657afdb3">l_sdl.c</a>
+</li>
 <li>L_sin()
 : <a class="el" href="l__std_8h.html#acd716ad5eacf28262471c7bc62925139">l_std.h</a>
 </li>
@@ -438,8 +460,7 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 , <a class="el" href="l__std_8h.html#a8a33f06e3c9bb58846bc0e7ac8c33e06">l_std.h</a>
 </li>
 <li>L_use()
-: <a class="el" href="l__std_8c.html#a63e53fe46eb9520fc8f22fcc29e8a1c4">l_std.c</a>
-, <a class="el" href="l__std_8h.html#a63e53fe46eb9520fc8f22fcc29e8a1c4">l_std.h</a>
+: <a class="el" href="l__std_8h.html#a63e53fe46eb9520fc8f22fcc29e8a1c4">l_std.h</a>
 </li>
 <li>lex_number()
 : <a class="el" href="lexer_8h.html#a4306b7942d1e3c0932ed68bd5d5118e2">lexer.h</a>
@@ -449,6 +470,9 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 </li>
 <li>lex_word()
 : <a class="el" href="lexer_8h.html#a5bbc272bd3fd81436ac17f73913c5eab">lexer.h</a>
+</li>
+<li>lexer_get_last_newline_index()
+: <a class="el" href="lexer_8h.html#acd983b60591e7ed465d65cb2607017d5">lexer.h</a>
 </li>
 <li>lexer_highlight_error_token()
 : <a class="el" href="lexer_8h.html#a5092a9e968cd9f4e6ac4499f01e31333">lexer.h</a>
@@ -465,6 +489,7 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>main()
 : <a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main.c</a>
+, <a class="el" href="test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">test.c</a>
 </li>
 <li>merge_tokens()
 : <a class="el" href="lexer_8h.html#afeac9e815acf73679f5be7981af8dc4c">lexer.h</a>
@@ -533,6 +558,7 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 </li>
 <li>reset_obj()
 : <a class="el" href="obj_8c.html#a30fb6d42bb2f6a4747c77fc7bd779542">obj.c</a>
+, <a class="el" href="obj_8h.html#a30fb6d42bb2f6a4747c77fc7bd779542">obj.h</a>
 </li>
 <li>reset_token()
 : <a class="el" href="lexer_8h.html#adcafc84e6f69fdf1cdbea7281ad79b45">lexer.h</a>
@@ -546,6 +572,12 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>sample_module_load()
 : <a class="el" href="sample__module_8c.html#a5b252c9d6e1f3f1769de8e3be94a2935">sample_module.c</a>
+</li>
+<li>sdl_create_win()
+: <a class="el" href="l__sdl_8c.html#a6285104d488cef7642bedcd7cff1f865">l_sdl.c</a>
+</li>
+<li>sdl_destroy_win()
+: <a class="el" href="l__sdl_8c.html#a1378a9e0d62571e14ff7d3f1730889f7">l_sdl.c</a>
 </li>
 <li>set_env()
 : <a class="el" href="eval_8c.html#a1cdc600bb2b74bf0be20959c5707af4f">eval.c</a>

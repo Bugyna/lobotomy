@@ -112,34 +112,12 @@ $(document).ready(function(){initNavTree('lexer_8h.html',''); initResizable(); }
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for lexer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="lexer_8h__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2lexer_8h" alt=""/></div>
-<map name="_2home_2bugy_2projs_2lobotomy_2src_2lexer_8h" id="_2home_2bugy_2projs_2lobotomy_2src_2lexer_8h">
-<area shape="rect" title=" " alt="" coords="341,5,543,47"/>
-<area shape="rect" title=" " alt="" coords="661,244,732,271"/>
-<area shape="rect" title=" " alt="" coords="5,244,76,271"/>
-<area shape="rect" title=" " alt="" coords="101,244,183,271"/>
-<area shape="rect" title=" " alt="" coords="210,244,277,271"/>
-<area shape="rect" title=" " alt="" coords="512,244,583,271"/>
-<area shape="rect" title=" " alt="" coords="892,244,965,271"/>
-<area shape="rect" href="error_8h.html" title=" " alt="" coords="281,169,347,196"/>
-<area shape="rect" href="util_8h.html" title=" " alt="" coords="457,95,512,121"/>
-<area shape="rect" title=" " alt="" coords="585,169,659,196"/>
-<area shape="rect" title=" " alt="" coords="735,169,803,196"/>
-<area shape="rect" title=" " alt="" coords="827,169,891,196"/>
-<area shape="rect" title=" " alt="" coords="371,169,435,196"/>
-<area shape="rect" href="os_8h.html" title=" " alt="" coords="460,169,509,196"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__incl.svg" width="971" height="276"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="lexer_8h__dep__incl.png" border="0" usemap="#_2home_2bugy_2projs_2lobotomy_2src_2lexer_8hdep" alt=""/></div>
-<map name="_2home_2bugy_2projs_2lobotomy_2src_2lexer_8hdep" id="_2home_2bugy_2projs_2lobotomy_2src_2lexer_8hdep">
-<area shape="rect" title=" " alt="" coords="5,5,207,47"/>
-<area shape="rect" href="eval_8c.html" title=" " alt="" coords="5,184,207,225"/>
-<area shape="rect" href="parse_8h.html" title=" " alt="" coords="75,95,276,136"/>
-<area shape="rect" href="main_8c.html" title=" " alt="" coords="5,273,207,315"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__dep__incl.svg" width="282" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="lexer_8h_source.html">Go to the source code of this file.</a></p>
@@ -155,9 +133,9 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aa7f7c0583d8dceb05d6abb7396f930db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#aa7f7c0583d8dceb05d6abb7396f930db">IS_TERMINATOR</a>(c)&#160;&#160;&#160;(strchr(&quot;() \n\t[]\{}:&quot;, c) != NULL)</td></tr>
+<tr class="memitem:aa7f7c0583d8dceb05d6abb7396f930db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#aa7f7c0583d8dceb05d6abb7396f930db">IS_TERMINATOR</a>(c)&#160;&#160;&#160;(strchr(&quot;() \n\t[]{}:&quot;, c) != NULL)</td></tr>
 <tr class="separator:aa7f7c0583d8dceb05d6abb7396f930db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af80a9f355b3a6227ae89b448f5134ab0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#af80a9f355b3a6227ae89b448f5134ab0">IS_VALID_SYMBOL_CHAR</a>(c)&#160;&#160;&#160;((c &gt; 128 || c &lt; 0) || (c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || strchr(&quot;+-_/?|*&amp;^%$#!~&lt;&gt;=&quot;, c) != NULL)</td></tr>
+<tr class="memitem:af80a9f355b3a6227ae89b448f5134ab0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#af80a9f355b3a6227ae89b448f5134ab0">IS_VALID_SYMBOL_CHAR</a>(c)&#160;&#160;&#160;((c &gt;= 127 || c &lt; 0) || (c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || strchr(&quot;+-_/?|*&amp;^%$#!~&lt;&gt;=&quot;, c) != NULL)</td></tr>
 <tr class="separator:af80a9f355b3a6227ae89b448f5134ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac49b7a967599330b42fabeee1e3ac2e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#ac49b7a967599330b42fabeee1e3ac2e0">IS_NUMBER</a>(c)&#160;&#160;&#160;(c &gt;= '0' &amp;&amp; c &lt;= '9')</td></tr>
 <tr class="separator:ac49b7a967599330b42fabeee1e3ac2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,6 +197,8 @@ Functions</h2></td></tr>
 <tr class="separator:a16a2fd86594ee8b87cad96b8342ac3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5092a9e968cd9f4e6ac4499f01e31333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a5092a9e968cd9f4e6ac4499f01e31333">lexer_highlight_error_token</a> (<a class="el" href="structLEXER.html">LEXER</a> *lexer, <a class="el" href="structMARK.html">MARK</a> pos, size_t n)</td></tr>
 <tr class="separator:a5092a9e968cd9f4e6ac4499f01e31333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd983b60591e7ed465d65cb2607017d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#acd983b60591e7ed465d65cb2607017d5">lexer_get_last_newline_index</a> (<a class="el" href="structLEXER.html">LEXER</a> *lexer, <a class="el" href="structTOKEN.html">TOKEN</a> t)</td></tr>
+<tr class="separator:acd983b60591e7ed465d65cb2607017d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9accf4fba8fc84cb5de3d1b29fbdf50c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLEXER.html">LEXER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a9accf4fba8fc84cb5de3d1b29fbdf50c">tokenize</a> (const char filename[], const char text[])</td></tr>
 <tr class="separator:a9accf4fba8fc84cb5de3d1b29fbdf50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -252,7 +232,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">c</td><td>)</td>
-          <td>&#160;&#160;&#160;(strchr(&quot;() \n\t[]\{}:&quot;, c) != NULL)</td>
+          <td>&#160;&#160;&#160;(strchr(&quot;() \n\t[]{}:&quot;, c) != NULL)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -270,7 +250,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">c</td><td>)</td>
-          <td>&#160;&#160;&#160;((c &gt; 128 || c &lt; 0) || (c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || strchr(&quot;+-_/?|*&amp;^%$#!~&lt;&gt;=&quot;, c) != NULL)</td>
+          <td>&#160;&#160;&#160;((c &gt;= 127 || c &lt; 0) || (c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || strchr(&quot;+-_/?|*&amp;^%$#!~&lt;&gt;=&quot;, c) != NULL)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -438,6 +418,34 @@ Functions</h2></td></tr>
           <td class="paramtype"><a class="el" href="structLEXER.html">LEXER</a> *&#160;</td>
           <td class="paramname"><em>lexer</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd983b60591e7ed465d65cb2607017d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd983b60591e7ed465d65cb2607017d5">&#9670;&nbsp;</a></span>lexer_get_last_newline_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lexer_get_last_newline_index </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLEXER.html">LEXER</a> *&#160;</td>
+          <td class="paramname"><em>lexer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structTOKEN.html">TOKEN</a>&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

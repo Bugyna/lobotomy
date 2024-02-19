@@ -139,9 +139,15 @@ $(document).ready(function(){initNavTree('error_8h_source.html',''); initResizab
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="error_8h.html#ac9f6aacb588a695a78c49b731ad93975">   41</a></span>&#160;<span class="preprocessor">#define LOBOTOMY_ERROR_S lobotomy_error_s</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="error_8h.html#a2593dd57921d63bd75a8effb0d37b4a4">   43</a></span>&#160;<span class="preprocessor">#define LOBOTOMY_ERROR_FULL(EXEC, FILE, POS, ERR, MSG, ...) \</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">printf(&quot;\n%s:%ld.%ld %s\n\t&quot; MSG LINE_TERMINATOR, FILE, POS.line, POS.column, #ERR, __VA_ARGS__);\</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">EXEC;\</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">EXEC;\</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">printf(&quot;\n%s:%ld.%ld %s\n\t&quot; MSG LINE_TERMINATOR, FILE, POS.line, POS.column, #ERR, __VA_ARGS__);\</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">printf(&quot;\n\n&quot;); exit(ERR);</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="error_8h.html#af783f48842d9f82af1028936685d74ba">   48</a></span>&#160;<span class="preprocessor">#define LOBOTOMY_ERROR_FULL_NO_EXIT(EXEC, FILE, POS, ERR, MSG, ...) \</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">printf(&quot;\n%s:%ld.%ld %s\n&quot;, FILE, POS.line, POS.column, #ERR, __VA_ARGS__);\</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">EXEC;\</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">printf(MSG, __VA_ARGS__);\</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">printf(&quot;\n\n&quot;);</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aerror_8h_html_a06fc87d81c62e9abb8790b6e5713c55ba1bc1205331a4f94721829528fd915ef2"><div class="ttname"><a href="error_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1bc1205331a4f94721829528fd915ef2">ERR_ARITY_MISMATCH</a></div><div class="ttdeci">@ ERR_ARITY_MISMATCH</div><div class="ttdef"><b>Definition:</b> error.h:14</div></div>

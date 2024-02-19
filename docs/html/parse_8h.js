@@ -1,6 +1,5 @@
 var parse_8h =
 [
-    [ "PARSER", "structPARSER.html", null ],
     [ "OBJ_PAIR", "structOBJ__PAIR.html", "structOBJ__PAIR" ],
     [ "parse", "parse_8h.html#a26622c45e3bf85029d30987080085900", null ],
     [ "parse_atom", "parse_8h.html#aaab8c45d44c1fcee7c7ea107f2eece15", null ],

@@ -3,6 +3,17 @@
 (let a 2)
 (fn local-definition (b) ( (let a (+ b 22)) (+ a 3)) )
 (fn smn (b) ( (let a (+ b 22)) (+ a 3)) )
+
+(fn fact (n)
+	(? 
+		(= n 0) (1)
+		(else) (* n (fact (- n 1)))
+	)
+)
+
+(print "aa"))
+
+(print "fact: " (fact 3))
 (print "local a: " (local-definition a))
 (print "a: " a)
 
@@ -70,10 +81,10 @@
 )
 
 (fn traverse (i str)
-	(loop (<= (let i (+ i 1)) (len str))
+	(loop (<= i (len str))
 		(print i (nth i str)
 			(?
-				(<= (+ i 1) (len str)) ("->")
+				(< (let i (+ i 1)) (len str)) ("->")
 				(else) ("\n")
 			)
 		)
@@ -81,7 +92,7 @@
 )
 
 
-(fn recur (i) (? (< i 5) (i)(else) (recur (- i 1))))
+(fn recur (i) (? (< i 5) (i) (else) (recur (- i 1))))
 
 
 (decide 4 "abc")
@@ -99,3 +110,5 @@
 (print "1")
 
 (print 2)
+
+

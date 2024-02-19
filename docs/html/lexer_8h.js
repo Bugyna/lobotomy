@@ -27,6 +27,7 @@ var lexer_8h =
     [ "lex_number", "lexer_8h.html#a4306b7942d1e3c0932ed68bd5d5118e2", null ],
     [ "lex_string", "lexer_8h.html#a16a2fd86594ee8b87cad96b8342ac3b2", null ],
     [ "lex_word", "lexer_8h.html#a5bbc272bd3fd81436ac17f73913c5eab", null ],
+    [ "lexer_get_last_newline_index", "lexer_8h.html#acd983b60591e7ed465d65cb2607017d5", null ],
     [ "lexer_highlight_error_token", "lexer_8h.html#a5092a9e968cd9f4e6ac4499f01e31333", null ],
     [ "lexer_init", "lexer_8h.html#adcf6b3c5e0655687783c2ccb70abc431", null ],
     [ "merge_tokens", "lexer_8h.html#afeac9e815acf73679f5be7981af8dc4c", null ],
