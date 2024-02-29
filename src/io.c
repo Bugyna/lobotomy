@@ -5,7 +5,7 @@
 
 #include "io.h"
 #include "util.h"
-#include "obj.c"
+#include "obj.h"
 
 
 

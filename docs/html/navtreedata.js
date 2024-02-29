@@ -88,15 +88,15 @@ var NAVTREE =
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
       [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ]
       ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
         [ "All", "globals.html", "globals_dup" ],
-        [ "Functions", "globals_func.html", null ],
+        [ "Functions", "globals_func.html", "globals_func" ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
@@ -110,8 +110,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "SHM_2hashmap_8h.html",
-"l__std_8h.html#acdccbed2576af5a86dc7d26225307144",
-"structOBJ.html#a6b6699c1641de1410bbd6e1f85a0f837"
+"l__std_8c.html#ab2ae6c4d6fad397f127dbd9545a3c3fb",
+"nobj_8h.html#a18de3043b15b8aa305d9b5b2a682bb40",
+"nobj_8h.html#a898bf6c5017fb49fb367b7f45ce457cb",
+"obj_8c.html#a8232508d91e1747ea70bd1dc55ba0acd",
+"struct____pthread__internal__list.html#a573469f8cd1ad13841126eb6855a2fe1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

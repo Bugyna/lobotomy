@@ -106,18 +106,21 @@ $(document).ready(function(){initNavTree('eval_8c.html',''); initResizable(); })
 <code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="lexer_8h_source.html">lexer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="parse_8h_source.html">parse.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="l__std_8c.html">l_std.c</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="l__std_8h_source.html">l_std.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="obj_8c.html">obj.c</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gc_8h_source.html">gc.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="eval_8h_source.html">eval.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for eval.c:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="eval_8c__incl.svg" width="2622" height="724"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="eval_8c__incl.svg" width="2646" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="eval_8c__dep__incl.svg" width="212" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="eval_8c__dep__incl.svg" width="438" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -126,9 +129,13 @@ Functions</h2></td></tr>
 <tr class="separator:aa8eced299ac15690a17628892c94cb53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2bd43fb46de88a6a5423ab5bd6c9756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ab2bd43fb46de88a6a5423ab5bd6c9756">preeval_symbols</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
 <tr class="separator:ab2bd43fb46de88a6a5423ab5bd6c9756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2e74212cf0d0f4388d6e57725b99d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a5b2e74212cf0d0f4388d6e57725b99d8">copy_literals</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
+<tr class="separator:a5b2e74212cf0d0f4388d6e57725b99d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a0af42077baa13b644f7550597d806"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a82a0af42077baa13b644f7550597d806">preeval_copy</a> (<a class="el" href="structOBJ.html">OBJ</a> *o, <a class="el" href="structOBJ.html">OBJ</a> *p)</td></tr>
+<tr class="separator:a82a0af42077baa13b644f7550597d806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb847aa5db0cf7d45779e5323f572095"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#adb847aa5db0cf7d45779e5323f572095">preeval</a> (<a class="el" href="structOBJ.html">OBJ</a> *o)</td></tr>
 <tr class="separator:adb847aa5db0cf7d45779e5323f572095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cdc600bb2b74bf0be20959c5707af4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a1cdc600bb2b74bf0be20959c5707af4f">set_env</a> (<a class="el" href="structOBJ.html">OBJ</a> *head, <a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a> *e)</td></tr>
+<tr class="memitem:a1cdc600bb2b74bf0be20959c5707af4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a1cdc600bb2b74bf0be20959c5707af4f">set_env</a> (<a class="el" href="structOBJ.html">OBJ</a> *head, <a class="el" href="structENV.html">ENV</a> *e)</td></tr>
 <tr class="separator:a1cdc600bb2b74bf0be20959c5707af4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf1e9c7a5dd15dd1001311e8961ef427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#adf1e9c7a5dd15dd1001311e8961ef427">run_func</a> (<a class="el" href="structOBJ.html">OBJ</a> *fn, <a class="el" href="structOBJ.html">OBJ</a> *args)</td></tr>
 <tr class="separator:adf1e9c7a5dd15dd1001311e8961ef427"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,6 +169,24 @@ Functions</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b2e74212cf0d0f4388d6e57725b99d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b2e74212cf0d0f4388d6e57725b99d8">&#9670;&nbsp;</a></span>copy_literals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structOBJ.html">OBJ</a>* copy_literals </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -260,6 +285,34 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a82a0af42077baa13b644f7550597d806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82a0af42077baa13b644f7550597d806">&#9670;&nbsp;</a></span>preeval_copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void preeval_copy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structOBJ.html">OBJ</a> *&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab2bd43fb46de88a6a5423ab5bd6c9756"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab2bd43fb46de88a6a5423ab5bd6c9756">&#9670;&nbsp;</a></span>preeval_symbols()</h2>
 
@@ -321,7 +374,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="obj_8h.html#a3cf8df4c53c907fcf7a53617956c43c2">ENV</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structENV.html">ENV</a> *&#160;</td>
           <td class="paramname"><em>e</em>&#160;</td>
         </tr>
         <tr>

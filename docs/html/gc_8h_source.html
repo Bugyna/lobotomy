@@ -96,29 +96,43 @@ $(document).ready(function(){initNavTree('gc_8h_source.html',''); initResizable(
 <div class="title">gc.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="gc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obj_8h.html">obj.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="gc_8h.html#acc7b16df953d85a39fea9de32d4abeec">    3</a></span>&#160;<span class="preprocessor">#define GC_TYPE TRACING</span></div>
+<a href="gc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obj_8h.html">obj.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">void</span> <a class="code" href="gc_8h.html#ac9321bb3c3bc18b4c0e42b06258091f1">GC_init</a>();</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<a class="code" href="structOBJ.html">OBJ</a>* <a class="code" href="gc_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">GC_alloc</a>();</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordtype">void</span> <a class="code" href="gc_8h.html#aa565bd0cece59599d7f8bdaac3f5537b">GC_free</a>(<a class="code" href="structOBJ.html">OBJ</a>* o);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#if GC_TYPE == TRACING</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tgc_8h.html">tgc.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cgc_8h.html">cgc.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cgc_8h.html">cgc.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// typedef enum</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// {</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">// GCLS_NOTHING=0,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">// GCLS_MARKING,</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// GCLS_COLLECTING,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// } GCL_STATE;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// struct GC</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// {</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">// GCL_STATE state;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// OBJ* memory_pool;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// OBJ* ptr;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// size_t size;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// int occupied;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// int top, curr;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// ENV* env;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// };</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// void GCL_init(GC* gcl, ENV* env);</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// OBJ* GCL_alloc(GC* gcl);</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// int GCL_mark(GC* gcl, OBJ* root);</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// int GCL_collect(GC* gcl);</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// int GCL_free(GC* gcl);</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agc_8h_html_ac9321bb3c3bc18b4c0e42b06258091f1"><div class="ttname"><a href="gc_8h.html#ac9321bb3c3bc18b4c0e42b06258091f1">GC_init</a></div><div class="ttdeci">void GC_init()</div></div>
-<div class="ttc" id="agc_8h_html_a62d4e8198e43895b7cfcaf3b9c7eb764"><div class="ttname"><a href="gc_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">GC_alloc</a></div><div class="ttdeci">OBJ * GC_alloc()</div></div>
-<div class="ttc" id="atgc_8h_html"><div class="ttname"><a href="tgc_8h.html">tgc.h</a></div></div>
 <div class="ttc" id="acgc_8h_html"><div class="ttname"><a href="cgc_8h.html">cgc.h</a></div></div>
-<div class="ttc" id="agc_8h_html_aa565bd0cece59599d7f8bdaac3f5537b"><div class="ttname"><a href="gc_8h.html#aa565bd0cece59599d7f8bdaac3f5537b">GC_free</a></div><div class="ttdeci">void GC_free(OBJ *o)</div></div>
 <div class="ttc" id="aobj_8h_html"><div class="ttname"><a href="obj_8h.html">obj.h</a></div></div>
-<div class="ttc" id="astructOBJ_html"><div class="ttname"><a href="structOBJ.html">OBJ</a></div><div class="ttdef"><b>Definition:</b> obj.h:65</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -1,7 +1,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_video.h>
 
-#include "obj.c"
+#define _EXTERN_LIB
+#include "obj.h"
 #include "eval.c"
 #include "l_std.c"
 #include "util.h"
@@ -36,7 +37,7 @@ OBJ* sdl_create_win(int argc, OBJ* o)
 
 	
 	SDL_WIN_OBJ* wrapper = malloc(sizeof(SDL_WIN_OBJ));
-	wrapper->type = "SDL_WIN";
+	ret->data_type = "SDL_WIN";
 	wrapper->win = win;
 	wrapper->rd = rd;
 	ret->data = wrapper;
@@ -48,22 +49,24 @@ OBJ* sdl_draw_rect(int argc, OBJ* o)
 {
 	o = preeval(o);
 	// o = __eval(o, 1);
-	// SDL_WIN_OBJ* wrapper = (SDL_WIN_OBJ*)o->data;
-	// SDL_Window* win = wrapper->win;
-	// SDL_Renderer* rd = wrapper->rd;
+	SDL_WIN_OBJ* wrapper = (SDL_WIN_OBJ*)o->data;
+	SDL_Window* win = wrapper->win;
+	SDL_Renderer* rd = wrapper->rd;
+	print_objf("ii: ", o);
 
-	// OBJ* x = NT(o);
-	// OBJ* y = NT(x);
-	// OBJ* w = NT(y);
-	// OBJ* h = NT(w);
+	OBJ* x = NT(o);
+	OBJ* y = NT(x);
+	OBJ* w = NT(y);
+	OBJ* h = NT(w);
+	// return NIL;
 
-	// SDL_SetRenderDrawColor(rd, 0, 0 ,0, 255);
-	// SDL_RenderClear(rd);
-	// SDL_SetRenderDrawColor(rd, 255, 0 ,0, 255);
-	// SDL_Rect r = (SDL_Rect){x->num, y->num, w->num, h->num};
-	// SDL_RenderDrawRect(rd, &r);
+	SDL_SetRenderDrawColor(rd, 245, 245, 237, 255);
+	SDL_RenderClear(rd);
+	SDL_SetRenderDrawColor(rd, 0, 0 ,0, 255);
+	SDL_Rect r = (SDL_Rect){x->num, y->num, w->num, h->num};
+	SDL_RenderFillRect(rd, &r);
 
-	// SDL_RenderPresent(rd);
+	SDL_RenderPresent(rd);
 	return NIL;
 }
 
@@ -75,14 +78,15 @@ OBJ* sdl_destroy_win(int argc, OBJ* o)
 }
 
 
-
-void l_sdl_load(ENV* env)
+void l_sdl_load(GC* _gcl, ENV* env)
 {
+	gcl = _gcl;
+	global_env = env;
 	if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0)
 	{
 		LOBOTOMY_ERROR("SDL ERROR: couldn't initalize SDL2");
 	}
-	env_add(env, create_cfn("SDL-create-win", sdl_create_win));
+	env_add(env, create_cfn("cw", sdl_create_win));
 	env_add(env, create_cfn("dr", sdl_draw_rect));
 	env_add(env, create_cfn("dw", sdl_destroy_win));
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gcl_5fstate_586',['GCL_STATE',['../cgc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6',1,'GCL_STATE():&#160;cgc.h'],['../tgc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6',1,'GCL_STATE():&#160;tgc.h']]]
+  ['idtype_5ft_1797',['idtype_t',['../nobj_8h.html#a0f6e7ffb9bfd4d17b665b16c3b1c2b1e',1,'nobj.h']]]
 ];

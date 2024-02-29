@@ -8,10 +8,10 @@
 #include <dlfcn.h>
 
 #include "util.h"
-#include "obj.c"
+#include "obj.h"
 #include "l_std.c"
 #include "eval.c"
-
+#include "gc.h"
 
 
 
@@ -73,6 +73,7 @@
 		// // refresh();
 	// }
 // }
+// static ENV* global_env;
 
 void interactive_shell()
 {
@@ -125,6 +126,7 @@ int main(int argc, char* argv[]) {
 	// printd("hash test: %s, %d \n", "help", hash("help"));
 
 	// printd("GCL init: %d\n", GCL.size);
+	// gcl = calloc(1, sizeof(GC));
 	global_env = calloc(1, sizeof(ENV));
 	global_env->name = "global_env";
 	ENV_INIT(global_env, 127);

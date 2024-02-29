@@ -9,6 +9,16 @@
 #include "obj.h"
 #include "gc.h"
 
+IMPL_HASHMAP(ENV, OBJ)
+
+
+// #include "tgc.c"
+
+
+typedef struct
+{
+	int type;
+} TEMPLATE;
 
 const char* type_name(OBJ_TYPE i)
 {
@@ -52,11 +62,8 @@ struct FN
 };
 
 
-
-// DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
-DEFINE_LINKED_LIST(OBJ_LIST, OBJ)
-
 static ENV* global_env;
+
 
 void __print_obj_simple(OBJ* o)
 {
@@ -149,6 +156,10 @@ void __print_obj_simple(OBJ* o)
 				// printf(" . ");
 				// __print_obj_simple(curr);
 			// }
+		break;
+
+		case T_OTHER:
+			printf("[%s %s]", o->data_type, o->name);
 		break;
 
 		default:
@@ -271,6 +282,9 @@ void print_obj_simple(OBJ* o)
 {
 
 	__print_obj_simple(o);
+	// if (o && o->cdr != NULL && o->cdr->type != NIL) {
+		// printf("cdr: "); __print_obj_simple(o->cdr);
+	// }
 	printf("\n");
 }
 
@@ -362,8 +376,14 @@ OBJ* env_get(ENV* e, const char* key)
 // }
 
 
-// #define NEW() GCL_alloc()
+
+#ifdef _EXTERN_LIB
 #define NEW() calloc(1, sizeof(OBJ))
+#else
+#define NEW() GCL_alloc()
+#endif
+
+// #define NEW_EXTERN() calloc(1, sizeof(OBJ))
 
 
 
@@ -375,7 +395,6 @@ void reset_obj(OBJ* o)
 
 OBJ* empty_obj()
 {
-	
 	OBJ* ret = NEW();
 	ret->type = T_NIL;
 	ret->env = global_env;

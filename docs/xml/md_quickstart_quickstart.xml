@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md_quickstart_quickstart" kind="page">
+    <compoundname>md_quickstart_quickstart</compoundname>
+    <title>Quickstart</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="md_quickstart_quickstart_1autotoc_md2">
+<title>comments</title>
+<para>;; a comment</para>
+</sect1>
+<sect1 id="md_quickstart_quickstart_1autotoc_md3">
+<title>debug comments</title>
+<para>show the comment text during evaluation # a debug comment</para>
+</sect1>
+<sect1 id="md_quickstart_quickstart_1autotoc_md4">
+<title>syntax</title>
+<para>uses polish notation so for arithmetics and functions and all else you do (hi-bestie argument &quot;aaa&quot;) -&gt; calls function named hi-bestie and passes variables named argument and a literal string &quot;aaa&quot;</para>
+</sect1>
+<sect1 id="md_quickstart_quickstart_1autotoc_md5">
+<title>valid names</title>
+<para>an identifier has to start with alphabet characters or &lt;=@?!$%^&amp;*/|&gt;+-&apos; and can be followed by number so basically anything goes and as such &apos;+-=2&apos; is a valid identifier</para>
+</sect1>
+<sect1 id="md_quickstart_quickstart_1autotoc_md6">
+<title>functions</title>
+<para>(fn hello-name (name) (print &quot;hello, &quot; name)) -&gt; creates a function named hello-name which takes one parameter to call (hello-name &quot;girlie&quot;) -&gt; outputs &quot;hello, girlie&quot;</para>
+</sect1>
+<sect1 id="md_quickstart_quickstart_1autotoc_md7">
+<title>variables</title>
+<para>to create a variable (let girl_boss &quot;value&quot;) -&gt; creates a variable named girl_boss that holds a string &quot;value&quot;</para>
+<sect2 id="md_quickstart_quickstart_1autotoc_md8">
+<title>to change the value of a variable simply call</title>
+<para>(let girl_boss &quot;new value&quot;)</para>
+<para>variables are saved inside scopes the default scope is the global one and functions create their own scope when called you can still access global variables inside of functions as long as they haven&apos;t been overwritten (named the same way as the funciton parameters) </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

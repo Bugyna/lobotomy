@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gc_5ftype_653',['GC_TYPE',['../gc_8h.html#acc7b16df953d85a39fea9de32d4abeec',1,'gc.h']]]
+  ['hashmap_5fhash_5finit_1866',['HASHMAP_HASH_INIT',['../util_8h.html#ac6c62456062b60acb9d5ffe2702c7ed7',1,'util.h']]]
 ];

@@ -12,11 +12,16 @@
 
 
 #define IS_TERMINATOR(c) (strchr("() \n\t[]{}:", c) != NULL)
-#define IS_VALID_SYMBOL_CHAR(c) ((c >= 127 || c < 0) || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || strchr("+-_/?|*&^%$#!~<>=", c) != NULL)
+#define IS_VALID_SYMBOL_CHAR(c) (\
+		(c >= 127 || c < 0) ||\
+		(c >= 'a' && c <= 'z') ||\
+		(c >= 'A' && c <= 'Z') ||\
+		strchr("+-_/?|*&^%$#!~<>=", c) != NULL\
+	)
 #define IS_NUMBER(c) (c >= '0' && c <= '9')
 #define IS_WHITESPACE(c) (c == '\n' || c == '\t' || c == ' ')
 
-static enum
+typedef enum
 {
 	TT_,
 	TT_LPAREN,
@@ -33,7 +38,7 @@ static enum
 	TT_MUTABLE,
 	TT_ACCESS,
 	TT_TYPE,
-};
+} TOKEN_TYPE;
 
 static const char* TOKEN_NAMES[] = 
 {
@@ -63,7 +68,7 @@ typedef struct
 typedef struct
 {
 	MARK start, stop;
-	int type;
+	TOKEN_TYPE type;
 	int index, len;
 	char* text;
 } TOKEN;

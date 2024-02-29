@@ -4,10 +4,11 @@ CFLAGS=-Wall -Wextra -pedantic -std=c11
 IGNORE=-Wno-unused-function -Wno-unused-variable -Wno-unused-parameter
 
 
+main: *.c *.h *.o
+	$(CC) main.c -o main $(CFLAGS) $(CLIBS) $(IGNORE)
 
-main: *.c *.h
-	$(CC) -o main main.c $(CFLAGS) $(CLIBS) $(IGNORE)
-
+# gc:
+	# $(CC) -c tgc.c $(CFLAGS) $(CLIBS) $(IGNORE)
 
 a: sample_module.c
 	$(CC) -o sample_module.o -c sample_module.c $(CFLAGS) $(CLIBS) $(IGNORE) -fpic

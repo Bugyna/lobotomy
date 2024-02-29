@@ -1,0 +1,549 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="SHM_2hashmap_8h" kind="file" language="C++">
+    <compoundname>hashmap.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">string.h</includes>
+    <includedby refid="obj_8h" local="yes">/home/bugy/projs/lobotomy/src/obj.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/SHM/hashmap.h</label>
+        <link refid="SHM_2hashmap_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>string.h</label>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>/home/bugy/projs/lobotomy/src/eval.c</label>
+        <link refid="eval_8c"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/home/bugy/projs/lobotomy/src/l_std.h</label>
+        <link refid="l__std_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/home/bugy/projs/lobotomy/src/sample_module.c</label>
+        <link refid="sample__module_8c"/>
+      </node>
+      <node id="1">
+        <label>/home/bugy/projs/lobotomy/src/SHM/hashmap.h</label>
+        <link refid="SHM_2hashmap_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/home/bugy/projs/lobotomy/src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="9">
+        <label>/home/bugy/projs/lobotomy/src/gc.h</label>
+        <link refid="gc_8h"/>
+      </node>
+      <node id="3">
+        <label>/home/bugy/projs/lobotomy/src/parse.h</label>
+        <link refid="parse_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/home/bugy/projs/lobotomy/src/obj.c</label>
+        <link refid="obj_8c"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/home/bugy/projs/lobotomy/src/obj.h</label>
+        <link refid="obj_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="SHM_2hashmap_8h_1a969c7c1ebb4f70581e040a3034b14ee0" prot="public" static="no">
+        <name>u64</name>
+        <initializer>uint64_t</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="9" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1ab5236abe3413b9176041326940df86c9" prot="public" static="no">
+        <name>SHM_DEBUG</name>
+        <param><defname>s</defname></param>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="obj_8h_1a3cb9f0894fab1c8fbb0753c9c7c2a8d9" kindref="member">printf</ref>(s __VA_ARGS__);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="12" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1abca93f7da35401ae87cd48cdccdeb30a" prot="public" static="no">
+        <name>SHM_ERROR</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="SHM_2hashmap_8h_1ab5236abe3413b9176041326940df86c9" kindref="member">SHM_DEBUG</ref>(&quot;SHM ERROR: &quot;, __VA_ARGS__); <ref refid="util_8h_1a5134b2f308b8e125e5f987ac66222050" kindref="member">exit</ref>(-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="16" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1aeddfff381f13ee47ef13e1f7a3df4d65" prot="public" static="no">
+        <name>SHM_WARN</name>
+        <param><defname>...</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="20" column="10" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1a79ef9c1f232fe536b69d4afd1ebc7611" prot="public" static="no">
+        <name>__ITERATE_HASHMAP</name>
+        <param><defname>MAP_TYPE</defname></param>
+        <param><defname>MAP</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>KEY</defname></param>
+        <initializer>MAP_TYPE##_BUCKET* BUCKET = MAP_TYPE##_GET_BUCKET(MAP, KEY);\
+VAL_TYPE* val = NULL;\
+if (BUCKET != NULL) val = BUCKET-&gt;val;\
+for (; BUCKET != NULL &amp;&amp; (val = BUCKET-&gt;val) != NULL; BUCKET = BUCKET-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="24" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1af313e01923e9b49f9473d1ee105246ed" prot="public" static="no">
+        <name>__ITERATE_HASHMAP_AT_INDEX</name>
+        <param><defname>MAP_TYPE</defname></param>
+        <param><defname>MAP</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>N</defname></param>
+        <initializer>MAP_TYPE##_BUCKET* BUCKET = MAP_TYPE##_GET_BUCKET_AT_INDEX(MAP, N);\
+VAL_TYPE* val = NULL;\
+if (BUCKET != NULL) val = BUCKET-&gt;val;\
+for (; BUCKET != NULL &amp;&amp; (val = BUCKET-&gt;val) != NULL; BUCKET = BUCKET-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="31" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1a1fea535d04e1d44a78bb3b2617522b8b" prot="public" static="no">
+        <name>__ITERATE_HASHMAP_VN</name>
+        <param><defname>MAP_TYPE</defname></param>
+        <param><defname>MAP</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>VAL_NAME</defname></param>
+        <param><defname>KEY</defname></param>
+        <initializer>MAP_TYPE##_BUCKET* BUCKET = MAP_TYPE##_GET_BUCKET(MAP, KEY);\
+VAL_TYPE* VAL_NAME = NULL;\
+if (BUCKET != NULL) VAL_NAME = BUCKET-&gt;val;\
+for (; BUCKET != NULL &amp;&amp; (VAL_NAME = BUCKET-&gt;val) != NULL; BUCKET = BUCKET-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="38" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1a775fd2eaba39abea4a8c79420e29f4c8" prot="public" static="no">
+        <name>__ITERATE_HASHMAP_AT_INDEX_VN</name>
+        <param><defname>MAP_TYPE</defname></param>
+        <param><defname>MAP</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>VAL_NAME</defname></param>
+        <param><defname>N</defname></param>
+        <initializer>MAP_TYPE##_BUCKET* BUCKET = MAP_TYPE##_GET_BUCKET_AT_INDEX(MAP, N);\
+VAL_TYPE* VAL_NAME = NULL;\
+if (BUCKET != NULL) VAL_NAME = BUCKET-&gt;val;\
+for (; BUCKET != NULL &amp;&amp; (VAL_NAME = BUCKET-&gt;val) != NULL; BUCKET = BUCKET-&gt;next)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="45" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1a557ac52ea34a338c3952340f70f895cd" prot="public" static="no">
+        <name>ITERATE_HASHMAP</name>
+        <param><defname>MAP_TYPE</defname></param>
+        <param><defname>MAP</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>KEY</defname></param>
+        <param><defname>EXPR</defname></param>
+        <initializer>{\
+	<ref refid="SHM_2hashmap_8h_1a79ef9c1f232fe536b69d4afd1ebc7611" kindref="member">__ITERATE_HASHMAP</ref>(MAP_TYPE, MAP, VAL_TYPE, KEY) EXPR\
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="51" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1a814743d39dfb8a3caa73291cfcde5972" prot="public" static="no">
+        <name>ITERATE_HASHMAP_AT_INDEX</name>
+        <param><defname>MAP_TYPE</defname></param>
+        <param><defname>MAP</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>N</defname></param>
+        <param><defname>EXPR</defname></param>
+        <initializer>{\
+	<ref refid="SHM_2hashmap_8h_1af313e01923e9b49f9473d1ee105246ed" kindref="member">__ITERATE_HASHMAP_AT_INDEX</ref>(MAP_TYPE, MAP, VAL_TYPE, N) EXPR\
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="56" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SHM_2hashmap_8h_1add57a74fbf76b95fc0fff0a12f43645a" prot="public" static="no">
+        <name>DEFINE_HASHMAP</name>
+        <param><defname>NAME</defname></param>
+        <param><defname>VAL_TYPE</defname></param>
+        <param><defname>...</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" line="62" column="9" bodyfile="/home/bugy/projs/lobotomy/src/SHM/hashmap.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="SHM_2hashmap_8h_1a969c7c1ebb4f70581e040a3034b14ee0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>u64<sp/>uint64_t</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SHM_DEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="SHM_2hashmap_8h_1ab5236abe3413b9176041326940df86c9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHM_DEBUG(s,<sp/>...)<sp/>printf(s<sp/>__VA_ARGS__);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="SHM_2hashmap_8h_1abca93f7da35401ae87cd48cdccdeb30a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHM_ERROR(...)<sp/>SHM_DEBUG(&quot;SHM<sp/>ERROR:<sp/>&quot;,<sp/>__VA_ARGS__);<sp/>exit(-1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>SHM_REPORTING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="SHM_2hashmap_8h_1aeddfff381f13ee47ef13e1f7a3df4d65" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHM_WARN(...)<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="SHM_2hashmap_8h_1a79ef9c1f232fe536b69d4afd1ebc7611" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__ITERATE_HASHMAP(MAP_TYPE,<sp/>MAP,<sp/>VAL_TYPE,<sp/>KEY)\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor">MAP_TYPE##_BUCKET*<sp/>BUCKET<sp/>=<sp/>MAP_TYPE##_GET_BUCKET(MAP,<sp/>KEY);\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor">VAL_TYPE*<sp/>val<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor">if<sp/>(BUCKET<sp/>!=<sp/>NULL)<sp/>val<sp/>=<sp/>BUCKET-&gt;val;\</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor">for<sp/>(;<sp/>BUCKET<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>(val<sp/>=<sp/>BUCKET-&gt;val)<sp/>!=<sp/>NULL;<sp/>BUCKET<sp/>=<sp/>BUCKET-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="SHM_2hashmap_8h_1af313e01923e9b49f9473d1ee105246ed" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__ITERATE_HASHMAP_AT_INDEX(MAP_TYPE,<sp/>MAP,<sp/>VAL_TYPE,<sp/>N)\</highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor">MAP_TYPE##_BUCKET*<sp/>BUCKET<sp/>=<sp/>MAP_TYPE##_GET_BUCKET_AT_INDEX(MAP,<sp/>N);\</highlight></codeline>
+<codeline lineno="33"><highlight class="preprocessor">VAL_TYPE*<sp/>val<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="34"><highlight class="preprocessor">if<sp/>(BUCKET<sp/>!=<sp/>NULL)<sp/>val<sp/>=<sp/>BUCKET-&gt;val;\</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor">for<sp/>(;<sp/>BUCKET<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>(val<sp/>=<sp/>BUCKET-&gt;val)<sp/>!=<sp/>NULL;<sp/>BUCKET<sp/>=<sp/>BUCKET-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="SHM_2hashmap_8h_1a1fea535d04e1d44a78bb3b2617522b8b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__ITERATE_HASHMAP_VN(MAP_TYPE,<sp/>MAP,<sp/>VAL_TYPE,<sp/>VAL_NAME,<sp/>KEY)\</highlight></codeline>
+<codeline lineno="39"><highlight class="preprocessor">MAP_TYPE##_BUCKET*<sp/>BUCKET<sp/>=<sp/>MAP_TYPE##_GET_BUCKET(MAP,<sp/>KEY);\</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor">VAL_TYPE*<sp/>VAL_NAME<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor">if<sp/>(BUCKET<sp/>!=<sp/>NULL)<sp/>VAL_NAME<sp/>=<sp/>BUCKET-&gt;val;\</highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor">for<sp/>(;<sp/>BUCKET<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>(VAL_NAME<sp/>=<sp/>BUCKET-&gt;val)<sp/>!=<sp/>NULL;<sp/>BUCKET<sp/>=<sp/>BUCKET-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="SHM_2hashmap_8h_1a775fd2eaba39abea4a8c79420e29f4c8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__ITERATE_HASHMAP_AT_INDEX_VN(MAP_TYPE,<sp/>MAP,<sp/>VAL_TYPE,<sp/>VAL_NAME,<sp/>N)\</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor">MAP_TYPE##_BUCKET*<sp/>BUCKET<sp/>=<sp/>MAP_TYPE##_GET_BUCKET_AT_INDEX(MAP,<sp/>N);\</highlight></codeline>
+<codeline lineno="47"><highlight class="preprocessor">VAL_TYPE*<sp/>VAL_NAME<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor">if<sp/>(BUCKET<sp/>!=<sp/>NULL)<sp/>VAL_NAME<sp/>=<sp/>BUCKET-&gt;val;\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor">for<sp/>(;<sp/>BUCKET<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>(VAL_NAME<sp/>=<sp/>BUCKET-&gt;val)<sp/>!=<sp/>NULL;<sp/>BUCKET<sp/>=<sp/>BUCKET-&gt;next)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="SHM_2hashmap_8h_1a557ac52ea34a338c3952340f70f895cd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_HASHMAP(MAP_TYPE,<sp/>MAP,<sp/>VAL_TYPE,<sp/>KEY,<sp/>EXPR)\</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>__ITERATE_HASHMAP(MAP_TYPE,<sp/>MAP,<sp/>VAL_TYPE,<sp/>KEY)<sp/>EXPR\</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="SHM_2hashmap_8h_1a814743d39dfb8a3caa73291cfcde5972" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ITERATE_HASHMAP_AT_INDEX(MAP_TYPE,<sp/>MAP,<sp/>VAL_TYPE,<sp/>N,<sp/>EXPR)\</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>__ITERATE_HASHMAP_AT_INDEX(MAP_TYPE,<sp/>MAP,<sp/>VAL_TYPE,<sp/>N)<sp/>EXPR\</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="SHM_2hashmap_8h_1add57a74fbf76b95fc0fff0a12f43645a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFINE_HASHMAP(NAME,<sp/>VAL_TYPE,<sp/>...)\</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor">typedef<sp/>struct<sp/>NAME<sp/>NAME;\</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor">typedef<sp/>struct<sp/>NAME##_BUCKET<sp/>NAME##_BUCKET;\</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor">struct<sp/>NAME##_BUCKET\</highlight></codeline>
+<codeline lineno="66"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>const<sp/>char*<sp/>key;\</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>VAL_TYPE*<sp/>val;\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>next;\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor">};\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor">struct<sp/>NAME<sp/>\</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>list;\</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>size_t<sp/>size,<sp/>occupied;\</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>__VA_ARGS__\</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor">};\</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor">void<sp/>NAME##_INIT(NAME*<sp/>hm,<sp/>size_t<sp/>size)\</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(hm<sp/>==<sp/>NULL)<sp/>{<sp/>SHM_ERROR(&quot;trying<sp/>to<sp/>initialize<sp/>null<sp/>pointer<sp/>%d<sp/>%s\n\n&quot;,<sp/>__LINE__,<sp/>__FILE__);<sp/>}\</highlight></codeline>
+<codeline lineno="81"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(size<sp/>&lt;<sp/>0)<sp/>size<sp/>=<sp/>20;\</highlight></codeline>
+<codeline lineno="82"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;list<sp/>=<sp/>calloc(size,<sp/>sizeof(NAME##_BUCKET));\</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;size<sp/>=<sp/>size;\</highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;occupied<sp/>=<sp/>0;\</highlight></codeline>
+<codeline lineno="85"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="86"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor">static<sp/>inline<sp/>NAME##_BUCKET*<sp/>NAME##_GET_BUCKET_SPECIAL(NAME*<sp/>hm,<sp/>const<sp/>char*<sp/>key)\</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="89"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="90"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="91"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="92"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>strcmp(b-&gt;key,<sp/>key))<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>==<sp/>NULL<sp/>||<sp/>b-&gt;val<sp/>==<sp/>NULL<sp/>||<sp/>b-&gt;key<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHM_WARN(&quot;&apos;%s&apos;<sp/>could<sp/>not<sp/>be<sp/>found\n&quot;,<sp/>key);\</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>NULL;\</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>b;\</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor">static<sp/>inline<sp/>NAME##_BUCKET*<sp/>NAME##_GET_BUCKET(NAME*<sp/>hm,<sp/>const<sp/>char*<sp/>key)\</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>strcmp(b-&gt;key,<sp/>key))<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>==<sp/>NULL<sp/>||<sp/>b-&gt;val<sp/>==<sp/>NULL<sp/>||<sp/>b-&gt;key<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHM_WARN(&quot;&apos;%s&apos;<sp/>could<sp/>not<sp/>be<sp/>found\n&quot;,<sp/>key);\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>NULL;\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="110"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>b;\</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor">static<sp/>inline<sp/>NAME##_BUCKET*<sp/>NAME##_GET_BUCKET_AT_INDEX(NAME*<sp/>hm,<sp/>int<sp/>n)\</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="115"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>char*<sp/>key<sp/>=<sp/>calloc(20,<sp/>sizeof(char));\</highlight></codeline>
+<codeline lineno="116"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sprintf(key,<sp/>&quot;%d&quot;,<sp/>n);\</highlight></codeline>
+<codeline lineno="117"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="119"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="120"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>strcmp(b-&gt;key,<sp/>key)<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>!=<sp/>NULL)<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="121"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>==<sp/>NULL<sp/>||<sp/>b-&gt;val<sp/>==<sp/>NULL<sp/>||<sp/>b-&gt;key<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="122"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHM_WARN(&quot;&apos;%s&apos;<sp/>could<sp/>not<sp/>be<sp/>found\n&quot;,<sp/>key);\</highlight></codeline>
+<codeline lineno="123"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(key);\</highlight></codeline>
+<codeline lineno="124"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>NULL;\</highlight></codeline>
+<codeline lineno="125"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="126"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>free(key);\</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>b;\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor">static<sp/>inline<sp/>VAL_TYPE*<sp/>NAME##_GET(NAME*<sp/>hm,<sp/>const<sp/>char*<sp/>key)\</highlight></codeline>
+<codeline lineno="131"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="134"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>strcmp(b-&gt;key,<sp/>key))<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>==<sp/>NULL<sp/>||<sp/>b-&gt;val<sp/>==<sp/>NULL<sp/>||<sp/>b-&gt;key<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHM_WARN(&quot;&apos;%s&apos;<sp/>could<sp/>not<sp/>be<sp/>found\n&quot;,<sp/>key);\</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>NULL;\</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>b-&gt;val;\</highlight></codeline>
+<codeline lineno="143"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor">static<sp/>inline<sp/>VAL_TYPE*<sp/>NAME##_ADD(NAME*<sp/>hm,<sp/>const<sp/>char*<sp/>key,<sp/>VAL_TYPE*<sp/>val)\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>size_t<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>i<sp/>=<sp/>0;\</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;next<sp/>!=<sp/>NULL)<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;key<sp/>=<sp/>key;\</highlight></codeline>
+<codeline lineno="154"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;val<sp/>=<sp/>val;\</highlight></codeline>
+<codeline lineno="155"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="156"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b-&gt;next<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="157"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next<sp/>=<sp/>calloc(1,<sp/>sizeof(NAME##_BUCKET));\</highlight></codeline>
+<codeline lineno="158"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next-&gt;key<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="159"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="160"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;occupied++;\</highlight></codeline>
+<codeline lineno="161"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>b-&gt;val;\</highlight></codeline>
+<codeline lineno="162"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="164"><highlight class="preprocessor">static<sp/>inline<sp/>void<sp/>NAME##_ADD_AT_INDEX(NAME*<sp/>hm,<sp/>int<sp/>n,<sp/>VAL_TYPE*<sp/>val)\</highlight></codeline>
+<codeline lineno="165"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="166"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>char*<sp/>key<sp/>=<sp/>calloc(20,<sp/>sizeof(char));\</highlight></codeline>
+<codeline lineno="167"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sprintf(key,<sp/>&quot;%d&quot;,<sp/>n);\</highlight></codeline>
+<codeline lineno="168"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="169"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="170"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="171"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>i<sp/>=<sp/>0;\</highlight></codeline>
+<codeline lineno="172"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="173"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;next<sp/>!=<sp/>NULL)<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="174"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="175"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;key<sp/>=<sp/>key;\</highlight></codeline>
+<codeline lineno="176"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;val<sp/>=<sp/>val;\</highlight></codeline>
+<codeline lineno="177"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="178"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b-&gt;next<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="179"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next<sp/>=<sp/>calloc(1,<sp/>sizeof(NAME##_BUCKET));\</highlight></codeline>
+<codeline lineno="180"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next-&gt;key<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="181"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="182"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;occupied++;\</highlight></codeline>
+<codeline lineno="183"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="184"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="185"><highlight class="preprocessor">static<sp/>inline<sp/>void<sp/>NAME##_ADD_COPY(NAME*<sp/>hm,<sp/>const<sp/>char*<sp/>key,<sp/>VAL_TYPE*<sp/>val)\</highlight></codeline>
+<codeline lineno="186"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="187"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="188"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="189"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="190"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>i<sp/>=<sp/>0;\</highlight></codeline>
+<codeline lineno="191"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="192"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;next<sp/>!=<sp/>NULL)<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="193"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="194"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;key<sp/>=<sp/>key;\</highlight></codeline>
+<codeline lineno="195"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;val<sp/>=<sp/>malloc(sizeof(VAL_TYPE));\</highlight></codeline>
+<codeline lineno="196"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>memcpy(b-&gt;val,<sp/>val,<sp/>sizeof(VAL_TYPE));\</highlight></codeline>
+<codeline lineno="197"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="198"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b-&gt;next<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="199"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next<sp/>=<sp/>calloc(1,<sp/>sizeof(NAME##_BUCKET));\</highlight></codeline>
+<codeline lineno="200"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next-&gt;key<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="201"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="202"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;occupied++;\</highlight></codeline>
+<codeline lineno="203"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="204"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="205"><highlight class="preprocessor">static<sp/>inline<sp/>void<sp/>NAME##_ADD_COPY_AT_INDEX(NAME*<sp/>hm,<sp/>int<sp/>n,<sp/>VAL_TYPE*<sp/>val)\</highlight></codeline>
+<codeline lineno="206"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="207"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>char*<sp/>key<sp/>=<sp/>calloc(20,<sp/>sizeof(char));\</highlight></codeline>
+<codeline lineno="208"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sprintf(key,<sp/>&quot;%d&quot;,<sp/>n);\</highlight></codeline>
+<codeline lineno="209"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="210"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="211"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="212"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>i<sp/>=<sp/>0;\</highlight></codeline>
+<codeline lineno="213"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="214"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;next<sp/>!=<sp/>NULL)<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="215"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="216"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;key<sp/>=<sp/>key;\</highlight></codeline>
+<codeline lineno="217"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;val<sp/>=<sp/>malloc(sizeof(VAL_TYPE));\</highlight></codeline>
+<codeline lineno="218"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>memcpy(b-&gt;val,<sp/>val,<sp/>sizeof(VAL_TYPE));\</highlight></codeline>
+<codeline lineno="219"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="220"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b-&gt;next<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="221"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next<sp/>=<sp/>calloc(1,<sp/>sizeof(NAME##_BUCKET));\</highlight></codeline>
+<codeline lineno="222"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next-&gt;key<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="223"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="224"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;occupied++;\</highlight></codeline>
+<codeline lineno="225"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="226"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="227"><highlight class="preprocessor">static<sp/>inline<sp/>void<sp/>NAME##_ADD_DUPLICATE(NAME*<sp/>hm,<sp/>const<sp/>char*<sp/>key,<sp/>VAL_TYPE*<sp/>val)\</highlight></codeline>
+<codeline lineno="228"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="229"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>h<sp/>=<sp/>hash(key)<sp/>%<sp/>hm-&gt;size;\</highlight></codeline>
+<codeline lineno="230"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>&amp;hm-&gt;list[h];\</highlight></codeline>
+<codeline lineno="231"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="232"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>int<sp/>i<sp/>=<sp/>0;\</highlight></codeline>
+<codeline lineno="233"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>check:\</highlight></codeline>
+<codeline lineno="234"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;val<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;key<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>b-&gt;next<sp/>!=<sp/>NULL)<sp/>{<sp/>b<sp/>=<sp/>b-&gt;next;<sp/>goto<sp/>check;}\</highlight></codeline>
+<codeline lineno="235"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="236"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;key<sp/>=<sp/>key;\</highlight></codeline>
+<codeline lineno="237"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>b-&gt;val<sp/>=<sp/>malloc(sizeof(VAL_TYPE));\</highlight></codeline>
+<codeline lineno="238"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>memcpy(b-&gt;val,<sp/>val,<sp/>sizeof(VAL_TYPE));\</highlight></codeline>
+<codeline lineno="239"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="240"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(b-&gt;next<sp/>==<sp/>NULL)<sp/>{\</highlight></codeline>
+<codeline lineno="241"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next<sp/>=<sp/>calloc(1,<sp/>sizeof(NAME##_BUCKET));\</highlight></codeline>
+<codeline lineno="242"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;next-&gt;key<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="243"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="244"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;occupied++;\</highlight></codeline>
+<codeline lineno="245"><highlight class="preprocessor">}\</highlight></codeline>
+<codeline lineno="246"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="247"><highlight class="preprocessor">static<sp/>inline<sp/>void<sp/>NAME##_REMOVE(NAME*<sp/>hm,<sp/>const<sp/>char*<sp/>key)\</highlight></codeline>
+<codeline lineno="248"><highlight class="preprocessor">{\</highlight></codeline>
+<codeline lineno="249"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>b<sp/>=<sp/>NAME##_GET_BUCKET(hm,<sp/>key);\</highlight></codeline>
+<codeline lineno="250"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NAME##_BUCKET*<sp/>tmp<sp/>=<sp/>b-&gt;next;\</highlight></codeline>
+<codeline lineno="251"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(tmp<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/>tmp-&gt;key<sp/>!=<sp/>NULL)<sp/>b<sp/>=<sp/>tmp;\</highlight></codeline>
+<codeline lineno="252"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>else<sp/>{\</highlight></codeline>
+<codeline lineno="253"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;val<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="254"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;key<sp/>=<sp/>NULL;\</highlight></codeline>
+<codeline lineno="255"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="256"><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="257"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>hm-&gt;occupied--;\</highlight></codeline>
+<codeline lineno="258"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/bugy/projs/lobotomy/src/SHM/hashmap.h"/>
+  </compounddef>
+</doxygen>

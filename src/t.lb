@@ -11,7 +11,7 @@
 	)
 )
 
-(print "aa"))
+;; (print "aa"))
 
 (print "fact: " (fact 3))
 (print "local a: " (local-definition a))
@@ -21,16 +21,24 @@
 ;; (::a)
 
 
-(let a 2)
-(?
-	(< a 4) (let a (+ a 2))
-	(else) (print "can't add anymore, number too big")
-)
-(?
-	(< a 4) (let a (+ a 2))
-	(else) (print "can't add anymore, number too big")
+;; (let a 2)
+;; (?
+	;; (< a 4) (let a (+ a 2))
+	;; (else) (print "can't add anymore, number too big")
+;; )
+;; (?
+	;; (< a 4) (let a (+ a 2))
+	;; (else) (print "can't add anymore, number too big")
+;; )
+
+(let a 0)
+(print "--------")
+(loop (< a 10)
+(let a (+ a 2))
+(if (<= a 6) (print "a= " a "\n") (print "can't add anymore, number too big"))
 )
 
+(exit)
 
 (?
 	(< a 4) (let a (+ a 2))

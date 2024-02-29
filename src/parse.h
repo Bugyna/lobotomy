@@ -2,8 +2,11 @@
 #include <wchar.h>
 #include "lexer.h"
 #include "util.h"
-#include "obj.h"
+#include "obj.c"
+#include "linked_list.h"
 
+
+DEFINE_LINKED_LIST(OBJ_LIST, OBJ)
 
 // typedef struct
 // {
@@ -25,6 +28,7 @@ OBJ parse_atom(TOKEN t)
 {
 	OBJ atom;
 	atom.env = global_env;
+	// atom.env = gcl->env;
 	char* end;
 	atom.name = malloc(1);
 	switch (t.type)
@@ -63,7 +67,7 @@ OBJ parse_map(LEXER* lexer, int p, int b)
 	map.name = malloc(2);
 	map.type = T_MAP;
 	map.env = global_env;
-
+	// map.env = gcl->env;
 	
 	map.map = calloc(1, sizeof(ENV));
 	ENV_INIT(map.map, 11);

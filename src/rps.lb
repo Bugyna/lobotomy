@@ -21,12 +21,17 @@
 	;; (print "aa: " (let pc (pick-random)) "bb: " (let pc1 (pick-random)) (decide-win pc pc1))
 ;; )
 
+;;(loop (!= a "10") (print (let b (pick-random)) " : " (let a (input)))
+
 (let i 0)
 
-(loop (< i 3) 
+
+
+(loop (1) 
 	(print "PC: " (let b (pick-random)) "                    You: " (let a (input "pleace pick rock, paper or scissors: ")) "\nresult: "
 			(decide-win a b) "\n"
 	)
 	(let i (+ i 1))
 )
-(gc-collect)
+
+;; (loop (1)  (print "PC: " (let b (pick-random)) "                    You: " (let a (input "pleace pick rock, paper or scissors: ")) "\nresult: " (decide-win a b) "\n" ) (let i (+ i 1)) )

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_47d867a667c915e1b2c76a010d6cec1f" kind="dir">
+    <compoundname>/home/bugy/projs/lobotomy/src/SHM</compoundname>
+    <innerfile refid="SHM_2hashmap_8h">hashmap.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/bugy/projs/lobotomy/src/SHM/"/>
+  </compounddef>
+</doxygen>

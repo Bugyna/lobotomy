@@ -6,13 +6,7 @@
 #include <string.h>
 #include <wchar.h>
 
-typedef int (*_print_func)(const char* restrict, ...);
-_print_func _printf = &printf;
-#define printf _printf
-
-#include "util.h"
 #include "SHM/hashmap.h"
-#include "linked_list.h"
 #include "io.h"
 
 
@@ -58,7 +52,7 @@ typedef struct FN FN;
 typedef struct OBJ OBJ;
 typedef struct CONS CONS;
 typedef struct ENV ENV;
-// typedef struct GC GC;
+typedef struct GC GC;
 typedef OBJ* (*C_FUNC_DEC)(OBJ_FN_ARGS);
 
 
@@ -67,7 +61,7 @@ struct OBJ
 	does stuff
 */
 {
-	u8 marked;
+	unsigned char marked;
 	OBJ_TYPE type;
 	char* name;
 
@@ -80,13 +74,14 @@ struct OBJ
 		C_FUNC_DEC c_fn;
 		ENV* map;
 		int len;
-		void* data;
+		struct { char* data_type; void* data; };
 		FILE* file;
 	};
 
 	OBJ* car;
 	OBJ* cdr;
 	ENV* env;
+	OBJ* moved;
 	const char* env_name;
 };
 
@@ -99,9 +94,10 @@ static OBJ* NIL = &((OBJ){.type=T_NIL});
 static OBJ* O_TRUE = &((OBJ){.type=T_TRUE, .name="TRUE"});
 static OBJ* O_FALSE = &((OBJ){.type=T_FALSE});
 
-DEFINE_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
 
-typedef void(*load_lib_func)(ENV*);
+DEF_HASHMAP(ENV, OBJ, char* name; u64 id; ENV* parent;)
+
+typedef void(*load_lib_func)(GC*, ENV*);
 
 #define ITERATE_OBJECT(O, curr)\
 for(OBJ* curr = O; curr != NULL && curr->type != T_UNDEFINED && curr->type != T_NIL; curr = curr->cdr)
@@ -136,10 +132,6 @@ void env_add(ENV* e, OBJ* o);
 OBJ* env_get(ENV* e, const char* key);
 
 
-void GC_init();
-OBJ* GC_alloc();
-void GC_free(OBJ* o);
-
 
 void reset_obj(OBJ* o);
 OBJ* empty_obj();
@@ -155,6 +147,5 @@ OBJ* NAME(OBJ_FN_ARGS)\
 	/*! ## DOC ## */\
 	L_CHECK_ARITY(ARITY, argc)\
 	EXEC\
-}\
-
+}
 

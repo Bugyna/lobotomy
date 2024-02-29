@@ -1,7 +1,8 @@
-#include "obj.h"
+#include "obj.c"
 #include "eval.h"
 #include "io.c"
 #include "l_std.h"
+#include "gc.h"
 
 #include <dlfcn.h>
 
@@ -81,6 +82,12 @@ OBJ* L_eq(OBJ_FN_ARGS)
 	return ret;
 }
 
+OBJ* L_not_eq(OBJ_FN_ARGS)
+{
+	OBJ* ret = L_eq(argc, o);
+	ret->num = !(bool)ret->num;
+}
+
 
 OBJ* L_car(OBJ_FN_ARGS)
 {
@@ -133,10 +140,9 @@ OBJ* L_progn(OBJ_FN_ARGS)
 		evaluate a list of expressions and return the last result
 	*/
 	// OBJ* o = o;
-	OBJ* ret = empty_obj();
+	OBJ* ret = NIL;
 	OBJ* head = ret;
 
-	OBJ* tmp;
 	// if (o->type == T_LIST || o->type == T_EXPR) o = o->car;
 	ITERATE_OBJECT(o, curr)
 	{
@@ -145,9 +151,7 @@ OBJ* L_progn(OBJ_FN_ARGS)
 		ret = ret->cdr;
 	}
 
-	tmp = head;
 	head = NT(head);
-	GCL_free(tmp);
 	return ret;
 }
 
@@ -272,7 +276,7 @@ OBJ* L_test(OBJ_FN_ARGS)
 
 OBJ* L_gc_top(OBJ_FN_ARGS)
 {
-	printf("GC: %d\n", gcl->occupied);
+	// printf("GC: %d\n", gcl->occupied);
 	return NIL;
 }
 
@@ -293,7 +297,7 @@ OBJ* L_gc_print(OBJ_FN_ARGS)
 OBJ* L_gc_collect(OBJ_FN_ARGS)
 {
 	gcl->curr = gcl->top;
-	GCL_collect();
+	GCL_collect(gcl);
 	return NIL;
 }
 
@@ -384,9 +388,12 @@ OBJ* L_type(OBJ_FN_ARGS)
 
 OBJ* L_help(OBJ_FN_ARGS)
 {
-	for (size_t i = 0; i < o->env->size; i++) {
-		if (o->env->list[i].key == NULL) continue;
-		__ITERATE_HASHMAP(ENV, o->env, OBJ, o->env->list[i].key)
+	// ENV* env = gcl->env;
+	ENV* env = global_env;
+	if (o != NULL && o->type != T_NIL) env = o->env;
+	for (size_t i = 0; i < env->size; i++) {
+		if (env->list[i].key == NULL) continue;
+		__ITERATE_HASHMAP(ENV, env, OBJ, env->list[i].key)
 		{
 			printf("::> '%s'\n", BUCKET->key);
 		}
@@ -410,6 +417,7 @@ OBJ* L_create_fn(OBJ_FN_ARGS)
 	fn->args = args;
 	fn->body = body;
 	env_add(global_env, fn);
+	// env_add(gcl->env, fn);
 	return fn;
 }
 
@@ -505,6 +513,12 @@ OBJ* L_loop(OBJ_FN_ARGS)
 	// print_objf("cond_expr: ", cond_expr);
 
 	OBJ* exec_expr = NT(cond_expr);
+	// OBJ* o_exec_expr = L_copy(exec_expr->len, exec_expr);
+	
+	// OBJ* o_exec_expr = empty_obj_t(T_EXPR);
+	// o_exec_expr->len = exec_expr->len;
+	// o_exec_expr->car = copy_literals(exec_expr->car);
+	OBJ* o_exec_expr = exec_expr;
 	// OBJ* new_exec_expr = preeval_symbols(exec_expr);
 	// exec_expr->car = preeval_symbols(exec_expr->car);
 	// print_obj_simple(exec_expr);
@@ -516,13 +530,13 @@ OBJ* L_loop(OBJ_FN_ARGS)
 	OBJ* ret = NIL;
 
 	// printd("loop starting now\n");
-
+	int i = 0;
 	while (1)
 	{
 		OBJ* tmp = __eval(cond_expr, cond_expr->len);
 		// printf("tmp: "); print_obj_simple(tmp);
 		// print_objf("cond_expr: ", cond_expr);
-		print_objf("exec_expr: ", exec_expr);
+		// print_objf("exec_expr: ", o_exec_expr);
 
 		// (loop (< a 10) (let a (+ a 2)))
 		if (!tmp->num)
@@ -538,7 +552,10 @@ OBJ* L_loop(OBJ_FN_ARGS)
 		// eval_into(exec_expr, new_exec_expr);
 		// ret = L_progn(new_exec_expr->len, new_exec_expr);
 		
-		ret = L_progn(exec_expr->len, exec_expr);
+		ret = L_progn(o_exec_expr->len, o_exec_expr);
+		// preeval_copy(exec_expr->car, o_exec_expr->car);
+		
+		
 		// __print_obj_full(__eval(exec_expr->car));
 		// usleep(200);
 		// sleep(1);
@@ -602,6 +619,22 @@ OBJ* L_copy(OBJ_FN_ARGS)
 {
 	OBJ* ret = empty_obj();
 	*ret = *o;
+	if (o->type == T_LIST)
+	{
+		ITERATE_OBJECT(o->car, curr)
+		{
+			switch(curr->type)
+			{
+				case T_EXPR: case T_LIST:
+					ret->cdr = L_copy(curr->len, curr);
+				break;
+				default:
+					ret->cdr = empty_obj();
+					*ret->cdr = *curr;
+			}
+			ret = ret->cdr;
+		}
+	}
 	ret->cdr = NIL;
 	return ret;
 }
@@ -654,7 +687,7 @@ OBJ* L_load(OBJ_FN_ARGS)
 		lobotomy_error("unable to load library '%s' because %s couldn't be loaded\n", x, xx);
 	}
 	printd("load: %p\n", fn);
-	fn(gcl->env);
+	fn(gcl, gcl->env);
 	// dlclose(handle);
 	
 	return NIL;

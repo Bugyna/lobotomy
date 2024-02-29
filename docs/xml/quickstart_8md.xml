@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="quickstart_8md" kind="file" language="Markdown">
+    <compoundname>quickstart.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Quickstart</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>comments</highlight></codeline>
+<codeline><highlight class="normal">;;<sp/>a<sp/>comment</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>debug<sp/>comments</highlight></codeline>
+<codeline><highlight class="normal">show<sp/>the<sp/>comment<sp/>text<sp/>during<sp/>evaluation</highlight></codeline>
+<codeline><highlight class="normal">\#<sp/>a<sp/>debug<sp/>comment</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>syntax</highlight></codeline>
+<codeline><highlight class="normal">uses<sp/>polish<sp/>notation</highlight></codeline>
+<codeline><highlight class="normal">so<sp/>for<sp/>arithmetics<sp/>and<sp/>functions<sp/>and<sp/>all<sp/>else<sp/>you<sp/>do</highlight></codeline>
+<codeline><highlight class="normal">(hi-bestie<sp/>argument<sp/>&quot;aaa&quot;)<sp/>-&gt;<sp/>calls<sp/>function<sp/>named<sp/>hi-bestie<sp/>and<sp/>passes<sp/>variables<sp/>named<sp/>argument<sp/>and<sp/>a<sp/>literal<sp/>string<sp/>&quot;aaa&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>valid<sp/>names</highlight></codeline>
+<codeline><highlight class="normal">an<sp/>identifier<sp/>has<sp/>to<sp/>start<sp/>with<sp/>alphabet<sp/>characters<sp/>or<sp/>&lt;=@?!$%^&amp;*/|&gt;+-&apos;<sp/>and<sp/>can<sp/>be<sp/>followed<sp/>by<sp/>number</highlight></codeline>
+<codeline><highlight class="normal">so<sp/>basically<sp/>anything<sp/>goes<sp/>and<sp/>as<sp/>such<sp/>&apos;+-=2&apos;<sp/>is<sp/>a<sp/>valid<sp/>identifier</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>functions</highlight></codeline>
+<codeline><highlight class="normal">(fn<sp/>hello-name<sp/>(name)<sp/>(print<sp/>&quot;hello,<sp/>&quot;<sp/>name))<sp/>-&gt;<sp/>creates<sp/>a<sp/>function<sp/>named<sp/>hello-name<sp/>which<sp/>takes<sp/>one<sp/>parameter</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">(hello-name<sp/>&quot;girlie&quot;)<sp/>-&gt;<sp/>outputs<sp/>&quot;hello,<sp/>girlie&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>variables</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>create<sp/>a<sp/>variable</highlight></codeline>
+<codeline><highlight class="normal">(let<sp/>girl_boss<sp/>&quot;value&quot;)<sp/>-&gt;<sp/>creates<sp/>a<sp/>variable<sp/>named<sp/>girl_boss<sp/>that<sp/>holds<sp/>a<sp/>string<sp/>&quot;value&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>to<sp/>change<sp/>the<sp/>value<sp/>of<sp/>a<sp/>variable<sp/>simply<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">(let<sp/>girl_boss<sp/>&quot;new<sp/>value&quot;)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">variables<sp/>are<sp/>saved<sp/>inside<sp/>scopes</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>default<sp/>scope<sp/>is<sp/>the<sp/>global<sp/>one<sp/>and<sp/>functions<sp/>create<sp/>their<sp/>own<sp/>scope<sp/>when<sp/>called</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>can<sp/>still<sp/>access<sp/>global<sp/>variables<sp/>inside<sp/>of<sp/>functions<sp/>as<sp/>long<sp/>as<sp/>they<sp/>haven&apos;t<sp/>been<sp/>overwritten<sp/>(named<sp/>the<sp/>same<sp/>way<sp/>as<sp/>the<sp/>funciton<sp/>parameters)</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="quickstart/quickstart.md"/>
+  </compounddef>
+</doxygen>

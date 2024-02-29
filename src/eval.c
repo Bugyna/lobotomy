@@ -61,14 +61,56 @@ OBJ* preeval_symbols(OBJ* o)
 
 	tmp = head;
 	head = NT(head);
-	GCL_free(tmp);
+	// GCL_free(tmp);
 	return head;
+}
+
+OBJ* copy_literals(OBJ* o)
+{
+	OBJ* ret = NIL;
+	OBJ* head = ret;
+	ITERATE_OBJECT(o, curr)
+	{
+		switch (curr->type)
+		{
+			case T_EXPR:
+				ret->cdr = empty_obj_t(T_EXPR);
+				// *ret->cdr = *curr;
+				ret->cdr->len = curr->len;
+				ret->car = copy_literals(curr->car);
+			break;
+			default:
+				ret->cdr = empty_obj();
+				*ret->cdr = *curr;
+		}
+		ret = ret->cdr;
+	}
+	head = NT(head);
+	return head;
+}
+
+void preeval_copy(OBJ* o, OBJ* p)
+{
+	printf("\n-------------preeval-----------\n");
+	ZIP_ITERATE_OBJECT(o, p, old, new, 
+		switch (old->type)
+		{
+			case T_EXPR:
+				preeval_copy(old->car, new->car);
+			break;
+			default:
+				print_objf("new: ", new);
+				print_objf("old: ", old);
+				*new = *old;
+		}
+	)
 }
 
 OBJ* preeval(OBJ* o)
 {
 	// OBJ* ooo = o;
-	OBJ* ret = empty_obj();
+	// OBJ* ret = empty_obj();
+	OBJ* ret = NIL;
 	// DO_THIS(&o, ret);
 	OBJ* head = ret;
 
@@ -95,14 +137,6 @@ OBJ* preeval(OBJ* o)
 				ret->cdr = __eval(curr->car, curr->len);
 			break;
 
-			case T_LIST:
-				ret->cdr= curr;
-				// ret->cdr = empty_obj();
-				// *ret->cdr = *curr;
-				// *ret->cdr = *curr->cdr;
-				// ret->cdr->car = preeval(curr->car);
-			break;
-
 			case T_REF:
 				ret->cdr = curr->car;
 			break;
@@ -111,6 +145,7 @@ OBJ* preeval(OBJ* o)
 			default:
 				ret->cdr = empty_obj();
 				*ret->cdr = *curr;
+				// ret->cdr = curr;
 				// if (ret->cdr != NULL || ret->cdr->type != T_NIL) {
 					// tmp = ret->cdr->cdr;
 				// }
@@ -122,10 +157,10 @@ OBJ* preeval(OBJ* o)
 		ret = ret->cdr;
 	}
 
-	tmp = head;
+	// tmp = head;
 	head = NT(head);
-	GCL_free(tmp);
-	printf("gc: %d\n", gcl->occupied);
+	// GCL_free(tmp);
+	// printf("gc: %d\n", gcl->occupied);
 	return head;
 }
 
@@ -147,7 +182,8 @@ OBJ* run_func(OBJ* fn, OBJ* args)
 	ENV* e = malloc(sizeof(ENV));
 	ENV_INIT(e, 20);
 	e->name = "fn";
-	e->parent = global_env;
+	// e->parent = global_env;
+	e->parent = gcl->env;
 	// OBJ* curr1 = fn;
 	// ITERATE_OBJECT(args, curr)
 	// {
@@ -227,25 +263,12 @@ OBJ* __eval(OBJ* head, int argc)
 		case T_EXPR:
 			return __eval(head->car, head->len);
 		break;
-
 		case T_LIST:
-			return head;
-		break;
-
 		case T_MAP:
-			return head;
-		break;
-
 		case T_NUM: case T_STR: case T_DECIMAL:
-			return head;
-		break;
-
 		case T_C_FN:
-			return head->c_fn(argc-1, head);
-		break;
-
 		case T_FN:
-			return run_func(head, head->cdr);
+			return head;
 		break;
 
 		case T_IDENTIFIER:
@@ -290,6 +313,10 @@ OBJ* __eval(OBJ* head, int argc)
 			}
 		break;
 
+		case T_OTHER: case T_VOID_PTR:
+			return o;
+		break;
+
 		default:
 			LOBOTOMY_WARNING(
 				"[%s] not implemented yet",
@@ -327,7 +354,7 @@ void eval_program(const char filename[], const char text[])
 		// OBJ_PAIR pair = parse_expr(&lexer, 0, 0);
 		// print_obj_simple(__eval(pair.head, pair.size));
 		
-		printf("gc: %d\n", gcl->occupied);
+		// printf("gc: %d\n", gcl->occupied);
 		// lexer.peek++;
 		// if (pair.head->type == T_NIL) return;
 		if (lexer.tokens[lexer.peek].text == NULL || lexer.tokens[lexer.peek].type == TT_)

@@ -7,6 +7,7 @@
 #include "obj.h"
 
 
+
 OBJ* __eval(OBJ*, int argc);
 OBJ* preeval(OBJ*);
 OBJ* preeval_symbols(OBJ*);
@@ -17,26 +18,12 @@ static OBJ ELSE_ALIAS = {.marked=true, .type=T_TRUE, .name="else", .num=1};
 #define DEF_ARITHMETIC_OPERATION(NAME, SIGN)\
 OBJ* L_##NAME(OBJ_FN_ARGS)\
 {\
-	OBJ* ret = empty_obj();\
 	o = preeval(o);\
-	OBJ* curr = o;\
-	ret->type = o->type;\
-	if (ret->type == T_NUM)\
-		ret->num = o->num;\
-	else if (ret->type == T_DECIMAL)\
-		ret->decimal = o->decimal;\
+	OBJ* ret = o;\
 \
-	o = NT(curr);\
-	if (o == NIL) {\
-		LOBOTOMY_ERROR("Not enough arguments for arithmetic: '%s'", #SIGN);\
-	}\
 \
-	ITERATE_OBJECT(o, tmp)\
+	ITERATE_OBJECT(NT(ret), curr)\
 	{\
-		\
-		if (tmp->type == T_IDENTIFIER)\
-			curr = tmp->car;\
-		else curr = tmp;\
 		\
 		if (ret->type == T_DECIMAL && curr->type == T_NUM)\
 			ret->decimal SIGN##= curr->num;\
@@ -160,6 +147,7 @@ OBJ* L_more_than(OBJ_FN_ARGS);
 OBJ* L_less_or_eq_than(OBJ_FN_ARGS);
 OBJ* L_more_or_eq_than(OBJ_FN_ARGS);
 OBJ* L_eq(OBJ_FN_ARGS);
+OBJ* L_not_eq(OBJ_FN_ARGS);
 
 
 // Math
@@ -266,12 +254,14 @@ void lobotomy_init(ENV* env)
 	ENV_ADD(env, "%", create_cfn("%", L_mod));
 	ENV_ADD(env, "loop", create_cfn("loop", L_loop));
 	env_add(env, create_cfn("?", L_cond));
+	env_add(env, create_cfn("if", L_if));
 	
 	ENV_ADD(env, "<", create_cfn("<", L_less_than));
 	ENV_ADD(env, "<=", create_cfn("<=", L_less_or_eq_than));
 	ENV_ADD(env, ">", create_cfn(">", L_more_than));
 	ENV_ADD(env, ">=", create_cfn(">=", L_more_or_eq_than));
 	env_add(env, create_cfn("=", L_eq));
+	env_add(env, create_cfn("!=", L_not_eq));
 	ENV_ADD(env, "let", create_cfn("let", L_let));
 	ENV_ADD(env, "print", create_cfn("print", L_print));
 	ENV_ADD(env, "type", create_cfn("type", L_type));
