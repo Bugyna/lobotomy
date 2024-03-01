@@ -96,29 +96,59 @@ $(document).ready(function(){initNavTree('gc_8h_source.html',''); initResizable(
 <div class="title">gc.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="gc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obj_8h.html">obj.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="gc_8h.html#acc7b16df953d85a39fea9de32d4abeec">    3</a></span>&#160;<span class="preprocessor">#define GC_TYPE TRACING</span></div>
+<a href="gc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obj_8h.html">obj.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">void</span> <a class="code" href="gc_8h.html#ac9321bb3c3bc18b4c0e42b06258091f1">GC_init</a>();</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<a class="code" href="structOBJ.html">OBJ</a>* <a class="code" href="gc_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">GC_alloc</a>();</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordtype">void</span> <a class="code" href="gc_8h.html#aa565bd0cece59599d7f8bdaac3f5537b">GC_free</a>(<a class="code" href="structOBJ.html">OBJ</a>* o);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#if GC_TYPE == TRACING</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tgc_8h.html">tgc.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cgc_8h.html">cgc.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6">    7</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6a0ce52c8e193a7791c5bde2a8b449d2ef">    9</a></span>&#160;    <a class="code" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6a0ce52c8e193a7791c5bde2a8b449d2ef">GCLS_NOTHING</a>=0,</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6a437f78cb111ef3d7e662b94c75d17bd3">   10</a></span>&#160;    <a class="code" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6a437f78cb111ef3d7e662b94c75d17bd3">GCLS_MARKING</a>,</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6acaae389ccce44cce7c36ff77003bde61">   11</a></span>&#160;    <a class="code" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6acaae389ccce44cce7c36ff77003bde61">GCLS_COLLECTING</a>,</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;} <a class="code" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6">GCL_STATE</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">struct </span><a class="code" href="structGC.html">GC</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structGC.html#a9a8c23d5a938890c21546e6d1208c514">   16</a></span>&#160;    <a class="code" href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6">GCL_STATE</a> <a class="code" href="structGC.html#a9a8c23d5a938890c21546e6d1208c514">state</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="structOBJ.html">OBJ</a>* <a class="code" href="structGC.html#a97abc6ad2937dde797f2aca6cb8d5b11">memory_pool</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="structOBJ.html">OBJ</a>* <a class="code" href="structGC.html#a5d1ed056116414ab3644c7c160ca2cfd">ptr</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="structGC.html#a854352f53b148adc24983a58a1866d66">size</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structGC.html#ae3966afc4a03e5e7db07a5dd4cfa4c52">   20</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structGC.html#ae3966afc4a03e5e7db07a5dd4cfa4c52">occupied</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structGC.html#af93f4f37fc2ad9c37af4a715423b110c">top</a>, <a class="code" href="structGC.html#a96010e8f175b18e5988b95a0cf09faa1">curr</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="structENV.html">ENV</a>* <a class="code" href="structGC.html#a176ab5b0413ad15ad44df0b7b3666c57">env</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tgc_8h.html">tgc.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// void GCL_init(GC* gcl, ENV* env);</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// OBJ* GCL_alloc();</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// int GCL_mark(GC* gcl, OBJ* root);</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// int GCL_collect(GC* gcl);</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// int GCL_free(GC* gcl);</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// #include &quot;tgc.h&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agc_8h_html_ac9321bb3c3bc18b4c0e42b06258091f1"><div class="ttname"><a href="gc_8h.html#ac9321bb3c3bc18b4c0e42b06258091f1">GC_init</a></div><div class="ttdeci">void GC_init()</div></div>
-<div class="ttc" id="agc_8h_html_a62d4e8198e43895b7cfcaf3b9c7eb764"><div class="ttname"><a href="gc_8h.html#a62d4e8198e43895b7cfcaf3b9c7eb764">GC_alloc</a></div><div class="ttdeci">OBJ * GC_alloc()</div></div>
+<div class="ttc" id="agc_8h_html_ab37204a342bfa1b5b0e7bd029ce06bf6"><div class="ttname"><a href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6">GCL_STATE</a></div><div class="ttdeci">GCL_STATE</div><div class="ttdef"><b>Definition:</b> gc.h:7</div></div>
+<div class="ttc" id="astructGC_html_af93f4f37fc2ad9c37af4a715423b110c"><div class="ttname"><a href="structGC.html#af93f4f37fc2ad9c37af4a715423b110c">GC::top</a></div><div class="ttdeci">int top</div><div class="ttdef"><b>Definition:</b> cgc.h:14</div></div>
+<div class="ttc" id="astructGC_html"><div class="ttname"><a href="structGC.html">GC</a></div><div class="ttdef"><b>Definition:</b> cgc.h:7</div></div>
+<div class="ttc" id="astructGC_html_a5d1ed056116414ab3644c7c160ca2cfd"><div class="ttname"><a href="structGC.html#a5d1ed056116414ab3644c7c160ca2cfd">GC::ptr</a></div><div class="ttdeci">OBJ * ptr</div><div class="ttdef"><b>Definition:</b> cgc.h:15</div></div>
+<div class="ttc" id="astructGC_html_a96010e8f175b18e5988b95a0cf09faa1"><div class="ttname"><a href="structGC.html#a96010e8f175b18e5988b95a0cf09faa1">GC::curr</a></div><div class="ttdeci">int curr</div><div class="ttdef"><b>Definition:</b> cgc.h:14</div></div>
+<div class="ttc" id="astructGC_html_a9a8c23d5a938890c21546e6d1208c514"><div class="ttname"><a href="structGC.html#a9a8c23d5a938890c21546e6d1208c514">GC::state</a></div><div class="ttdeci">GCL_STATE state</div><div class="ttdef"><b>Definition:</b> gc.h:16</div></div>
 <div class="ttc" id="atgc_8h_html"><div class="ttname"><a href="tgc_8h.html">tgc.h</a></div></div>
-<div class="ttc" id="acgc_8h_html"><div class="ttname"><a href="cgc_8h.html">cgc.h</a></div></div>
-<div class="ttc" id="agc_8h_html_aa565bd0cece59599d7f8bdaac3f5537b"><div class="ttname"><a href="gc_8h.html#aa565bd0cece59599d7f8bdaac3f5537b">GC_free</a></div><div class="ttdeci">void GC_free(OBJ *o)</div></div>
+<div class="ttc" id="agc_8h_html_ab37204a342bfa1b5b0e7bd029ce06bf6a437f78cb111ef3d7e662b94c75d17bd3"><div class="ttname"><a href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6a437f78cb111ef3d7e662b94c75d17bd3">GCLS_MARKING</a></div><div class="ttdeci">@ GCLS_MARKING</div><div class="ttdef"><b>Definition:</b> gc.h:10</div></div>
+<div class="ttc" id="astructGC_html_ae3966afc4a03e5e7db07a5dd4cfa4c52"><div class="ttname"><a href="structGC.html#ae3966afc4a03e5e7db07a5dd4cfa4c52">GC::occupied</a></div><div class="ttdeci">int occupied</div><div class="ttdef"><b>Definition:</b> gc.h:20</div></div>
+<div class="ttc" id="astructGC_html_a176ab5b0413ad15ad44df0b7b3666c57"><div class="ttname"><a href="structGC.html#a176ab5b0413ad15ad44df0b7b3666c57">GC::env</a></div><div class="ttdeci">ENV * env</div><div class="ttdef"><b>Definition:</b> cgc.h:16</div></div>
+<div class="ttc" id="agc_8h_html_ab37204a342bfa1b5b0e7bd029ce06bf6a0ce52c8e193a7791c5bde2a8b449d2ef"><div class="ttname"><a href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6a0ce52c8e193a7791c5bde2a8b449d2ef">GCLS_NOTHING</a></div><div class="ttdeci">@ GCLS_NOTHING</div><div class="ttdef"><b>Definition:</b> gc.h:9</div></div>
+<div class="ttc" id="astructGC_html_a97abc6ad2937dde797f2aca6cb8d5b11"><div class="ttname"><a href="structGC.html#a97abc6ad2937dde797f2aca6cb8d5b11">GC::memory_pool</a></div><div class="ttdeci">OBJ * memory_pool</div><div class="ttdef"><b>Definition:</b> cgc.h:9</div></div>
+<div class="ttc" id="agc_8h_html_ab37204a342bfa1b5b0e7bd029ce06bf6acaae389ccce44cce7c36ff77003bde61"><div class="ttname"><a href="gc_8h.html#ab37204a342bfa1b5b0e7bd029ce06bf6acaae389ccce44cce7c36ff77003bde61">GCLS_COLLECTING</a></div><div class="ttdeci">@ GCLS_COLLECTING</div><div class="ttdef"><b>Definition:</b> gc.h:11</div></div>
 <div class="ttc" id="aobj_8h_html"><div class="ttname"><a href="obj_8h.html">obj.h</a></div></div>
-<div class="ttc" id="astructOBJ_html"><div class="ttname"><a href="structOBJ.html">OBJ</a></div><div class="ttdef"><b>Definition:</b> obj.h:65</div></div>
+<div class="ttc" id="astructOBJ_html"><div class="ttname"><a href="structOBJ.html">OBJ</a></div><div class="ttdef"><b>Definition:</b> nobj.h:2659</div></div>
+<div class="ttc" id="astructGC_html_a854352f53b148adc24983a58a1866d66"><div class="ttname"><a href="structGC.html#a854352f53b148adc24983a58a1866d66">GC::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition:</b> cgc.h:12</div></div>
+<div class="ttc" id="astructENV_html"><div class="ttname"><a href="structENV.html">ENV</a></div><div class="ttdef"><b>Definition:</b> nobj.h:2699</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

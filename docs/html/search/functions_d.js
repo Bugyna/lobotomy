@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['tokenize_518',['tokenize',['../lexer_8h.html#a9accf4fba8fc84cb5de3d1b29fbdf50c',1,'lexer.h']]],
-  ['tui_5fexit_519',['tui_exit',['../tui_8h.html#a6b1ad96930b8cc7c78d4a00e78bab8fb',1,'tui.h']]],
-  ['tui_5finit_520',['tui_init',['../tui_8h.html#a273e0f27732fe6b4c2644927a14e9428',1,'tui.h']]],
-  ['type_5fname_521',['type_name',['../obj_8c.html#a4c7dc3a5200a4923b368108e9ecbac21',1,'type_name(OBJ_TYPE i):&#160;obj.c'],['../obj_8h.html#a4c7dc3a5200a4923b368108e9ecbac21',1,'type_name(OBJ_TYPE i):&#160;obj.c']]]
+  ['new_5ftoken_1270',['new_token',['../lexer_8h.html#a907d215f50619b5799236d7babbcce8b',1,'lexer.h']]],
+  ['nrand48_1271',['nrand48',['../nobj_8h.html#ac1ddcfc92bb727d221c405f1b1f0ef5c',1,'nobj.h']]],
+  ['nrand48_5fr_1272',['nrand48_r',['../nobj_8h.html#a9312bfdf0623234e3c15b570b526bfce',1,'nobj.h']]]
 ];

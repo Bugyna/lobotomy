@@ -117,7 +117,7 @@ Include dependency graph for lexer.h:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__dep__incl.svg" width="282" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__dep__incl.svg" width="438" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="lexer_8h_source.html">Go to the source code of this file.</a></p>
@@ -133,9 +133,9 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aa7f7c0583d8dceb05d6abb7396f930db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#aa7f7c0583d8dceb05d6abb7396f930db">IS_TERMINATOR</a>(c)&#160;&#160;&#160;(strchr(&quot;() \n\t[]{}:&quot;, c) != NULL)</td></tr>
+<tr class="memitem:aa7f7c0583d8dceb05d6abb7396f930db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#aa7f7c0583d8dceb05d6abb7396f930db">IS_TERMINATOR</a>(c)&#160;&#160;&#160;(<a class="el" href="nobj_8h.html#a2b5dbc12e15efd8af0754df93f657556">strchr</a>(&quot;() \n\t[]{}:&quot;, c) != NULL)</td></tr>
 <tr class="separator:aa7f7c0583d8dceb05d6abb7396f930db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af80a9f355b3a6227ae89b448f5134ab0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#af80a9f355b3a6227ae89b448f5134ab0">IS_VALID_SYMBOL_CHAR</a>(c)&#160;&#160;&#160;((c &gt;= 127 || c &lt; 0) || (c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || strchr(&quot;+-_/?|*&amp;^%$#!~&lt;&gt;=&quot;, c) != NULL)</td></tr>
+<tr class="memitem:af80a9f355b3a6227ae89b448f5134ab0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#af80a9f355b3a6227ae89b448f5134ab0">IS_VALID_SYMBOL_CHAR</a>(c)</td></tr>
 <tr class="separator:af80a9f355b3a6227ae89b448f5134ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac49b7a967599330b42fabeee1e3ac2e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#ac49b7a967599330b42fabeee1e3ac2e0">IS_NUMBER</a>(c)&#160;&#160;&#160;(c &gt;= '0' &amp;&amp; c &lt;= '9')</td></tr>
 <tr class="separator:ac49b7a967599330b42fabeee1e3ac2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,28 +144,28 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:adf764cbdea00d65edcd07bb9953ad2b7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aadfc1978a51a953815cab51b30be7ea7">TT_</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7ac06233863baa0599eee41a5f224061cd">TT_LPAREN</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a0722f48939ed4c943830cb288fc78881">TT_RPAREN</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a0597d5576385f9f4f7df58a8dd83336e">TT_LBRACKET</a>, 
+<tr class="memitem:abbf72a04a030b0407c2a0d547f84e12d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12d">TOKEN_TYPE</a> { <br />
+&#160;&#160;<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12daadfc1978a51a953815cab51b30be7ea7">TT_</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12dac06233863baa0599eee41a5f224061cd">TT_LPAREN</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da0722f48939ed4c943830cb288fc78881">TT_RPAREN</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da0597d5576385f9f4f7df58a8dd83336e">TT_LBRACKET</a>, 
 <br />
-&#160;&#160;<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a51f5c0e6edb2fa07591e5f67112d22bc">TT_RBRACKET</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a79051fe343551dcc460e2e3d0fc70fdb">TT_LCBRACKET</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a0c88c745cad42d887e7d64083eac45cc">TT_RCBRACKET</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a71d6777fe79532b9c0e1a8dd3afc9f49">TT_NUMBER</a>, 
+&#160;&#160;<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da51f5c0e6edb2fa07591e5f67112d22bc">TT_RBRACKET</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da79051fe343551dcc460e2e3d0fc70fdb">TT_LCBRACKET</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da0c88c745cad42d887e7d64083eac45cc">TT_RCBRACKET</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da71d6777fe79532b9c0e1a8dd3afc9f49">TT_NUMBER</a>, 
 <br />
-&#160;&#160;<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a4e24d2ca30a1cb3870d16f2b4329a3da">TT_DECIMAL</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a769a2bc7bb4ac95500a51fe972c347de">TT_STR</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a464a5aac554c7208ae3a26a9a1fe1b6b">TT_IDENTIFIER</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7ab91e34ed298a476be9ff784afa02608e">TT_COMMENT</a>, 
+&#160;&#160;<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da4e24d2ca30a1cb3870d16f2b4329a3da">TT_DECIMAL</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da769a2bc7bb4ac95500a51fe972c347de">TT_STR</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12da464a5aac554c7208ae3a26a9a1fe1b6b">TT_IDENTIFIER</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12dab91e34ed298a476be9ff784afa02608e">TT_COMMENT</a>, 
 <br />
-&#160;&#160;<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aaa02ceb7278e9cef5153e63a48dce49e">TT_MUTABLE</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7ac58d63e7ace46ed6f71dbef20e572772">TT_ACCESS</a>, 
-<a class="el" href="lexer_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aaa2ccea89c83c1ca37e6720826e37edd">TT_TYPE</a>
+&#160;&#160;<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12daaa02ceb7278e9cef5153e63a48dce49e">TT_MUTABLE</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12dac58d63e7ace46ed6f71dbef20e572772">TT_ACCESS</a>, 
+<a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12daaa2ccea89c83c1ca37e6720826e37edd">TT_TYPE</a>
 <br />
  }</td></tr>
-<tr class="separator:adf764cbdea00d65edcd07bb9953ad2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:abbf72a04a030b0407c2a0d547f84e12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -195,7 +195,7 @@ Functions</h2></td></tr>
 <tr class="separator:a4306b7942d1e3c0932ed68bd5d5118e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16a2fd86594ee8b87cad96b8342ac3b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTOKEN.html">TOKEN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a16a2fd86594ee8b87cad96b8342ac3b2">lex_string</a> (<a class="el" href="structLEXER.html">LEXER</a> *lexer)</td></tr>
 <tr class="separator:a16a2fd86594ee8b87cad96b8342ac3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5092a9e968cd9f4e6ac4499f01e31333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a5092a9e968cd9f4e6ac4499f01e31333">lexer_highlight_error_token</a> (<a class="el" href="structLEXER.html">LEXER</a> *lexer, <a class="el" href="structMARK.html">MARK</a> pos, size_t n)</td></tr>
+<tr class="memitem:a5092a9e968cd9f4e6ac4499f01e31333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a5092a9e968cd9f4e6ac4499f01e31333">lexer_highlight_error_token</a> (<a class="el" href="structLEXER.html">LEXER</a> *lexer, <a class="el" href="structMARK.html">MARK</a> pos, <a class="el" href="nobj_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a> n)</td></tr>
 <tr class="separator:a5092a9e968cd9f4e6ac4499f01e31333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd983b60591e7ed465d65cb2607017d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#acd983b60591e7ed465d65cb2607017d5">lexer_get_last_newline_index</a> (<a class="el" href="structLEXER.html">LEXER</a> *lexer, <a class="el" href="structTOKEN.html">TOKEN</a> t)</td></tr>
 <tr class="separator:acd983b60591e7ed465d65cb2607017d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -232,7 +232,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">c</td><td>)</td>
-          <td>&#160;&#160;&#160;(strchr(&quot;() \n\t[]{}:&quot;, c) != NULL)</td>
+          <td>&#160;&#160;&#160;(<a class="el" href="nobj_8h.html#a2b5dbc12e15efd8af0754df93f657556">strchr</a>(&quot;() \n\t[]{}:&quot;, c) != NULL)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -250,11 +250,17 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">c</td><td>)</td>
-          <td>&#160;&#160;&#160;((c &gt;= 127 || c &lt; 0) || (c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || strchr(&quot;+-_/?|*&amp;^%$#!~&lt;&gt;=&quot;, c) != NULL)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">        (\</div>
+<div class="line">        (c &gt;= 127 || c &lt; 0) ||\</div>
+<div class="line">        (c &gt;= <span class="charliteral">&#39;a&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;z&#39;</span>) ||\</div>
+<div class="line">        (c &gt;= <span class="charliteral">&#39;A&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;Z&#39;</span>) ||\</div>
+<div class="line">        <a class="code" href="nobj_8h.html#a2b5dbc12e15efd8af0754df93f657556">strchr</a>(<span class="stringliteral">&quot;+-_/?|*&amp;^%$#!~&lt;&gt;=&quot;</span>, c) != NULL\</div>
+<div class="line">    )</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8e0cab4dcc3ef592793ac045edcd6344"></a>
@@ -276,33 +282,33 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="adf764cbdea00d65edcd07bb9953ad2b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf764cbdea00d65edcd07bb9953ad2b7">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="abbf72a04a030b0407c2a0d547f84e12d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbf72a04a030b0407c2a0d547f84e12d">&#9670;&nbsp;</a></span>TOKEN_TYPE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">anonymous enum</td>
+          <td class="memname">enum <a class="el" href="lexer_8h.html#abbf72a04a030b0407c2a0d547f84e12d">TOKEN_TYPE</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7aadfc1978a51a953815cab51b30be7ea7"></a>TT_&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7ac06233863baa0599eee41a5f224061cd"></a>TT_LPAREN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a0722f48939ed4c943830cb288fc78881"></a>TT_RPAREN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a0597d5576385f9f4f7df58a8dd83336e"></a>TT_LBRACKET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a51f5c0e6edb2fa07591e5f67112d22bc"></a>TT_RBRACKET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a79051fe343551dcc460e2e3d0fc70fdb"></a>TT_LCBRACKET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a0c88c745cad42d887e7d64083eac45cc"></a>TT_RCBRACKET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a71d6777fe79532b9c0e1a8dd3afc9f49"></a>TT_NUMBER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a4e24d2ca30a1cb3870d16f2b4329a3da"></a>TT_DECIMAL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a769a2bc7bb4ac95500a51fe972c347de"></a>TT_STR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a464a5aac554c7208ae3a26a9a1fe1b6b"></a>TT_IDENTIFIER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7ab91e34ed298a476be9ff784afa02608e"></a>TT_COMMENT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7aaa02ceb7278e9cef5153e63a48dce49e"></a>TT_MUTABLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7ac58d63e7ace46ed6f71dbef20e572772"></a>TT_ACCESS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7aaa2ccea89c83c1ca37e6720826e37edd"></a>TT_TYPE&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12daadfc1978a51a953815cab51b30be7ea7"></a>TT_&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12dac06233863baa0599eee41a5f224061cd"></a>TT_LPAREN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da0722f48939ed4c943830cb288fc78881"></a>TT_RPAREN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da0597d5576385f9f4f7df58a8dd83336e"></a>TT_LBRACKET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da51f5c0e6edb2fa07591e5f67112d22bc"></a>TT_RBRACKET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da79051fe343551dcc460e2e3d0fc70fdb"></a>TT_LCBRACKET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da0c88c745cad42d887e7d64083eac45cc"></a>TT_RCBRACKET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da71d6777fe79532b9c0e1a8dd3afc9f49"></a>TT_NUMBER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da4e24d2ca30a1cb3870d16f2b4329a3da"></a>TT_DECIMAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da769a2bc7bb4ac95500a51fe972c347de"></a>TT_STR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12da464a5aac554c7208ae3a26a9a1fe1b6b"></a>TT_IDENTIFIER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12dab91e34ed298a476be9ff784afa02608e"></a>TT_COMMENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12daaa02ceb7278e9cef5153e63a48dce49e"></a>TT_MUTABLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12dac58d63e7ace46ed6f71dbef20e572772"></a>TT_ACCESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbf72a04a030b0407c2a0d547f84e12daaa2ccea89c83c1ca37e6720826e37edd"></a>TT_TYPE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -473,7 +479,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype"><a class="el" href="nobj_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a>&#160;</td>
           <td class="paramname"><em>n</em>&#160;</td>
         </tr>
         <tr>
@@ -726,6 +732,7 @@ Functions</h2></td></tr>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anobj_8h_html_a2b5dbc12e15efd8af0754df93f657556"><div class="ttname"><a href="nobj_8h.html#a2b5dbc12e15efd8af0754df93f657556">strchr</a></div><div class="ttdeci">char * strchr(const char *__s, int __c) __attribute__((__nothrow__</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

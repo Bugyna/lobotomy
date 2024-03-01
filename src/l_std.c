@@ -386,9 +386,12 @@ OBJ* L_type(OBJ_FN_ARGS)
 
 OBJ* L_help(OBJ_FN_ARGS)
 {
-	for (size_t i = 0; i < o->env->size; i++) {
-		if (o->env->list[i].key == NULL) continue;
-		__ITERATE_HASHMAP(ENV, o->env, OBJ, o->env->list[i].key)
+	// ENV* env = gcl->env;
+	ENV* env = global_env;
+	if (o != NULL && o->type != T_NIL) env = o->env;
+	for (size_t i = 0; i < env->size; i++) {
+		if (env->list[i].key == NULL) continue;
+		__ITERATE_HASHMAP(ENV, env, OBJ, env->list[i].key)
 		{
 			printf("::> '%s'\n", BUCKET->key);
 		}

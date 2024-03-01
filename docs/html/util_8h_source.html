@@ -133,20 +133,20 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="util_8h.html#a56bcf160a30371294d1e91c99540553e">   35</a></span>&#160;<span class="keywordtype">char</span>* <a class="code" href="util_8h.html#a56bcf160a30371294d1e91c99540553e">read_file</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> path[])</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">char</span>* dst = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    FILE* file;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    file = fopen(path, <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="struct__IO__FILE.html">FILE</a>* file;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    file = <a class="code" href="nobj_8h.html#a726e2d4fdbc827c3b7eaa78d9ab81b18">fopen</a>(path, <span class="stringliteral">&quot;r&quot;</span>);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> (file == NULL) {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="error_8h.html#a168deda0bc3b2da8c582f7ab3f4c228c">lobotomy_error</a>(<span class="stringliteral">&quot;failed to read file %s&quot;</span>, path);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    fseek(file, 0, SEEK_END);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> size = ftell(file);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    dst = malloc(size+2);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    fseek(file, 0, SEEK_SET);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="nobj_8h.html#ae269e97a81615c0562a281f2c2ca1d0f">fseek</a>(file, 0, SEEK_END);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> size = <a class="code" href="nobj_8h.html#a70fadea61e64a0039c7e41fc511169da">ftell</a>(file);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    dst = <a class="code" href="nobj_8h.html#a22590eb350837901524978b3dce833e9">malloc</a>(size+2);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="nobj_8h.html#ae269e97a81615c0562a281f2c2ca1d0f">fseek</a>(file, 0, SEEK_SET);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> i = 0, c;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">for</span> (;;i++) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        c = fgetc(file);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        c = <a class="code" href="nobj_8h.html#a818d63019adc9d518a13f9c36ed04f35">fgetc</a>(file);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">if</span> (c == EOF)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    dst[i] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    fclose(file);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="nobj_8h.html#ad3d27a6dcc225237171196dd0739bb10">fclose</a>(file);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> dst;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// printf(&quot;s: %s\n&quot;, dst);</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
@@ -169,45 +169,45 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="util_8h.html#ac6c62456062b60acb9d5ffe2702c7ed7">   72</a></span>&#160;<span class="preprocessor">#define HASHMAP_HASH_INIT 2166136261u</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> uint32_t nhash(<span class="keyword">const</span> <span class="keywordtype">char</span>* data)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <a class="code" href="nobj_8h.html#a0238af00180b6d9278fa1c6aa790fdf4">uint32_t</a> nhash(<span class="keyword">const</span> <span class="keywordtype">char</span>* data)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">size_t</span> size = strlen(data);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">size_t</span> size = <a class="code" href="nobj_8h.html#a14fe401245a1062a4f509c936f3e8fdc">strlen</a>(data);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">size_t</span> nblocks = size / 8;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    uint64_t <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> = <a class="code" href="util_8h.html#ac6c62456062b60acb9d5ffe2702c7ed7">HASHMAP_HASH_INIT</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a> <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> = <a class="code" href="util_8h.html#ac6c62456062b60acb9d5ffe2702c7ed7">HASHMAP_HASH_INIT</a>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nblocks; ++i)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> ^= (uint64_t)data[0] &lt;&lt; 0 | (uint64_t)data[1] &lt;&lt; 8 |</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;             (uint64_t)data[2] &lt;&lt; 16 | (uint64_t)data[3] &lt;&lt; 24 |</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;             (uint64_t)data[4] &lt;&lt; 32 | (uint64_t)data[5] &lt;&lt; 40 |</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;             (uint64_t)data[6] &lt;&lt; 48 | (uint64_t)data[7] &lt;&lt; 56;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> ^= (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[0] &lt;&lt; 0 | (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[1] &lt;&lt; 8 |</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;             (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[2] &lt;&lt; 16 | (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[3] &lt;&lt; 24 |</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;             (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[4] &lt;&lt; 32 | (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[5] &lt;&lt; 40 |</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;             (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[6] &lt;&lt; 48 | (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[7] &lt;&lt; 56;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> *= 0xbf58476d1ce4e5b9;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        data += 8;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    uint64_t last = size &amp; 0xff;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a> last = size &amp; 0xff;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">switch</span> (size % 8)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">case</span> 7:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        last |= (uint64_t)data[6] &lt;&lt; 56; <span class="comment">/* fallthrough */</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        last |= (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[6] &lt;&lt; 56; <span class="comment">/* fallthrough */</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">case</span> 6:</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        last |= (uint64_t)data[5] &lt;&lt; 48; <span class="comment">/* fallthrough */</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        last |= (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[5] &lt;&lt; 48; <span class="comment">/* fallthrough */</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">case</span> 5:</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        last |= (uint64_t)data[4] &lt;&lt; 40; <span class="comment">/* fallthrough */</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        last |= (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[4] &lt;&lt; 40; <span class="comment">/* fallthrough */</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">case</span> 4:</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        last |= (uint64_t)data[3] &lt;&lt; 32; <span class="comment">/* fallthrough */</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        last |= (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[3] &lt;&lt; 32; <span class="comment">/* fallthrough */</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        last |= (uint64_t)data[2] &lt;&lt; 24; <span class="comment">/* fallthrough */</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        last |= (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[2] &lt;&lt; 24; <span class="comment">/* fallthrough */</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        last |= (uint64_t)data[1] &lt;&lt; 16; <span class="comment">/* fallthrough */</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        last |= (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[1] &lt;&lt; 16; <span class="comment">/* fallthrough */</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        last |= (uint64_t)data[0] &lt;&lt; 8;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        last |= (<a class="code" href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a>)data[0] &lt;&lt; 8;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> ^= last;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> *= 0xd6e8feb86659fd93;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">// compress to a 32-bit result.</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">// also serves as a finalizer.</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> (uint32_t)(<a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> ^ <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> &gt;&gt; 32);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="nobj_8h.html#a0238af00180b6d9278fa1c6aa790fdf4">uint32_t</a>)(<a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> ^ <a class="code" href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a> &gt;&gt; 32);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
@@ -219,8 +219,8 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="error_8h.html#a168deda0bc3b2da8c582f7ab3f4c228c">lobotomy_error</a>(<span class="stringliteral">&quot;trying to hash an empty key&quot;</span>);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">int</span> mask = 1 &lt;&lt; strlen(key);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; strlen(key); i++) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">int</span> mask = 1 &lt;&lt; <a class="code" href="nobj_8h.html#a14fe401245a1062a4f509c936f3e8fdc">strlen</a>(key);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="nobj_8h.html#a14fe401245a1062a4f509c936f3e8fdc">strlen</a>(key); i++) {</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        mask += (int)key[i];</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> (mask ^ (mask &gt;&gt; 4));</div>
@@ -231,14 +231,24 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aos_8h_html"><div class="ttname"><a href="os_8h.html">os.h</a></div></div>
+<div class="ttc" id="anobj_8h_html_a818d63019adc9d518a13f9c36ed04f35"><div class="ttname"><a href="nobj_8h.html#a818d63019adc9d518a13f9c36ed04f35">fgetc</a></div><div class="ttdeci">int fgetc(FILE *__stream)</div></div>
+<div class="ttc" id="anobj_8h_html_a726e2d4fdbc827c3b7eaa78d9ab81b18"><div class="ttname"><a href="nobj_8h.html#a726e2d4fdbc827c3b7eaa78d9ab81b18">fopen</a></div><div class="ttdeci">FILE * fopen(const char *__restrict __filename, const char *__restrict __modes)</div></div>
 <div class="ttc" id="autil_8h_html_a0198640928326ecdb7cbb77e009a2d62"><div class="ttname"><a href="util_8h.html#a0198640928326ecdb7cbb77e009a2d62">_lobotomy_exit_func</a></div><div class="ttdeci">void(* _lobotomy_exit_func)(int n)</div><div class="ttdef"><b>Definition:</b> util.h:16</div></div>
+<div class="ttc" id="anobj_8h_html_a22590eb350837901524978b3dce833e9"><div class="ttname"><a href="nobj_8h.html#a22590eb350837901524978b3dce833e9">malloc</a></div><div class="ttdeci">void * malloc(size_t __size) __attribute__((__nothrow__</div></div>
+<div class="ttc" id="anobj_8h_html_a14fe401245a1062a4f509c936f3e8fdc"><div class="ttname"><a href="nobj_8h.html#a14fe401245a1062a4f509c936f3e8fdc">strlen</a></div><div class="ttdeci">size_t strlen(const char *__s) __attribute__((__nothrow__</div></div>
 <div class="ttc" id="autil_8h_html_ac6c62456062b60acb9d5ffe2702c7ed7"><div class="ttname"><a href="util_8h.html#ac6c62456062b60acb9d5ffe2702c7ed7">HASHMAP_HASH_INIT</a></div><div class="ttdeci">#define HASHMAP_HASH_INIT</div><div class="ttdef"><b>Definition:</b> util.h:72</div></div>
 <div class="ttc" id="aerror_8h_html"><div class="ttname"><a href="error_8h.html">error.h</a></div></div>
+<div class="ttc" id="anobj_8h_html_a747748dd98cf1e2e89eb8b1fa37113df"><div class="ttname"><a href="nobj_8h.html#a747748dd98cf1e2e89eb8b1fa37113df">uint64_t</a></div><div class="ttdeci">__uint64_t uint64_t</div><div class="ttdef"><b>Definition:</b> nobj.h:1289</div></div>
+<div class="ttc" id="astruct__IO__FILE_html"><div class="ttname"><a href="struct__IO__FILE.html">_IO_FILE</a></div><div class="ttdef"><b>Definition:</b> nobj.h:1420</div></div>
 <div class="ttc" id="autil_8h_html_a837545d852dbedf0b642ae0f8e1b7d67"><div class="ttname"><a href="util_8h.html#a837545d852dbedf0b642ae0f8e1b7d67">hash</a></div><div class="ttdeci">int hash(const char *key)</div><div class="ttdef"><b>Definition:</b> util.h:117</div></div>
+<div class="ttc" id="anobj_8h_html_ad3d27a6dcc225237171196dd0739bb10"><div class="ttname"><a href="nobj_8h.html#ad3d27a6dcc225237171196dd0739bb10">fclose</a></div><div class="ttdeci">int fclose(FILE *__stream)</div></div>
+<div class="ttc" id="anobj_8h_html_a70fadea61e64a0039c7e41fc511169da"><div class="ttname"><a href="nobj_8h.html#a70fadea61e64a0039c7e41fc511169da">ftell</a></div><div class="ttdeci">long int ftell(FILE *__stream)</div></div>
 <div class="ttc" id="autil_8h_html_a5134b2f308b8e125e5f987ac66222050"><div class="ttname"><a href="util_8h.html#a5134b2f308b8e125e5f987ac66222050">exit</a></div><div class="ttdeci">#define exit</div><div class="ttdef"><b>Definition:</b> util.h:20</div></div>
 <div class="ttc" id="autil_8h_html_ac89271d33116a9d352b136a66b6f626d"><div class="ttname"><a href="util_8h.html#ac89271d33116a9d352b136a66b6f626d">_lobotomy_exit</a></div><div class="ttdeci">_lobotomy_exit_func _lobotomy_exit</div><div class="ttdef"><b>Definition:</b> util.h:17</div></div>
 <div class="ttc" id="aerror_8h_html_a168deda0bc3b2da8c582f7ab3f4c228c"><div class="ttname"><a href="error_8h.html#a168deda0bc3b2da8c582f7ab3f4c228c">lobotomy_error</a></div><div class="ttdeci">#define lobotomy_error(...)</div><div class="ttdef"><b>Definition:</b> error.h:37</div></div>
+<div class="ttc" id="anobj_8h_html_ae269e97a81615c0562a281f2c2ca1d0f"><div class="ttname"><a href="nobj_8h.html#ae269e97a81615c0562a281f2c2ca1d0f">fseek</a></div><div class="ttdeci">int fseek(FILE *__stream, long int __off, int __whence)</div></div>
 <div class="ttc" id="autil_8h_html_a56bcf160a30371294d1e91c99540553e"><div class="ttname"><a href="util_8h.html#a56bcf160a30371294d1e91c99540553e">read_file</a></div><div class="ttdeci">char * read_file(const char path[])</div><div class="ttdef"><b>Definition:</b> util.h:35</div></div>
+<div class="ttc" id="anobj_8h_html_a0238af00180b6d9278fa1c6aa790fdf4"><div class="ttname"><a href="nobj_8h.html#a0238af00180b6d9278fa1c6aa790fdf4">uint32_t</a></div><div class="ttdeci">__uint32_t uint32_t</div><div class="ttdef"><b>Definition:</b> nobj.h:1288</div></div>
 <div class="ttc" id="autil_8h_html_aa8309d2be920c08db6f2fa7682a5ea5d"><div class="ttname"><a href="util_8h.html#aa8309d2be920c08db6f2fa7682a5ea5d">_real_exit</a></div><div class="ttdeci">_lobotomy_exit_func _real_exit</div><div class="ttdef"><b>Definition:</b> util.h:18</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

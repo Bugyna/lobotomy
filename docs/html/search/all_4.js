@@ -1,13 +1,23 @@
 var searchData=
 [
-  ['data_35',['data',['../structARENA__NODE.html#a735984d41155bc1032e09bece8f8d66d',1,'ARENA_NODE::data()'],['../structARENA.html#a735984d41155bc1032e09bece8f8d66d',1,'ARENA::data()'],['../structOBJ.html#a735984d41155bc1032e09bece8f8d66d',1,'OBJ::data()']]],
-  ['debug_36',['DEBUG',['../error_8h.html#a07fd69b4dfba96e268fee3bf7fd6c8ea',1,'error.h']]],
-  ['debugging_37',['DEBUGGING',['../main_8c.html#a7180786c98af534f76855fef6f1b97ab',1,'main.c']]],
-  ['decimal_38',['decimal',['../structOBJ.html#a160d6366514b7fe5ec086f528835c5ce',1,'OBJ']]],
-  ['def_5farithmetic_5foperation_39',['DEF_ARITHMETIC_OPERATION',['../l__std_8h.html#a9b2a63793cdbd9175fe8fef8a5704f97',1,'l_std.h']]],
-  ['def_5fbinary_5foperation_40',['DEF_BINARY_OPERATION',['../l__std_8h.html#a615f04bf9115c6de5b514a8d93a3b2a1',1,'l_std.h']]],
-  ['def_5funary_5foperation_41',['DEF_UNARY_OPERATION',['../l__std_8h.html#a50f6ea34745480dc4765ba6bbe49cd2f',1,'l_std.h']]],
-  ['define_5fhashmap_42',['DEFINE_HASHMAP',['../hashmap_8h.html#add57a74fbf76b95fc0fff0a12f43645a',1,'DEFINE_HASHMAP():&#160;hashmap.h'],['../SHM_2hashmap_8h.html#add57a74fbf76b95fc0fff0a12f43645a',1,'DEFINE_HASHMAP():&#160;hashmap.h']]],
-  ['define_5flinked_5flist_43',['DEFINE_LINKED_LIST',['../linked__list_8h.html#a390de6c597abe0492fd9e7a61ee77ff1',1,'DEFINE_LINKED_LIST():&#160;linked_list.h'],['../SLL_2linked__list_8h.html#a390de6c597abe0492fd9e7a61ee77ff1',1,'DEFINE_LINKED_LIST():&#160;linked_list.h']]],
-  ['docs_2etxt_44',['docs.txt',['../docs_8txt.html',1,'']]]
+  ['daddr_5ft_237',['daddr_t',['../nobj_8h.html#a613b00ee5b745bbc11594b29b04e2d72',1,'nobj.h']]],
+  ['data_238',['data',['../structARENA__NODE.html#a735984d41155bc1032e09bece8f8d66d',1,'ARENA_NODE::data()'],['../structARENA.html#a735984d41155bc1032e09bece8f8d66d',1,'ARENA::data()'],['../structOBJ.html#a735984d41155bc1032e09bece8f8d66d',1,'OBJ::data()']]],
+  ['data_5ftype_239',['data_type',['../structOBJ.html#a180fa3310f85cd3268f55b1cfe5883d8',1,'OBJ']]],
+  ['debug_240',['DEBUG',['../error_8h.html#a07fd69b4dfba96e268fee3bf7fd6c8ea',1,'error.h']]],
+  ['debugging_241',['DEBUGGING',['../main_8c.html#a7180786c98af534f76855fef6f1b97ab',1,'main.c']]],
+  ['decimal_242',['decimal',['../structOBJ.html#a160d6366514b7fe5ec086f528835c5ce',1,'OBJ']]],
+  ['def_5farithmetic_5foperation_243',['DEF_ARITHMETIC_OPERATION',['../l__std_8h.html#a9b2a63793cdbd9175fe8fef8a5704f97',1,'l_std.h']]],
+  ['def_5fbinary_5foperation_244',['DEF_BINARY_OPERATION',['../l__std_8h.html#a615f04bf9115c6de5b514a8d93a3b2a1',1,'l_std.h']]],
+  ['def_5fhashmap_245',['DEF_HASHMAP',['../SHM_2hashmap_8h.html#ab85899df291a23cc022a05bfd4d02854',1,'hashmap.h']]],
+  ['def_5funary_5foperation_246',['DEF_UNARY_OPERATION',['../l__std_8h.html#a50f6ea34745480dc4765ba6bbe49cd2f',1,'l_std.h']]],
+  ['define_5fhashmap_247',['DEFINE_HASHMAP',['../hashmap_8h.html#add57a74fbf76b95fc0fff0a12f43645a',1,'DEFINE_HASHMAP():&#160;hashmap.h'],['../SHM_2hashmap_8h.html#add57a74fbf76b95fc0fff0a12f43645a',1,'DEFINE_HASHMAP():&#160;hashmap.h']]],
+  ['define_5flinked_5flist_248',['DEFINE_LINKED_LIST',['../linked__list_8h.html#a390de6c597abe0492fd9e7a61ee77ff1',1,'DEFINE_LINKED_LIST():&#160;linked_list.h'],['../SLL_2linked__list_8h.html#a390de6c597abe0492fd9e7a61ee77ff1',1,'DEFINE_LINKED_LIST():&#160;linked_list.h']]],
+  ['dev_5ft_249',['dev_t',['../nobj_8h.html#ac827ff889e5d6c1d6312eb5b28a7b5c8',1,'nobj.h']]],
+  ['div_250',['div',['../nobj_8h.html#aa1d143771770e7283ba564ee30872879',1,'nobj.h']]],
+  ['div_5ft_251',['div_t',['../structdiv__t.html',1,'']]],
+  ['docs_2etxt_252',['docs.txt',['../docs_8txt.html',1,'']]],
+  ['dprintf_253',['dprintf',['../nobj_8h.html#ab0b9b1af05f7690821d80cea397ca093',1,'nobj.h']]],
+  ['drand48_254',['drand48',['../nobj_8h.html#a1639c69633165b418f6cf6661d71dac0',1,'nobj.h']]],
+  ['drand48_5fdata_255',['drand48_data',['../structdrand48__data.html',1,'']]],
+  ['drand48_5fr_256',['drand48_r',['../nobj_8h.html#af0704331b7c774b4e792f78cfea06f8b',1,'nobj.h']]]
 ];

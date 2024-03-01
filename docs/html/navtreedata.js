@@ -23,85 +23,68 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Lobotomy", "index.html", [
-    [ "Main Page", "index.html", [
-      [ "What is Lobotomy", "index.html#autotoc_md0", null ]
-    ] ],
     [ "Quickstart", "md_quickstart_quickstart.html", [
-      [ "General", "md_quickstart_quickstart.html#autotoc_md2", [
-        [ "Writing an expression", "md_quickstart_quickstart.html#autotoc_md3", null ],
-        [ "Valid names", "md_quickstart_quickstart.html#autotoc_md4", null ],
-        [ "Comments", "md_quickstart_quickstart.html#autotoc_md5", null ]
+      [ "compiling from source (on linux)", "md_quickstart_quickstart.html#autotoc_md1", null ],
+      [ "executing your .lb program", "md_quickstart_quickstart.html#autotoc_md2", null ],
+      [ "starting repl", "md_quickstart_quickstart.html#autotoc_md3", null ],
+      [ "General", "md_quickstart_quickstart.html#autotoc_md4", [
+        [ "Writing an expression", "md_quickstart_quickstart.html#autotoc_md5", null ],
+        [ "Valid names", "md_quickstart_quickstart.html#autotoc_md6", null ],
+        [ "Comments", "md_quickstart_quickstart.html#autotoc_md7", null ]
       ] ],
-      [ "Data types", "md_quickstart_quickstart.html#autotoc_md6", [
-        [ "Lists", "md_quickstart_quickstart.html#autotoc_md7", null ],
-        [ "Numbers", "md_quickstart_quickstart.html#autotoc_md8", null ],
-        [ "Decimals", "md_quickstart_quickstart.html#autotoc_md9", null ],
-        [ "Strings", "md_quickstart_quickstart.html#autotoc_md10", null ],
-        [ "Functions", "md_quickstart_quickstart.html#autotoc_md11", null ],
-        [ "Variables", "md_quickstart_quickstart.html#autotoc_md12", null ]
+      [ "Data types", "md_quickstart_quickstart.html#autotoc_md8", [
+        [ "Lists", "md_quickstart_quickstart.html#autotoc_md9", null ],
+        [ "Numbers", "md_quickstart_quickstart.html#autotoc_md10", null ],
+        [ "Decimals", "md_quickstart_quickstart.html#autotoc_md11", null ],
+        [ "Strings", "md_quickstart_quickstart.html#autotoc_md12", null ],
+        [ "Functions", "md_quickstart_quickstart.html#autotoc_md13", null ],
+        [ "Variables", "md_quickstart_quickstart.html#autotoc_md14", null ]
       ] ],
-      [ "Control flow", "md_quickstart_quickstart.html#autotoc_md13", [
-        [ "Conditionals", "md_quickstart_quickstart.html#autotoc_md14", null ],
-        [ "Loops", "md_quickstart_quickstart.html#autotoc_md15", null ]
+      [ "Control flow", "md_quickstart_quickstart.html#autotoc_md15", [
+        [ "Conditionals", "md_quickstart_quickstart.html#autotoc_md16", null ],
+        [ "Loops", "md_quickstart_quickstart.html#autotoc_md17", null ],
+        [ "Rock paper scissors example", "md_quickstart_quickstart.html#autotoc_md18", null ],
+        [ "Recursive factorial", "md_quickstart_quickstart.html#autotoc_md19", null ]
       ] ]
     ] ],
     [ "Available functions", "md_quickstart_zfunctions.html", [
-      [ "Numerical operations", "md_quickstart_zfunctions.html#autotoc_md17", [
-        [ "+", "md_quickstart_zfunctions.html#autotoc_md18", null ],
-        [ "-", "md_quickstart_zfunctions.html#autotoc_md19", null ],
-        [ "*", "md_quickstart_zfunctions.html#autotoc_md20", null ],
-        [ "/", "md_quickstart_zfunctions.html#autotoc_md21", null ],
-        [ "%", "md_quickstart_zfunctions.html#autotoc_md22", null ]
+      [ "Numerical operations", "md_quickstart_zfunctions.html#autotoc_md21", [
+        [ "+", "md_quickstart_zfunctions.html#autotoc_md22", null ],
+        [ "-", "md_quickstart_zfunctions.html#autotoc_md23", null ],
+        [ "*", "md_quickstart_zfunctions.html#autotoc_md24", null ],
+        [ "/", "md_quickstart_zfunctions.html#autotoc_md25", null ],
+        [ "%", "md_quickstart_zfunctions.html#autotoc_md26", null ]
       ] ],
-      [ "Binary", "md_quickstart_zfunctions.html#autotoc_md23", [
-        [ "&", "md_quickstart_zfunctions.html#autotoc_md24", null ],
-        [ "|", "md_quickstart_zfunctions.html#autotoc_md25", null ],
-        [ "xor", "md_quickstart_zfunctions.html#autotoc_md26", null ]
+      [ "Binary", "md_quickstart_zfunctions.html#autotoc_md27", [
+        [ "&", "md_quickstart_zfunctions.html#autotoc_md28", null ],
+        [ "|", "md_quickstart_zfunctions.html#autotoc_md29", null ],
+        [ "xor", "md_quickstart_zfunctions.html#autotoc_md30", null ]
       ] ],
-      [ "Control flow", "md_quickstart_zfunctions.html#autotoc_md27", [
-        [ "?", "md_quickstart_zfunctions.html#autotoc_md28", null ],
-        [ "loop", "md_quickstart_zfunctions.html#autotoc_md29", null ]
+      [ "Control flow", "md_quickstart_zfunctions.html#autotoc_md31", [
+        [ "?", "md_quickstart_zfunctions.html#autotoc_md32", null ],
+        [ "loop", "md_quickstart_zfunctions.html#autotoc_md33", null ]
       ] ],
-      [ "Comparisons", "md_quickstart_zfunctions.html#autotoc_md30", [
-        [ "<", "md_quickstart_zfunctions.html#autotoc_md31", null ],
-        [ ">", "md_quickstart_zfunctions.html#autotoc_md32", null ],
-        [ "<=", "md_quickstart_zfunctions.html#autotoc_md33", null ],
-        [ ">=", "md_quickstart_zfunctions.html#autotoc_md34", null ],
-        [ "=", "md_quickstart_zfunctions.html#autotoc_md35", null ]
+      [ "Comparisons", "md_quickstart_zfunctions.html#autotoc_md34", [
+        [ "<", "md_quickstart_zfunctions.html#autotoc_md35", null ],
+        [ ">", "md_quickstart_zfunctions.html#autotoc_md36", null ],
+        [ "<=", "md_quickstart_zfunctions.html#autotoc_md37", null ],
+        [ ">=", "md_quickstart_zfunctions.html#autotoc_md38", null ],
+        [ "=", "md_quickstart_zfunctions.html#autotoc_md39", null ]
       ] ],
-      [ "IO", "md_quickstart_zfunctions.html#autotoc_md36", [
-        [ "print", "md_quickstart_zfunctions.html#autotoc_md37", null ],
-        [ "input", "md_quickstart_zfunctions.html#autotoc_md38", null ]
+      [ "IO", "md_quickstart_zfunctions.html#autotoc_md40", [
+        [ "print", "md_quickstart_zfunctions.html#autotoc_md41", null ],
+        [ "input", "md_quickstart_zfunctions.html#autotoc_md42", null ],
+        [ "open", "md_quickstart_zfunctions.html#autotoc_md43", null ]
       ] ],
-      [ "General", "md_quickstart_zfunctions.html#autotoc_md39", [
-        [ "exit", "md_quickstart_zfunctions.html#autotoc_md40", null ],
-        [ "help", "md_quickstart_zfunctions.html#autotoc_md41", null ],
-        [ "type", "md_quickstart_zfunctions.html#autotoc_md42", null ],
-        [ "let", "md_quickstart_zfunctions.html#autotoc_md43", null ],
-        [ "fn", "md_quickstart_zfunctions.html#autotoc_md44", null ]
+      [ "General", "md_quickstart_zfunctions.html#autotoc_md44", [
+        [ "exit", "md_quickstart_zfunctions.html#autotoc_md45", null ],
+        [ "help", "md_quickstart_zfunctions.html#autotoc_md46", null ],
+        [ "type", "md_quickstart_zfunctions.html#autotoc_md47", null ],
+        [ "let", "md_quickstart_zfunctions.html#autotoc_md48", null ],
+        [ "fn", "md_quickstart_zfunctions.html#autotoc_md49", null ]
       ] ],
-      [ "Random", "md_quickstart_zfunctions.html#autotoc_md45", [
-        [ "random-num", "md_quickstart_zfunctions.html#autotoc_md46", null ]
-      ] ]
-    ] ],
-    [ "Data Structures", "annotated.html", [
-      [ "Data Structures", "annotated.html", "annotated_dup" ],
-      [ "Data Structure Index", "classes.html", null ],
-      [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
-      ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "Globals", "globals.html", [
-        [ "All", "globals.html", "globals_dup" ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
-        [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+      [ "Random", "md_quickstart_zfunctions.html#autotoc_md50", [
+        [ "random-num", "md_quickstart_zfunctions.html#autotoc_md51", null ]
       ] ]
     ] ]
   ] ]
@@ -109,9 +92,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"SHM_2hashmap_8h.html",
-"l__std_8h.html#acdccbed2576af5a86dc7d26225307144",
-"structOBJ.html#a6b6699c1641de1410bbd6e1f85a0f837"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

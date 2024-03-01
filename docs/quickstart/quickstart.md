@@ -1,5 +1,23 @@
 # Quickstart
 
+
+## compiling from source (on linux)
+
+and windows, but you have to have mingw toolset installed)
+
+> git clone https://github.com/Bugyna/lobotomy
+> cd lobotomy
+> git submodule update --init --recursive
+> cd src
+> make
+
+
+## executing your .lb program
+> ./lobotomy [filename]
+
+## starting repl
+> ./lobotomy -i
+
 ## General
 
 ### Writing an expression
@@ -139,4 +157,36 @@ If you want to repeat the same code infinitely.
 >	`)`  
 This doesn't return anything because it never ends.
 
+
+
+### Rock paper scissors example
+> `(fn pick-random () (nth (random-num 3) ["rock" "paper" "scissors"]))`
+>
+> `(fn decide-win (player pc) `
+> `	(? (= player pc) ("draw")`
+> `		(& (= player "rock") (= pc "scissors")) ("win")`
+> `		(& (= player "rock") (= pc "paper")) ("lose")`
+> `		(& (= player "paper") (= pc "scissors")) ("lose")`
+> `		(& (= player "paper") (= pc "rock")) ("win")`
+> `		(& (= player "scissors") (= pc "rock")) ("lose")`
+> `		(& (= player "scissors") (= pc "paper")) ("win")`
+> `		(else) ("wrong choice" player pc)`
+> `	)`
+> `)`
+>
+>
+>
+> `(loop (1) `
+> `	(print "PC: " (let b (pick-random)) "                    You: " (let a (input "pleace pick rock, paper or scissors: ")) "\nresult: "`
+> `			(decide-win a b) "\n"`
+> `	)`
+> `)`
+
+### Recursive factorial
+> `(fn fact (n)`
+> `(? `
+> `		(= n 0) (1)`
+> `		(else) (* n (fact (- n 1)))`
+> `)`
+> `)`
 

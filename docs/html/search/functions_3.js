@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['empty_5fobj_401',['empty_obj',['../obj_8c.html#afef0f8196de8986895bc02ecbbaf2529',1,'empty_obj():&#160;obj.c'],['../obj_8h.html#afef0f8196de8986895bc02ecbbaf2529',1,'empty_obj():&#160;obj.c']]],
-  ['empty_5fobj_5ft_402',['empty_obj_t',['../obj_8c.html#a2257fb022ed4e979225cdf9d6048ff65',1,'empty_obj_t(OBJ_TYPE type):&#160;obj.c'],['../obj_8h.html#a2257fb022ed4e979225cdf9d6048ff65',1,'empty_obj_t(OBJ_TYPE type):&#160;obj.c']]],
-  ['env_5fadd_403',['env_add',['../obj_8c.html#a0e5a7962b223a44a11319e48d58004cc',1,'env_add(ENV *e, OBJ *o):&#160;obj.c'],['../obj_8h.html#a0e5a7962b223a44a11319e48d58004cc',1,'env_add(ENV *e, OBJ *o):&#160;obj.c']]],
-  ['env_5fget_404',['env_get',['../obj_8c.html#a14f09d8c7f0794cef89a7e17a9b7274e',1,'env_get(ENV *e, const char *key):&#160;obj.c'],['../obj_8h.html#a14f09d8c7f0794cef89a7e17a9b7274e',1,'env_get(ENV *e, const char *key):&#160;obj.c']]],
-  ['eval_5finto_405',['eval_into',['../eval_8c.html#aa8eced299ac15690a17628892c94cb53',1,'eval_into(OBJ *base, OBJ *res):&#160;eval.c'],['../eval_8h.html#aa8eced299ac15690a17628892c94cb53',1,'eval_into(OBJ *base, OBJ *res):&#160;eval.c']]],
-  ['eval_5fprogram_406',['eval_program',['../eval_8c.html#aeb3b67ca57e40227f060ec98226a3eda',1,'eval_program(const char filename[], const char text[]):&#160;eval.c'],['../eval_8h.html#aeb3b67ca57e40227f060ec98226a3eda',1,'eval_program(const char filename[], const char text[]):&#160;eval.c']]],
-  ['eval_5fprogram_5ffile_407',['eval_program_file',['../eval_8c.html#ad79a38016d7a07d169447f944e407548',1,'eval_program_file(const char *filename):&#160;eval.c'],['../eval_8h.html#ad79a38016d7a07d169447f944e407548',1,'eval_program_file(const char *filename):&#160;eval.c']]]
+  ['calloc_1063',['calloc',['../nobj_8h.html#ac639f6cd40a2cc14eb610cb0dd6503f0',1,'nobj.h']]],
+  ['clearenv_1064',['clearenv',['../nobj_8h.html#ab235c8625fb3df8ae5ed2db479578862',1,'nobj.h']]],
+  ['clearerr_1065',['clearerr',['../nobj_8h.html#a60684005ce56955774c22f115fa17052',1,'nobj.h']]],
+  ['clearerr_5funlocked_1066',['clearerr_unlocked',['../nobj_8h.html#a7c0cee2189f34648ab76cdf53dd2e5c6',1,'nobj.h']]],
+  ['copy_5fliterals_1067',['copy_literals',['../eval_8c.html#a5b2e74212cf0d0f4388d6e57725b99d8',1,'copy_literals(OBJ *o):&#160;eval.c'],['../eval_8h.html#a5b2e74212cf0d0f4388d6e57725b99d8',1,'copy_literals(OBJ *o):&#160;eval.c']]],
+  ['create_5fcfn_1068',['create_cfn',['../nobj_8h.html#ab72a6d7dae41c14ba1a414597d56bedd',1,'create_cfn(char *name, C_FUNC_DEC fn):&#160;obj.c'],['../obj_8c.html#ab72a6d7dae41c14ba1a414597d56bedd',1,'create_cfn(char *name, C_FUNC_DEC fn):&#160;obj.c'],['../obj_8h.html#ab72a6d7dae41c14ba1a414597d56bedd',1,'create_cfn(char *name, C_FUNC_DEC fn):&#160;obj.c']]],
+  ['ctermid_1069',['ctermid',['../nobj_8h.html#a3a877aaf880f27af3ca6429e89a587c4',1,'nobj.h']]]
 ];
