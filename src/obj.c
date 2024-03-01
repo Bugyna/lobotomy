@@ -12,7 +12,6 @@
 IMPL_HASHMAP(ENV, OBJ)
 
 
-// #include "tgc.c"
 
 
 typedef struct
@@ -377,12 +376,15 @@ OBJ* env_get(ENV* e, const char* key)
 
 
 
-#ifdef _EXTERN_LIB
-#define NEW() calloc(1, sizeof(OBJ))
-#else
-#define NEW() GCL_alloc()
-#endif
+// #ifdef _EXTERN_LIB
+// #define NEW() calloc(1, sizeof(OBJ))
+// #else
+// #define NEW() GCL_alloc()
+// #endif
 
+
+// #define NEW() GCL_alloc()
+#define NEW() calloc(1, sizeof(OBJ))
 // #define NEW_EXTERN() calloc(1, sizeof(OBJ))
 
 

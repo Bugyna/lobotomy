@@ -73,6 +73,7 @@ OBJ* L_eq(OBJ_FN_ARGS)
 
 	else if (o->type == T_STR)
 	{
+		printf("comapring: %s %s\n", o->str, NT(o)->str);
 		if (NT(o)->type == T_STR) {
 			ret->num = !strcmp(o->str, NT(o)->str);
 		}
@@ -520,7 +521,7 @@ OBJ* L_loop(OBJ_FN_ARGS)
 	// OBJ* o_exec_expr = empty_obj_t(T_EXPR);
 	// o_exec_expr->len = exec_expr->len;
 	// o_exec_expr->car = copy_literals(exec_expr->car);
-	OBJ* o_exec_expr = exec_expr;
+	// OBJ* o_exec_expr = exec_expr;
 	// OBJ* new_exec_expr = preeval_symbols(exec_expr);
 	// exec_expr->car = preeval_symbols(exec_expr->car);
 	// print_obj_simple(exec_expr);
@@ -554,7 +555,7 @@ OBJ* L_loop(OBJ_FN_ARGS)
 		// eval_into(exec_expr, new_exec_expr);
 		// ret = L_progn(new_exec_expr->len, new_exec_expr);
 		
-		ret = L_progn(o_exec_expr->len, o_exec_expr);
+		ret = L_progn(exec_expr->len, exec_expr);
 		// preeval_copy(exec_expr->car, o_exec_expr->car);
 		
 		

@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include <dlfcn.h>
 
 #include "util.h"
 #include "lexer.h"
@@ -314,7 +313,7 @@ OBJ* __eval(OBJ* head, int argc)
 		break;
 
 		case T_OTHER: case T_VOID_PTR:
-			return o;
+			return head;
 		break;
 
 		default:

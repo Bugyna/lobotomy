@@ -1,12 +1,13 @@
 # Quickstart
 
 
-## compiling from source (on linux)
+## compiling from source (on linux and windows, but you have to have mingw toolset installed)
 > git clone https://github.com/Bugyna/lobotomy
 > cd lobotomy
 > git submodule update --init --recursive
 > cd src
 > make
+
 
 ## executing your .lb program
 > ./lobotomy [filename]
