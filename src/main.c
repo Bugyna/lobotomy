@@ -5,7 +5,6 @@
 #include <stdint.h>
 #include <string.h>
 #include <math.h>
-#include <dlfcn.h>
 
 #include "util.h"
 #include "obj.h"

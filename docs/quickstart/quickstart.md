@@ -1,5 +1,19 @@
 # Quickstart
 
+
+## compiling from source (on linux)
+> git clone https://github.com/Bugyna/lobotomy
+> cd lobotomy
+> git submodule update --init --recursive
+> cd src
+> make
+
+## executing your .lb program
+> ./lobotomy [filename]
+
+## starting repl
+> ./lobotomy -i
+
 ## General
 
 ### Writing an expression
