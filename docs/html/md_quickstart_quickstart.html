@@ -96,9 +96,9 @@ $(document).ready(function(){initNavTree('md_quickstart_quickstart.html',''); in
 <div class="title">Quickstart </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md2"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md1"></a>
 General</h1>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md2"></a>
 Writing an expression</h2>
 <p>Lisp inspired syntax with parenthesis denoting the start <code>(</code> and end <code>)</code> of the expression and uses polish notation that means a valid expression looks like this </p><blockquote class="doxtable">
 <p><code>(function-call argument1 "this is text" (+ 2 2))</code> </p>
@@ -108,38 +108,38 @@ Writing an expression</h2>
 <p><code>(function-call 3 "this is text" 4)</code> </p>
 </blockquote>
 <p>and after that function <code>function-call</code> gets called</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Valid names</h2>
 <p>An identifier has to start with alphabet characters or one of these special characters <code>&lt;=?!$%^&amp;*/|&gt;+-</code> after that it can be followed by any of these aforementioned charcters or a number so basically anything goes and as such <code>+-=2</code> is a valid identifier</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Comments</h2>
 <p>Comments are denoted with two semicolons <code>;;</code> and everything after that untill the end of the line is a comment There are no multiline comments </p><blockquote class="doxtable">
 <p><code>;; this is a comment</code> </p>
 </blockquote>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Data types</h1>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Lists</h2>
 <p>Lists are like expression, but they get evaluated only partially. They are great for passing around chunks of data. They are denoted just like expression, but instead of parenthesis <code>()</code> we use square brackets <code>[]</code>. </p><blockquote class="doxtable">
 <p><code>[+ 1 2 3]</code> </p><blockquote class="doxtable">
 <p><code>[+ 1 2 3]</code> </p>
 </blockquote>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Numbers</h2>
 <p>Numbers are your typical integers like <code>1</code> or perhaps even <code>33</code>. </p><blockquote class="doxtable">
 <p><code>2</code> </p><blockquote class="doxtable">
 <p><code>2</code> </p>
 </blockquote>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Decimals</h2>
 <p>Decimals are the floating numbers like <code>1.213</code> or <code>33.002</code>. </p><blockquote class="doxtable">
 <p><code>3.14</code> </p><blockquote class="doxtable">
 <p><code>3.140000</code> </p>
 </blockquote>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Strings</h2>
 <p>Strings are the text objects like <code>"word"</code> or <code>"This is a sentence."</code>. </p><blockquote class="doxtable">
 <p><code>"Dog"</code> </p><blockquote class="doxtable">
@@ -153,7 +153,7 @@ Strings</h2>
  &gt;string"` </p>
 </blockquote>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Functions</h2>
 <p>This creates a function named hello-name which takes one parameter called <code>name</code> and outputs <code>hello, [value of name]</code> into the console </p><blockquote class="doxtable">
 <p><code>(fn hello-name (name) (print "hello, " name))</code> </p>
@@ -163,7 +163,7 @@ Functions</h2>
 <p><code>print&gt;&gt; "hello, Mortimer"</code> </p>
 </blockquote>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Variables</h2>
 <p>To create a variable use the inbuilt function <code>let</code> which takes two parameters <code>name</code> and <code>value</code> This creates a variable named <code>girl_boss</code> that holds a string <code>"value"</code> </p><blockquote class="doxtable">
 <p><code>(let girl_boss "value")</code> </p><blockquote class="doxtable">
@@ -192,9 +192,9 @@ Variables</h2>
 <p>print&gt;&gt; <code>2</code> </p>
 </blockquote>
 </blockquote>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Control flow</h1>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Conditionals</h2>
 <p>Conditionals are a basic control flow element allowing you to execute a piece of code based on a set condition. In this example we check if <code>a</code> is bigger than <code>4</code> and if it isn't add <code>2</code> otherwise print <code>"can't add anymore, number too big"</code> </p><blockquote class="doxtable">
 <p><code>(let a 2)</code> <br  />
@@ -222,7 +222,7 @@ Conditionals</h2>
 <p><code>#NIL</code> </p>
 </blockquote>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Loops</h2>
 <p>If you want to repeat the same code over and over under a certain condition. </p><blockquote class="doxtable">
 <p><code>(let a 2)</code> <br  />

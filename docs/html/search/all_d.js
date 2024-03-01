@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main_20page_542',['Main Page',['../index.html',1,'']]],
   ['main_543',['main',['../main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.c'],['../test_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;test.c']]],
   ['main_2ec_544',['main.c',['../main_8c.html',1,'']]],
   ['malloc_545',['malloc',['../nobj_8h.html#a22590eb350837901524978b3dce833e9',1,'nobj.h']]],
