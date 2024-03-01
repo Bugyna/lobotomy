@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include <dlfcn.h>
 
 #include "util.h"
 #include "lexer.h"
@@ -125,7 +124,7 @@ OBJ* preeval(OBJ* o)
 	tmp = head;
 	head = NT(head);
 	GCL_free(tmp);
-	printf("gc: %d\n", gcl->occupied);
+	// printf("gc: %d\n", gcl->occupied);
 	return head;
 }
 
@@ -327,7 +326,7 @@ void eval_program(const char filename[], const char text[])
 		// OBJ_PAIR pair = parse_expr(&lexer, 0, 0);
 		// print_obj_simple(__eval(pair.head, pair.size));
 		
-		printf("gc: %d\n", gcl->occupied);
+		// printd("gc: %d\n", gcl->occupied);
 		// lexer.peek++;
 		// if (pair.head->type == T_NIL) return;
 		if (lexer.tokens[lexer.peek].text == NULL || lexer.tokens[lexer.peek].type == TT_)

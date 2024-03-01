@@ -249,7 +249,9 @@ OBJ* L_get_random_num(OBJ_FN_ARGS);
 // other
 OBJ* L_test(OBJ_FN_ARGS);
 
+#if __linux__ | __unix__ | __FreeBSD__
 OBJ* L_load(OBJ_FN_ARGS);
+#endif
 OBJ* L_use(OBJ_FN_ARGS);
 
 void lobotomy_init(ENV* env)
@@ -304,7 +306,9 @@ void lobotomy_init(ENV* env)
 
 	env_add(env, create_cfn("fn", L_create_fn));
 	env_add(env, create_cfn("use", L_use));
+	#if __linux__ | __unix__ | __FreeBSD__
 	env_add(env, create_cfn("load", L_load));
+	#endif
 	env_add(env, create_cfn("obj-name", L_obj_name));
 	env_add(env, create_cfn("test", L_test));
 	

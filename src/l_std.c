@@ -3,7 +3,9 @@
 #include "io.c"
 #include "l_std.h"
 
+#if __linux__ | __unix__ | __FreeBSD__
 #include <dlfcn.h>
+#endif
 
 OBJ* L_less_than(OBJ_FN_ARGS)
 {
@@ -522,7 +524,7 @@ OBJ* L_loop(OBJ_FN_ARGS)
 		OBJ* tmp = __eval(cond_expr, cond_expr->len);
 		// printf("tmp: "); print_obj_simple(tmp);
 		// print_objf("cond_expr: ", cond_expr);
-		print_objf("exec_expr: ", exec_expr);
+		// print_objf("exec_expr: ", exec_expr);
 
 		// (loop (< a 10) (let a (+ a 2)))
 		if (!tmp->num)
@@ -626,6 +628,7 @@ OBJ* L_use(OBJ_FN_ARGS)
 	return NIL;
 }
 
+#if __linux__ | __unix__ | __FreeBSD__
 OBJ* L_load(OBJ_FN_ARGS)
 {
 	void* handle = NULL;
@@ -659,3 +662,4 @@ OBJ* L_load(OBJ_FN_ARGS)
 	
 	return NIL;
 }
+#endif

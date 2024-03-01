@@ -1,11 +1,10 @@
-#define DEBUGGING 1
+#define DEBUGGING 0
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <math.h>
-#include <dlfcn.h>
 
 #include "util.h"
 #include "obj.c"
@@ -99,6 +98,7 @@ int main(int argc, char* argv[]) {
 		#else
 		fputs(help_text, stderr);
 		#endif
+		return 0;
 	}
 
 	else if (argc == 2) {
