@@ -4,7 +4,9 @@
 #include "l_std.h"
 #include "gc.h"
 
+#if __linux__ | __unix__ | __FreeBSD__
 #include <dlfcn.h>
+#endif
 
 OBJ* L_less_than(OBJ_FN_ARGS)
 {
@@ -659,6 +661,7 @@ OBJ* L_use(OBJ_FN_ARGS)
 	return NIL;
 }
 
+#if __linux__ | __unix__ | __FreeBSD__
 OBJ* L_load(OBJ_FN_ARGS)
 {
 	void* handle = NULL;
@@ -692,3 +695,4 @@ OBJ* L_load(OBJ_FN_ARGS)
 	
 	return NIL;
 }
+#endif
